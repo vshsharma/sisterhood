@@ -1,0 +1,99 @@
+name: sisterhood_app
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.9.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  delayed_display:
+  provider: ^5.0.0
+  shared_preferences: ^2.0.6
+  get: ^4.3.0
+  dio: ^4.0.0
+  email_validator: ^2.0.1
+  flutter_walkthrough_screen: ^2.0.2
+  getwidget:
+  country_code_picker: ^2.0.2
+  fancy_bottom_navigation: ^0.3.2
+  image_picker: ^0.8.4+10
+  persistent_bottom_nav_bar: ^4.0.2
+  intl: ^0.17.0
+  scrollable_clean_calendar: ^1.0.1
+  flutter_calendar_carousel: 2.0.3
+  url_launcher: ^6.0.20
+  local_auth: ^1.1.11
+  firebase_auth: ^1.1.4
+  firebase_core: ^1.1.1
+  fluttertoast: ^8.0.9
+  firebase_storage: ^8.0.2
+  cloud_firestore: ^1.0.5
+  otp_text_field: ^1.1.2
+  file_picker: ^4.5.1
+  http: ^0.13.4
+  firebase_database: ^9.0.16
+  webview_flutter: ^3.0.4
+  flutter_html: ^0.11.1
+  flutter_time_picker_spinner: ^2.0.0
+  google_maps_flutter: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/image/
+    - assets/image/splashimage.png
+    - assets/image/checkicon.png
+    - assets/html/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Arial
+      fonts:
+        - asset: assets/fonts/arial.ttf
+    - family: Courier
+      fonts:
+        - asset: assets/fonts/CourierPrime-Bold.ttf
+
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
+    - family: ProfileIcon
+      fonts:
+        - asset: assets/fonts/ProfileIcon.ttf
+
+
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
