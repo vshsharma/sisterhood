@@ -1054,8 +1054,9 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(dim_8),
+              padding: const EdgeInsets.only(right: dim_8, top: dim_8, bottom: dim_8),
               child: TimePickerSpinner(
+                alignment: Alignment.center,
                 is24HourMode: true,
                 normalTextStyle: const TextStyle(
                     fontSize: font_18,

@@ -28,15 +28,9 @@ class _SelfHelpToolsState extends State<SelfHelpTools> {
               children: [
                 const Text(
                   Strings.self_help_tools,
+                  textAlign: TextAlign.center,
                   softWrap: true,
                   style: courierFont25W700Black,
-                ),
-                const SizedBox(height: dim_40),
-                const Text(
-                  Strings.self_help_tools_desc,
-                  maxLines: null,
-                  softWrap: true,
-                  style: courierFont18W600,
                 ),
                 const SizedBox(height: dim_40),
                 ResourceButton(

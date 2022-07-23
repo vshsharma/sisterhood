@@ -7,14 +7,14 @@ import '../../utill/styles.dart';
 import '../common/custom_html_viewer.dart';
 import '../common/grey_background_widget.dart';
 
-class LegalInformation extends StatefulWidget {
-  const LegalInformation({Key key}) : super(key: key);
+class Privacy extends StatefulWidget {
+  const Privacy({Key key}) : super(key: key);
 
   @override
-  State<LegalInformation> createState() => _LegalInformationState();
+  State<Privacy> createState() => _PrivacyState();
 }
 
-class _LegalInformationState extends State<LegalInformation> {
+class _PrivacyState extends State<Privacy> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget(
@@ -22,25 +22,18 @@ class _LegalInformationState extends State<LegalInformation> {
         padding: const EdgeInsets.all(dim_20),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                Strings.good_to_have_legal_info,
+                Strings.sisterhood_privacy,
                 textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
-              SizedBox(height: dim_20),
-              Text(
-                Strings.good_to_have_legal_info_desc,
-                textAlign: TextAlign.center,
-                maxLines: null,
-                softWrap: true,
-                style: courierFont18W400,
-              ),
-              SizedBox(height: dim_30),
+              SizedBox(height: dim_40),
               GreyBackgroundCard(
-                  child: CustomHTMLViewer(Strings.legal_info_content)
+                  child: CustomHTMLViewer(Strings.privacy)
               ),
               SizedBox(height: dim_30),
             ],

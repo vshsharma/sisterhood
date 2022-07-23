@@ -42,7 +42,7 @@ class _ResourceButtonState extends State<ResourceButton> {
                   Flexible(
                     child: Text(
                       widget.labelButton,
-                      maxLines: null,
+                      maxLines: 4,
                       softWrap: true,
                       style: courierFont18W600,
                     ),

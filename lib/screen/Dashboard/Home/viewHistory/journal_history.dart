@@ -15,6 +15,8 @@ import 'package:sisterhood_app/utill/strings.dart';
 
 import '../../../../utill/styles.dart';
 import '../../../firebase.dart';
+import '../model/incident_history_response.dart';
+import '../model/incident_model.dart';
 
 class JournalHistory extends StatefulWidget {
   const JournalHistory({Key key}) : super(key: key);
@@ -138,6 +140,7 @@ class _JournalHistoryState extends State<JournalHistory> {
       ),
     );
   }
+
 
   void fetchFirebseData(DateTime date) async{
     IncidentResponse incidentResponse = await FirebaseRealtimeDataService().getIncidentData(date);

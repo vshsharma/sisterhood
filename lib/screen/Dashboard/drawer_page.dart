@@ -10,7 +10,10 @@ import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 
+import '../../utill/styles.dart';
 import '../../web/web_view_local.dart';
+import '../contact_us.dart';
+import '../self_help/privacy.dart';
 
 
 class DrawerPage extends StatefulWidget {
@@ -126,8 +129,8 @@ class _DrawerPageState extends State<DrawerPage> {
               ),
             );
           },
-          title: Padding(
-            padding: const EdgeInsets.only(bottom: 3.0),
+          title: const Padding(
+            padding: EdgeInsets.only(bottom: 3.0),
             child: Text(Strings.logout,
                 style: TextStyle(
                   color: Colors.red,
@@ -153,61 +156,51 @@ class _DrawerPageState extends State<DrawerPage> {
               if(snapshot.hasData){
                 return Padding(
                   padding: const EdgeInsets.only(left: 20.0,top: 30.0,right:5.0,bottom: 10.0),
-                  child: Container(
-                    child: Row(
-                      children: [
-                        snapshot.data['image_url'] == null?
-                        Image.asset(Images.profileImage,
-                          color: ColorResources.profilehintColor,
+                  child: Row(
+                    children: [
+                      snapshot.data['image_url'] == null?
+                      Image.asset(Images.profileImage,
+                        color: ColorResources.profilehintColor,
+                        height: 60,
+                        width: 60,):
+                      Center(
+                        child: Container(
                           height: 60,
-                          width: 60,):
-                        Center(
-                          child: Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: ColorResources.box_border,
-                                  width: 2,
-                                ),
-                                color: ColorResources.box_background,
-                                borderRadius: BorderRadius.circular(100),
-                                image: DecorationImage(
-                                  image:  NetworkImage(snapshot.data['image_url'].toString()),
-                                  fit: BoxFit.fill,
-                                )
-
-                            ),
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: ColorResources.box_border,
+                                width: 2,
+                              ),
+                              color: ColorResources.box_background,
+                              borderRadius: BorderRadius.circular(100),
+                              image: DecorationImage(
+                                image:  NetworkImage(snapshot.data['image_url'].toString()),
+                                fit: BoxFit.fill,
+                              )
 
                           ),
+
                         ),
-                        SizedBox(width: 10,),
-                        Column(
+                      ),
+                      const SizedBox(width: 10,),
+                      Expanded(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(snapshot.data['firstname'].toString()+" "+snapshot.data['lastname'].toString(),
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: ColorResources.profilePlaceholderColor,
-                                  letterSpacing: 0.5,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Arial"
-                              ),
+                            Text(snapshot.data['firstname'].toString()+" "
+                                +snapshot.data['lastname'].toString(),
+                              style: arialFont18W600,
                             ),
+                            // _auth.currentUser.email.toString()
                             Text(_auth.currentUser.email.toString(),
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: ColorResources.profilehintColor,
-                                  letterSpacing: 0.5,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Arial"
-                              ),
+                              style: arialFont16W400,
                             ),
                           ],
                         ),
+                      ),
 
-                      ],
-                    ),
+                    ],
                   ),
                 );
               }else{
@@ -244,7 +237,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const LocalFileWebView(htmlFilePath: 'assets/html/privacy.html'),
+                        // builder: (context) => const LocalFileWebView(htmlFilePath: 'assets/html/privacy.html'),
+                        builder: (context) => const Privacy(),
                       ),
                     );
                   },
@@ -266,7 +260,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 ListTile(
                   onTap: () {
-                   // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (builder)=>BottomNavigationBarPage(selectIndex:2)));
+                   Navigator.of(context).push(MaterialPageRoute(builder: (builder)=>const ContactUs()));
                   },
                   title: const Text(Strings.contact_us,
                     style: TextStyle(

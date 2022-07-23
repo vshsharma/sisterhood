@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
+import 'package:sisterhood_app/utill/dimension.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 import 'grouped_buttons_orientation.dart';
 
@@ -62,21 +63,17 @@ class CheckboxGroup extends StatefulWidget {
     this.margin = const EdgeInsets.all(0.0),
   }) : super(key: key);
 
-
   @override
   _CheckboxGroupState createState() => _CheckboxGroupState();
 }
-
-
 
 class _CheckboxGroupState extends State<CheckboxGroup> {
   List<String> _selected = [];
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
-    //set the selected to the checked (if not null)
     _selected = widget.checked ?? [];
 
   }
@@ -85,85 +82,100 @@ class _CheckboxGroupState extends State<CheckboxGroup> {
   Widget build(BuildContext context) {
 
     //set the selected to the checked (if not null)
-    if(widget.checked != null){
+    if (widget.checked != null) {
       _selected = [];
-     _selected.addAll(widget.checked); //use add all to prevent a shallow copy
+      _selected.addAll(widget.checked); //use add all to prevent a shallow copy
     }
-
 
     List<Widget> content = [];
 
-    for(int i = 0; i < widget.labels.length; i++){
-
+    for (int i = 0; i < widget.labels.length; i++) {
       Checkbox cb = Checkbox(
-                      value: _selected.contains(widget.labels.elementAt(i)),
-                      onChanged: (widget.disabled != null && widget.disabled.contains(widget.labels.elementAt(i))) ? null :
-                                    (bool isChecked) => onChanged(isChecked, i),
-                      checkColor: widget.checkColor,
-                      activeColor: widget.activeColor ?? Theme.of(context).toggleableActiveColor,
-                      tristate: widget.tristate,
-                    );
-
-      Text t = Text(
-        widget.labels.elementAt(i),
-          style: (widget.disabled != null && widget.disabled.contains(widget.labels.elementAt(i))) ?
-                  widget.labelStyle.apply(color: Theme.of(context).disabledColor).copyWith(fontFamily: 'Courier') :
-                  widget.labelStyle
+        value: _selected.contains(widget.labels.elementAt(i)),
+        onChanged: (widget.disabled != null &&
+                widget.disabled.contains(widget.labels.elementAt(i)))
+            ? null
+            : (bool isChecked) => onChanged(isChecked, i),
+        checkColor: widget.checkColor,
+        activeColor:
+            widget.activeColor ?? Theme.of(context).toggleableActiveColor,
+        tristate: widget.tristate,
       );
+
+      Text t = Text(widget.labels.elementAt(i),
+          maxLines: null,
+          style: (widget.disabled != null &&
+                  widget.disabled.contains(widget.labels.elementAt(i)))
+              ? widget.labelStyle
+                  .apply(color: Theme.of(context).disabledColor)
+                  .copyWith(fontFamily: 'Courier')
+              : widget.labelStyle);
       Expanded cn;
-      if(widget.showDescription) {
+      if (widget.showDescription) {
         cn = Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: t,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: Text(
-                    widget.subLabels.elementAt(i),
+          child: Padding(
+            padding: const EdgeInsets.only(top: dim_14, bottom: dim_6),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                t,
+                SizedBox(height: dim_4,),
+                Text(widget.subLabels.elementAt(i),
                     style: (widget.disabled != null &&
-                        widget.disabled.contains(widget.labels.elementAt(i))) ?
-                    widget.labelStyle.apply(color: Theme
-                        .of(context)
-                        .disabledColor).copyWith(color: ColorResources.grey) :
-                    widget.labelStyle.copyWith(color: ColorResources.grey)
-                ),
-              )
-            ],
+                            widget.disabled
+                                .contains(widget.labels.elementAt(i)))
+                        ? widget.labelStyle
+                            .apply(color: Theme.of(context).disabledColor)
+                            .copyWith(color: ColorResources.grey)
+                        : widget.labelStyle
+                            .copyWith(color: ColorResources.grey))
+              ],
+            ),
           ),
         );
       }
 
-
-
       //use user defined method to build
-      if(widget.itemBuilder != null)
-        content.add(widget.itemBuilder(cb, widget.showDescription? cn: t, i));
-      else { //otherwise, use predefined method of building
+      if (widget.itemBuilder != null)
+        content.add(widget.itemBuilder(cb, widget.showDescription ? cn : t, i));
+      else {
+        content.add(Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(width: 2.0),
+              cb,
+              const SizedBox(width: 6.0),
+              widget.showDescription ? cn : Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: dim_14),
+                  child: t,
+                ),
+              ),
+            ]));
+        //otherwise, use predefined method of building
 
-        //vertical orientation means Column with Row inside
-        if(widget.orientation == GroupedButtonsOrientation.VERTICAL){
-
-          content.add(Row(children: <Widget>[
-            SizedBox(width: 2.0),
-            cb,
-            SizedBox(width: 6.0),
-            widget.showDescription? cn: Expanded(child : t),
-          ]));
-
-        }else{ //horizontal orientation means Row with Column inside
-
-          content.add(Column(children: <Widget>[
-            cb,
-            SizedBox(width: 6.0),
-            widget.showDescription? cn: Expanded(child: t),
-          ]));
-
-        }
-
+        // //vertical orientation means Column with Row inside
+        // if (widget.orientation == GroupedButtonsOrientation.VERTICAL) {
+        //   content.add(Row(
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       mainAxisAlignment: MainAxisAlignment.start,
+        //       children: <Widget>[
+        //     SizedBox(width: 2.0),
+        //     cb,
+        //     SizedBox(width: 6.0),
+        //     widget.showDescription ? cn : Expanded(child: t),
+        //   ]));
+        // } else {
+        //   //horizontal orientation means Row with Column inside
+        //
+        //   content.add(Column(children: <Widget>[
+        //     cb,
+        //     const SizedBox(width: 6.0),
+        //     widget.showDescription? cn: Expanded(child: t),
+        //   ]));
+        //
+        // }
       }
     }
 
@@ -174,22 +186,21 @@ class _CheckboxGroupState extends State<CheckboxGroup> {
     );
   }
 
-
-  void onChanged(bool isChecked, int i){
+  void onChanged(bool isChecked, int i) {
     bool isAlreadyContained = _selected.contains(widget.labels.elementAt(i));
 
-    if(mounted){
+    if (mounted) {
       setState(() {
-        if(!isChecked && isAlreadyContained){
+        if (!isChecked && isAlreadyContained) {
           _selected.remove(widget.labels.elementAt(i));
-        }else if(isChecked && !isAlreadyContained){
+        } else if (isChecked && !isAlreadyContained) {
           _selected.add(widget.labels.elementAt(i));
         }
 
-        if(widget.onChange != null) widget.onChange(isChecked, widget.labels.elementAt(i), i);
-        if(widget.onSelected != null) widget.onSelected(_selected);
+        if (widget.onChange != null)
+          widget.onChange(isChecked, widget.labels.elementAt(i), i);
+        if (widget.onSelected != null) widget.onSelected(_selected);
       });
     }
   }
-
 }

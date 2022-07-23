@@ -20,4 +20,11 @@ class DateUtil {
     return outputFormat.format(dateTime);
   }
 
+  static String getFormattedDate(String date) {
+    DateFormat format = DateFormat("yyyy-MM-dd");
+    DateFormat outputFormat = DateFormat("MMMM dd, yyyy");
+    DateTime parseDate = format.parse(date);
+    var inputDate = DateTime.parse(parseDate.toString());
+    return outputFormat.format(inputDate).toString();
+  }
 }

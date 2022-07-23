@@ -7,14 +7,14 @@ import '../../utill/styles.dart';
 import '../common/custom_html_viewer.dart';
 import '../common/grey_background_widget.dart';
 
-class LegalInformation extends StatefulWidget {
-  const LegalInformation({Key key}) : super(key: key);
+class DomesticAbuse extends StatefulWidget {
+  const DomesticAbuse({Key key}) : super(key: key);
 
   @override
-  State<LegalInformation> createState() => _LegalInformationState();
+  State<DomesticAbuse> createState() => _DomesticAbuseState();
 }
 
-class _LegalInformationState extends State<LegalInformation> {
+class _DomesticAbuseState extends State<DomesticAbuse> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget(
@@ -22,25 +22,18 @@ class _LegalInformationState extends State<LegalInformation> {
         padding: const EdgeInsets.all(dim_20),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                Strings.good_to_have_legal_info,
+                Strings.domestic_abuse,
                 textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
-              SizedBox(height: dim_20),
-              Text(
-                Strings.good_to_have_legal_info_desc,
-                textAlign: TextAlign.center,
-                maxLines: null,
-                softWrap: true,
-                style: courierFont18W400,
-              ),
-              SizedBox(height: dim_30),
+              SizedBox(height: dim_40),
               GreyBackgroundCard(
-                  child: CustomHTMLViewer(Strings.legal_info_content)
+                  child: CustomHTMLViewer(Strings.domestic_content)
               ),
               SizedBox(height: dim_30),
             ],

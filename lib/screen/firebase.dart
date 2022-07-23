@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_response.dart';
 
+import 'Dashboard/Home/model/incident_history_response.dart';
 import 'common/date_util.dart';
 
 class FirebaseRealtimeDataService {
@@ -35,6 +36,30 @@ class FirebaseRealtimeDataService {
       incidentResponse = IncidentResponse(message: "failed", code: "400", incidentModel: IncidentModel());
     }
     return incidentResponse;
+  }
+
+  Future<IncidentHistoryResponse> getIncidentHistory() async {
+    List<IncidentModel> incidentList = [];
+    IncidentHistoryResponse incidentHistoryResponse;
+    final snapshot = await databaseReference
+        .child('newjournal')
+        .child(_auth.currentUser.uid)
+        .get();
+    if (snapshot.exists) {
+      Map<dynamic, dynamic> values = snapshot.value;
+      IncidentModel incidentModel;
+      values.forEach((key, value) {
+        incidentModel =
+            IncidentModel.fromJson(json.decode(value["data"]));
+        incidentModel.key = key.toString();
+        incidentList.add(incidentModel);
+      });
+      incidentHistoryResponse = IncidentHistoryResponse(message: "success", code: "200", incidentList: incidentList);
+    } else {
+      print('No data available.');
+      incidentHistoryResponse = IncidentHistoryResponse(message: "failed", code: "400", incidentList: incidentList);
+    }
+    return incidentHistoryResponse;
   }
 
   Future<bool> saveIncident(DateTime selectedDate, String json) async {

@@ -14,6 +14,7 @@ class IncidentModel {
   String video;
   String whathappend;
   String wouldyouliketorecord;
+  String key;
 
   IncidentModel(
       {this.audio,
@@ -30,7 +31,8 @@ class IncidentModel {
         this.undertheinfluence,
         this.video,
         this.whathappend,
-        this.wouldyouliketorecord});
+        this.wouldyouliketorecord,
+      this.key = ""});
 
   IncidentModel.fromJson(Map<String, dynamic> json) {
     audio = json['audio'];

@@ -25,12 +25,14 @@ class _GuidedMeditationState extends State<GuidedMeditation> {
             children: const [
               Text(
                 Strings.guided_meditations,
+                textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
               SizedBox(height: dim_20),
               Text(
                 Strings.guided_meditations_desc,
+                textAlign: TextAlign.center,
                 maxLines: null,
                 softWrap: true,
                 style: courierFont18W400,

@@ -192,7 +192,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           });
                           print(selected);
                           if (selected == NO) {
-                            Utils.genericInputPopUp(context, Strings.question_7_option_no, taughtYourChildrenCtrlr);
+                            Utils.genericPopUp(context, Strings.question_7_option_no);
                           }
                         }),
                   ],
@@ -249,8 +249,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           });
                           print(selected);
                           if (selected == YES) {
-                            otherItemsCtrlr.text = Strings.i_will_leave_copies;
-                            Utils.genericInputPopUpNoTitle(context, otherItemsCtrlr);
+                            Utils.genericInputPopUp(context, Strings.i_will_leave_copies, otherItemsCtrlr);
                           }
                         }),
                   ],

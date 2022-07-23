@@ -24,12 +24,14 @@ class _InformativePodcastState extends State<InformativePodcast> {
           children: const [
             Text(
               Strings.informative_podcast,
+              textAlign: TextAlign.center,
               softWrap: true,
               style: courierFont25W700Black,
             ),
             SizedBox(height: dim_20),
             Text(
               Strings.informative_podcast_desc,
+              textAlign: TextAlign.center,
               maxLines: null,
               softWrap: true,
               style: courierFont18W400,
@@ -45,18 +47,6 @@ class _InformativePodcastState extends State<InformativePodcast> {
             SizedBox(height: dim_30),
             GreyBackgroundCard(
                 child: CustomHTMLViewer(Strings.info_podcast_3)
-            ),
-            SizedBox(height: dim_30),
-            GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_4)
-            ),
-            SizedBox(height: dim_30),
-            GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_5)
-            ),
-            SizedBox(height: dim_30),
-            GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_6)
             ),
             SizedBox(height: dim_30),
           ],

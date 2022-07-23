@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sisterhood_app/screen/common/custom_html_viewer.dart';
 import '../../utill/dimension.dart';
 import '../../utill/strings.dart';
 import '../../utill/styles.dart';
@@ -27,6 +28,7 @@ class _SafetyPlanScreenState extends State<SafetyPlanScreen> {
             const Center(
               child: Text(
                 Strings.safety_plan,
+                textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
@@ -34,9 +36,10 @@ class _SafetyPlanScreenState extends State<SafetyPlanScreen> {
             const SizedBox(height: dim_40),
             const Text(
               Strings.safety_plan_desc,
+              textAlign: TextAlign.center,
               maxLines: null,
               softWrap: true,
-              style: courierFont16W600,
+              style: courierFont18W400,
             ),
             const SizedBox(height: dim_40),
             ResourceButton(
@@ -46,23 +49,10 @@ class _SafetyPlanScreenState extends State<SafetyPlanScreen> {
                     builder: (context) => const SafetyPlanQuestion()));
               },
             ),
-            const SizedBox(height: dim_40),
-            const Text(
-              Strings.helpful_tips,
-              maxLines: null,
-              softWrap: true,
-              style: courierFont18W600,
-            ),
             const SizedBox(height: dim_20),
-            const Padding(
-              padding: EdgeInsets.all(dim_25),
-              child: Text(
-                Strings.helpful_tips_1,
-                maxLines: null,
-                softWrap: true,
-                style: courierFont16W600,
-              ),
-            ),
+            CustomHTMLViewer(Strings.helpful_tips),
+            const SizedBox(height: dim_20),
+            const CustomHTMLViewer(Strings.helpful_tips_1),
 
           ],
         ),

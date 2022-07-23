@@ -19,16 +19,6 @@ class Utils {
           .values
           .toList();
 
-  /// Alternativaly: You can display an Android Styled Bottom Sheet instead of an iOS styled bottom Sheet
-  // static void showSheet(
-  //   BuildContext context, {
-  //   required Widget child,
-  // }) =>
-  //     showModalBottomSheet(
-  //       context: context,
-  //       builder: (context) => child,
-  //     );
-
   static void showSheet(
       BuildContext context, {
          Widget child,
@@ -57,6 +47,50 @@ class Utils {
       ..showSnackBar(snackBar);
   }
 
+  static void genericPopUp(BuildContext context, String titleText) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: ColorResources.background,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: ColorResources.black,
+                      size: dim_20,
+                    ),
+                    onPressed: (){Navigator.pop(context);},
+                  ),
+                ),
+                Text(titleText,
+                  style: courierFont18W600,
+                ),
+                const SizedBox(
+                  height: dim_40,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: dim_25),
+                      child: CustomButton(
+                          text1: Strings.close,
+                          text2: "",
+                          width: Get.width,
+                          height: dim_50)),
+                )
+              ],
+            ),
+          );
+        });
+  }
+
   static void genericInputPopUp(BuildContext context, String titleText, TextEditingController textEditingController) {
     showDialog(
         context: context,
@@ -66,6 +100,17 @@ class Utils {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: ColorResources.black,
+                      size: dim_20,
+                    ),
+                    onPressed: (){Navigator.pop(context);},
+                  ),
+                ),
                  Text(titleText,
                   style: courierFont18W600,
                 ),
@@ -135,6 +180,17 @@ class Utils {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: ColorResources.black,
+                      size: dim_20,
+                    ),
+                    onPressed: (){Navigator.pop(context);},
+                  ),
+                ),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(

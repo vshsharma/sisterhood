@@ -25,12 +25,14 @@ class _NeedSupportState extends State<NeedSupport> {
             children: const [
               Text(
                 Strings.need_support_title,
+                textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
               SizedBox(height: dim_20),
               Text(
                 Strings.need_support_desc,
+                textAlign: TextAlign.center,
                 maxLines: null,
                 softWrap: true,
                 style: courierFont18W400,
@@ -51,10 +53,10 @@ class _NeedSupportState extends State<NeedSupport> {
               GreyBackgroundCard(
                   child: CustomHTMLViewer(Strings.support_p4)
               ),
-              SizedBox(height: dim_30),
-              GreyBackgroundCard(
-                  child: CustomHTMLViewer(Strings.support_p5)
-              ),
+              // SizedBox(height: dim_30),
+              // GreyBackgroundCard(
+              //     child: CustomHTMLViewer(Strings.support_p5)
+              // ),
             ],
           ),
         ),

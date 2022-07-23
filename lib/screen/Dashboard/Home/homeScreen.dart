@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/journal_entry.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/viewHistory/journal_history.dart';
+import 'package:sisterhood_app/screen/Dashboard/Home/viewHistory/journal_history_list.dart';
 import 'package:sisterhood_app/screen/Dashboard/drawer_page.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
@@ -111,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           onTap:(){
                             Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) => const JournalHistory()));
+                                .push(MaterialPageRoute(builder: (context) => const JournalHistoryList()));
                               },
                           child: Container(
                               decoration: BoxDecoration(

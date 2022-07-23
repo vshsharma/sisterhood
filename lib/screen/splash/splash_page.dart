@@ -7,7 +7,7 @@ import 'package:sisterhood_app/screen/authentication/login_page.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
 
-import '../Dashboard/Home/viewHistory/journal_history_calendar.dart';
+import '../Dashboard/Home/viewHistory/journal_history_list.dart';
 
 class SplashPage extends StatefulWidget {
 

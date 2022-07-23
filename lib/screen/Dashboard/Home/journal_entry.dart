@@ -470,10 +470,11 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                                                 onTap: () async {
                                                   FilePickerResult result =
                                                       await FilePicker.platform
-                                                          .pickFiles();
+                                                          .pickFiles(allowMultiple: true);
                                                   if (result != null) {
                                                     filePicture = File(result
                                                         .files.single.path);
+                                                    // List<File> files = result.paths.map((path) => File(path)).toList();
                                                     Fluttertoast.showToast(
                                                         msg:
                                                             "Picture uploaded successfully");
@@ -996,6 +997,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
             Padding(
               padding: const EdgeInsets.all(dim_8),
               child: TimePickerSpinner(
+                alignment: Alignment.center,
                 is24HourMode: true,
                 normalTextStyle: const TextStyle(
                     fontSize: font_18,

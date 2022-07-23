@@ -22,13 +22,14 @@ class _EmergecnyState extends State<Emergecny> {
         padding: const EdgeInsets.all(dim_20),
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: const [
               Text(
                 Strings.emergency_title,
+                textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
-              SizedBox(height: dim_20),
+              SizedBox(height: dim_40),
               GreyBackgroundCard(
                   child: CustomHTMLViewer(Strings.have_an_emergency)
               ),

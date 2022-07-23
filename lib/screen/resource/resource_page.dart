@@ -13,8 +13,10 @@ import '../../web/web_view.dart';
 import '../../web/web_view_local.dart';
 import '../common/base_widget.dart';
 import '../common/resource_button.dart';
+import '../self_help/domestic_abuse.dart';
 import '../self_help/need_support.dart';
 import '../self_help/safety_plan_questions.dart';
+import '../self_help/self_help_tools_option.dart';
 
 class ResourcePage extends StatefulWidget {
   const ResourcePage({Key key}) : super(key: key);
@@ -79,7 +81,7 @@ class _ResourcePageState extends State<ResourcePage> {
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const LocalFileWebView(htmlFilePath: 'assets/html/domestic_abuse.html'),
+                      builder: (context) => const DomesticAbuse(),
                     ),
                   );
                 },
@@ -89,7 +91,7 @@ class _ResourcePageState extends State<ResourcePage> {
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const SelfHelpTools(),
+                      builder: (context) => const SelfHelpToolsOption(),
                     ),
                   );
                 },
