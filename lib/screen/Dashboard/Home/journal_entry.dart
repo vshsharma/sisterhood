@@ -148,8 +148,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ],
                   )),
-                  const SizedBox(height: dim_15),
-                  commonCardUI(
+                  CommonCard(
                     Padding(
                       padding: cardPadding,
                       child: Column(
@@ -166,10 +165,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ),
                   ), // explain what happened
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Padding(
                       padding: cardPadding,
                       child: Column(
@@ -185,10 +181,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ),
                   ), //what were the circumstances
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(Column(
+                  CommonCard(Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
@@ -213,10 +206,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ],
                   )),
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Padding(
                       padding: cardPadding,
                       child: Column(
@@ -233,10 +223,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Padding(
                       padding: cardPadding,
                       child: Column(
@@ -294,15 +281,13 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                               color: ColorResources.black,
                             ),
                             minSelectedDate:
-                                DateTime.now().subtract(Duration(days: 360)),
+                                DateTime.now().subtract(const Duration(days: 360)),
                             maxSelectedDate:
                                 DateTime.now().add(const Duration(days: 360)),
                             onCalendarChanged: (DateTime date) {
                               setState(() {
                                 _targetDateTime = date;
                                 print('onDayPressed1: $_targetDateTime');
-                                // _currentMonth =
-                                //     DateFormat.yMMM().format(_targetDateTime);
                               });
                             },
                             onDayLongPressed: (DateTime date) {},
@@ -311,10 +296,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -344,10 +326,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -370,10 +349,7 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: dim_15,
-                  ),
-                  commonCardUI(
+                  CommonCard(
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -399,9 +375,6 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: dim_15,
                   ),
                   Column(
                     children: [
@@ -863,10 +836,6 @@ class _JournalEntryPagePageState extends State<JournalEntryPage> {
             ),
           );
         });
-  }
-
-  CommonCard commonCardUI(Widget widget) {
-    return CommonCard(widget);
   }
 
   _continueButton() {

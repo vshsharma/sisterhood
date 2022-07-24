@@ -202,7 +202,8 @@ class Strings {
 
   static const String question_1_option_yes = 'Optional: Who have you told?';
   static const String question_6_option_no =
-      'Come up with a place that you can go, it could be a nearby police station, store, cafe/restaurant or any other place that has people around';
+      'Come up with a place that you can go, it could be a nearby police station, '
+      'store, cafe/restaurant or any other place that has people around';
   static const String question_7_option_no =
       'It can be helpful if your children know how and when to call emergency services';
   static const String i_will_leave_copies =

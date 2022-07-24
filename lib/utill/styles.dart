@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'color_resources.dart';
 import 'dimension.dart';
-
-
 
 const CourierRegular = TextStyle(
   color: ColorResources.loginColor,
@@ -36,45 +33,41 @@ const robotoExtraBold = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 25,
     letterSpacing: 0.5,
-    fontWeight: FontWeight.bold
-);
+    fontWeight: FontWeight.bold);
 
 const arialFont14W600 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 14,
     letterSpacing: 0.5,
     fontFamily: 'Arial',
-    fontWeight: FontWeight.w600
-);
+    fontWeight: FontWeight.w600);
 
 const arialFont16W400 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 16,
     letterSpacing: 0.5,
     fontFamily: 'Arial',
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
 const arialFont18W600 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 18,
     letterSpacing: 0.5,
     fontFamily: 'Arial',
-    fontWeight: FontWeight.w600
-);
+    fontWeight: FontWeight.w600);
 
 const arialFont20W600ProfilePlaceHolder = TextStyle(
-color: ColorResources.profilePlaceholderColor,
-fontSize: 20,
-fontFamily: 'Arial',
-fontWeight: FontWeight.w600,
+  color: ColorResources.profilePlaceholderColor,
+  fontSize: 20,
+  fontFamily: 'Arial',
+  fontWeight: FontWeight.w600,
 );
 
 const courierFont18W600 = TextStyle(
-color: ColorResources.black,
-fontSize: 18,
-fontFamily: 'Courier',
-fontWeight: FontWeight.bold,
+  color: ColorResources.black,
+  fontSize: 18,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.bold,
 );
 
 const courierFont18W400 = TextStyle(
@@ -99,44 +92,39 @@ const courierFont18W600Profile = TextStyle(
 );
 
 const courierFont14W600ProfileHintColor = TextStyle(
-color: ColorResources.profilehintColor,
-fontSize: 14,
-letterSpacing: 0.5,
-fontFamily: 'Courier',
-fontWeight: FontWeight.w600,
+  color: ColorResources.profilehintColor,
+  fontSize: 14,
+  letterSpacing: 0.5,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w600,
 );
 
 const courierFont18W600ProfileHintColor = TextStyle(
-color: ColorResources
-    .profilehintColor,
-fontSize: 18,
-letterSpacing: 0.5,
-fontFamily: 'Courier',
-fontWeight:
-FontWeight.w600,
-);
-
-const courierFont18W600ProfilePlaceHolder = TextStyle(
-  color: ColorResources
-      .profilePlaceholderColor,
+  color: ColorResources.profilehintColor,
   fontSize: 18,
   letterSpacing: 0.5,
   fontFamily: 'Courier',
-  fontWeight:
-  FontWeight.w600,
+  fontWeight: FontWeight.w600,
+);
+
+const courierFont18W600ProfilePlaceHolder = TextStyle(
+  color: ColorResources.profilePlaceholderColor,
+  fontSize: 18,
+  letterSpacing: 0.5,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w600,
 );
 
 const courierFont25W700Black = TextStyle(
-    color: ColorResources.black,
-    fontFamily: 'Courier',
-    fontWeight: FontWeight.w700,
-    fontSize: 25,
-    letterSpacing: 0.5,
+  color: ColorResources.black,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w700,
+  fontSize: 25,
+  letterSpacing: 0.5,
 );
 
 const courierFont20W600 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 16,
     fontFamily: 'Courier',
-    fontWeight: FontWeight.normal
-);
+    fontWeight: FontWeight.normal);

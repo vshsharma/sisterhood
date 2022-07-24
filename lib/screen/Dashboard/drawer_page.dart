@@ -14,6 +14,7 @@ import '../../utill/styles.dart';
 import '../../web/web_view_local.dart';
 import '../contact_us.dart';
 import '../self_help/privacy.dart';
+import 'journal_pager.dart';
 
 
 class DrawerPage extends StatefulWidget {
@@ -279,9 +280,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 ListTile(
                   onTap: () {
-                    // Get.to(AllCategoryPage(),
-                    //     transition: Transition.rightToLeftWithFade,
-                    //     duration: Duration(milliseconds: 600));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (builder)=>const JournalPagerView()));
                   },
                   title: const Text(Strings.settings,
                     style: TextStyle(
