@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,42 +8,41 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
-import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
 import 'package:sisterhood_app/screen/app_widgets/radio_button_group.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/date_util.dart';
-import 'package:sisterhood_app/utill/app_paddings.dart';
+import 'package:sisterhood_app/utill/app_constants.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 
+import '../../../utill/app_paddings.dart';
 import '../../../utill/styles.dart';
+import '../../app_widgets/add_media_button.dart';
 import '../../app_widgets/checkbox_group.dart';
+import '../../app_widgets/select_media_sheet.dart';
 import '../../common/common_card.dart';
 import '../../common/custom_edit_text.dart';
 import '../../firebase.dart';
 
-class EditJournalEntryPage extends StatefulWidget {
-  final IncidentModel _incidentModel;
-
-  const EditJournalEntryPage(this._incidentModel);
+class JournalEntryMedia extends StatefulWidget {
+  const JournalEntryMedia();
 
   @override
-  _EditJournalEntryPagePageState createState() =>
-      _EditJournalEntryPagePageState();
+  _JournalEntryPagePageState createState() => _JournalEntryPagePageState();
 }
 
-class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
+class _JournalEntryPagePageState extends State<JournalEntryMedia> {
   final _formKey = GlobalKey<FormState>();
   var isSelected = false;
   final _auth = FirebaseAuth.instance;
-  var isMediaAdded = "false";
   TimeOfDay selectedTime = TimeOfDay.now();
   String pictureUrl = '';
   String videoUrl = '';
@@ -52,6 +50,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   String fileUrl = '';
   bool isLoad = false;
   File filePicture, fileVideo, fileDocument, fileAudio;
+
   DateTime _targetDateTime = DateTime.now();
   DateTime _calendarSelectedDate = DateTime.now();
 
@@ -61,6 +60,11 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   List<String> checkPartnerUnderInfluence = [];
   List<String> checkIfYouUnderInfluence = [];
   String checkMedicalAssistant = 'No';
+
+  List<PlatformFile> selectedImages = [];
+  List<PlatformFile> selectedVideos = [];
+  List<PlatformFile> selectedAudio = [];
+  List<XFile> selectedDocuments = [];
 
   final _whatHappenTextController = TextEditingController();
   final _circumstancesTextConroller = TextEditingController();
@@ -73,59 +77,6 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   @override
   void initState() {
     super.initState();
-    if (widget._incidentModel.wouldyouliketorecord.isNotEmpty) {
-      checkedAbuseType = json
-          .decode(widget._incidentModel.wouldyouliketorecord)
-          .cast<String>();
-    }
-    if (widget._incidentModel.happen.isNotEmpty) {
-      checkWhereItHappen =
-          json.decode(widget._incidentModel.happen).cast<String>();
-    }
-    if (widget._incidentModel.partnerundertheinfluence.isNotEmpty) {
-      checkPartnerUnderInfluence = json
-          .decode(widget._incidentModel.partnerundertheinfluence)
-          .cast<String>();
-    }
-    if (widget._incidentModel.undertheinfluence.isNotEmpty) {
-      checkIfYouUnderInfluence =
-          json.decode(widget._incidentModel.undertheinfluence).cast<String>();
-    }
-    if (widget._incidentModel.resultincident.isNotEmpty) {
-      checkMedicalAssistant = widget._incidentModel.resultincident;
-    }
-    if (widget._incidentModel.whathappend.isNotEmpty) {
-      _whatHappenTextController.text = widget._incidentModel.whathappend;
-    }
-    if (widget._incidentModel.circumstances.isNotEmpty) {
-      _circumstancesTextConroller.text = widget._incidentModel.circumstances;
-    }
-    if (widget._incidentModel.outsideareaspecify.isNotEmpty) {
-      _areaSpecifyTextController.text =
-          widget._incidentModel.outsideareaspecify;
-    }
-    if (widget._incidentModel.datewithhappen.isNotEmpty) {
-      _dateTimeTextController.text = widget._incidentModel.datewithhappen;
-    }
-    if (widget._incidentModel.popuptext.isNotEmpty) {
-      _medicalAssistantTextController.text = widget._incidentModel.popuptext;
-    }
-    if (widget._incidentModel.picture.isNotEmpty) {
-      isMediaAdded = "true";
-      pictureUrl = widget._incidentModel.picture;
-    }
-    if (widget._incidentModel.audio.isNotEmpty) {
-      isMediaAdded = "true";
-      audioUrl = widget._incidentModel.audio;
-    }
-    if (widget._incidentModel.video.isNotEmpty) {
-      isMediaAdded = "true";
-      videoUrl = widget._incidentModel.video;
-    }
-    if (widget._incidentModel.document.isNotEmpty) {
-      isMediaAdded = "true";
-      fileUrl = widget._incidentModel.document;
-    }
   }
 
   @override
@@ -155,9 +106,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       subLabels: abuseSubCategoryList,
                       showDescription: true,
                       checked: checkedAbuseType,
-                      onChange: (bool isChecked, String label, int index) =>
-                          print(
-                              "isChecked: $isChecked   label: $label  index: $index"),
+                      onChange: (bool isChecked, String label, int index) => print(
+                          "isChecked: $isChecked   label: $label  index: $index"),
                       onSelected: (List<String> checked) {
                         setState(() {
                           checkedAbuseType = checked;
@@ -180,8 +130,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         height: dim_20,
                       ),
                       CustomEditTextField(
-                          _whatHappenTextController)
-                      // explain what happened
+                          _whatHappenTextController) // explain what happened
                     ],
                   ),
                 ),
@@ -213,9 +162,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   CheckboxGroup(
                     labels: incidentPlace,
                     checked: checkWhereItHappen,
-                    onChange: (bool isChecked, String label, int index) =>
-                        print(
-                            "isChecked: $isChecked   label: $label  index: $index"),
+                    onChange: (bool isChecked, String label, int index) => print(
+                        "isChecked: $isChecked   label: $label  index: $index"),
                     onSelected: (List<String> checked) {
                       setState(() {
                         checkWhereItHappen = checked;
@@ -258,7 +206,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       CalendarCarousel<Event>(
                         todayBorderColor: Colors.black,
                         weekdayTextStyle:
-                        const TextStyle(color: ColorResources.black),
+                            const TextStyle(color: ColorResources.black),
                         onDayPressed: (date, events) {
                           this.setState(() => _calendarSelectedDate = date);
                           print('onDayPressed: $date');
@@ -276,12 +224,11 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         selectedDateTime: _calendarSelectedDate,
                         targetDateTime: _targetDateTime,
                         customGridViewPhysics:
-                        const NeverScrollableScrollPhysics(),
+                            const NeverScrollableScrollPhysics(),
                         markedDateCustomShapeBorder: const CircleBorder(
                           side: BorderSide(color: Colors.black),
                         ),
-                        selectedDayButtonColor:
-                        ColorResources.box_background,
+                        selectedDayButtonColor: ColorResources.box_background,
                         selectedDayBorderColor: Colors.black,
                         markedDateCustomTextStyle: const TextStyle(
                           fontSize: font_18,
@@ -296,21 +243,19 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                           fontWeight: FontWeight.bold,
                         ),
                         todayTextStyle:
-                        const TextStyle(color: ColorResources.black),
+                            const TextStyle(color: ColorResources.black),
                         todayButtonColor: ColorResources.box_background,
                         selectedDayTextStyle: const TextStyle(
                           color: ColorResources.black,
                         ),
                         minSelectedDate:
-                        DateTime.now().subtract(Duration(days: 360)),
+                            DateTime.now().subtract(const Duration(days: 360)),
                         maxSelectedDate:
-                        DateTime.now().add(const Duration(days: 360)),
+                            DateTime.now().add(const Duration(days: 360)),
                         onCalendarChanged: (DateTime date) {
                           setState(() {
                             _targetDateTime = date;
                             print('onDayPressed1: $_targetDateTime');
-                            // _currentMonth =
-                            //     DateFormat.yMMM().format(_targetDateTime);
                           });
                         },
                         onDayLongPressed: (DateTime date) {},
@@ -325,8 +270,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   children: [
                     const Padding(
                       padding: cardPadding,
-                      child: Text(
-                          Strings.was_your_partner_under_the_influence,
+                      child: Text(Strings.was_your_partner_under_the_influence,
                           style: TextStyle(
                             color: ColorResources.profilePlaceholderColor,
                             fontSize: 18,
@@ -343,7 +287,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                             checkPartnerUnderInfluence = checked;
                           });
                         }),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -399,6 +343,207 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   ],
                 ),
               ),
+              Padding(
+                // Image Selection Container
+                padding: const EdgeInsets.all(dim_8),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ColorResources.box_border,
+                      width: dim_2,
+                    ),
+                    color: ColorResources.box_background,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      ListView.builder(
+                        itemCount: selectedImages.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                              selectedImages[index].name,
+                              style: courierFont14W600ProfileHintColor,
+                            ),
+                          );
+                        },
+                      ),
+                      AddMediaView(
+                        onPress: () {
+                          selectMediaModelSheet(() async {
+                            // final selectedFiles =
+                            //     await ImagePicker().pickMultiImage();
+                            FilePickerResult result = await FilePicker.platform
+                                .pickFiles(
+                                    allowMultiple: true, type: FileType.image);
+                            if (result != null) {
+                              if (result.files.length <
+                                  AppConstants.maxImagesSelected) {
+                                setState(() {
+                                  print("TAG ${result.files.length}");
+                                  selectedImages = result.files;
+                                  Navigator.of(context).pop();
+                                });
+                              } else {
+                                print(
+                                    "Max image selected count is ${AppConstants.maxImagesSelected}");
+                              }
+                            } else {
+                              print("TAG no files selected");
+                            }
+                          }, () async {
+                            FilePickerResult result =
+                                await FilePicker.platform.pickFiles();
+                            if (result != null) {
+                              filePicture = File(result.files.single.path);
+                              Fluttertoast.showToast(msg: "Image selected");
+                              //  isMediaAdded = "true";
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg: "Unknown error while image selection");
+                            }
+                            Navigator.of(context).pop();
+                          });
+                        },
+                        icon: Icons.image,
+                        label: Strings.add_picture,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                // Video Selection Container
+                padding: const EdgeInsets.all(dim_8),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ColorResources.box_border,
+                      width: dim_2,
+                    ),
+                    color: ColorResources.box_background,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      ListView.builder(
+                        itemCount: selectedVideos.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                              selectedVideos[index].name,
+                              style: courierFont14W600ProfileHintColor,
+                            ),
+                          );
+                        },
+                      ),
+                      AddMediaView(
+                        onPress: () async {
+                          FilePickerResult result = await FilePicker.platform
+                              .pickFiles(
+                                  allowMultiple: true, type: FileType.video);
+                          if (result != null) {
+                            print("Tag ${result.files.length}");
+                            if (result.files.length <=
+                                AppConstants.maxVideoSelected) {
+                              for (var file in result.files) {
+                                if (file.size <
+                                    (AppConstants.maxVideoLength *
+                                        AppConstants.mbToBytes)) {
+                                  selectedVideos.add(file);
+                                } else {
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Max size limit for selected video is ${AppConstants.maxVideoLength} MB");
+                                }
+                              }
+                              setState(() {});
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg:
+                                      "Max limit to select video is ${AppConstants.maxVideoSelected}");
+                            }
+                            Fluttertoast.showToast(msg: "Image selected");
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: "Unknown error while image selection");
+                          }
+                          //Navigator.of(context).pop();
+                        },
+                        icon: Icons.video_call,
+                        label: Strings.add_video,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                // Audio Selection Container
+                padding: const EdgeInsets.all(dim_8),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ColorResources.box_border,
+                      width: dim_2,
+                    ),
+                    color: ColorResources.box_background,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      ListView.builder(
+                        itemCount: selectedAudio.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                              selectedAudio[index].name,
+                              style: courierFont14W600ProfileHintColor,
+                            ),
+                          );
+                        },
+                      ),
+                      AddMediaView(
+                        onPress: () async {
+                          FilePickerResult result = await FilePicker.platform
+                              .pickFiles(
+                                  allowMultiple: true, type: FileType.audio);
+                          if (result != null) {
+                            print("Tag ${result.files.length}");
+                            if (result.files.length <=
+                                AppConstants.maxAudioSelected) {
+                              for (var file in result.files) {
+                                if (file.size <
+                                    (AppConstants.maxAudioLength *
+                                        AppConstants.mbToBytes)) {
+                                  selectedAudio.add(file);
+                                } else {
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Max size limit for selected audio is ${AppConstants.maxAudioLength} MB");
+                                }
+                              }
+                              setState(() {});
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg:
+                                      "Max limit to select audio is ${AppConstants.maxAudioSelected}");
+                            }
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: "Unknown error while audio selection");
+                          }
+                          // Navigator.of(context).pop();
+                        },
+                        icon: Icons.audio_file,
+                        label: Strings.add_Audio,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               Column(
                 children: [
                   Row(
@@ -408,7 +553,83 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                           flex: 5,
                           child: InkWell(
                             onTap: () async {
-                              await buildShowModalBottomSheet(context);
+                              showModalBottomSheet(
+                                  isDismissible: true,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  context: context,
+                                  builder: (BuildContext bc) {
+                                    return SafeArea(
+                                      child: Wrap(
+                                        children: <Widget>[
+                                          ListTile(
+                                              leading: const Icon(
+                                                Icons.photo_camera,
+                                                size: 35,
+                                              ),
+                                              title: const Text(
+                                                'Camera',
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              onTap: () async {
+                                                List<XFile> multipleImages =
+                                                    await ImagePicker()
+                                                        .pickMultiImage();
+                                                final pickedFile =
+                                                    await ImagePicker()
+                                                        .getImage(
+                                                            source: ImageSource
+                                                                .camera);
+                                                if (pickedFile != null) {
+                                                  setState(() {
+                                                    filePicture =
+                                                        File(pickedFile.path);
+                                                    Fluttertoast.showToast(
+                                                        msg:
+                                                            "Picture uploaded successfully");
+                                                    //isMediaAdded = "true";
+                                                    Navigator.of(context).pop();
+                                                  });
+                                                } else {}
+                                              }),
+                                          ListTile(
+                                            leading: const Icon(
+                                              Icons.photo_library,
+                                              size: 35,
+                                            ),
+                                            title: const Text(
+                                              'Gallery',
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            onTap: () async {
+                                              FilePickerResult result =
+                                                  await FilePicker.platform
+                                                      .pickFiles(
+                                                          allowMultiple: true);
+                                              if (result != null) {
+                                                filePicture = File(
+                                                    result.files.single.path);
+                                                // List<File> files = result.paths.map((path) => File(path)).toList();
+                                                Fluttertoast.showToast(
+                                                    msg:
+                                                        "Picture uploaded successfully");
+                                                // isMediaAdded = "true";
+                                                //Navigator.of(context).pop();
+                                              } else {
+                                                // User canceled the picker
+                                              }
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  });
                             },
                             child: Container(
                                 decoration: BoxDecoration(
@@ -417,32 +638,27 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        vertical: dim_20),
+                                        vertical: 20.0),
                                     child: Column(
                                       children: [
-                                        pictureUrl.isNotEmpty ?
-                                        Image.network(
-                                          pictureUrl, width: 40.0,
-                                          height: 40.0,)
-                                            : Image.asset(
+                                        Image.asset(
                                           Images.gallery,
-                                          color: filePicture == null &&
-                                              pictureUrl.isEmpty
+                                          color: filePicture == null
                                               ? Colors.black
                                               : Colors.green,
-                                          width: dim_35,
-                                          height: dim_35,
+                                          width: 35,
+                                          height: 35,
                                         ),
+                                        // Icon(Icons.photo,size: 35.0,),
                                         const SizedBox(
-                                          height: dim_20,
+                                          height: 20,
                                         ),
-                                        const Text(Strings.add_picture,
+                                        Text(Strings.add_picture,
                                             style: courierFont18W600),
                                       ],
                                     ),
@@ -451,7 +667,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                           ),
                         ),
                         const SizedBox(
-                          width: dim_15,
+                          width: 15,
                         ),
                         Expanded(
                           flex: 5,
@@ -476,26 +692,24 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        vertical: dim_20),
+                                        vertical: 20.0),
                                     child: Column(
                                       children: [
                                         Image.asset(
                                           Images.video,
-                                          width: dim_35,
-                                          height: dim_35,
-                                          color: fileVideo == null &&
-                                              videoUrl.isEmpty
+                                          width: 35,
+                                          height: 35,
+                                          color: fileVideo == null
                                               ? Colors.black
                                               : Colors.green,
                                         ),
                                         const SizedBox(
-                                          height: dim_20,
+                                          height: 20,
                                         ),
                                         const Text(Strings.add_video,
                                             style: courierFont18W600),
@@ -507,7 +721,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         ),
                       ]),
                   const SizedBox(
-                    height: dim_30,
+                    height: 30,
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -521,11 +735,10 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                   .pickFiles(allowMultiple: true);
 
                               if (result != null) {
-                                fileDocument =
-                                    File(result.files.single.path);
+                                fileDocument = File(result.files.single.path);
                                 Fluttertoast.showToast(
                                     msg: "Document uploaded successfully");
-                                // isMediaAdded = "true";
+                                //isMediaAdded = "true";
                               } else {
                                 // User canceled the picker
                               }
@@ -537,26 +750,24 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        vertical: dim_20),
+                                        vertical: 20.0),
                                     child: Column(
                                       children: [
                                         Image.asset(
                                           Images.documenticon,
-                                          color: fileDocument == null &&
-                                              fileUrl.isEmpty
+                                          color: fileDocument == null
                                               ? Colors.black
                                               : Colors.green,
-                                          width: dim_35,
-                                          height: dim_35,
+                                          width: 35,
+                                          height: 35,
                                         ),
                                         const SizedBox(
-                                          height: dim_20,
+                                          height: 20,
                                         ),
                                         const Text(Strings.add_document,
                                             style: courierFont18W600),
@@ -566,8 +777,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                 )),
                           ),
                         ),
-                        const SizedBox(
-                          width: dim_15,
+                        SizedBox(
+                          width: 15,
                         ),
                         Expanded(
                           flex: 5,
@@ -590,30 +801,28 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     color: ColorResources.box_border,
-                                    width: dim_1,
+                                    width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        vertical: dim_20),
+                                        vertical: 20.0),
                                     child: Column(
                                       children: [
                                         Image.asset(
                                           Images.music,
-                                          color: fileAudio == null &&
-                                              audioUrl.isEmpty
+                                          color: fileAudio == null
                                               ? Colors.black
                                               : Colors.green,
-                                          width: dim_35,
-                                          height: dim_35,
+                                          width: 35,
+                                          height: 35,
                                         ),
                                         // Icon(Icons.volume_up_outlined,size: 35.0,),
                                         const SizedBox(
-                                          height: dim_20,
+                                          height: 20,
                                         ),
                                         const Text(Strings.add_Audio,
                                             style: courierFont18W600),
@@ -625,14 +834,14 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         ),
                       ]),
                   const SizedBox(
-                    height: dim_80,
+                    height: 80,
                   ),
                   if (isLoad)
                     const Center(child: CircularProgressIndicator())
                   else
                     _continueButton(),
                   const SizedBox(
-                    height: dim_30,
+                    height: 30,
                   ),
                 ],
               ),
@@ -641,71 +850,6 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
         ),
       ),
     ));
-  }
-
-  buildShowModalBottomSheet(BuildContext context) async {
-    showModalBottomSheet(
-        isDismissible: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        context: context,
-        builder: (BuildContext bc) {
-          return SafeArea(
-            child: Wrap(
-              children: <Widget>[
-                ListTile(
-                    leading: const Icon(
-                      Icons.photo_camera,
-                      size: dim_35,
-                    ),
-                    title: const Text(
-                      'Camera',
-                      style:
-                      TextStyle(fontSize: font_18, fontWeight: FontWeight.w600),
-                    ),
-                    onTap: () async {
-                      final pickedFile = await ImagePicker()
-                          .getImage(source: ImageSource.camera);
-                      if (pickedFile != null) {
-                        setState(() {
-                          filePicture = File(pickedFile.path);
-                          Fluttertoast.showToast(msg: "Image selected");
-                          // isMediaAdded = "true";
-                          Navigator.of(context).pop();
-                        });
-                      } else {
-                        Fluttertoast.showToast(
-                            msg: "Unknown error while image selection");
-                      }
-                    }),
-                ListTile(
-                  leading: const Icon(
-                    Icons.photo_library,
-                    size: dim_35,
-                  ),
-                  title: const Text(
-                    'Gallery',
-                    style: TextStyle(
-                        fontSize: font_18, fontWeight: FontWeight.w600),
-                  ),
-                  onTap: () async {
-                    FilePickerResult result =
-                    await FilePicker.platform.pickFiles();
-                    if (result != null) {
-                      filePicture = File(result.files.single.path);
-                      Fluttertoast.showToast(
-                          msg: "Image selected");
-                    //  isMediaAdded = "true";
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: "Unknown error while image selection");
-                    }
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ),
-          );
-        });
   }
 
   Future<dynamic> openDialogToGetIncidentTime(BuildContext context) {
@@ -749,7 +893,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         hintText: Strings.write_here,
                         hintStyle: arialFont14W600,
                         errorBorder:
-                        OutlineInputBorder(borderSide: BorderSide.none),
+                            OutlineInputBorder(borderSide: BorderSide.none),
                         border: OutlineInputBorder(borderSide: BorderSide.none),
                       ),
                       validator: (value) {
@@ -826,7 +970,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       hintText: Strings.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                      OutlineInputBorder(borderSide: BorderSide.none),
+                          OutlineInputBorder(borderSide: BorderSide.none),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
@@ -858,44 +1002,36 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
         });
   }
 
-  CommonCard commonCardUI(Widget widget) {
-    return CommonCard(widget);
-  }
-
   _continueButton() {
     return GestureDetector(
       onTap: () async {
         if (_formKey.currentState.validate()) {
-          // if (isMediaAdded == "false") {
-          //   Fluttertoast.showToast(msg: "Please pick atleast anyone file");
-          // } else {
-            setState(() {
-              isLoad = true;
-            });
+          setState(() {
+            isLoad = true;
+          });
 
-            final ref = FirebaseStorage.instance
-                .ref()
-                .child('new_journal')
-                .child(_auth.currentUser.uid + '.jpg');
+          final ref = FirebaseStorage.instance
+              .ref()
+              .child('new_journal')
+              .child(_auth.currentUser.uid);
 
-            await uploadMediaAndGetUrl(
-                filePicture, fileVideo, fileAudio, fileDocument, ref);
-            bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
-              _calendarSelectedDate,
-              prepareRequestBody(),
-            );
-
-            Fluttertoast.showToast(
-                msg: isSuccess
-                    ? "Data submitted successfully"
-                    : "Failed to submit dta");
-            if (isSuccess) {
-              Navigator.pop(context);
-            }
-            setState(() {
-              isLoad = false;
-            });
-         // }
+          await uploadMediaAndGetUrl(
+              filePicture, fileVideo, fileAudio, fileDocument, ref);
+          bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
+            _calendarSelectedDate,
+            prepareRequestBody(),
+          );
+          Fluttertoast.showToast(
+              msg: isSuccess
+                  ? "Data submitted successfully"
+                  : "Failed to submit dta");
+          if (isSuccess) {
+            Navigator.pop(context);
+          }
+          setState(() {
+            isLoad = false;
+          });
+          // }
         }
       },
       child: CustomButton(
@@ -912,8 +1048,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
       'outsideareaspecify': _areaSpecifyTextController.text,
       'datewithhappen': _dateTimeTextController.text,
       'dateStamp': _calendarSelectedDate.toString(),
-      'partnerundertheinfluence': json.encode(checkPartnerUnderInfluence)
-          .toString(),
+      'partnerundertheinfluence':
+          json.encode(checkPartnerUnderInfluence).toString(),
       'undertheinfluence': json.encode(checkIfYouUnderInfluence).toString(),
       'resultincident': checkMedicalAssistant,
       'popuptext': _medicalAssistantTextController.text,
@@ -962,14 +1098,13 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   }
 
   _selectTime(BuildContext context, TextEditingController popupcalender) async {
-    final TimeOfDay result =
-    await showTimePicker(
+    final TimeOfDay result = await showTimePicker(
         context: context,
         initialTime: selectedTime,
         builder: (context, childWidget) {
           return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                  alwaysUse24HourFormat: true),
+              data:
+                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
               child: childWidget);
         });
     if (result != null && result != selectedTime) {
@@ -980,55 +1115,69 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   }
 
   showTimerPicker(BuildContext context, TextEditingController _popupcalender) {
-    showDialog(context: context, builder: (context) {
-      return AlertDialog(
-        backgroundColor: ColorResources.background,
-        title: const Text('Select Time'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: dim_8, top: dim_8, bottom: dim_8),
-              child: TimePickerSpinner(
-                alignment: Alignment.center,
-                is24HourMode: true,
-                normalTextStyle: const TextStyle(
-                    fontSize: font_18,
-                    color: Colors.black45
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: ColorResources.background,
+            title: const Text('Select Time'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(dim_8),
+                  child: TimePickerSpinner(
+                    alignment: Alignment.center,
+                    is24HourMode: true,
+                    normalTextStyle: const TextStyle(
+                        fontSize: font_18, color: Colors.black45),
+                    highlightedTextStyle:
+                        const TextStyle(fontSize: font_22, color: Colors.black),
+                    onTimeChange: (time) {
+                      setState(() {
+                        _popupcalender.text =
+                            DateUtil.getDate(_calendarSelectedDate) +
+                                ' ' +
+                                DateUtil.getTime(time);
+                        print('Hello $time');
+                      });
+                    },
+                  ),
                 ),
-                highlightedTextStyle: const TextStyle(
-                    fontSize: font_22,
-                    color: Colors.black
-                ),
-                onTimeChange: (time) {
-                  setState(() {
-                    _popupcalender.text = DateUtil
-                        .getDate(_calendarSelectedDate) +
-                        ' ' +
-                        DateUtil.getTime(time);
-                    print('Hello $time');
-                  });
-                },
-              ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: dim_25),
+                    child: CustomButton(
+                        text1: Strings.submit,
+                        text2: "",
+                        width: Get.width,
+                        height: dim_50),
+                  ),
+                )
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: dim_25),
-                child: CustomButton(
-                    text1: Strings.submit,
-                    text2: "",
-                    width: Get.width,
-                    height: dim_50),
-              ),
-            )
-          ],
-        ),
-      ); // Time picker close
-    });
+          ); // Time picker close
+        });
+  }
+
+  selectMediaModelSheet(Function cameraPress, Function galleryPress) {
+    showModalBottomSheet(
+      isDismissible: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      context: context,
+      builder: (BuildContext bc) {
+        return SelectMediaSheet(
+          cameraPress: cameraPress,
+          galleryPress: galleryPress,
+        );
+      },
+    );
   }
 }

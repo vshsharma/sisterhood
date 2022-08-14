@@ -6,6 +6,7 @@ import 'package:sisterhood_app/utill/dimension.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 
+import '../../../app_widgets/progress_indicator.dart';
 import '../../../firebase.dart';
 import '../edit_journal_entry.dart';
 import '../model/incident_history_response.dart';
@@ -20,6 +21,14 @@ class JournalHistoryList extends StatefulWidget {
 
 class _JournalHistoryListState extends State<JournalHistoryList> {
   List<IncidentModel> incidentList = [];
+  bool isShowLoader = false;
+
+  void showLoader(bool showLoader) {
+    setState(() {
+      isShowLoader = showLoader;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +36,7 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
   }
 
   Future<void> fetchHistoryData() async {
+    showLoader(true);
     IncidentHistoryResponse incidentHistoryResponse =
         await FirebaseRealtimeDataService().getIncidentHistory();
     print(incidentHistoryResponse.code);
@@ -34,41 +44,45 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
       setState(() {
         incidentList = incidentHistoryResponse.incidentList;
       });
-
     } else {
       Fluttertoast.showToast(msg: 'No data found for selected date');
     }
+    showLoader(false);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(Center(
-      child: ListView.builder(
-          itemCount: incidentList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: ListTile(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => EditJournalEntryPage(incidentList[index])));
-                },
-                leading: const Icon(Icons.list),
-                title: Text(DateUtil.getFormattedDate(incidentList[index].key),
-                    style: courierFont20W600),
-                subtitle: const Text(
-                  Strings.LOGGED,
-                  style: courierFont16W600,
-                ),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(dim_10),
-              ),
-              elevation: dim_5,
-              margin: EdgeInsets.all(dim_5),
-            );
-          }),
-    ));
+    return BaseWidget(isShowLoader
+        ? ProgressIndicatorWidget()
+        : Center(
+            child: ListView.builder(
+                itemCount: incidentList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    semanticContainer: true,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                EditJournalEntryPage(incidentList[index])));
+                      },
+                      leading: const Icon(Icons.list),
+                      title: Text(
+                          DateUtil.getFormattedDate(incidentList[index].key),
+                          style: courierFont20W600),
+                      subtitle: const Text(
+                        Strings.LOGGED,
+                        style: courierFont16W600,
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(dim_10),
+                    ),
+                    elevation: dim_5,
+                    margin: EdgeInsets.all(dim_5),
+                  );
+                }),
+          ));
   }
 }

@@ -11,6 +11,7 @@ import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 
 import '../../resource/resource_page.dart';
+import '../journal_pager.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 InkWell(
                     onTap: _openDrawer,
-                    child: Icon(Icons.list,color: ColorResources.grey,size: 35,)),
+                    child: const Icon(Icons.list,color: ColorResources.grey,size: 35,)),
               ],
             ),
           ),
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           onTap:(){
                             Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) => JournalEntryPage()));
+                                .push(MaterialPageRoute(builder: (context) => const JournalEntryPage()));
                           },
                           child: Container(
                               decoration: BoxDecoration(

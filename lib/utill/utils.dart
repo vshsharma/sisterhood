@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -11,7 +12,7 @@ import 'dimension.dart';
 
 class Utils {
   static List<Widget> modelBuilder<M>(
-      List<M> models, Widget Function(int index, M model) builder) =>
+          List<M> models, Widget Function(int index, M model) builder) =>
       models
           .asMap()
           .map<int, Widget>(
@@ -20,10 +21,10 @@ class Utils {
           .toList();
 
   static void showSheet(
-      BuildContext context, {
-         Widget child,
-         VoidCallback onClicked,
-      }) =>
+    BuildContext context, {
+    Widget child,
+    VoidCallback onClicked,
+  }) =>
       showCupertinoModalPopup(
         context: context,
         builder: (context) => CupertinoActionSheet(
@@ -31,7 +32,7 @@ class Utils {
             child,
           ],
           cancelButton: CupertinoActionSheetAction(
-            child: Text('Done'),
+            child: const Text('Done'),
             onPressed: onClicked,
           ),
         ),
@@ -39,7 +40,7 @@ class Utils {
 
   static void showSnackBar(BuildContext context, String text) {
     final snackBar = SnackBar(
-      content: Text(text, style: TextStyle(fontSize: 24)),
+      content: Text(text, style: courierFont20W600),
     );
 
     ScaffoldMessenger.of(context)
@@ -64,10 +65,13 @@ class Utils {
                       color: ColorResources.black,
                       size: dim_20,
                     ),
-                    onPressed: (){Navigator.pop(context);},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
-                Text(titleText,
+                Text(
+                  titleText,
                   style: courierFont18W600,
                 ),
                 const SizedBox(
@@ -91,7 +95,8 @@ class Utils {
         });
   }
 
-  static void genericInputPopUp(BuildContext context, String titleText, TextEditingController textEditingController) {
+  static void genericInputPopUp(BuildContext context, String titleText,
+      TextEditingController textEditingController) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -108,10 +113,13 @@ class Utils {
                       color: ColorResources.black,
                       size: dim_20,
                     ),
-                    onPressed: (){Navigator.pop(context);},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
-                 Text(titleText,
+                Text(
+                  titleText,
                   style: courierFont18W600,
                 ),
                 const SizedBox(
@@ -139,7 +147,7 @@ class Utils {
                       hintText: Strings.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                      OutlineInputBorder(borderSide: BorderSide.none),
+                          OutlineInputBorder(borderSide: BorderSide.none),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
@@ -171,7 +179,8 @@ class Utils {
         });
   }
 
-  static void genericInputPopUpNoTitle(BuildContext context, TextEditingController textEditingController) {
+  static void genericInputPopUpNoTitle(
+      BuildContext context, TextEditingController textEditingController) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -188,7 +197,9 @@ class Utils {
                       color: ColorResources.black,
                       size: dim_20,
                     ),
-                    onPressed: (){Navigator.pop(context);},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
                 Container(
@@ -214,7 +225,7 @@ class Utils {
                       hintText: Strings.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                      OutlineInputBorder(borderSide: BorderSide.none),
+                          OutlineInputBorder(borderSide: BorderSide.none),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
@@ -244,5 +255,11 @@ class Utils {
             ),
           );
         });
+  }
+
+  static void log(String message) {
+    if (kDebugMode) {
+      print("Available biometrics $message");
+    }
   }
 }

@@ -67,28 +67,28 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
     List<Widget> _buildScreens() {
       return [
-        HomePage(),
-        ProfilePage(),
-        SOSPage()
+        const HomePage(),
+        const ProfilePage(),
+        const SOSPage()
       ];
     }
 
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.home_rounded),
+          icon: const Icon(Icons.home_rounded),
           title: (Strings.home),
           activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.account_circle_outlined,),
+          icon: const Icon(Icons.account_circle_outlined,),
           title: (Strings.profile),
           activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.panorama_fish_eye,),
+          icon: const Icon(Icons.panorama_fish_eye,),
           title: (Strings.sos),
           onPressed: (c)=> _callNowApp("112"),
           activeColorPrimary: CupertinoColors.activeBlue,

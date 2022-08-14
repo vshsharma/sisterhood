@@ -13,21 +13,23 @@ class CommonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: ColorResources.box_background,
-            borderRadius: BorderRadius.circular(dim_40),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: ColorResources.box_background,
+              borderRadius: BorderRadius.circular(dim_40),
+            ),
+            width: Get.width,
+            child: Padding(
+              padding: const EdgeInsets.all(dim_10),
+              child: widget,
+            ),
           ),
-          width: Get.width,
-          child: Padding(
-            padding: const EdgeInsets.all(dim_10),
-            child: widget,
-          ),
-        ),
-        const SizedBox(height: dim_15),
-      ],
+          const SizedBox(height: dim_15),
+        ],
+      ),
     );
   }
 }

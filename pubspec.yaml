@@ -28,7 +28,7 @@ dependencies:
   scrollable_clean_calendar: ^1.0.1
   flutter_calendar_carousel: 2.0.3
   url_launcher: ^6.0.20
-  local_auth: ^1.1.11
+  local_auth: ^2.1.2
   firebase_auth: ^1.1.4
   firebase_core: ^1.1.1
   fluttertoast: ^8.0.9

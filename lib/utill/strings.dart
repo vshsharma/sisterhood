@@ -71,8 +71,10 @@ class Strings {
   static const String support_p3 = support3;
   static const String support_p4 = support4;
 
-  static const String good_to_have_legal_info = "Good-to-have legal information";
-  static const String good_to_have_legal_info_desc = "Please note that Sisterhood is not a \"lawyer referral service\" or a law firm. We do not provide legal advice or representation, and these tips are not intended as a substitute for an attorney or law firm.";
+  static const String good_to_have_legal_info =
+      "Good-to-have legal information";
+  static const String good_to_have_legal_info_desc =
+      "Please note that Sisterhood is not a \"lawyer referral service\" or a law firm. We do not provide legal advice or representation, and these tips are not intended as a substitute for an attorney or law firm.";
   static const String legal_info_content = legalInfoContent;
 
   /// Resource  //////////////////////////
@@ -94,9 +96,12 @@ class Strings {
   /// new_journalentry   //////////////////////////
 
   static const String submit = 'SUBMIT';
+  static const String update = 'UPDATE';
   static const String ok = 'OK';
   static const String LOGGED = 'Logged';
   static const String close = 'Close';
+  static const String next = 'NEXT';
+  static const String previous = 'PREVIOUS';
   static const String add_picture = 'Add Picture';
   static const String add_document = 'Add Document';
   static const String add_video = 'Add Video';
@@ -167,6 +172,8 @@ class Strings {
   static const String no = "NO";
   static const String areyousureyouwantto_logout =
       "Are you sure you want to Logout";
+  static const String camera = 'Camera';
+  static const String gallery = 'Gallery';
 
   /// type of abuse ///////////////////////////////
 

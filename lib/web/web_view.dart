@@ -16,6 +16,7 @@ class CustomWebView extends StatefulWidget {
 }
 
 class _CustomWebViewState extends State<CustomWebView> {
+  bool showLoader = true;
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
@@ -29,33 +30,45 @@ class _CustomWebViewState extends State<CustomWebView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(
-      Padding(
-        padding: const EdgeInsets.all(dim_20),
-        child: WebView(
-          initialUrl: widget.url,
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (WebViewController webViewController) {
-            _controller.complete(webViewController);
-          },
-          onProgress: (int progress) {
-            print('WebView is loading (progress : $progress%)');
-          },
-          javascriptChannels: <JavascriptChannel>{},
-          navigationDelegate: (NavigationRequest request) {
-            print('allowing navigation to $request');
-            return NavigationDecision.navigate;
-          },
-          onPageStarted: (String url) {
-            print('Page started loading: $url');
-          },
-          onPageFinished: (String url) {
-            print('Page finished loading: $url');
-          },
-          gestureNavigationEnabled: true,
-          backgroundColor: const Color(0x00000000),
+    return Stack(children: [
+      BaseWidget(
+        Padding(
+          padding: const EdgeInsets.all(dim_20),
+          child: WebView(
+            initialUrl: widget.url,
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: (WebViewController webViewController) {
+              _controller.complete(webViewController);
+            },
+            onProgress: (int progress) {
+              print('WebView is loading (progress : $progress%)');
+            },
+            javascriptChannels: <JavascriptChannel>{},
+            navigationDelegate: (NavigationRequest request) {
+              print('allowing navigation to $request');
+              return NavigationDecision.navigate;
+            },
+            onPageStarted: (String url) {
+              print('Page started loading: $url');
+            },
+            onPageFinished: (String url) {
+              setState(() {
+                showLoader = false;
+              });
+              print('Page finished loading: $url');
+            },
+            gestureNavigationEnabled: true,
+            backgroundColor: const Color(0x00000000),
+          ),
         ),
       ),
-    );
+      showLoader
+          ? const Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.red,
+              ),
+            )
+          : Stack()
+    ]);
   }
 }

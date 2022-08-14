@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_response.dart';
+import 'package:sisterhood_app/screen/Dashboard/Home/model/safety_response.dart';
+import 'package:sisterhood_app/screen/self_help/model/safety_plan_response.dart';
 
 import 'Dashboard/Home/model/incident_history_response.dart';
 import 'common/date_util.dart';
@@ -90,7 +92,6 @@ class FirebaseRealtimeDataService {
     await databaseReference
         .child('planSafety')
         .child(_auth.currentUser.uid)
-        .child(nodeName.toString())
         .child('data')
         .set(json)
         .then((_)  {
@@ -102,4 +103,24 @@ class FirebaseRealtimeDataService {
     });
     return querySaved;
   }
+
+  Future<SafetyResponse> getSafetyPlan() async {
+    final snapshot = await databaseReference
+        .child('planSafety')
+        .child(_auth.currentUser.uid)
+       .get();
+    SafetyResponse safetyResponse;
+    SafetyPlanResponse safetyPlanResponse;
+    if (snapshot.exists) {
+      Map<dynamic, dynamic> values = snapshot.value;
+      print("${json.decode(values["data"])}");
+      safetyPlanResponse = SafetyPlanResponse.fromJson(json.decode(values["data"]));
+      safetyResponse = SafetyResponse(code: "200", message: "success", response: safetyPlanResponse);
+    } else {
+      print('No data available.');
+      safetyResponse = SafetyResponse(message: "failed", code: "400", response: SafetyPlanResponse());
+    }
+    return safetyResponse;
+
+}
 }
