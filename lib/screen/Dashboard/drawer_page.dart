@@ -12,7 +12,7 @@ import 'package:sisterhood_app/utill/strings.dart';
 
 import '../../utill/styles.dart';
 import '../../web/web_view.dart';
-import '../self_help/privacynal_entry_media.dart';
+import '../self_help/privacy.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key key}) : super(key: key);
