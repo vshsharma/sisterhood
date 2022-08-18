@@ -4,6 +4,8 @@ class AppConstants {
       "https://docs.google.com/forms/d/e/1FAIpQLSfmok-qRZ_Hl6OAB_sGPltFcLx-VQUdeGC6kBmamNRDEJ6bBQ/viewform?usp=sf_link";
   static const String contactUsFormShort =
       "https://forms.gle/rpYzcoCmumtoYWMF6";
+  static const String firebaseBaseURL =
+      "https://console.firebase.google.com/project/sisterhood-3f7ef/storage/sisterhood-3f7ef.appspot.com/files/new_journal/j4YK7I4Cz1geASj1cfUdW8E9Z763/images";
 
   ///eCommerce End Point
   static const String ColorApi = 'Color';
@@ -22,4 +24,8 @@ class AppConstants {
   static const int maxAudioLength = 5000;
 
   static const int mbToBytes = 125000;
+
+  static const String images = "images";
+  static const String videos = "videos";
+  static const String audios = "audios";
 }

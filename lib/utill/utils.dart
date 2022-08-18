@@ -40,7 +40,8 @@ class Utils {
 
   static void showSnackBar(BuildContext context, String text) {
     final snackBar = SnackBar(
-      content: Text(text, style: courierFont20W600),
+      content: Text(text,
+          style: courierFont20W600.copyWith(color: ColorResources.white)),
     );
 
     ScaffoldMessenger.of(context)

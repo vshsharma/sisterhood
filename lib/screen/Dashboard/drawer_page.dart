@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:sisterhood_app/utill/app_constants.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
@@ -12,6 +11,8 @@ import 'package:sisterhood_app/utill/strings.dart';
 
 import '../../utill/styles.dart';
 import '../../web/web_view.dart';
+import '../firebase.dart';
+import '../journal_entry/journal_entry_media.dart';
 import '../self_help/privacy.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -237,7 +238,6 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        // builder: (context) => const LocalFileWebView(htmlFilePath: 'assets/html/privacy.html'),
                         builder: (context) => const Privacy(),
                       ),
                     );
@@ -262,10 +262,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (builder) => const CustomWebView(
-                              url: AppConstants.contactUsForm,
-                            )));
+                    navigateToContactUs(context);
                   },
                   title: const Text(
                     Strings.contact_us,
@@ -287,8 +284,8 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 ListTile(
                   onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (builder) => const JournalEntryMedia()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (builder) => const JournalEntryMedia()));
                   },
                   title: const Text(
                     Strings.settings,
@@ -314,5 +311,14 @@ class _DrawerPageState extends State<DrawerPage> {
         ],
       ),
     );
+  }
+
+  void navigateToContactUs(BuildContext context) async {
+    String response = await FirebaseRealtimeDataService().getContactUsLink();
+    print('Link : $response');
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (builder) => CustomWebView(
+              url: response,
+            )));
   }
 }

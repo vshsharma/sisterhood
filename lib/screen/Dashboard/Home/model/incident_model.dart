@@ -14,24 +14,30 @@ class IncidentModel {
   String video;
   String whathappend;
   String wouldyouliketorecord;
+  String imagesList;
+  String videosList;
+  String audiosList;
   String key;
 
   IncidentModel(
       {this.audio,
-        this.circumstances,
-        this.dateStamp,
-        this.datewithhappen,
-        this.document,
-        this.happen,
-        this.outsideareaspecify,
-        this.partnerundertheinfluence,
-        this.picture,
-        this.popuptext,
-        this.resultincident,
-        this.undertheinfluence,
-        this.video,
-        this.whathappend,
-        this.wouldyouliketorecord,
+      this.circumstances,
+      this.dateStamp,
+      this.datewithhappen,
+      this.document,
+      this.happen,
+      this.outsideareaspecify,
+      this.partnerundertheinfluence,
+      this.picture,
+      this.popuptext,
+      this.resultincident,
+      this.undertheinfluence,
+      this.video,
+      this.whathappend,
+      this.wouldyouliketorecord,
+      this.imagesList,
+      this.videosList,
+      this.audiosList,
       this.key = ""});
 
   IncidentModel.fromJson(Map<String, dynamic> json) {
@@ -50,6 +56,9 @@ class IncidentModel {
     video = json['video'];
     whathappend = json['whathappend'];
     wouldyouliketorecord = json['wouldyouliketorecord'];
+    imagesList = json['imagesList'];
+    videosList = json['videosList'];
+    audiosList = json['audiosList'];
   }
 
   Map<String, dynamic> toJson() {
@@ -69,6 +78,9 @@ class IncidentModel {
     data['video'] = this.video;
     data['whathappend'] = this.whathappend;
     data['wouldyouliketorecord'] = this.wouldyouliketorecord;
+    data['imagesList'] = this.imagesList;
+    data['videosList'] = this.videosList;
+    data['audiosList'] = this.audiosList;
     return data;
   }
 }

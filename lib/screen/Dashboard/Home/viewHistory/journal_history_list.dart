@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sisterhood_app/screen/Dashboard/journal_history/edit_journal_entry_media.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/date_util.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
@@ -8,7 +9,6 @@ import 'package:sisterhood_app/utill/styles.dart';
 
 import '../../../app_widgets/progress_indicator.dart';
 import '../../../firebase.dart';
-import '../edit_journal_entry.dart';
 import '../model/incident_history_response.dart';
 import '../model/incident_model.dart';
 
@@ -53,7 +53,7 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget(isShowLoader
-        ? ProgressIndicatorWidget()
+        ? const ProgressIndicatorWidget()
         : Center(
             child: ListView.builder(
                 itemCount: incidentList.length,
@@ -63,9 +63,12 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
                             builder: (context) =>
-                                EditJournalEntryPage(incidentList[index])));
+                                EditJournalEntryMediaPage(incidentList[index]),
+                          ),
+                        );
                       },
                       leading: const Icon(Icons.list),
                       title: Text(
@@ -80,7 +83,7 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
                       borderRadius: BorderRadius.circular(dim_10),
                     ),
                     elevation: dim_5,
-                    margin: EdgeInsets.all(dim_5),
+                    margin: const EdgeInsets.all(dim_5),
                   );
                 }),
           ));

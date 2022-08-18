@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,9 +8,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
 import 'package:sisterhood_app/screen/app_widgets/radio_button_group.dart';
@@ -110,22 +110,6 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
     if (widget._incidentModel.popuptext.isNotEmpty) {
       _medicalAssistantTextController.text = widget._incidentModel.popuptext;
     }
-    if (widget._incidentModel.picture.isNotEmpty) {
-      isMediaAdded = "true";
-      pictureUrl = widget._incidentModel.picture;
-    }
-    if (widget._incidentModel.audio.isNotEmpty) {
-      isMediaAdded = "true";
-      audioUrl = widget._incidentModel.audio;
-    }
-    if (widget._incidentModel.video.isNotEmpty) {
-      isMediaAdded = "true";
-      videoUrl = widget._incidentModel.video;
-    }
-    if (widget._incidentModel.document.isNotEmpty) {
-      isMediaAdded = "true";
-      fileUrl = widget._incidentModel.document;
-    }
   }
 
   @override
@@ -155,9 +139,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       subLabels: abuseSubCategoryList,
                       showDescription: true,
                       checked: checkedAbuseType,
-                      onChange: (bool isChecked, String label, int index) =>
-                          print(
-                              "isChecked: $isChecked   label: $label  index: $index"),
+                      onChange: (bool isChecked, String label, int index) => print(
+                          "isChecked: $isChecked   label: $label  index: $index"),
                       onSelected: (List<String> checked) {
                         setState(() {
                           checkedAbuseType = checked;
@@ -179,8 +162,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       const SizedBox(
                         height: dim_20,
                       ),
-                      CustomEditTextField(
-                          _whatHappenTextController)
+                      CustomEditTextField(_whatHappenTextController)
                       // explain what happened
                     ],
                   ),
@@ -213,9 +195,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   CheckboxGroup(
                     labels: incidentPlace,
                     checked: checkWhereItHappen,
-                    onChange: (bool isChecked, String label, int index) =>
-                        print(
-                            "isChecked: $isChecked   label: $label  index: $index"),
+                    onChange: (bool isChecked, String label, int index) => print(
+                        "isChecked: $isChecked   label: $label  index: $index"),
                     onSelected: (List<String> checked) {
                       setState(() {
                         checkWhereItHappen = checked;
@@ -258,7 +239,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       CalendarCarousel<Event>(
                         todayBorderColor: Colors.black,
                         weekdayTextStyle:
-                        const TextStyle(color: ColorResources.black),
+                            const TextStyle(color: ColorResources.black),
                         onDayPressed: (date, events) {
                           this.setState(() => _calendarSelectedDate = date);
                           print('onDayPressed: $date');
@@ -276,12 +257,11 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         selectedDateTime: _calendarSelectedDate,
                         targetDateTime: _targetDateTime,
                         customGridViewPhysics:
-                        const NeverScrollableScrollPhysics(),
+                            const NeverScrollableScrollPhysics(),
                         markedDateCustomShapeBorder: const CircleBorder(
                           side: BorderSide(color: Colors.black),
                         ),
-                        selectedDayButtonColor:
-                        ColorResources.box_background,
+                        selectedDayButtonColor: ColorResources.box_background,
                         selectedDayBorderColor: Colors.black,
                         markedDateCustomTextStyle: const TextStyle(
                           fontSize: font_18,
@@ -296,15 +276,15 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                           fontWeight: FontWeight.bold,
                         ),
                         todayTextStyle:
-                        const TextStyle(color: ColorResources.black),
+                            const TextStyle(color: ColorResources.black),
                         todayButtonColor: ColorResources.box_background,
                         selectedDayTextStyle: const TextStyle(
                           color: ColorResources.black,
                         ),
                         minSelectedDate:
-                        DateTime.now().subtract(Duration(days: 360)),
+                            DateTime.now().subtract(Duration(days: 360)),
                         maxSelectedDate:
-                        DateTime.now().add(const Duration(days: 360)),
+                            DateTime.now().add(const Duration(days: 360)),
                         onCalendarChanged: (DateTime date) {
                           setState(() {
                             _targetDateTime = date;
@@ -325,8 +305,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   children: [
                     const Padding(
                       padding: cardPadding,
-                      child: Text(
-                          Strings.was_your_partner_under_the_influence,
+                      child: Text(Strings.was_your_partner_under_the_influence,
                           style: TextStyle(
                             color: ColorResources.profilePlaceholderColor,
                             fontSize: 18,
@@ -417,8 +396,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(dim_10),
                                 ),
                                 child: Center(
                                   child: Padding(
@@ -426,19 +404,21 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                         vertical: dim_20),
                                     child: Column(
                                       children: [
-                                        pictureUrl.isNotEmpty ?
-                                        Image.network(
-                                          pictureUrl, width: 40.0,
-                                          height: 40.0,)
+                                        pictureUrl.isNotEmpty
+                                            ? Image.network(
+                                                pictureUrl,
+                                                width: 40.0,
+                                                height: 40.0,
+                                              )
                                             : Image.asset(
-                                          Images.gallery,
-                                          color: filePicture == null &&
-                                              pictureUrl.isEmpty
-                                              ? Colors.black
-                                              : Colors.green,
-                                          width: dim_35,
-                                          height: dim_35,
-                                        ),
+                                                Images.gallery,
+                                                color: filePicture == null &&
+                                                        pictureUrl.isEmpty
+                                                    ? Colors.black
+                                                    : Colors.green,
+                                                width: dim_35,
+                                                height: dim_35,
+                                              ),
                                         const SizedBox(
                                           height: dim_20,
                                         ),
@@ -476,8 +456,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(dim_10),
                                 ),
                                 child: Center(
                                   child: Padding(
@@ -490,7 +469,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                           width: dim_35,
                                           height: dim_35,
                                           color: fileVideo == null &&
-                                              videoUrl.isEmpty
+                                                  videoUrl.isEmpty
                                               ? Colors.black
                                               : Colors.green,
                                         ),
@@ -521,8 +500,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                   .pickFiles(allowMultiple: true);
 
                               if (result != null) {
-                                fileDocument =
-                                    File(result.files.single.path);
+                                fileDocument = File(result.files.single.path);
                                 Fluttertoast.showToast(
                                     msg: "Document uploaded successfully");
                                 // isMediaAdded = "true";
@@ -537,8 +515,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: 1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(dim_10),
                                 ),
                                 child: Center(
                                   child: Padding(
@@ -549,7 +526,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                         Image.asset(
                                           Images.documenticon,
                                           color: fileDocument == null &&
-                                              fileUrl.isEmpty
+                                                  fileUrl.isEmpty
                                               ? Colors.black
                                               : Colors.green,
                                           width: dim_35,
@@ -593,8 +570,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                     width: dim_1,
                                   ),
                                   color: ColorResources.box_background,
-                                  borderRadius: BorderRadius.circular(
-                                      dim_10),
+                                  borderRadius: BorderRadius.circular(dim_10),
                                 ),
                                 child: Center(
                                   child: Padding(
@@ -605,7 +581,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                                         Image.asset(
                                           Images.music,
                                           color: fileAudio == null &&
-                                              audioUrl.isEmpty
+                                                  audioUrl.isEmpty
                                               ? Colors.black
                                               : Colors.green,
                                           width: dim_35,
@@ -659,8 +635,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                     ),
                     title: const Text(
                       'Camera',
-                      style:
-                      TextStyle(fontSize: font_18, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: font_18, fontWeight: FontWeight.w600),
                     ),
                     onTap: () async {
                       final pickedFile = await ImagePicker()
@@ -689,12 +665,11 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                   ),
                   onTap: () async {
                     FilePickerResult result =
-                    await FilePicker.platform.pickFiles();
+                        await FilePicker.platform.pickFiles();
                     if (result != null) {
                       filePicture = File(result.files.single.path);
-                      Fluttertoast.showToast(
-                          msg: "Image selected");
-                    //  isMediaAdded = "true";
+                      Fluttertoast.showToast(msg: "Image selected");
+                      //  isMediaAdded = "true";
                     } else {
                       Fluttertoast.showToast(
                           msg: "Unknown error while image selection");
@@ -749,7 +724,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                         hintText: Strings.write_here,
                         hintStyle: arialFont14W600,
                         errorBorder:
-                        OutlineInputBorder(borderSide: BorderSide.none),
+                            OutlineInputBorder(borderSide: BorderSide.none),
                         border: OutlineInputBorder(borderSide: BorderSide.none),
                       ),
                       validator: (value) {
@@ -826,7 +801,7 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
                       hintText: Strings.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                      OutlineInputBorder(borderSide: BorderSide.none),
+                          OutlineInputBorder(borderSide: BorderSide.none),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
@@ -869,33 +844,33 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
           // if (isMediaAdded == "false") {
           //   Fluttertoast.showToast(msg: "Please pick atleast anyone file");
           // } else {
-            setState(() {
-              isLoad = true;
-            });
+          setState(() {
+            isLoad = true;
+          });
 
-            final ref = FirebaseStorage.instance
-                .ref()
-                .child('new_journal')
-                .child(_auth.currentUser.uid + '.jpg');
+          final ref = FirebaseStorage.instance
+              .ref()
+              .child('new_journal')
+              .child(_auth.currentUser.uid + '.jpg');
 
-            await uploadMediaAndGetUrl(
-                filePicture, fileVideo, fileAudio, fileDocument, ref);
-            bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
-              _calendarSelectedDate,
-              prepareRequestBody(),
-            );
+          await uploadMediaAndGetUrl(
+              filePicture, fileVideo, fileAudio, fileDocument, ref);
+          bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
+            _calendarSelectedDate,
+            prepareRequestBody(),
+          );
 
-            Fluttertoast.showToast(
-                msg: isSuccess
-                    ? "Data submitted successfully"
-                    : "Failed to submit dta");
-            if (isSuccess) {
-              Navigator.pop(context);
-            }
-            setState(() {
-              isLoad = false;
-            });
-         // }
+          Fluttertoast.showToast(
+              msg: isSuccess
+                  ? "Data submitted successfully"
+                  : "Failed to submit dta");
+          if (isSuccess) {
+            Navigator.pop(context);
+          }
+          setState(() {
+            isLoad = false;
+          });
+          // }
         }
       },
       child: CustomButton(
@@ -912,8 +887,8 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
       'outsideareaspecify': _areaSpecifyTextController.text,
       'datewithhappen': _dateTimeTextController.text,
       'dateStamp': _calendarSelectedDate.toString(),
-      'partnerundertheinfluence': json.encode(checkPartnerUnderInfluence)
-          .toString(),
+      'partnerundertheinfluence':
+          json.encode(checkPartnerUnderInfluence).toString(),
       'undertheinfluence': json.encode(checkIfYouUnderInfluence).toString(),
       'resultincident': checkMedicalAssistant,
       'popuptext': _medicalAssistantTextController.text,
@@ -962,14 +937,13 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   }
 
   _selectTime(BuildContext context, TextEditingController popupcalender) async {
-    final TimeOfDay result =
-    await showTimePicker(
+    final TimeOfDay result = await showTimePicker(
         context: context,
         initialTime: selectedTime,
         builder: (context, childWidget) {
           return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                  alwaysUse24HourFormat: true),
+              data:
+                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
               child: childWidget);
         });
     if (result != null && result != selectedTime) {
@@ -980,55 +954,54 @@ class _EditJournalEntryPagePageState extends State<EditJournalEntryPage> {
   }
 
   showTimerPicker(BuildContext context, TextEditingController _popupcalender) {
-    showDialog(context: context, builder: (context) {
-      return AlertDialog(
-        backgroundColor: ColorResources.background,
-        title: const Text('Select Time'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: dim_8, top: dim_8, bottom: dim_8),
-              child: TimePickerSpinner(
-                alignment: Alignment.center,
-                is24HourMode: true,
-                normalTextStyle: const TextStyle(
-                    fontSize: font_18,
-                    color: Colors.black45
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: ColorResources.background,
+            title: const Text('Select Time'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      right: dim_8, top: dim_8, bottom: dim_8),
+                  child: TimePickerSpinner(
+                    alignment: Alignment.center,
+                    is24HourMode: true,
+                    normalTextStyle: const TextStyle(
+                        fontSize: font_18, color: Colors.black45),
+                    highlightedTextStyle:
+                        const TextStyle(fontSize: font_22, color: Colors.black),
+                    onTimeChange: (time) {
+                      setState(() {
+                        _popupcalender.text =
+                            DateUtil.getDate(_calendarSelectedDate) +
+                                ' ' +
+                                DateUtil.getTime(time);
+                        print('Hello $time');
+                      });
+                    },
+                  ),
                 ),
-                highlightedTextStyle: const TextStyle(
-                    fontSize: font_22,
-                    color: Colors.black
-                ),
-                onTimeChange: (time) {
-                  setState(() {
-                    _popupcalender.text = DateUtil
-                        .getDate(_calendarSelectedDate) +
-                        ' ' +
-                        DateUtil.getTime(time);
-                    print('Hello $time');
-                  });
-                },
-              ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: dim_25),
+                    child: CustomButton(
+                        text1: Strings.submit,
+                        text2: "",
+                        width: Get.width,
+                        height: dim_50),
+                  ),
+                )
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: dim_25),
-                child: CustomButton(
-                    text1: Strings.submit,
-                    text2: "",
-                    width: Get.width,
-                    height: dim_50),
-              ),
-            )
-          ],
-        ),
-      ); // Time picker close
-    });
+          ); // Time picker close
+        });
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 
+import '../../utill/color_resources.dart';
+import '../../utill/dimension.dart';
+
 class AddMediaView extends StatefulWidget {
   final Function onPress;
   final IconData icon;
@@ -19,10 +22,23 @@ class AddMediaView extends StatefulWidget {
 class _AddMediaViewState extends State<AddMediaView> {
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: widget.onPress,
-      child: Column(
-        children: <Widget>[Icon(widget.icon), Text(widget.label)],
+    return Padding(
+      padding: const EdgeInsets.all(dim_8),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: ColorResources.box_border,
+              width: dim_2,
+            ),
+            color: ColorResources.box_background,
+            borderRadius: BorderRadius.circular(dim_20)),
+        child: TextButton(
+          onPressed: widget.onPress,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[Icon(widget.icon), Text(widget.label)],
+          ),
+        ),
       ),
     );
   }

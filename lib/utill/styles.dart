@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'color_resources.dart';
 import 'dimension.dart';
 
@@ -94,6 +95,14 @@ const courierFont18W600Profile = TextStyle(
 const courierFont14W600ProfileHintColor = TextStyle(
   color: ColorResources.profilehintColor,
   fontSize: 14,
+  letterSpacing: 0.5,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w600,
+);
+
+const courierFont12W600ProfileHintColor = TextStyle(
+  color: ColorResources.profilehintColor,
+  fontSize: 12,
   letterSpacing: 0.5,
   fontFamily: 'Courier',
   fontWeight: FontWeight.w600,

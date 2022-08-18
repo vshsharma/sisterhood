@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
@@ -29,13 +30,14 @@ class FirebaseRealtimeDataService {
       Map<dynamic, dynamic> values = snapshot.value;
       IncidentModel incidentModel;
       values.forEach((key, value) {
-        incidentModel =
-            IncidentModel.fromJson(json.decode(value));
+        incidentModel = IncidentModel.fromJson(json.decode(value));
       });
-      incidentResponse = IncidentResponse(message: "success", code: "200", incidentModel: incidentModel);
+      incidentResponse = IncidentResponse(
+          message: "success", code: "200", incidentModel: incidentModel);
     } else {
       print('No data available.');
-      incidentResponse = IncidentResponse(message: "failed", code: "400", incidentModel: IncidentModel());
+      incidentResponse = IncidentResponse(
+          message: "failed", code: "400", incidentModel: IncidentModel());
     }
     return incidentResponse;
   }
@@ -51,15 +53,16 @@ class FirebaseRealtimeDataService {
       Map<dynamic, dynamic> values = snapshot.value;
       IncidentModel incidentModel;
       values.forEach((key, value) {
-        incidentModel =
-            IncidentModel.fromJson(json.decode(value["data"]));
+        incidentModel = IncidentModel.fromJson(json.decode(value["data"]));
         incidentModel.key = key.toString();
         incidentList.add(incidentModel);
       });
-      incidentHistoryResponse = IncidentHistoryResponse(message: "success", code: "200", incidentList: incidentList);
+      incidentHistoryResponse = IncidentHistoryResponse(
+          message: "success", code: "200", incidentList: incidentList);
     } else {
       print('No data available.');
-      incidentHistoryResponse = IncidentHistoryResponse(message: "failed", code: "400", incidentList: incidentList);
+      incidentHistoryResponse = IncidentHistoryResponse(
+          message: "failed", code: "400", incidentList: incidentList);
     }
     return incidentHistoryResponse;
   }
@@ -74,11 +77,10 @@ class FirebaseRealtimeDataService {
         .child(nodeName)
         .child('data')
         .set(json)
-        .then((_)  {
-          print("Data saved successfully");
-          querySaved = true;
-        })
-        .catchError((onError) {
+        .then((_) {
+      print("Data saved successfully");
+      querySaved = true;
+    }).catchError((onError) {
       print("Data saved failed");
       querySaved = false;
     });
@@ -94,7 +96,7 @@ class FirebaseRealtimeDataService {
         .child(_auth.currentUser.uid)
         .child('data')
         .set(json)
-        .then((_)  {
+        .then((_) {
       print("Data saved successfully");
       querySaved = true;
     }).catchError((onError) {
@@ -108,19 +110,35 @@ class FirebaseRealtimeDataService {
     final snapshot = await databaseReference
         .child('planSafety')
         .child(_auth.currentUser.uid)
-       .get();
+        .get();
     SafetyResponse safetyResponse;
     SafetyPlanResponse safetyPlanResponse;
     if (snapshot.exists) {
       Map<dynamic, dynamic> values = snapshot.value;
       print("${json.decode(values["data"])}");
-      safetyPlanResponse = SafetyPlanResponse.fromJson(json.decode(values["data"]));
-      safetyResponse = SafetyResponse(code: "200", message: "success", response: safetyPlanResponse);
+      safetyPlanResponse =
+          SafetyPlanResponse.fromJson(json.decode(values["data"]));
+      safetyResponse = SafetyResponse(
+          code: "200", message: "success", response: safetyPlanResponse);
     } else {
       print('No data available.');
-      safetyResponse = SafetyResponse(message: "failed", code: "400", response: SafetyPlanResponse());
+      safetyResponse = SafetyResponse(
+          message: "failed", code: "400", response: SafetyPlanResponse());
     }
     return safetyResponse;
+  }
 
-}
+  Future<String> getContactUsLink() async {
+    String response = "error";
+    final docRef =
+        FirebaseFirestore.instance.collection('contactus').doc("url");
+
+    await docRef.get().then((DocumentSnapshot doc) {
+      final result = doc.data() as Map<String, dynamic>;
+      response = result['doclink'];
+    }, onError: (e) {
+      response = e.toString();
+    });
+    return response;
+  }
 }

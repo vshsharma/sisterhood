@@ -70,10 +70,10 @@ class _FaceIdPageState extends State<FaceIdPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        localAuthCheck();
-                        // Get.to(const BottomNavigationPage(),
-                        //     transition: Transition.rightToLeftWithFade,
-                        //     duration: const Duration(milliseconds: 600));
+                        // localAuthCheck();
+                        Get.to(const BottomNavigationPage(),
+                            transition: Transition.rightToLeftWithFade,
+                            duration: const Duration(milliseconds: 600));
                       },
                       child: CustomButton(
                           text1: Strings.continueb,
