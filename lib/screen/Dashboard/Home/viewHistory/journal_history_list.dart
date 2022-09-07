@@ -41,8 +41,10 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
         await FirebaseRealtimeDataService().getIncidentHistory();
     print(incidentHistoryResponse.code);
     if (incidentHistoryResponse.code == '200') {
+      incidentList = incidentHistoryResponse.incidentList;
       setState(() {
-        incidentList = incidentHistoryResponse.incidentList;
+        incidentList
+            .sort((obj1, obj2) => obj2.dateTime.compareTo(obj1.dateTime));
       });
     } else {
       Fluttertoast.showToast(msg: 'No data found for selected date');
@@ -72,7 +74,8 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
                       },
                       leading: const Icon(Icons.list),
                       title: Text(
-                          DateUtil.getFormattedDate(incidentList[index].key),
+                          DateUtil.getStringFormattedDate(
+                              incidentList[index].key),
                           style: courierFont20W600),
                       subtitle: const Text(
                         Strings.LOGGED,

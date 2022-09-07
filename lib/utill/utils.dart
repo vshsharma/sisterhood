@@ -1,10 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:sisterhood_app/screen/women_shelter/model/women_shelter_model.dart';
 import 'package:sisterhood_app/utill/strings.dart';
 import 'package:sisterhood_app/utill/styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'color_resources.dart';
 import 'custom_button.dart';
@@ -97,7 +102,7 @@ class Utils {
   }
 
   static void genericInputPopUp(BuildContext context, String titleText,
-      TextEditingController textEditingController) {
+      TextEditingController textEditingController, FocusNode focusNode) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -139,6 +144,7 @@ class Utils {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     controller: textEditingController,
+                    focusNode: focusNode,
                     textAlign: TextAlign.start,
                     keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -261,6 +267,41 @@ class Utils {
   static void log(String message) {
     if (kDebugMode) {
       print("Available biometrics $message");
+    }
+  }
+
+  static Future<List<WomenShelterModel>> loadJson() async {
+    String data = await rootBundle.loadString('assets/json/shelters.json');
+    Iterable l = json.decode(data);
+    List<WomenShelterModel> shelterList = List<WomenShelterModel>.from(
+        l.map((model) => WomenShelterModel.fromJson(model)));
+    return shelterList;
+  }
+
+  static void navigateTo(double lat, double lng) async {
+    var uri = Uri.parse("google.navigation:q=$lat,$lng&mode=d");
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch ${uri.toString()}';
+    }
+  }
+
+  static Future<void> makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
+  }
+
+  static Future<void> launchInWebViewWithoutJavaScript(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.inAppWebView,
+      webViewConfiguration: const WebViewConfiguration(enableJavaScript: false),
+    )) {
+      throw 'Could not launch $url';
     }
   }
 }

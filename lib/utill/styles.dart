@@ -50,6 +50,13 @@ const arialFont16W400 = TextStyle(
     fontFamily: 'Arial',
     fontWeight: FontWeight.w400);
 
+const arialFont16W700 = TextStyle(
+    color: ColorResources.profilehintColor,
+    fontSize: 16,
+    letterSpacing: 0.5,
+    fontFamily: 'Arial',
+    fontWeight: FontWeight.w700);
+
 const arialFont18W600 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 18,
@@ -64,6 +71,14 @@ const arialFont20W600ProfilePlaceHolder = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+const arialFont30W600Black = TextStyle(
+  color: ColorResources.black,
+  fontSize: 30,
+  letterSpacing: 1,
+  fontFamily: 'Arial',
+  fontWeight: FontWeight.bold,
+);
+
 const courierFont18W600 = TextStyle(
   color: ColorResources.black,
   fontSize: 18,
@@ -72,10 +87,17 @@ const courierFont18W600 = TextStyle(
 );
 
 const courierFont18W400 = TextStyle(
-  color: ColorResources.black,
+  color: ColorResources.profilehintColor,
   fontSize: 18,
   fontFamily: 'Courier',
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.normal,
+);
+
+const courierFont14W600 = TextStyle(
+  color: ColorResources.black,
+  fontSize: 14,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.normal,
 );
 
 const courierFont16W600 = TextStyle(
@@ -128,6 +150,14 @@ const courierFont25W700Black = TextStyle(
   color: ColorResources.black,
   fontFamily: 'Courier',
   fontWeight: FontWeight.w700,
+  fontSize: 25,
+  letterSpacing: 0.5,
+);
+
+const courierFont25W400Black = TextStyle(
+  color: ColorResources.black,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w400,
   fontSize: 25,
   letterSpacing: 0.5,
 );

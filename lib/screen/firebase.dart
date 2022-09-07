@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_response.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/safety_response.dart';
@@ -55,6 +56,7 @@ class FirebaseRealtimeDataService {
       values.forEach((key, value) {
         incidentModel = IncidentModel.fromJson(json.decode(value["data"]));
         incidentModel.key = key.toString();
+        incidentModel.dateTime = DateUtil.getFormattedDate(key.toString());
         incidentList.add(incidentModel);
       });
       incidentHistoryResponse = IncidentHistoryResponse(
@@ -140,5 +142,19 @@ class FirebaseRealtimeDataService {
       response = e.toString();
     });
     return response;
+  }
+
+  Future<bool> deleteFile(String fileName) async {
+    // var storageRef = FirebaseStorage.instance
+    //     .ref()
+    //     .child('new_journal')
+    //     .child(_auth.currentUser.uid)
+    //     .child(_child);
+    // final desertRef = storageRef.child(fileName);
+
+    var ref = FirebaseStorage.instance.refFromURL(fileName);
+    // Delete the file
+    await ref.delete().then((value) => print("Deleted file"));
+    return true;
   }
 }

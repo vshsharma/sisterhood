@@ -1,0 +1,66 @@
+[
+  {
+    "phone": "+46 54 18 30 34",
+    "web_URL": "http://karlstadskvinnojour.se/",
+    "address": "Hööksgatan 23, 652 29 Karlstad, Sweden",
+    "additional_Info": "9FFQ+Q3 Karlstad, Sweden",
+    "coordinate": "59.3745, 13.4877",
+    "email": "KVINNOJOUREN@AKHKARLSTAD.SE",
+    "name": "Alla Kvinnors Hus"
+  },
+  {
+    "name": "Kvinnojouren Kullan",
+    "address": "Skolgatan 6, 791 71 Falun, Sweden",
+    "phone": "+462312515",
+    "web_URL": "",
+    "additional_Info": "JJ6G+2F Falun, Sweden",
+    "coordinate": "60.7105389506663, 15.612861766927553",
+    "email": ""
+  },
+  {
+    "name": "Kvinnojouren Gertrud",
+    "address": "Torggatan 23 B, 749 35 Enköping, Sweden",
+    "phone": "+46171440242",
+    "web_URL": "",
+    "additional_Info": "J3MJ+W4 Enköping, Sweden",
+    "coordinate": "59.728422533838746, 17.09601596760126",
+    "email": ""
+  },
+  {
+    "name": "Kvinnohuset i Örebro",
+    "address": "Kyrkogatan 16, 702 10 Örebro, Sweden",
+    "phone": "+4619144199",
+    "web_URL": "http://www.kvinnohusetorebro.se/",
+    "additional_Info": "76C5+6F Örebro, Sweden",
+    "coordinate": "59.394476106063166, 15.217353980081233",
+    "email": ""
+  },
+  {
+    "name": "Svea Kvinnojour",
+    "address": "Dianavägen 37, 691 54 Karlskoga, Sweden",
+    "phone": "",
+    "web_URL": "",
+    "additional_Info": "8HQ8+RX Karlskoga, Sweden",
+    "coordinate": "59.35809944277335, 14.566414030123756",
+    "email": ""
+  },
+  {
+    "name": "Kvinnoföreningen Mot Våld i Karlskoga-Degerfors",
+    "address": "Baggängsvägen 1B, 691 45 Karlskoga, Sweden",
+    "phone": "+4658639500",
+    "web_URL": "https://www.mockelnforeningarna.se/kvinnohuset/",
+    "additional_Info": "8G82+26 Karlskoga, Sweden",
+    "coordinate": "59.349699288635954, 14.48950973823697",
+    "email": ""
+  },
+  {
+    "name": "Kvinnojouren Linnéan i Lidköping",
+    "address": "Fabriksgatan 4, 531 30 Lidköping, Sweden",
+    "phone": "+4651021900",
+    "web_URL": "http://www.kvinnojourenlinnean.se/gey",
+    "additional_Info": "G555+45 Lidköping, Sweden",
+    "coordinate": "58.55640263626638, 13.15541901486647",
+    "email": ""
+  }
+
+]

@@ -7,9 +7,11 @@ import '../../utill/styles.dart';
 
 class CustomEditTextField extends StatelessWidget {
   final controller;
-  const CustomEditTextField(this.controller, {
-    Key key,
-  }) : super(key: key);
+  final focusNode;
+  final function;
+  const CustomEditTextField(this.controller,
+      {Key key, this.focusNode, this.function})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,8 @@ class CustomEditTextField extends StatelessWidget {
       alignment: Alignment.topLeft,
       child: TextFormField(
         controller: controller,
+        focusNode: focusNode,
+        onChanged: function,
         textInputAction: TextInputAction.next,
         maxLines: 2,
         textAlign: TextAlign.start,

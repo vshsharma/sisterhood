@@ -1,31 +1,26 @@
 import 'dart:core';
-import 'dart:core';
-import 'dart:core';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:sisterhood_app/screen/Dashboard/bottom_navigation_bar_page.dart';
 import 'package:sisterhood_app/utill/app_constants.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
 import 'package:sisterhood_app/utill/strings.dart';
+
 import '../Dashboard/profile/signupscreen.dart';
 import 'faceId_page.dart';
 import 'forgot_password_page.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() =>
-      _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -36,38 +31,40 @@ class _LoginPageState extends State<LoginPage> {
   bool rememberMe = false;
 
   void _onRememberMeChanged(bool newValue) => setState(() {
-    rememberMe = newValue;
-  });
+        rememberMe = newValue;
+      });
 
   bool _isLoad = false;
 
   bool isEmail(em) {
-
-    var p = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    var p =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
     RegExp regExp = RegExp(p);
 
     return regExp.hasMatch(em);
   }
 
-  void _trySubmit() async{
-    if(isEmail(username.text)){
-      if(_formKey.currentState.validate()){
-        // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (builder)=>const FaceIdPage()));
+  void _trySubmit() async {
+    if (isEmail(username.text)) {
+      if (_formKey.currentState.validate()) {
         setState(() {
           _isLoad = true;
         });
 
-        final list = await FirebaseAuth.instance.fetchSignInMethodsForEmail(username.text.toString());
+        final list = await FirebaseAuth.instance
+            .fetchSignInMethodsForEmail(username.text.toString());
 
         if (list.isNotEmpty) {
           try {
-            final user = await _auth.signInWithEmailAndPassword(email: username.text.toString(),
+            final user = await _auth.signInWithEmailAndPassword(
+                email: username.text.toString(),
                 password: _password.text.toString());
             if (user != null) {
               await SharedPrefManager.savePreferenceBoolean(true);
-              await SharedPrefManager.savePrefString(AppConstants.password, _password.text.toString());
-              Get.offAll(()=> const FaceIdPage());
+              await SharedPrefManager.savePrefString(
+                  AppConstants.password, _password.text.toString());
+              Get.offAll(() => const FaceIdPage());
               // Fluttertoast.showToast(msg: "");
               // Navigator.pushNamed(context, HomeScreen.id);
             }
@@ -98,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
         } else {
           Fluttertoast.showToast(msg: "User credential are invalid");
           // print("not exis");
-         /* await _auth.createUserWithEmailAndPassword(email: username.text.toString(), password: _password.text.toString());
+          /* await _auth.createUserWithEmailAndPassword(email: username.text.toString(), password: _password.text.toString());
           final user = await _auth.signInWithEmailAndPassword(email: username.text.toString(),
               password: _password.text.toString());
 
@@ -133,11 +130,12 @@ class _LoginPageState extends State<LoginPage> {
         // await authRepo.loginWithOtp(_mobile.text);
         setState(() {
           _isLoad = false;
-        });}
-    }else{
+        });
+      }
+    } else {
       Fluttertoast.showToast(msg: "Please enter valid email");
     }
-}
+  }
 
   bool isChecked = true;
 
@@ -151,80 +149,80 @@ class _LoginPageState extends State<LoginPage> {
                 child: SingleChildScrollView(
                   child: Form(
                     key: _formKey,
-                    child: Column(
-                        children: [
-                          const SizedBox(height: 30),
-                          Image.asset(Images.commonlogo,
-                            width: Get.width,
-                            height: 94,
-                          ),
-                          Image.asset(Images.Sisterhood,
-                            width: Get.width,
-                            height: 70,
-                          ),
-                          SizedBox(height: 70),
-                          _mobileno(),
-                          const SizedBox(height: 20),
-                          _passwordField(),
-                          const SizedBox(height: 5,),
-                          Container(
-                            alignment: Alignment.centerRight,
-                            child: FlatButton(onPressed: (){
+                    child: Column(children: [
+                      const SizedBox(height: 30),
+                      Image.asset(
+                        Images.commonlogo,
+                        width: Get.width,
+                        height: 94,
+                      ),
+                      Image.asset(
+                        Images.Sisterhood,
+                        width: Get.width,
+                        height: 70,
+                      ),
+                      SizedBox(height: 70),
+                      _mobileno(),
+                      const SizedBox(height: 20),
+                      _passwordField(),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        alignment: Alignment.centerRight,
+                        child: FlatButton(
+                            onPressed: () {
                               Get.to(const ForgotPasswordPage(),
                                   transition: Transition.rightToLeftWithFade,
                                   duration: const Duration(milliseconds: 600));
                             },
-                                child: const Text(Strings.forgot_password,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        fontFamily: "Roboto",
-                                        letterSpacing: 0.5,
-                                        color: ColorResources.grey)
-                                )),
-                          ),
-                          const SizedBox(height: 40),
-
-                          if(_isLoad == true)
-                            const SizedBox(
-                                width: 25,
-                                height: 25,
-                                child: CircularProgressIndicator())
-                          else
-                            _continuebutton(),
-
-                          Container(
-                            alignment: Alignment.center,
-                            child: FlatButton(onPressed: (){
+                            child: const Text(Strings.forgot_password,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontFamily: "Roboto",
+                                    letterSpacing: 0.5,
+                                    color: ColorResources.grey))),
+                      ),
+                      const SizedBox(height: 40),
+                      if (_isLoad == true)
+                        const SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: CircularProgressIndicator())
+                      else
+                        _continuebutton(),
+                      Container(
+                        alignment: Alignment.center,
+                        child: FlatButton(
+                            onPressed: () {
                               Get.to(const SignupScreen(),
-                            transition: Transition.rightToLeftWithFade,
-                            duration: const Duration(milliseconds: 600));
+                                  transition: Transition.rightToLeftWithFade,
+                                  duration: const Duration(milliseconds: 600));
                             },
-                                child: const Text.rich(
+                            child: const Text.rich(
+                              TextSpan(
+                                children: [
                                   TextSpan(
-                                    children: [
-                                      TextSpan(text: "Don't have an Account? ",
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.normal
-                                          )),
-
-                                      TextSpan(text: ' Signup',
-                                          style: TextStyle(fontWeight: FontWeight.bold,
-                                              color: Colors.red,
-                                              fontSize: 15)),
-                                    ],
-                                  ),
-                                )),
-                          ),
-                          const SizedBox(height: 20),
+                                      text: "Don't have an Account? ",
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.normal)),
+                                  TextSpan(
+                                      text: ' Signup',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.red,
+                                          fontSize: 15)),
+                                ],
+                              ),
+                            )),
+                      ),
+                      const SizedBox(height: 20),
                     ]),
                   ),
                 ))));
-            }
-
-
-
+  }
 
   _numberfield() {
     return Form(
@@ -251,11 +249,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.white
-                // gradient: LinearGradient(colors: [
-                //   Color(0xffe8fcf5),
-                //   Color(0xffe8fcf5),
-                // ]),
-              ),
+                  // gradient: LinearGradient(colors: [
+                  //   Color(0xffe8fcf5),
+                  //   Color(0xffe8fcf5),
+                  // ]),
+                  ),
               child: Padding(
                 padding: const EdgeInsets.only(right: 10, left: 1),
                 child: Row(
@@ -302,7 +300,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Container(
               // height: 50,
               // width: Get.width,
@@ -354,7 +354,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: "Password",
                           hintStyle: TextStyle(color: Colors.grey),
                           contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                              EdgeInsets.symmetric(vertical: 10, horizontal: 0),
                           labelStyle: TextStyle(
                             fontSize: 13.0,
                           ),
@@ -372,22 +372,24 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Container(
               alignment: Alignment.centerRight,
-              child: FlatButton(onPressed: (){
-                // Get.to(ForgotPasswordPage(),
-                //     transition: Transition.rightToLeftWithFade,
-                //     duration: Duration(milliseconds: 600));
-              },
+              child: FlatButton(
+                  onPressed: () {
+                    // Get.to(ForgotPasswordPage(),
+                    //     transition: Transition.rightToLeftWithFade,
+                    //     duration: Duration(milliseconds: 600));
+                  },
                   child: const Text(Strings.forgot_password,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           fontFamily: "Roboto",
                           letterSpacing: 0.5,
-                          color: ColorResources.grey)
-                  )),
+                          color: ColorResources.grey))),
             ),
           ],
         ),
@@ -395,17 +397,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-
   _continuebutton() {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         _trySubmit();
       },
       child: CustomButton(
           text1: Strings.login, text2: "", width: Get.width, height: 60),
     );
   }
-
 
   _mobileno() {
     return Container(
@@ -433,21 +433,22 @@ class _LoginPageState extends State<LoginPage> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         textAlignVertical: TextAlignVertical.bottom,
         decoration: InputDecoration(
-            prefixIcon: Image.asset(Images.smsImage,
+          prefixIcon: Image.asset(
+            Images.smsImage,
             scale: 4.0,
-            ),
-            hintText: "EMAIL",
-            hintStyle: const TextStyle(
-                color: ColorResources.grey,
-                fontSize: 16,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-            border: OutlineInputBorder(borderSide: BorderSide.none),
+          ),
+          hintText: "EMAIL",
+          hintStyle: const TextStyle(
+              color: ColorResources.grey,
+              fontSize: 16,
+              letterSpacing: 0.5,
+              fontFamily: 'Arial',
+              fontWeight: FontWeight.w600),
+          errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
+          border: OutlineInputBorder(borderSide: BorderSide.none),
         ),
-        validator: (value) => EmailValidator.validate(value) ? null : "Please enter valid email",
+        validator: (value) =>
+            EmailValidator.validate(value) ? null : "Please enter valid email",
         // validator: (value) {
         //   if (value.trim().isEmpty) {
         //     return "Please, enter your Email Id";
@@ -458,6 +459,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
   _passwordField() {
     return Container(
       decoration: BoxDecoration(
@@ -485,21 +487,21 @@ class _LoginPageState extends State<LoginPage> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         textAlignVertical: TextAlignVertical.bottom,
         decoration: InputDecoration(
-          prefixIcon: Image.asset(Images.lockImage,
+          prefixIcon: Image.asset(
+            Images.lockImage,
             scale: 4.0,
           ),
-            hintText: Strings.password,
-            hintStyle: const TextStyle(
-                color: ColorResources.grey,
-                fontSize: 16,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
+          hintText: Strings.password,
+          hintStyle: const TextStyle(
+              color: ColorResources.grey,
+              fontSize: 16,
+              letterSpacing: 0.5,
+              fontFamily: 'Arial',
+              fontWeight: FontWeight.w600),
           errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
           border: OutlineInputBorder(borderSide: BorderSide.none),
         ),
-          validator: (value) {
+        validator: (value) {
           if (value.isEmpty) {
             return "Please enter your password";
           } else if (value.length < 10) {
@@ -510,5 +512,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 }

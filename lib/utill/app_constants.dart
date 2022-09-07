@@ -28,4 +28,11 @@ class AppConstants {
   static const String images = "images";
   static const String videos = "videos";
   static const String audios = "audios";
+
+  static const String safetyPlan = "safety_plan";
+  static const String journalData = "journalData";
+
+  // Shared pred value
+  static const String isSavedLocal = "isSavedLocal";
+  static const String localJournal = "localJournal";
 }

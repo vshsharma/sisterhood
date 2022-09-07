@@ -1,4 +1,6 @@
-class IncidentModel {
+import 'package:file_picker/file_picker.dart';
+
+class LocalIncident {
   String audio;
   String circumstances;
   String dateStamp;
@@ -14,13 +16,12 @@ class IncidentModel {
   String video;
   String whathappend;
   String wouldyouliketorecord;
-  String imagesList;
-  String videosList;
-  String audiosList;
+  List<PlatformFile> selectedImages;
+  List<PlatformFile> selectedVideos;
+  List<PlatformFile> selectedAudio;
   String key;
-  DateTime dateTime;
 
-  IncidentModel(
+  LocalIncident(
       {this.audio,
       this.circumstances,
       this.dateStamp,
@@ -36,13 +37,12 @@ class IncidentModel {
       this.video,
       this.whathappend,
       this.wouldyouliketorecord,
-      this.imagesList,
-      this.videosList,
-      this.audiosList,
-      this.key = "",
-      this.dateTime});
+      this.selectedImages,
+      this.selectedVideos,
+      this.selectedAudio,
+      this.key = ""});
 
-  IncidentModel.fromJson(Map<String, dynamic> json) {
+  LocalIncident.fromJson(Map<String, dynamic> json) {
     audio = json['audio'];
     circumstances = json['circumstances'];
     dateStamp = json['dateStamp'];
@@ -58,9 +58,9 @@ class IncidentModel {
     video = json['video'];
     whathappend = json['whathappend'];
     wouldyouliketorecord = json['wouldyouliketorecord'];
-    imagesList = json['imagesList'];
-    videosList = json['videosList'];
-    audiosList = json['audiosList'];
+    selectedImages = json['imagesList'];
+    selectedVideos = json['videosList'];
+    selectedAudio = json['audiosList'];
   }
 
   Map<String, dynamic> toJson() {
@@ -80,9 +80,9 @@ class IncidentModel {
     data['video'] = this.video;
     data['whathappend'] = this.whathappend;
     data['wouldyouliketorecord'] = this.wouldyouliketorecord;
-    data['imagesList'] = this.imagesList;
-    data['videosList'] = this.videosList;
-    data['audiosList'] = this.audiosList;
+    data['imagesList'] = this.selectedImages;
+    data['videosList'] = this.selectedVideos;
+    data['audiosList'] = this.selectedAudio;
     return data;
   }
 }

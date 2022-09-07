@@ -4,10 +4,11 @@ import 'package:local_auth_android/local_auth_android.dart';
 import 'package:local_auth_ios/local_auth_ios.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
-class LocalAuthApi {
-  static final _auth = LocalAuthentication();
+import '../utill/strings.dart';
 
+class LocalAuthApi {
   static Future<bool> hasBiometrics() async {
+    var _auth = LocalAuthentication();
     try {
       final bool canAuthenticateWithBiometrics = await _auth.canCheckBiometrics;
       final bool canAuthenticate =
@@ -18,27 +19,39 @@ class LocalAuthApi {
     }
   }
 
+  static Future<void> stopAuthorization() async {
+    var _auth = LocalAuthentication();
+    var cancel = await _auth.stopAuthentication();
+    print("Cancel auth: $cancel");
+    return cancel;
+  }
+
   static Future<bool> authenticate() async {
+    var _auth = LocalAuthentication();
     final isAvailable = await hasBiometrics();
     if (!isAvailable) return false;
     final available = await _auth.getAvailableBiometrics();
     Utils.log("$available");
     try {
       return await _auth.authenticate(
-          localizedReason: 'To continue, you must complete the biometrics',
+          localizedReason: Strings.biometricMessage,
           options: const AuthenticationOptions(
-              useErrorDialogs: true, biometricOnly: true, stickyAuth: true),
+              useErrorDialogs: true,
+              biometricOnly: true,
+              stickyAuth: false,
+              sensitiveTransaction: true),
           authMessages: const <AuthMessages>[
             AndroidAuthMessages(
-              signInTitle: 'Authentication required!',
-              cancelButton: 'No thanks',
+              signInTitle: Strings.authenticationMessage,
+              cancelButton: Strings.noThanks,
             ),
             IOSAuthMessages(
-              cancelButton: 'No thanks',
+              cancelButton: Strings.noThanks,
             ),
           ]);
     } on PlatformException catch (e) {
       print(e.message);
+      _auth.stopAuthentication();
       return false;
     }
   }

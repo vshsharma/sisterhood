@@ -4,7 +4,7 @@ class DateUtil {
   static final DateFormat formatter = DateFormat('yyyy-MM-dd');
 
   static String getDate(DateTime selectedDate) {
-   return formatter.format(selectedDate);
+    return formatter.format(selectedDate);
   }
 
   static String getDateWithMonthName(String date) {
@@ -20,11 +20,14 @@ class DateUtil {
     return outputFormat.format(dateTime);
   }
 
-  static String getFormattedDate(String date) {
+  static DateTime getFormattedDate(String date) {
     DateFormat format = DateFormat("yyyy-MM-dd");
-    DateFormat outputFormat = DateFormat("MMMM dd, yyyy");
     DateTime parseDate = format.parse(date);
-    var inputDate = DateTime.parse(parseDate.toString());
-    return outputFormat.format(inputDate).toString();
+    return DateTime.parse(parseDate.toString());
+  }
+
+  static String getStringFormattedDate(String date) {
+    DateFormat outputFormat = DateFormat("MMMM dd, yyyy");
+    return outputFormat.format(getFormattedDate(date)).toString();
   }
 }

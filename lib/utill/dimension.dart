@@ -66,6 +66,7 @@ const double dim_59 = 59.0;
 const double dim_60 = 60.0;
 
 const double dim_80 = 80.0;
+const double dim_85 = 85.0;
 const double dim_100 = 100.0;
 
 const double font_14 = 14.0;

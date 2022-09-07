@@ -38,7 +38,7 @@ class Strings {
       'My partner has forced me to take on debt';
   static const String custody_of_child =
       'I want to apply for sole custody of our child/children';
-  static const String safety_planning = 'Safety planning';
+  static const String safety_planning = 'Create a Safety Plan';
   static const String guided_meditation = 'Guided meditation';
   static const String informative_podcasts = 'Informative podcasts';
   static const String safety_plan = 'Safety plan';
@@ -220,4 +220,16 @@ class Strings {
   static const String privacy = privacyContent;
   static const String domestic_abuse = 'What is domestic abuse';
   static const String domestic_content = domesticHtml;
+
+  // Face Authentication Strings
+  static const String biometricMessage =
+      "To continue, you must complete the biometrics";
+  static const String authenticationMessage = "Authentication required!";
+  static const String noThanks = "No thanks";
+  static const String localAuthFailed = "Biometrics Authentication Failed";
+  static const String ctaAuthorize = "Authorize";
+
+  static const String direction = "Direction";
+  static const String website = "Website";
+  static const String distance = "Distance";
 }

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
+import 'package:sisterhood_app/utill/dimension.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
 import 'package:sisterhood_app/utill/strings.dart';
@@ -12,7 +13,6 @@ import 'package:sisterhood_app/utill/strings.dart';
 import '../../utill/styles.dart';
 import '../../web/web_view.dart';
 import '../firebase.dart';
-import '../journal_entry/journal_entry_media.dart';
 import '../self_help/privacy.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -218,17 +218,12 @@ class _DrawerPageState extends State<DrawerPage> {
                   },
                   title: const Text(
                     Strings.about_us,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: ColorResources.profilehintColor,
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Arial"),
+                    style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
                   leading: const SizedBox(
-                      height: 20,
-                      width: 20,
+                      height: dim_20,
+                      width: dim_20,
                       child: Icon(
                         Icons.person_outlined,
                         color: ColorResources.profilehintColor,
@@ -244,17 +239,12 @@ class _DrawerPageState extends State<DrawerPage> {
                   },
                   title: const Text(
                     Strings.privacy_polocy,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: ColorResources.profilehintColor,
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Arial"),
+                    style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
                   leading: const SizedBox(
-                      height: 20,
-                      width: 20,
+                      height: dim_20,
+                      width: dim_20,
                       child: Icon(
                         Icons.privacy_tip_outlined,
                         color: ColorResources.profilehintColor,
@@ -266,17 +256,12 @@ class _DrawerPageState extends State<DrawerPage> {
                   },
                   title: const Text(
                     Strings.contact_us,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: ColorResources.profilehintColor,
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Arial"),
+                    style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
                   leading: const SizedBox(
-                      height: 20,
-                      width: 20,
+                      height: dim_20,
+                      width: dim_20,
                       child: Icon(
                         Icons.headset_outlined,
                         color: ColorResources.profilehintColor,
@@ -284,22 +269,16 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (builder) => const JournalEntryMedia()));
+                    // TODO settings
                   },
                   title: const Text(
                     Strings.settings,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: ColorResources.profilehintColor,
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Arial"),
+                    style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
                   leading: const SizedBox(
-                      height: 20,
-                      width: 20,
+                      height: dim_20,
+                      width: dim_20,
                       child: Icon(
                         Icons.settings,
                         color: ColorResources.profilehintColor,

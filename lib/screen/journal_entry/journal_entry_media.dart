@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:filesize/filesize.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,8 +11,9 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
+import 'package:sisterhood_app/screen/Dashboard/journal_history/model/MediaFileModel.dart';
 import 'package:sisterhood_app/screen/app_widgets/radio_button_group.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/date_util.dart';
@@ -25,9 +25,11 @@ import 'package:sisterhood_app/utill/strings.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../utill/app_paddings.dart';
+import '../../utill/sharedprefrence.dart';
 import '../../utill/styles.dart';
 import '../app_widgets/add_media_button.dart';
 import '../app_widgets/checkbox_group.dart';
+import '../app_widgets/custom_list_widget.dart';
 import '../app_widgets/progress_indicator.dart';
 import '../app_widgets/select_media_sheet.dart';
 import '../app_widgets/select_media_view.dart';
@@ -43,16 +45,12 @@ class JournalEntryMedia extends StatefulWidget {
 }
 
 class _JournalEntryPagePageState extends State<JournalEntryMedia> {
+  IncidentModel _incidentModel = IncidentModel();
   final _formKey = GlobalKey<FormState>();
   var isSelected = false;
   final _auth = FirebaseAuth.instance;
   TimeOfDay selectedTime = TimeOfDay.now();
-  String pictureUrl = '';
-  String videoUrl = '';
-  String audioUrl = '';
-  String fileUrl = '';
   bool isLoad = false;
-  File filePicture, fileVideo, fileDocument, fileAudio;
 
   DateTime _targetDateTime = DateTime.now();
   DateTime _calendarSelectedDate = DateTime.now();
@@ -67,7 +65,6 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
   List<PlatformFile> selectedImages = [];
   List<PlatformFile> selectedVideos = [];
   List<PlatformFile> selectedAudio = [];
-  List<XFile> selectedDocuments = [];
 
   List<String> uploadedImages = [];
   List<String> uploadedVideos = [];
@@ -80,13 +77,42 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
   final _medicalAssistantTextController = TextEditingController();
   final _dateTimeTextController = TextEditingController();
 
-  DateTime dateTime = DateTime.now();
+  final _whatHappenTextFocusNode = FocusNode();
+  final _areaSpecifyTextFocusNode = FocusNode();
+  final _circumstancesTextFocusNode = FocusNode();
+  final _medicalAssistantTextFocusNode = FocusNode();
+  final _dateTimeTextFocusNode = FocusNode();
 
+  DateTime dateTime = DateTime.now();
   bool isLoading = false;
+
+  void addListener() {
+    _whatHappenTextFocusNode.addListener(() => saveDataLocally());
+    _areaSpecifyTextFocusNode.addListener(() => saveDataLocally());
+    _circumstancesTextFocusNode.addListener(() => saveDataLocally());
+    _medicalAssistantTextFocusNode.addListener(() => saveDataLocally());
+    _dateTimeTextFocusNode.addListener(() => saveDataLocally());
+  }
 
   @override
   void initState() {
     super.initState();
+    addListener();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (SharedPrefManager.sharedPreferences.get(AppConstants.localJournal) ==
+              null ||
+          SharedPrefManager.sharedPreferences.get(AppConstants.localJournal) ==
+              false) {
+        SharedPrefManager.sharedPreferences
+            .setBool(AppConstants.localJournal, true);
+      } else if (SharedPrefManager.sharedPreferences
+                  .get(AppConstants.localJournal) !=
+              null &&
+          SharedPrefManager.sharedPreferences.get(AppConstants.localJournal) ==
+              true) {
+        setDataFromLocal();
+      }
+    });
   }
 
   void showLoader(bool showLoader) {
@@ -112,12 +138,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       const Padding(
                         padding: cardPadding,
                         child: Text(Strings.what_type_of_abuse,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: font_18,
-                              fontFamily: 'Courier',
-                              fontWeight: FontWeight.w600,
-                            )),
+                            style: courierFont18W600ProfilePlaceHolder),
                       ),
                       CheckboxGroup(
                           labels: abuseCategoryList,
@@ -130,6 +151,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           onSelected: (List<String> checked) {
                             setState(() {
                               checkedAbuseType = checked;
+                              saveDataLocally();
                             });
                           }),
                       const SizedBox(
@@ -149,7 +171,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             height: dim_20,
                           ),
                           CustomEditTextField(
-                              _whatHappenTextController) // explain what happened
+                            _whatHappenTextController,
+                            focusNode: _whatHappenTextFocusNode,
+                            function: (value) {},
+                          ) // explain what happened
                         ],
                       ),
                     ),
@@ -165,7 +190,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           const SizedBox(
                             height: dim_20,
                           ),
-                          CustomEditTextField(_circumstancesTextConroller),
+                          CustomEditTextField(
+                            _circumstancesTextConroller,
+                            focusNode: _circumstancesTextFocusNode,
+                          ),
                         ],
                       ),
                     ),
@@ -187,6 +215,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                         onSelected: (List<String> checked) {
                           setState(() {
                             checkWhereItHappen = checked;
+                            saveDataLocally();
                           });
                         },
                       ),
@@ -207,7 +236,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           const SizedBox(
                             height: dim_20,
                           ),
-                          CustomEditTextField(_areaSpecifyTextController),
+                          CustomEditTextField(
+                            _areaSpecifyTextController,
+                            focusNode: _areaSpecifyTextFocusNode,
+                          ),
                         ],
                       ),
                     ),
@@ -257,12 +289,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             ),
                             showHeader: true,
                             iconColor: Colors.black,
-                            headerTextStyle: const TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: font_18,
-                              fontFamily: 'Arial',
-                              fontWeight: FontWeight.bold,
-                            ),
+                            headerTextStyle: arialFont18W600,
                             todayTextStyle:
                                 const TextStyle(color: ColorResources.black),
                             todayButtonColor: ColorResources.box_background,
@@ -307,6 +334,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             onSelected: (List<String> checked) {
                               setState(() {
                                 checkPartnerUnderInfluence = checked;
+                                saveDataLocally();
                               });
                             }),
                         const SizedBox(
@@ -330,6 +358,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             onSelected: (List<String> checked) {
                               setState(() {
                                 checkIfYouUnderInfluence = checked;
+                                saveDataLocally();
                               });
                             }),
                         const SizedBox(
@@ -353,6 +382,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             onSelected: (String selected) {
                               setState(() {
                                 checkMedicalAssistant = selected;
+                                saveDataLocally();
                               });
                               print(selected);
                               if (selected == "Yes") {
@@ -384,6 +414,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                 setState(() {
                                   Utils.log("TAG ${result.files.length}");
                                   selectedImages = result.files;
+                                  saveDataLocally();
                                 });
                               } else {
                                 Utils.log(
@@ -398,34 +429,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           icon: Icons.image,
                           label: Strings.add_picture,
                         ),
-                        ListView.builder(
-                          itemCount: selectedImages.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    selectedImages[index].name,
-                                    style: courierFont14W600ProfileHintColor,
-                                  ),
-                                  Text(
-                                    filesize(selectedImages[index].size),
-                                    style: courierFont12W600ProfileHintColor,
-                                  ),
-                                ],
-                              ),
-                              subtitle: Container(
-                                width: dim_100,
-                                height: dim_1,
-                                color: ColorResources.black,
-                              ),
-                            );
-                          },
-                        ),
+                        CustomListWidget(selectedImages),
                       ],
                     ),
                   ),
@@ -451,7 +455,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                         "Max size limit for selected video is ${AppConstants.maxVideoLength} MB");
                                   }
                                 }
-                                setState(() {});
+                                setState(() {
+                                  saveDataLocally();
+                                });
                               } else {
                                 Utils.log(
                                     "You can select only ${AppConstants.maxVideoSelected} images");
@@ -465,34 +471,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           icon: Icons.video_call,
                           label: Strings.add_video,
                         ),
-                        ListView.builder(
-                          itemCount: selectedVideos.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    selectedVideos[index].name,
-                                    style: courierFont14W600ProfileHintColor,
-                                  ),
-                                  Text(
-                                    filesize(selectedVideos[index].size),
-                                    style: courierFont12W600ProfileHintColor,
-                                  ),
-                                ],
-                              ),
-                              subtitle: Container(
-                                width: dim_100,
-                                height: dim_1,
-                                color: ColorResources.black,
-                              ),
-                            );
-                          },
-                        ),
+                        CustomListWidget(selectedVideos),
                       ],
                     ),
                   ),
@@ -518,7 +497,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                         "Max size limit for selected audio is ${AppConstants.maxAudioLength} MB");
                                   }
                                 }
-                                setState(() {});
+                                setState(() {
+                                  saveDataLocally();
+                                });
                               } else {
                                 Utils.log(
                                     "You can select only ${AppConstants.maxAudioSelected} images");
@@ -532,33 +513,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                           icon: Icons.audio_file,
                           label: Strings.add_Audio,
                         ),
-                        ListView.builder(
-                            itemCount: selectedAudio.length,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return ListTile(
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      selectedAudio[index].name,
-                                      style: courierFont14W600ProfileHintColor,
-                                    ),
-                                    Text(
-                                      filesize(selectedAudio[index].size),
-                                      style: courierFont12W600ProfileHintColor,
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Container(
-                                  width: dim_100,
-                                  height: dim_1,
-                                  color: ColorResources.black,
-                                ),
-                              );
-                            }),
+                        CustomListWidget(selectedAudio),
                       ],
                     ),
                   ),
@@ -605,6 +560,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                     child: TextFormField(
                       enabled: false,
                       controller: _dateTimeTextController,
+                      focusNode: _dateTimeTextFocusNode,
                       textAlign: TextAlign.start,
                       keyboardType: TextInputType.text,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -677,6 +633,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     controller: _medicalAssistantTextController,
+                    focusNode: _medicalAssistantTextFocusNode,
                     textAlign: TextAlign.start,
                     keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -742,6 +699,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   ? "Data submitted successfully"
                   : "Failed to submit dta");
           if (isSuccess) {
+            SharedPrefManager.sharedPreferences
+                .setBool(AppConstants.localJournal, false);
             Navigator.pop(context);
           }
           showLoader(false);
@@ -823,10 +782,6 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
       'undertheinfluence': json.encode(checkIfYouUnderInfluence).toString(),
       'resultincident': checkMedicalAssistant,
       'popuptext': _medicalAssistantTextController.text,
-      'picture': pictureUrl,
-      'video': videoUrl,
-      'document': fileUrl,
-      'audio': audioUrl,
       'imagesList': json.encode(uploadedImages).toString(),
       'videosList': json.encode(uploadedVideos).toString(),
       'audiosList': json.encode(uploadedAudio).toString()
@@ -898,5 +853,112 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
         );
       },
     );
+  }
+
+  void saveDataLocally() {
+    _incidentModel.wouldyouliketorecord =
+        json.encode(checkedAbuseType).toString();
+    _incidentModel.whathappend = _whatHappenTextController.text;
+    _incidentModel.circumstances = _circumstancesTextConroller.text;
+    _incidentModel.happen = json.encode(checkWhereItHappen).toString();
+    _incidentModel.outsideareaspecify = _areaSpecifyTextController.text;
+    _incidentModel.datewithhappen = _dateTimeTextController.text;
+    _incidentModel.dateStamp = _calendarSelectedDate.toString();
+    _incidentModel.partnerundertheinfluence =
+        json.encode(checkPartnerUnderInfluence).toString();
+    _incidentModel.undertheinfluence =
+        json.encode(checkIfYouUnderInfluence).toString();
+    _incidentModel.resultincident = checkMedicalAssistant;
+    _incidentModel.popuptext = _medicalAssistantTextController.text;
+
+    var imageslist = getSelectedMedia(selectedImages);
+    var videoslist = getSelectedMedia(selectedVideos);
+    var audioslist = getSelectedMedia(selectedAudio);
+    _incidentModel.imagesList = json.encode(imageslist).toString();
+    _incidentModel.videosList = json.encode(videoslist).toString();
+    _incidentModel.audiosList = json.encode(audioslist).toString();
+    saveDataToPref();
+  }
+
+  void saveDataToPref() {
+    String incident =
+        jsonEncode(IncidentModel.fromJson(_incidentModel.toJson()));
+    SharedPrefManager.sharedPreferences
+        .setString(AppConstants.journalData, incident);
+    print(incident.toString());
+  }
+
+  void setDataFromLocal() {
+    Map resultData = jsonDecode(SharedPrefManager.sharedPreferences
+        .getString(AppConstants.journalData));
+    _incidentModel = IncidentModel.fromJson(resultData);
+    print(_incidentModel.toJson().toString());
+    setState(() {
+      if (_incidentModel.wouldyouliketorecord.isNotEmpty) {
+        checkedAbuseType =
+            json.decode(_incidentModel.wouldyouliketorecord).cast<String>();
+      }
+      if (_incidentModel.happen.isNotEmpty) {
+        checkWhereItHappen = json.decode(_incidentModel.happen).cast<String>();
+      }
+      if (_incidentModel.partnerundertheinfluence.isNotEmpty) {
+        checkPartnerUnderInfluence =
+            json.decode(_incidentModel.partnerundertheinfluence).cast<String>();
+      }
+      if (_incidentModel.undertheinfluence.isNotEmpty) {
+        checkIfYouUnderInfluence =
+            json.decode(_incidentModel.undertheinfluence).cast<String>();
+      }
+      if (_incidentModel.resultincident.isNotEmpty) {
+        checkMedicalAssistant = _incidentModel.resultincident;
+      }
+      if (_incidentModel.whathappend.isNotEmpty) {
+        _whatHappenTextController.text = _incidentModel.whathappend;
+      }
+      if (_incidentModel.circumstances.isNotEmpty) {
+        _circumstancesTextConroller.text = _incidentModel.circumstances;
+      }
+      if (_incidentModel.outsideareaspecify.isNotEmpty) {
+        _areaSpecifyTextController.text = _incidentModel.outsideareaspecify;
+      }
+      if (_incidentModel.datewithhappen.isNotEmpty) {
+        _dateTimeTextController.text = _incidentModel.datewithhappen;
+      }
+      if (_incidentModel.popuptext.isNotEmpty) {
+        _medicalAssistantTextController.text = _incidentModel.popuptext;
+      }
+      setSelectedMedia(_incidentModel.imagesList, selectedImages);
+      setSelectedMedia(_incidentModel.videosList, selectedVideos);
+      setSelectedMedia(_incidentModel.audiosList, selectedAudio);
+    });
+  }
+
+  void setSelectedMedia(String mediaList, List<PlatformFile> selectedMedia) {
+    if (mediaList.isNotEmpty) {
+      var listString = json.decode(mediaList).cast<String>();
+      for (var mediaFile in listString) {
+        MediaFileModel mediaFileModel =
+            MediaFileModel.fromJson(jsonDecode(mediaFile));
+        selectedMedia.add(PlatformFile(
+            size: mediaFileModel.size,
+            path: mediaFileModel.path,
+            name: mediaFileModel.name));
+      }
+    }
+  }
+
+  List<String> getSelectedMedia(List<PlatformFile> uploadedFiles) {
+    List<String> tempList = [];
+    for (var platformFiles in uploadedFiles) {
+      MediaFileModel mediaFileModel = MediaFileModel(
+          path: platformFiles.path,
+          name: platformFiles.name,
+          size: platformFiles.size);
+
+      String mediaString = jsonEncode(mediaFileModel.toJson());
+
+      tempList.add(mediaString);
+    }
+    return tempList;
   }
 }

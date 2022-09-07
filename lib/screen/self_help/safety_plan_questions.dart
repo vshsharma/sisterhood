@@ -8,6 +8,8 @@ import 'package:sisterhood_app/screen/Dashboard/Home/model/safety_response.dart'
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/grey_background_widget.dart';
 import 'package:sisterhood_app/screen/self_help/model/safety_plan_response.dart';
+import 'package:sisterhood_app/utill/app_constants.dart';
+import 'package:sisterhood_app/utill/sharedprefrence.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
@@ -33,6 +35,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
   bool ctaLabelUpdate = false;
   bool isLoading = false;
   List<String> selectedCheckQuestion = [];
+  List<SafetyPlan> saveOnFocus = [];
 
   String toldInFamily = NO;
   String whereYouFeelSafe = YES;
@@ -41,7 +44,6 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
 
   TextEditingController whomYouToldCtrlr = TextEditingController();
   TextEditingController placeYouCanGoCtrlr = TextEditingController();
-  TextEditingController taughtYourChildrenCtrlr = TextEditingController();
   TextEditingController otherItemsCtrlr = TextEditingController();
 
   TextEditingController callForHelpCtrlr = TextEditingController();
@@ -50,6 +52,17 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
   TextEditingController howWouldYouOutCtrlr = TextEditingController();
   TextEditingController whatWordEventCtrlr = TextEditingController();
   TextEditingController whereYouStoreCtrlr = TextEditingController();
+
+  final _focusNodeCallForHelp = FocusNode();
+  final _focusNodeEmergencyContact = FocusNode();
+  final _focusNodeComfortablePlace = FocusNode();
+  final _focusNodeHowWouldYouOut = FocusNode();
+  final _focusNodeWhatWordEvent = FocusNode();
+  final _focusNodeWhereYouStore = FocusNode();
+
+  final _focusNodeWhomYouTold = FocusNode();
+  final _focusNodePlaceYouCanGo = FocusNode();
+  final _focusNodeOtherItems = FocusNode();
 
   String prepareRequest() {
     return json.encode({
@@ -106,7 +119,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                   count: questionCount[6],
                   question: questionaire[6],
                   option: taughtChildren112,
-                  description: taughtYourChildrenCtrlr.text)
+                  description: '')
               .toJson())
           .toString(),
       'question8': json
@@ -144,7 +157,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
     });
   }
 
-  saveData() async {
+  Future<void> saveData() async {
     showLoader(true);
     bool isSuccess = await FirebaseRealtimeDataService().saveSafetyPlan(
       prepareRequest(),
@@ -153,70 +166,70 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
         msg:
             isSuccess ? "Data submitted successfully" : "Failed to submit dta");
     if (isSuccess) {
+      SharedPrefManager.sharedPreferences
+          .setBool(AppConstants.isSavedLocal, false);
+      SharedPrefManager.sharedPreferences
+          .setString(AppConstants.safetyPlan, "");
       Navigator.pop(context);
     }
     showLoader(false);
   }
 
-  Future<void> getsafetyPlan() async {
+  Future<void> getSafetyPlan() async {
     showLoader(true);
     SafetyResponse safetyResponse =
         await FirebaseRealtimeDataService().getSafetyPlan();
     SafetyPlanResponse safetyPlanResponse;
     print(safetyResponse.code);
-
     if (safetyResponse.code == '200') {
       setState(() {
         safetyPlanResponse = safetyResponse.response;
-        toldInFamily =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question1))
-                .option;
-        whereYouFeelSafe =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question6))
-                .option;
-        leaveItems =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question10))
-                .option;
-        whomYouToldCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question1))
-                .description;
-        callForHelpCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question2))
-                .description;
-        emergencyContactCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question3))
-                .description;
-        comfortablePlaceCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question4))
-                .description;
-        howWouldYouOutCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question5))
-                .description;
-        placeYouCanGoCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question6))
-                .description;
-        taughtYourChildrenCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question7))
-                .description;
-        whatWordEventCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question8))
-                .description;
-        otherItemsCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question10))
-                .description;
-        whereYouStoreCtrlr.text =
-            SafetyPlan.fromJson(json.decode(safetyPlanResponse.question11))
-                .description;
-        selectedCheckQuestion = json
-            .decode(
-                SafetyPlan.fromJson(json.decode(safetyPlanResponse.question9))
-                    .option)
-            .cast<String>();
-        ctaLabelUpdate = true;
+        handleResponseFromFirebase(safetyPlanResponse);
         print(selectedCheckQuestion);
       });
     }
     showLoader(false);
+  }
+
+  void handleResponseFromFirebase(SafetyPlanResponse safetyPlanResponse) {
+    toldInFamily =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question1)).option;
+    whereYouFeelSafe =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question6)).option;
+    leaveItems =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question10)).option;
+    whomYouToldCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question1))
+            .description;
+    callForHelpCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question2))
+            .description;
+    emergencyContactCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question3))
+            .description;
+    comfortablePlaceCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question4))
+            .description;
+    howWouldYouOutCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question5))
+            .description;
+    placeYouCanGoCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question6))
+            .description;
+    whatWordEventCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question8))
+            .description;
+    otherItemsCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question10))
+            .description;
+    whereYouStoreCtrlr.text =
+        SafetyPlan.fromJson(json.decode(safetyPlanResponse.question11))
+            .description;
+    selectedCheckQuestion = json
+        .decode(SafetyPlan.fromJson(json.decode(safetyPlanResponse.question9))
+            .option)
+        .cast<String>();
+    ctaLabelUpdate = true;
   }
 
   void showLoader(bool showLoader) {
@@ -228,7 +241,78 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
   @override
   void initState() {
     super.initState();
-    getsafetyPlan();
+    getSafetyPlan();
+    addFocusListener();
+
+    if (SharedPrefManager.sharedPreferences
+                .getBool(AppConstants.isSavedLocal) !=
+            null &&
+        SharedPrefManager.sharedPreferences
+            .getBool(AppConstants.isSavedLocal)) {
+      SafetyPlanResponse safetyPlanResponse = SafetyPlanResponse.fromJson(
+          json.decode(SharedPrefManager.sharedPreferences
+              .getString(AppConstants.safetyPlan)));
+      handleResponseFromFirebase(safetyPlanResponse);
+    }
+  }
+
+  void addFocusListener() {
+    _focusNodeCallForHelp.addListener(() {
+      if (_focusNodeCallForHelp.hasFocus) {
+        handleFocusListener();
+      }
+    });
+
+    _focusNodeEmergencyContact.addListener(() {
+      if (_focusNodeEmergencyContact.hasFocus) {
+        handleFocusListener();
+      }
+    });
+    _focusNodeComfortablePlace.addListener(() {
+      if (_focusNodeComfortablePlace.hasFocus) {
+        handleFocusListener();
+      }
+    });
+    _focusNodeHowWouldYouOut.addListener(() {
+      if (_focusNodeHowWouldYouOut.hasFocus) {
+        handleFocusListener();
+      }
+    });
+    _focusNodeWhatWordEvent.addListener(() {
+      if (_focusNodeWhatWordEvent.hasFocus) {
+        handleFocusListener();
+      }
+    });
+    _focusNodeWhereYouStore.addListener(() {
+      if (_focusNodeWhereYouStore.hasFocus) {
+        handleFocusListener();
+      }
+    });
+
+    _focusNodeWhomYouTold.addListener(() {
+      if (_focusNodeWhomYouTold.hasFocus) {
+        handleFocusListener();
+      }
+    });
+
+    _focusNodePlaceYouCanGo.addListener(() {
+      if (_focusNodePlaceYouCanGo.hasFocus) {
+        handleFocusListener();
+      }
+    });
+
+    _focusNodeOtherItems.addListener(() {
+      if (_focusNodeOtherItems.hasFocus) {
+        handleFocusListener();
+      }
+    });
+  }
+
+  void handleFocusListener() {
+    SharedPrefManager.sharedPreferences
+        .setBool(AppConstants.isSavedLocal, true);
+    var json = prepareRequest();
+    SharedPrefManager.savePrefString(AppConstants.safetyPlan, json);
   }
 
   @override
@@ -253,13 +337,15 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                               onSelected: (String selected) {
                                 setState(() {
                                   toldInFamily = selected;
+                                  handleFocusListener();
                                 });
                                 print(selected);
                                 if (selected == YES) {
                                   Utils.genericInputPopUp(
                                       context,
                                       Strings.question_1_option_yes,
-                                      whomYouToldCtrlr);
+                                      whomYouToldCtrlr,
+                                      _focusNodeWhomYouTold);
                                 }
                               }),
                         ],
@@ -274,7 +360,15 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[1],
                               question: questionaire[1]),
-                          CustomEditTextField(callForHelpCtrlr),
+                          Focus(
+                            child: CustomEditTextField(
+                              callForHelpCtrlr,
+                              focusNode: _focusNodeCallForHelp,
+                            ),
+                            onFocusChange: (hasFocus) {
+                              if (hasFocus) {}
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -287,7 +381,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[2],
                               question: questionaire[2]),
-                          CustomEditTextField(emergencyContactCtrlr),
+                          CustomEditTextField(
+                            emergencyContactCtrlr,
+                            focusNode: _focusNodeEmergencyContact,
+                          ),
                         ],
                       ),
                     ),
@@ -300,7 +397,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[3],
                               question: questionaire[3]),
-                          CustomEditTextField(comfortablePlaceCtrlr),
+                          CustomEditTextField(
+                            comfortablePlaceCtrlr,
+                            focusNode: _focusNodeComfortablePlace,
+                          ),
                         ],
                       ),
                     ),
@@ -313,7 +413,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[4],
                               question: questionaire[4]),
-                          CustomEditTextField(howWouldYouOutCtrlr),
+                          CustomEditTextField(
+                            howWouldYouOutCtrlr,
+                            focusNode: _focusNodeHowWouldYouOut,
+                          ),
                         ],
                       ),
                     ),
@@ -332,13 +435,15 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                               onSelected: (String selected) {
                                 setState(() {
                                   whereYouFeelSafe = selected;
+                                  handleFocusListener();
                                 });
                                 print(selected);
                                 if (selected == NO) {
                                   Utils.genericInputPopUp(
                                       context,
                                       Strings.question_6_option_no,
-                                      placeYouCanGoCtrlr);
+                                      placeYouCanGoCtrlr,
+                                      _focusNodePlaceYouCanGo);
                                 }
                               }),
                         ],
@@ -359,6 +464,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                               onSelected: (String selected) {
                                 setState(() {
                                   taughtChildren112 = selected;
+                                  handleFocusListener();
                                 });
                                 print(selected);
                                 if (selected == NO) {
@@ -378,7 +484,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[7],
                               question: questionaire[7]),
-                          CustomEditTextField(whatWordEventCtrlr),
+                          CustomEditTextField(
+                            whatWordEventCtrlr,
+                            focusNode: _focusNodeWhatWordEvent,
+                          ),
                         ],
                       ),
                     ),
@@ -421,13 +530,15 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                               onSelected: (String selected) {
                                 setState(() {
                                   leaveItems = selected;
+                                  handleFocusListener();
                                 });
                                 print(selected);
                                 if (selected == YES) {
                                   Utils.genericInputPopUp(
                                       context,
                                       Strings.i_will_leave_copies,
-                                      otherItemsCtrlr);
+                                      otherItemsCtrlr,
+                                      _focusNodeOtherItems);
                                 }
                               }),
                         ],
@@ -442,7 +553,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                           questionHeader(
                               questionNumber: questionCount[10],
                               question: questionaire[10]),
-                          CustomEditTextField(whereYouStoreCtrlr),
+                          CustomEditTextField(
+                            whereYouStoreCtrlr,
+                            focusNode: _focusNodeWhereYouStore,
+                          ),
                         ],
                       ),
                     ),
@@ -480,14 +594,14 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: EdgeInsets.all(dim_2),
+          padding: const EdgeInsets.all(dim_2),
           child: Text(
             'Question $questionNumber',
             style: courierFont18W600,
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(dim_2),
+          padding: const EdgeInsets.all(dim_2),
           child: Text(
             '$question',
             style: courierFont16W600,

@@ -1,21 +1,15 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:sisterhood_app/screen/self_help/emergency.dart';
 import 'package:sisterhood_app/screen/self_help/legal_informtion.dart';
-import 'package:sisterhood_app/screen/self_help/self_help_tools.dart';
+import 'package:sisterhood_app/screen/women_shelter/women_shelter_screen.dart';
 
 import '../../utill/dimension.dart';
-import '../../utill/images.dart';
 import '../../utill/strings.dart';
 import '../../utill/styles.dart';
-import '../../web/web_view.dart';
-import '../../web/web_view_local.dart';
 import '../common/base_widget.dart';
 import '../common/resource_button.dart';
 import '../self_help/domestic_abuse.dart';
 import '../self_help/need_support.dart';
-import '../self_help/safety_plan_questions.dart';
 import '../self_help/self_help_tools_option.dart';
 
 class ResourcePage extends StatefulWidget {
@@ -53,7 +47,11 @@ class _ResourcePageState extends State<ResourcePage> {
               ResourceButton(
                 labelButton: Strings.cta_label_women_shelter,
                 onButtonPress: () {
-                  print('hit me');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const WomenShelterScreen(),
+                    ),
+                  );
                 },
               ),
               ResourceButton(

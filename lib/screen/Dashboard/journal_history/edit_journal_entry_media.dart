@@ -48,6 +48,7 @@ class EditJournalEntryMediaPage extends StatefulWidget {
 
 class _EditJournalEntryMediaPagePageState
     extends State<EditJournalEntryMediaPage> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   var isSelected = false;
   final _auth = FirebaseAuth.instance;
@@ -156,6 +157,7 @@ class _EditJournalEntryMediaPagePageState
         BaseWidget(Padding(
           padding: const EdgeInsets.all(dim_20),
           child: SingleChildScrollView(
+            key: _scaffoldKey,
             child: Form(
               key: _formKey,
               child: Column(
@@ -434,7 +436,7 @@ class _EditJournalEntryMediaPagePageState
                             );
                             if (result != null) {
                               if ((uploadedImages.length +
-                                      result.files.length) <
+                                      result.files.length) <=
                                   AppConstants.maxImagesSelected) {
                                 setState(() {
                                   Utils.log("TAG ${result.files.length}");
@@ -474,15 +476,36 @@ class _EditJournalEntryMediaPagePageState
                                   Flexible(
                                     child: Text(
                                       uploadedImages[index].name,
-                                      maxLines: 1,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      softWrap: false,
                                       style: courierFont14W600ProfileHintColor,
                                     ),
                                   ),
                                   Flexible(
-                                    child: Text(
-                                      filesize(uploadedImages[index].size),
-                                      style: courierFont12W600ProfileHintColor,
-                                    ),
+                                    child: uploadedImages[index].upload
+                                        ? Text(
+                                            filesize(
+                                                uploadedImages[index].size),
+                                            style:
+                                                courierFont12W600ProfileHintColor,
+                                          )
+                                        : IconButton(
+                                            icon: const Icon(Icons.delete),
+                                            iconSize: dim_24,
+                                            onPressed: () async {
+                                              await FirebaseRealtimeDataService()
+                                                  .deleteFile(
+                                                      uploadedImages[index]
+                                                          .url);
+                                              uploadedImages.removeAt(index);
+                                              await submitClick(false);
+                                              setState(() {
+                                                Utils.showSnackBar(
+                                                    context, "Image removed");
+                                              });
+                                            },
+                                          ),
                                   ),
                                 ],
                               ),
@@ -555,15 +578,36 @@ class _EditJournalEntryMediaPagePageState
                                   Flexible(
                                     child: Text(
                                       uploadedVideos[index].name,
-                                      maxLines: 1,
+                                      maxLines: 2,
+                                      softWrap: false,
+                                      overflow: TextOverflow.ellipsis,
                                       style: courierFont14W600ProfileHintColor,
                                     ),
                                   ),
                                   Flexible(
-                                    child: Text(
-                                      filesize(uploadedVideos[index].size),
-                                      style: courierFont12W600ProfileHintColor,
-                                    ),
+                                    child: uploadedVideos[index].upload
+                                        ? Text(
+                                            filesize(
+                                                uploadedVideos[index].size),
+                                            style:
+                                                courierFont12W600ProfileHintColor,
+                                          )
+                                        : IconButton(
+                                            icon: const Icon(Icons.delete),
+                                            iconSize: dim_24,
+                                            onPressed: () async {
+                                              await FirebaseRealtimeDataService()
+                                                  .deleteFile(
+                                                      uploadedVideos[index]
+                                                          .url);
+                                              uploadedVideos.removeAt(index);
+                                              await submitClick(false);
+                                              setState(() {
+                                                Utils.showSnackBar(
+                                                    context, "Video removed");
+                                              });
+                                            },
+                                          ),
                                   ),
                                 ],
                               ),
@@ -636,17 +680,37 @@ class _EditJournalEntryMediaPagePageState
                                     Flexible(
                                       child: Text(
                                         uploadedAudio[index].name,
-                                        maxLines: 1,
+                                        softWrap: false,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                         style:
                                             courierFont14W600ProfileHintColor,
                                       ),
                                     ),
                                     Flexible(
-                                      child: Text(
-                                        filesize(uploadedAudio[index].size),
-                                        style:
-                                            courierFont12W600ProfileHintColor,
-                                      ),
+                                      child: uploadedAudio[index].upload
+                                          ? Text(
+                                              filesize(
+                                                  uploadedAudio[index].size),
+                                              style:
+                                                  courierFont12W600ProfileHintColor,
+                                            )
+                                          : IconButton(
+                                              icon: const Icon(Icons.delete),
+                                              iconSize: dim_24,
+                                              onPressed: () async {
+                                                await FirebaseRealtimeDataService()
+                                                    .deleteFile(
+                                                        uploadedAudio[index]
+                                                            .url);
+                                                uploadedAudio.removeAt(index);
+                                                await submitClick(false);
+                                                setState(() {
+                                                  Utils.showSnackBar(
+                                                      context, "Audio removed");
+                                                });
+                                              },
+                                            ),
                                     ),
                                   ],
                                 ),
@@ -824,28 +888,31 @@ class _EditJournalEntryMediaPagePageState
   _continueButton() {
     return GestureDetector(
       onTap: () async {
-        if (_formKey.currentState.validate()) {
-          showLoader(true);
-
-          bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
-            _calendarSelectedDate,
-            prepareRequestBody(),
-          );
-
-          Fluttertoast.showToast(
-              msg: isSuccess
-                  ? "Data submitted successfully"
-                  : "Failed to submit dta");
-          if (isSuccess) {
-            Navigator.pop(context);
-          }
-          showLoader(false);
-          // }
-        }
+        await submitClick(true);
       },
       child: CustomButton(
           text1: Strings.submit, text2: "", width: Get.width, height: 60),
     );
+  }
+
+  Future<void> submitClick(bool exitScreen) async {
+    if (_formKey.currentState.validate()) {
+      showLoader(true);
+
+      bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
+        _calendarSelectedDate,
+        prepareRequestBody(),
+      );
+
+      Fluttertoast.showToast(
+          msg: isSuccess
+              ? "Data submitted successfully"
+              : "Failed to submit dta");
+      if (isSuccess && exitScreen) {
+        Navigator.pop(context);
+      }
+      showLoader(false);
+    }
   }
 
   Future<void> mediaUpload() async {
@@ -861,7 +928,7 @@ class _EditJournalEntryMediaPagePageState
         if (fileDoc != null) {
           await ref.putFile(fileDoc);
           String url = await ref.getDownloadURL();
-          uploadedImages[]
+          uploadedImages.add(MediaFileModel(url: url, upload: true));
           print("Url image $i $url");
         }
       }
@@ -879,7 +946,7 @@ class _EditJournalEntryMediaPagePageState
         if (fileDoc != null) {
           await ref.putFile(fileDoc);
           String url = await ref.getDownloadURL();
-          uploadedVideos.add(url);
+          uploadedVideos.add(MediaFileModel(url: url, upload: true));
           print("Url video $i $url");
         }
       }
@@ -897,12 +964,13 @@ class _EditJournalEntryMediaPagePageState
         if (fileDoc != null) {
           await ref.putFile(fileDoc);
           String url = await ref.getDownloadURL();
-          uploadedAudio.add(url);
+          uploadedAudio.add(MediaFileModel(url: url, upload: true));
           print("Url audio $i $url");
         }
       }
     }
   }
+
   String prepareRequestBody() {
     return json.encode({
       'wouldyouliketorecord': json.encode(checkedAbuseType).toString(),
@@ -917,10 +985,18 @@ class _EditJournalEntryMediaPagePageState
       'undertheinfluence': json.encode(checkIfYouUnderInfluence).toString(),
       'resultincident': checkMedicalAssistant,
       'popuptext': _medicalAssistantTextController.text,
-      'imagesList': json.encode(uploadedImages).toString(),
-      'videosList': json.encode(uploadedVideos).toString(),
-      'audiosList': json.encode(uploadedAudio).toString()
+      'imagesList': getUploadMediaUrl(uploadedImages),
+      'videosList': getUploadMediaUrl(uploadedVideos),
+      'audiosList': getUploadMediaUrl(uploadedAudio)
     });
+  }
+
+  String getUploadMediaUrl(List<MediaFileModel> mediaList) {
+    List<String> finalList = [];
+    for (var mediaFile in mediaList) {
+      finalList.add(mediaFile.url);
+    }
+    return json.encode(finalList).toString();
   }
 
   showTimerPicker(BuildContext context, TextEditingController _popupcalender) {

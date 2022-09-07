@@ -5,8 +5,11 @@ import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../auth/local_auth_api.dart';
+import '../../utill/dimension.dart';
+import '../../utill/styles.dart';
 
 class FaceIdPage extends StatefulWidget {
   const FaceIdPage({Key key}) : super(key: key);
@@ -28,6 +31,9 @@ class _FaceIdPageState extends State<FaceIdPage> {
       Get.to(const BottomNavigationPage(),
           transition: Transition.rightToLeftWithFade,
           duration: const Duration(milliseconds: 600));
+    } else {
+      Utils.showSnackBar(context, Strings.localAuthFailed);
+      await LocalAuthApi.stopAuthorization();
     }
   }
 
@@ -38,7 +44,7 @@ class _FaceIdPageState extends State<FaceIdPage> {
         body: SafeArea(
             child: Center(
           child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(dim_20),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,41 +54,32 @@ class _FaceIdPageState extends State<FaceIdPage> {
                       child: Column(
                         children: [
                           const SizedBox(
-                            height: 10,
+                            height: dim_10,
                           ),
                           Image.asset(
                             Images.faceImage,
-                            height: 85,
+                            height: dim_85,
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: dim_20,
                           ),
                           const Text(Strings.faceid,
-                              style: TextStyle(
-                                color: ColorResources.black,
-                                fontSize: 30,
-                                letterSpacing: 1,
-                                fontFamily: 'Arial',
-                                fontWeight: FontWeight.bold,
-                              )),
+                              style: arialFont30W600Black),
                         ],
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        // localAuthCheck();
-                        Get.to(const BottomNavigationPage(),
-                            transition: Transition.rightToLeftWithFade,
-                            duration: const Duration(milliseconds: 600));
+                        localAuthCheck();
                       },
                       child: CustomButton(
-                          text1: Strings.continueb,
+                          text1: Strings.ctaAuthorize.toUpperCase(),
                           text2: "",
                           width: Get.width,
-                          height: 60),
+                          height: dim_60),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: dim_20,
                     ),
                   ],
                 ),
