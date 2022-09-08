@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sisterhood_app/screen/authentication/faceId_page.dart';
 import 'package:sisterhood_app/screen/splash/splash_page.dart';
+import 'package:sisterhood_app/theme/custom_theme.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: CustomTheme.lightTheme,
       home: Scaffold(
         body: SplashPage(),
       ),

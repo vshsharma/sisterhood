@@ -5,8 +5,8 @@ import 'package:sisterhood_app/utill/styles.dart';
 import '../../utill/strings.dart';
 
 class CustomSlider extends StatefulWidget {
-  double value;
-  CustomSlider(this.value, {Key key}) : super(key: key);
+  final Function update;
+  const CustomSlider(this.update, {Key key}) : super(key: key);
 
   @override
   State<CustomSlider> createState() => _CustomSliderState();
@@ -14,52 +14,65 @@ class CustomSlider extends StatefulWidget {
 
 class _CustomSliderState extends State<CustomSlider> {
   String _status;
-
-  Color _statusColor;
-
+  double _value = 20000.0;
   @override
   void initState() {
     super.initState();
-    _status = '${widget.value.round()}';
+    _status = '${_value.round()}';
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(dim_10),
+      padding: const EdgeInsets.symmetric(vertical: dim_5, horizontal: dim_10),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '${Strings.distance} : $_status ${Strings.metre}',
+                style: courierFont16W600,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey,
+                ),
+                onPressed: () {
+                  widget.update(_value);
+                },
+                child: const Text(
+                  Strings.update,
+                  style: courierFont20W600,
+                ),
+              )
+            ],
+          ),
           Slider(
-            min: 0.0,
-            max: 1000.0,
-            value: widget.value,
-            divisions: 50,
+            min: dim_0,
+            max: dim_40000,
+            value: _value,
+            divisions: thousand,
             onChanged: (value) {
-              setState(() {
-                widget.value = value;
-                _status = '${widget.value.round()}';
-              });
+              updateValue(value);
             },
             onChangeStart: (value) {
-              setState(() {
-                widget.value = value;
-                _status = '${widget.value.round()}';
-              });
+              updateValue(value);
             },
             onChangeEnd: (value) {
-              setState(() {
-                widget.value = value;
-                _status = '${widget.value.round()}';
-              });
+              updateValue(value);
             },
-          ),
-          Text(
-            '${Strings.distance} : $_status',
-            style: courierFont18W400,
           ),
         ],
       ),
     );
+  }
+
+  void updateValue(double value) {
+    _value = value;
+    setState(() {
+      _status = '${_value.round()}';
+    });
   }
 }

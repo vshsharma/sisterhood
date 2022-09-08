@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sisterhood_app/location/location_util.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/viewHistory/journal_history_list.dart';
 import 'package:sisterhood_app/screen/Dashboard/drawer_page.dart';
 import 'package:sisterhood_app/screen/journal_entry/journal_entry_media.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../resource/resource_page.dart';
 
@@ -23,6 +25,12 @@ class _HomePageState extends State<HomePage> {
 
   void _openDrawer() {
     _scaffoldKey.currentState.openDrawer();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkGps();
   }
 
   @override
@@ -194,5 +202,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ]),
                 ))));
+  }
+
+  Future<void> checkGps() async {
+    bool isServiceEnabled = await LocationUtil.isGeoLocationEnabled();
+    if (isServiceEnabled) {
+      bool isLocationPermission = await LocationUtil.locationPermission();
+      Utils.log("LocationPermission: $isLocationPermission");
+    }
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:sisterhood_app/location/location_util.dart';
 import 'package:sisterhood_app/screen/app_widgets/search_view.dart';
 import 'package:sisterhood_app/screen/app_widgets/slider.dart';
 import 'package:sisterhood_app/screen/women_shelter/model/women_shelter_model.dart';
@@ -20,8 +22,10 @@ class WomenShelterScreen extends StatefulWidget {
 
 class _WomenShelterScreenState extends State<WomenShelterScreen> {
   List<WomenShelterModel> womenShelterList = [];
+  List<WomenShelterModel> items = [];
+  TextEditingController textEditingController = TextEditingController();
   bool isShowLoader = false;
-  double value = 50.0;
+  double value = 20000.0;
   void showLoader(bool showLoader) {
     setState(() {
       isShowLoader = showLoader;
@@ -31,13 +35,62 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    getLocation();
   }
 
-  Future<void> loadData() async {
+  Future<void> loadData(Position resultCoordinates) async {
     showLoader(true);
-    womenShelterList = await Utils.loadJson();
+    var jsonList = await Utils.loadJson();
+    print("Selected Distance: $value");
+    var loadedData = jsonList
+        .where((element) =>
+            distanceBetweenCoordinates(element, resultCoordinates) < value)
+        .toList();
+    items.clear();
+    womenShelterList.clear();
+    items.addAll(loadedData);
+    womenShelterList.addAll(loadedData);
     showLoader(false);
+  }
+
+  double distanceBetweenCoordinates(
+      WomenShelterModel element, Position resultCoordinates) {
+    double distanceFromCurrentLocation =
+        LocationUtil.getDistanceBetweenCoordinates(
+            Position(
+              latitude: double.parse(element.coordinate.split(',')[0]),
+              longitude: double.parse(element.coordinate.split(',')[1]),
+              speed: 0.0,
+              heading: 0.0,
+              accuracy: 0.0,
+              timestamp: DateTime.now(),
+              speedAccuracy: 0.0,
+              altitude: 0.0,
+            ),
+            resultCoordinates);
+    Utils.log("distanceFromCurrentLocation: $distanceFromCurrentLocation");
+    return distanceFromCurrentLocation;
+  }
+
+  void filterSearchResults(String query) {
+    List<WomenShelterModel> tempList = [];
+    tempList.addAll(items);
+    if (query.trim().isNotEmpty) {
+      List<WomenShelterModel> dummyListData = [];
+      dummyListData = tempList
+          .where((element) =>
+              element.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      setState(() {
+        womenShelterList.clear();
+        womenShelterList.addAll(dummyListData);
+      });
+    } else {
+      setState(() {
+        womenShelterList.clear();
+        womenShelterList.addAll(items);
+      });
+    }
   }
 
   @override
@@ -45,151 +98,188 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
     return BaseWidget(isShowLoader
         ? const ProgressIndicatorWidget()
         : Center(
-            child: Column(
-              children: [
-                CustomSearchView((value) {
-                  print('$value');
-                }),
-                CustomSlider(value),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: womenShelterList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Card(
-                          semanticContainer: true,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Padding(
-                            padding: const EdgeInsets.all(dim_8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.all(dim_5),
-                                  child: Text(
-                                    womenShelterList[index].name,
-                                    style: courierFont18W600,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(dim_5),
-                                  child: Text(
-                                    womenShelterList[index].address,
-                                    style: courierFont14W600,
-                                  ),
-                                ),
-                                Visibility(
-                                  visible:
-                                      womenShelterList[index].phone.isNotEmpty,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(dim_5),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        ClipOval(
-                                          child: Material(
-                                            color: ColorResources
-                                                .darkgrey, // Button color
-                                            child: InkWell(
-                                              splashColor: ColorResources
-                                                  .green, // Splash color
-                                              onTap: () {
-                                                Utils.makePhoneCall(
-                                                    womenShelterList[index]
-                                                        .phone
-                                                        .replaceAll(" ", ""));
-                                              },
-                                              child: const SizedBox(
-                                                  width: dim_35,
-                                                  height: dim_35,
-                                                  child: Icon(
-                                                    Icons.call,
-                                                    color: ColorResources.white,
-                                                  )),
-                                            ),
+            child: womenShelterList.isNotEmpty
+                ? Column(
+                    children: [
+                      CustomSearchView((value) {
+                        filterSearchResults(value);
+                      }, textEditingController),
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: womenShelterList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Card(
+                                semanticContainer: true,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(dim_8),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.all(dim_2),
+                                        child: Text(
+                                          womenShelterList[index].name,
+                                          style: courierFont18W600,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(dim_2),
+                                        child: Text(
+                                          womenShelterList[index].address,
+                                          style: courierFont14W600,
+                                        ),
+                                      ),
+                                      Visibility(
+                                        visible: womenShelterList[index]
+                                            .email
+                                            .isNotEmpty,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(dim_5),
+                                          child: Text(
+                                            womenShelterList[index]
+                                                .email
+                                                .toLowerCase(),
+                                            style: courierFont14W600,
                                           ),
                                         ),
-                                        const SizedBox(
-                                          width: dim_5,
+                                      ),
+                                      Visibility(
+                                        visible: womenShelterList[index]
+                                            .phone
+                                            .isNotEmpty,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(dim_2),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              ClipOval(
+                                                child: Material(
+                                                  color: ColorResources
+                                                      .darkgrey, // Button color
+                                                  child: InkWell(
+                                                    splashColor: ColorResources
+                                                        .green, // Splash color
+                                                    onTap: () {
+                                                      Utils.makePhoneCall(
+                                                          womenShelterList[
+                                                                  index]
+                                                              .phone
+                                                              .replaceAll(
+                                                                  " ", ""));
+                                                    },
+                                                    child: const SizedBox(
+                                                        width: dim_30,
+                                                        height: dim_30,
+                                                        child: Icon(
+                                                          Icons.call,
+                                                          size: dim_20,
+                                                          color: ColorResources
+                                                              .white,
+                                                        )),
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: dim_5,
+                                              ),
+                                              Text(
+                                                womenShelterList[index]
+                                                    .phone
+                                                    .replaceAll(" ", ""),
+                                                style: courierFont16W600,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        Text(
-                                          womenShelterList[index].phone,
-                                          style: courierFont16W600,
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ElevatedButton.icon(
+                                            onPressed: () {
+                                              var coordinate =
+                                                  womenShelterList[index]
+                                                      .coordinate
+                                                      .split(',');
+                                              Utils.navigateTo(
+                                                  double.parse(coordinate[0]),
+                                                  double.parse(coordinate[1]));
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              primary: ColorResources.darkgrey,
+                                            ),
+                                            icon: const Icon(
+                                              Icons.directions,
+                                              color: ColorResources.white,
+                                            ), //icon data for elevated button
+                                            label: const Text(
+                                                Strings.direction), //label text
+                                          ),
+                                          Visibility(
+                                            visible: womenShelterList[index]
+                                                .webURL
+                                                .isNotEmpty,
+                                            child: ElevatedButton.icon(
+                                              onPressed: () {
+                                                Utils
+                                                    .launchInWebViewWithoutJavaScript(
+                                                        Uri.parse(
+                                                            womenShelterList[
+                                                                    index]
+                                                                .webURL));
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                primary:
+                                                    ColorResources.darkgrey,
+                                              ),
+                                              icon: const Icon(Icons.web,
+                                                  color: ColorResources
+                                                      .white), //icon data for elevated button
+                                              label: const Text(
+                                                  Strings.website), //label text
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],
                                   ),
                                 ),
-                                Visibility(
-                                  visible:
-                                      womenShelterList[index].email.isNotEmpty,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(dim_5),
-                                    child: Text(
-                                      womenShelterList[index].email,
-                                      style: courierFont14W600,
-                                    ),
-                                  ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(dim_10),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ElevatedButton.icon(
-                                      onPressed: () {
-                                        var coordinate = womenShelterList[index]
-                                            .coordinate
-                                            .split(',');
-                                        Utils.navigateTo(
-                                            double.parse(coordinate[0]),
-                                            double.parse(coordinate[1]));
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        primary: ColorResources.darkgrey,
-                                      ),
-                                      icon: const Icon(Icons
-                                          .directions), //icon data for elevated button
-                                      label: const Text(
-                                          Strings.direction), //label text
-                                    ),
-                                    Visibility(
-                                      visible: womenShelterList[index]
-                                          .webURL
-                                          .isNotEmpty,
-                                      child: ElevatedButton.icon(
-                                        onPressed: () {
-                                          Utils
-                                              .launchInWebViewWithoutJavaScript(
-                                                  Uri.parse(
-                                                      womenShelterList[index]
-                                                          .webURL));
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          primary: ColorResources.darkgrey,
-                                        ),
-                                        icon: const Icon(Icons
-                                            .web), //icon data for elevated button
-                                        label: const Text(
-                                            Strings.website), //label text
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(dim_10),
-                          ),
-                          elevation: dim_5,
-                          margin: const EdgeInsets.all(dim_5),
-                        );
+                                elevation: dim_5,
+                                margin: const EdgeInsets.all(dim_5),
+                              );
+                            }),
+                      ),
+                      CustomSlider((distance) {
+                        value = distance;
+                        Utils.log('Update distance: $distance');
+                        getLocation();
                       }),
-                ),
-              ],
-            ),
+                    ],
+                  )
+                : const Text(
+                    "No shelter found",
+                    style: courierFont25W700Black,
+                  ),
           ));
     ;
+  }
+
+  Future<void> getLocation() async {
+    showLoader(true);
+    bool isLocationPermission = await LocationUtil.locationPermission();
+    if (isLocationPermission) {
+      Position resultCoordinates = await LocationUtil.getCoordinates();
+      loadData(resultCoordinates);
+      print("Latitude: ${resultCoordinates.latitude}");
+      print("Longitude: ${resultCoordinates.longitude}");
+    }
   }
 }

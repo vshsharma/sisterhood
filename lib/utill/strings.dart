@@ -232,4 +232,6 @@ class Strings {
   static const String direction = "Direction";
   static const String website = "Website";
   static const String distance = "Distance";
+  static const String metre = "Metre";
+  static const String done = "Done";
 }
