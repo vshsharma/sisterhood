@@ -234,4 +234,5 @@ class Strings {
   static const String distance = "Distance";
   static const String metre = "Metre";
   static const String done = "Done";
+  static const String no_shelter = "No shelter found";
 }

@@ -38,6 +38,17 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
     getLocation();
   }
 
+  Future<void> getLocation() async {
+    showLoader(true);
+    bool isLocationPermission = await LocationUtil.locationPermission();
+    if (isLocationPermission) {
+      Position resultCoordinates = await LocationUtil.getCoordinates();
+      loadData(resultCoordinates);
+      print("Latitude: ${resultCoordinates.latitude}");
+      print("Longitude: ${resultCoordinates.longitude}");
+    }
+  }
+
   Future<void> loadData(Position resultCoordinates) async {
     showLoader(true);
     var jsonList = await Utils.loadJson();
@@ -257,29 +268,29 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
                               );
                             }),
                       ),
-                      CustomSlider((distance) {
+                      CustomSlider(value, (distance) {
                         value = distance;
                         Utils.log('Update distance: $distance');
                         getLocation();
                       }),
                     ],
                   )
-                : const Text(
-                    "No shelter found",
-                    style: courierFont25W700Black,
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        Strings.no_shelter,
+                        style: courierFont25W700Black,
+                      ),
+                      CustomSlider(value, (distance) {
+                        value = distance;
+                        Utils.log('Update distance: $distance');
+                        getLocation();
+                      }),
+                    ],
                   ),
           ));
     ;
-  }
-
-  Future<void> getLocation() async {
-    showLoader(true);
-    bool isLocationPermission = await LocationUtil.locationPermission();
-    if (isLocationPermission) {
-      Position resultCoordinates = await LocationUtil.getCoordinates();
-      loadData(resultCoordinates);
-      print("Latitude: ${resultCoordinates.latitude}");
-      print("Longitude: ${resultCoordinates.longitude}");
-    }
   }
 }

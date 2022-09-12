@@ -70,6 +70,7 @@ const double dim_85 = 85.0;
 const double dim_100 = 100.0;
 const double dim_1000 = 1000.0;
 const double dim_40000 = 40000.0;
+const double dim_90000 = 90000.0;
 
 const double font_14 = 14.0;
 const double font_16 = 16.0;
@@ -80,3 +81,4 @@ const double font_24 = 24.0;
 const int one = 1;
 const int hundred = 100;
 const int thousand = 1000;
+const int ten_thousand = 10000;
