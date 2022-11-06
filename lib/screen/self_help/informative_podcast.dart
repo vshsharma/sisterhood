@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
-
-import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
-import '../../utill/styles.dart';
-import '../common/custom_html_viewer.dart';
-import '../common/grey_background_widget.dart';
+import 'package:sisterhood_app/screen/common/custom_html_viewer.dart';
+import 'package:sisterhood_app/screen/common/grey_background_widget.dart';
+import 'package:sisterhood_app/utill/app_constants.dart';
+import 'package:sisterhood_app/utill/dimension.dart';
+import 'package:sisterhood_app/utill/styles.dart';
 
 class InformativePodcast extends StatefulWidget {
   const InformativePodcast({Key key}) : super(key: key);
@@ -21,32 +21,41 @@ class _InformativePodcastState extends State<InformativePodcast> {
       padding: const EdgeInsets.all(dim_20),
       child: SingleChildScrollView(
         child: Column(
-          children: const [
+          children: [
             Text(
-              Strings.informative_podcast,
+              AppLocalizations.of(context).informative_podcast,
               textAlign: TextAlign.center,
               softWrap: true,
               style: courierFont25W700Black,
             ),
             SizedBox(height: dim_20),
             Text(
-              Strings.informative_podcast_desc,
+              AppLocalizations.of(context).informative_podcast_desc,
               textAlign: TextAlign.center,
               maxLines: null,
               softWrap: true,
               style: courierFont18W400,
             ),
-            SizedBox(height: dim_30),
+            const SizedBox(height: dim_30),
             GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_1)
+              child: CustomHTMLViewer(
+                AppLocalizations.of(context)
+                    .info_podcast_1(AppConstants.podcast_url1),
+              ),
             ),
-            SizedBox(height: dim_30),
+            const SizedBox(height: dim_30),
             GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_2)
+              child: CustomHTMLViewer(
+                AppLocalizations.of(context)
+                    .info_podcast_2(AppConstants.podcast_url2),
+              ),
             ),
-            SizedBox(height: dim_30),
+            const SizedBox(height: dim_30),
             GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.info_podcast_3)
+              child: CustomHTMLViewer(
+                AppLocalizations.of(context)
+                    .info_podcast_3(AppConstants.podcast_url3),
+              ),
             ),
             SizedBox(height: dim_30),
           ],

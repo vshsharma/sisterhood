@@ -5,7 +5,7 @@ import 'package:sisterhood_app/screen/app_widgets/search_view.dart';
 import 'package:sisterhood_app/screen/app_widgets/slider.dart';
 import 'package:sisterhood_app/screen/women_shelter/model/women_shelter_model.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
-import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../utill/dimension.dart';
@@ -44,15 +44,12 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
     if (isLocationPermission) {
       Position resultCoordinates = await LocationUtil.getCoordinates();
       loadData(resultCoordinates);
-      print("Latitude: ${resultCoordinates.latitude}");
-      print("Longitude: ${resultCoordinates.longitude}");
     }
   }
 
   Future<void> loadData(Position resultCoordinates) async {
     showLoader(true);
     var jsonList = await Utils.loadJson();
-    print("Selected Distance: $value");
     var loadedData = jsonList
         .where((element) =>
             distanceBetweenCoordinates(element, resultCoordinates) < value)
@@ -228,8 +225,8 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
                                               Icons.directions,
                                               color: ColorResources.white,
                                             ), //icon data for elevated button
-                                            label: const Text(
-                                                Strings.direction), //label text
+                                            label: Text(context
+                                                .loc.direction), //label text
                                           ),
                                           Visibility(
                                             visible: womenShelterList[index]
@@ -251,8 +248,8 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
                                               icon: const Icon(Icons.web,
                                                   color: ColorResources
                                                       .white), //icon data for elevated button
-                                              label: const Text(
-                                                  Strings.website), //label text
+                                              label: Text(context
+                                                  .loc.website), //label text
                                             ),
                                           )
                                         ],
@@ -279,8 +276,8 @@ class _WomenShelterScreenState extends State<WomenShelterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                        Strings.no_shelter,
+                      Text(
+                        context.loc.no_shelter,
                         style: courierFont25W700Black,
                       ),
                       CustomSlider(value, (distance) {

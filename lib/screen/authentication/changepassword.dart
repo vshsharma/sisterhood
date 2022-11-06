@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/images.dart';
-import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/styles.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({Key key}) : super(key: key);
@@ -15,7 +16,6 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-
   final _formKey = GlobalKey<FormState>();
 
   final _oldpassword = TextEditingController();
@@ -25,8 +25,6 @@ class _ChangePasswordState extends State<ChangePassword> {
   bool _obscureText = true;
   bool _obscureText1 = true;
   bool _obscureText2 = true;
-
-  String _password;
 
   void _toggle() {
     setState(() {
@@ -46,8 +44,6 @@ class _ChangePasswordState extends State<ChangePassword> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,115 +52,86 @@ class _ChangePasswordState extends State<ChangePassword> {
           elevation: 0,
           backgroundColor: ColorResources.background,
           leading: Padding(
-            padding: const EdgeInsets.only(left: 5.0,top: 10),
+            padding: const EdgeInsets.only(left: 5.0, top: 10),
             child: Column(
               children: [
                 InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: Icon(Icons.keyboard_arrow_left_outlined,color: ColorResources.grey,size: 35,)),
-                // Image.asset(Images.commonlogo,scale: 20,),
-                // Image.asset(Images.Sisterhood,scale: 20,),
+                    child: const Icon(
+                      Icons.keyboard_arrow_left_outlined,
+                      color: ColorResources.grey,
+                      size: 35,
+                    )),
               ],
             ),
           ),
-          // title: Image.asset(Images.logo,width: 50,),
           actions: [
             InkWell(
-              onTap:()=> exit(0),
+              onTap: () => exit(0),
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0),
-                child: Image.asset(Images.loginImage,width: 30,height: 30,),
+                child: Image.asset(
+                  Images.loginImage,
+                  width: 30,
+                  height: 30,
+                ),
               ),
             ),
           ],
         ),
         body: SafeArea(
             child: Center(
-              child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        _logo(),
-                        SizedBox(height: 40,),
-                        Form(
-                          key: _formKey,
-                          child: Column(
+          child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _logo(),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20),
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // const Text(Strings.resetPassword,
-                                //   style: TextStyle(
-                                //       color: ColorResources.profilehintColor,
-                                //       fontSize: 20,
-                                //       letterSpacing: 0.5,
-                                //       fontFamily: 'Arial',
-                                //       fontWeight: FontWeight.w600
-                                //   ),
-                                // ),
-                                // SizedBox(height: 30),
-                                // Column(
-                                //   crossAxisAlignment: CrossAxisAlignment.start,
-                                //   children: [
-                                //
-                                //     Text(Strings.oldPassword,
-                                //         style: TextStyle(
-                                //           color: ColorResources.profilePlaceholderColor,
-                                //           fontSize: 16,
-                                //           // letterSpacing: 1,
-                                //           // fontFamily: 'Arial',
-                                //           fontWeight: FontWeight.w600,
-                                //         )),
-                                //     SizedBox(height: 5,),
-                                //     _oldPasswordField(),
-                                //   ],
-                                // ),
-                                SizedBox(height: 20),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(Strings.newPassword,
-                                        style: TextStyle(
-                                          color: ColorResources.profilePlaceholderColor,
-                                          fontSize: 16,
-                                          // letterSpacing: 1,
-                                          // fontFamily: 'Arial',
-                                          fontWeight: FontWeight.w600,
-                                        )),
-                                    SizedBox(height: 5,),
-                                    _newPasswordField(),
-                                  ],
+                                Text(AppLocalizations.of(context).new_password,
+                                    style: arialFont16W400),
+                                const SizedBox(
+                                  height: 5,
                                 ),
-                                SizedBox(height: 30),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(Strings.confirmPassword,
-                                        style: TextStyle(
-                                          color: ColorResources.profilePlaceholderColor,
-                                          fontSize: 16,
-                                          // letterSpacing: 1,
-                                          // fontFamily: 'Arial',
-                                          fontWeight: FontWeight.w600,
-                                        )),
-                                    SizedBox(height: 5,),
-                                    _confirmPasswordField(),
-                                  ],
+                                _newPasswordField(),
+                              ],
+                            ),
+                            const SizedBox(height: 30),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(AppLocalizations.of(context).confirm_password,
+                                    style: arialFont16W700),
+                                const SizedBox(
+                                  height: 5,
                                 ),
-                                SizedBox(height: 120),
-                                _continuebutton(),
-                                SizedBox(height: 30,),
-
-                              ]),
-                        ),
-                      ],
+                                _confirmPasswordField(),
+                              ],
+                            ),
+                            const SizedBox(height: 120),
+                            _continuebutton(),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                          ]),
                     ),
-                  )
-              ),
-            )
-        )
-    );
+                  ],
+                ),
+              )),
+        )));
   }
 
   _logo() {
@@ -174,32 +141,27 @@ class _ChangePasswordState extends State<ChangePassword> {
         Container(
             height: 90,
             // width: 180,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Images.commonlogo)
-                ))),
+            decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage(Images.commonlogo)))),
         Container(
             height: 80,
             // width: 180,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Images.Sisterhood)
-                ))),
-
+            decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage(Images.Sisterhood)))),
       ],
     );
   }
 
   _continuebutton() {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         // Get.to(EditProfilePage(),
         // transition: Transition.rightToLeftWithFade,
         //   duration: Duration(milliseconds: 600)
         // );
       },
       child: CustomButton(
-          text1: Strings.save, text2: "", width: Get.width, height: 60),
+          text1: AppLocalizations.of(context).save, text2: "", width: Get.width, height: 60),
     );
   }
 
@@ -225,29 +187,17 @@ class _ChangePasswordState extends State<ChangePassword> {
               keyboardType: TextInputType.text,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               textAlignVertical: TextAlignVertical.bottom,
-              style: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+              style: arialFont18W600,
               decoration: InputDecoration(
-                hintText: Strings.oldPassword,
-                hintStyle: TextStyle(
-                    color: ColorResources.profilehintColor,
-                    fontSize: 18,
-                    letterSpacing: 0.5,
-                    fontFamily: 'Arial',
-                    fontWeight: FontWeight.w600
-                ),
-                errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                border: OutlineInputBorder(borderSide: BorderSide.none),
+                hintText: AppLocalizations.of(context).old_password,
+                hintStyle: arialFont18W600,
+                errorBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                border: const OutlineInputBorder(borderSide: BorderSide.none),
               ),
               obscureText: _obscureText,
               validator: (value) {
                 if (value.isEmpty) {
-                  return "Please enter your old password";
+                  return AppLocalizations.of(context).please_enter_your_old_password;
                 }
                 return null;
               },
@@ -257,7 +207,11 @@ class _ChangePasswordState extends State<ChangePassword> {
             onTap: _toggle,
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: Image.asset(Images.eyeImage,color: _obscureText?ColorResources.black:Colors.red,scale: 4,),
+              child: Image.asset(
+                Images.eyeImage,
+                color: _obscureText ? ColorResources.black : Colors.red,
+                scale: 4,
+              ),
             ),
           )
         ],
@@ -287,32 +241,20 @@ class _ChangePasswordState extends State<ChangePassword> {
               keyboardType: TextInputType.text,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               textAlignVertical: TextAlignVertical.bottom,
-              style: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+              style: arialFont18W600,
               decoration: InputDecoration(
-                hintText: Strings.newPassword,
-                hintStyle: TextStyle(
-                    color: ColorResources.profilehintColor,
-                    fontSize: 18,
-                    letterSpacing: 0.5,
-                    fontFamily: 'Arial',
-                    fontWeight: FontWeight.w600
-                ),
-                errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                border: OutlineInputBorder(borderSide: BorderSide.none),
+                hintText: AppLocalizations.of(context).new_password,
+                hintStyle: arialFont18W600,
+                errorBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                border: const OutlineInputBorder(borderSide: BorderSide.none),
               ),
               obscureText: _obscureText1,
               validator: (value) {
                 if (value.trim().isEmpty) {
-                  return "Please, enter the new password";
+                  return AppLocalizations.of(context).please_enter_your_new_password;
                 }
                 if (value.trim().length < 8) {
-                  return "Password should be more then 8 characters";
+                  return AppLocalizations.of(context).password_must_be_8_character;
                 }
                 return null;
               },
@@ -322,7 +264,11 @@ class _ChangePasswordState extends State<ChangePassword> {
             onTap: _toggle1,
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: Image.asset(Images.eyeImage,color: _obscureText1?ColorResources.black:Colors.red,scale: 4,),
+              child: Image.asset(
+                Images.eyeImage,
+                color: _obscureText1 ? ColorResources.black : Colors.red,
+                scale: 4,
+              ),
             ),
           )
         ],
@@ -352,32 +298,20 @@ class _ChangePasswordState extends State<ChangePassword> {
               keyboardType: TextInputType.text,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               textAlignVertical: TextAlignVertical.bottom,
-              style: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+              style: arialFont18W600,
               decoration: InputDecoration(
-                hintText: Strings.confirmPassword,
-                hintStyle: TextStyle(
-                    color: ColorResources.profilehintColor,
-                    fontSize: 18,
-                    letterSpacing: 0.5,
-                    fontFamily: 'Arial',
-                    fontWeight: FontWeight.w600
-                ),
-                errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                border: OutlineInputBorder(borderSide: BorderSide.none),
+                hintText: AppLocalizations.of(context).confirm_password,
+                hintStyle: arialFont18W600,
+                errorBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                border: const OutlineInputBorder(borderSide: BorderSide.none),
               ),
               obscureText: _obscureText2,
               validator: (value) {
                 if (value.trim().isEmpty) {
-                  return "Please, enter the confirm password";
+                  return AppLocalizations.of(context).please_enter_confirm_password;
                 }
-                if (value!=_newpassword.text) {
-                  return "Confirm password not match";
+                if (value != _newpassword.text) {
+                  return AppLocalizations.of(context).confirm_password_not_match;
                 }
                 return null;
               },
@@ -387,12 +321,15 @@ class _ChangePasswordState extends State<ChangePassword> {
             onTap: _toggle2,
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: Image.asset(Images.eyeImage,color: _obscureText2?ColorResources.black:Colors.red,scale: 4,),
+              child: Image.asset(
+                Images.eyeImage,
+                color: _obscureText2 ? ColorResources.black : Colors.red,
+                scale: 4,
+              ),
             ),
           )
         ],
       ),
     );
   }
-
 }

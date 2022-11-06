@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth_android/local_auth_android.dart';
 import 'package:local_auth_ios/local_auth_ios.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/utils.dart';
-
-import '../utill/strings.dart';
 
 class LocalAuthApi {
   static Future<bool> hasBiometrics() async {
@@ -26,7 +26,7 @@ class LocalAuthApi {
     return cancel;
   }
 
-  static Future<bool> authenticate() async {
+  static Future<bool> authenticate(BuildContext context) async {
     var _auth = LocalAuthentication();
     final isAvailable = await hasBiometrics();
     if (!isAvailable) return false;
@@ -34,19 +34,19 @@ class LocalAuthApi {
     Utils.log("$available");
     try {
       return await _auth.authenticate(
-          localizedReason: Strings.biometricMessage,
+          localizedReason: context.loc.biometric_message,
           options: const AuthenticationOptions(
               useErrorDialogs: true,
               biometricOnly: true,
               stickyAuth: false,
               sensitiveTransaction: true),
-          authMessages: const <AuthMessages>[
+          authMessages: <AuthMessages>[
             AndroidAuthMessages(
-              signInTitle: Strings.authenticationMessage,
-              cancelButton: Strings.noThanks,
+              signInTitle: context.loc.authentication_message,
+              cancelButton: context.loc.no_thanks,
             ),
             IOSAuthMessages(
-              cancelButton: Strings.noThanks,
+              cancelButton: context.loc.no_thanks,
             ),
           ]);
     } on PlatformException catch (e) {

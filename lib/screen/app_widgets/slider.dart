@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 
 import '../../utill/color_resources.dart';
-import '../../utill/strings.dart';
 
 class CustomSlider extends StatefulWidget {
   final Function update;
@@ -39,7 +39,7 @@ class _CustomSliderState extends State<CustomSlider> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${Strings.distance} : $_status ${Strings.metre}',
+                  '${context.loc.distance} : $_status ${context.loc.metre}',
                   style: courierFont16W600,
                 ),
                 ElevatedButton(
@@ -49,8 +49,8 @@ class _CustomSliderState extends State<CustomSlider> {
                   onPressed: () {
                     widget.update(_value);
                   },
-                  child: const Text(
-                    Strings.update,
+                  child: Text(
+                    context.loc.update,
                     style: courierFont20W600,
                   ),
                 )

@@ -1,7 +1,7 @@
 const String domesticHtml = """ 
 <body>
 <p>
-Domestic abuse within a relationship tends to grow over time. In the beginning, violence is rare. At first the abusive partner may make demands or assert dominance, which seem innocent and harmless. But over time, the parties in the relationship change as the abusers' control and violence increase. This often forces the woman to adapt and agree to the increasing demands to avoid further conflicts. Resisting often leads to increased violence.<br><br>
+<p>Domestic abuse within a relationship tends to grow over time. In the beginning, violence is rare. At first the abusive partner may make demands or assert dominance, which seem innocent and harmless. But over time, the parties in the relationship change as the abusers' control and violence increase. This often forces the woman to adapt and agree to the increasing demands to avoid further conflicts. Resisting often leads to increased violence.</p><br><br>
 In general, abuse often begins with psychological violence, such as critical and derogatory comments, which causes the woman to stop believing in herself. Then the physical violence can come as a continuation.<br><br>
 It is common for the woman to become isolated and lose her social contacts and stop doing things on her own. The abuser often forbids the woman to interact with her friends and family. This increases the woman’s dependency on her abusive partner.<br><br>
 More information can be found at <a href=" https://nck.uu.se/kunskapsbanken/amnesguider/vald-i-nara-relationer/vald-i-nara-relationer/">Nationellt Centrum för Kvinnofrid.</a><br><br>
@@ -17,7 +17,7 @@ You can read more about domestic abuse on <a href="https://www.unizonjourer.se/f
 <u>Here are two TED Talk videos from domestic abuse survivors</u><br><br>
 Emma Murphy’s <a href="https://www.youtube.com/watch?v=frFEdN7aMh8">I Broke My Silence TED Talk from March 19, 2018</a><br><br>
 Jasvinder Sanghera’s <a href="https://www.youtube.com/watch?v=h_Xh5MXA7yY">Fighting forced marriages and honor-based abuse TED Talk from November 28, 2013</a><br><br>
-  </p>
+</p>
 </body>
   """;
 
@@ -289,21 +289,21 @@ You can read more about SOS <a href="https://www.sosalarm.se/om-oss/">here.</a><
 """;
 
 const String support1 = """
-<body>
-<p>
-<h3>Kvinnofridslinjen</h3><br>
-  Phone: 020-50 50 50<br>
-  Website:<a href=""https://kvinnofridslinjen.se/en/">https://kvinnofridslinjen.se/en/</a><br><br>
   <body>
-    <ul>
-       <li> Offers free calls 24/7 <br/></li>
-       <li> The call does not show up on your phone bill <br/></li>
-       <li> Access to an interpreter <br/></li>
-       <li> You can be anonymous, and the call is confidential <br/></li>
-    </ul>
-  <body>
-</p>
-</body>
+  <p>
+  <h3>Kvinnofridslinjen</h3><br>
+    Phone: 020-50 50 50<br>
+    Website:<a href=""https://kvinnofridslinjen.se/en/">https://kvinnofridslinjen.se/en/</a><br><br>
+    <body>
+      <ul>
+         <li> Offers free calls 24/7 <br/></li>
+         <li> The call does not show up on your phone bill <br/></li>
+         <li> Access to an interpreter <br/></li>
+         <li> You can be anonymous, and the call is confidential <br/></li>
+      </ul>
+    <body>
+  </p>
+  </body>
 """;
 const String support2 = """
 <body>
@@ -357,7 +357,7 @@ const String legalInfoContent = """
   <body>
   <li>  Allow Sisterhood to track your location and geotag your pictures. This allows the police to see where the picture was taken, which strengthens your case.<br/></li>
   <li>  If you feel comfortable, ask a family member or friend you trust to take a picture of you and your injuries as well as a selfie of both of you. That way your family member or friend can corroborate your story and be your witness.<br/></li>
-  <li>  Take pictures of yourself and your injuries in your home or places you are known to frequently visit. That way the police can connect your injuries with known objects in your house. For instance, in front of your couch, in the kitchen where you can see the dining table/chairs in the background etc. The picture below shows an example: <br/></li>
+  <li>  Take pictures of yourself and your injuries in your home or places you are known to frequently visit. That way the police can connect your injuries with known objects in your house. For instance, in front of your couch, in the kitchen where you can see the dining table/chairs in the background etc. The picture below shows an example: <br/> <img src="asset:assets/image/legal_info.png" alt="legal_info"></li>
   <li>  Take multiple pictures over time. Injuries change over time, so make sure that you take pictures that reflect these changes. For instance, a bruise usually starts off being red. After 1-2 days the bruise will appear blue, purple or even black. After 5-10 days, your bruise turns yellow or green and after 10-14 days your bruise will likely have a yellowish brown or light brown color. Take pictures of these changes and use the “edit function” in the “View History” page to upload additional pictures.<br/></li>
   </body>
   <p> </p>
@@ -379,7 +379,7 @@ const String legalInfoContent = """
   you have to report it to the police as soon as possible. For these cases time is of the essence. 
   If you are getting collection letters from Kronofodgen, respond with an objection and explain 
   the circumstances. In some cases, Kronofodgen will invalidate the debt. Read more about it 
-  <a href='https://kronofogden.se/forebygg-ekonomiska-problem/stod-i-arbetet/vald-i-nara-relation'>here</a> <br> 
+  <a href='https://kronofogden.se/du-har-ett-krav-mot-nagon/du-vill-fa-ditt-krav-faststallt/du-vill-fa-tillbaka-eller-ta-bort-egendom'>here</a> <br> 
   
   <br><br>
   <h3>I want to apply for sole custody of our child/children</h3>

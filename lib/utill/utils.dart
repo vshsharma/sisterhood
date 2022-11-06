@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sisterhood_app/screen/women_shelter/model/women_shelter_model.dart';
-import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -90,7 +90,7 @@ class Utils {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: dim_25),
                       child: CustomButton(
-                          text1: Strings.close,
+                          text1: context.loc.close,
                           text2: "",
                           width: Get.width,
                           height: dim_50)),
@@ -150,12 +150,13 @@ class Utils {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     textAlignVertical: TextAlignVertical.bottom,
                     style: arialFont14W600,
-                    decoration: const InputDecoration(
-                      hintText: Strings.write_here,
+                    decoration: InputDecoration(
+                      hintText: context.loc.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                          OutlineInputBorder(borderSide: BorderSide.none),
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                          const OutlineInputBorder(borderSide: BorderSide.none),
+                      border:
+                          const OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -175,7 +176,7 @@ class Utils {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: dim_25),
                       child: CustomButton(
-                          text1: Strings.submit,
+                          text1: context.loc.submit,
                           text2: "",
                           width: Get.width,
                           height: dim_50)),
@@ -228,12 +229,13 @@ class Utils {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     textAlignVertical: TextAlignVertical.bottom,
                     style: arialFont14W600,
-                    decoration: const InputDecoration(
-                      hintText: Strings.write_here,
+                    decoration: InputDecoration(
+                      hintText: context.loc.write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
-                          OutlineInputBorder(borderSide: BorderSide.none),
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                          const OutlineInputBorder(borderSide: BorderSide.none),
+                      border:
+                          const OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -253,7 +255,7 @@ class Utils {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: dim_25),
                       child: CustomButton(
-                          text1: Strings.submit,
+                          text1: context.loc.submit,
                           text2: "",
                           width: Get.width,
                           height: dim_50)),
@@ -303,5 +305,14 @@ class Utils {
     )) {
       throw 'Could not launch $url';
     }
+  }
+
+  String getFileName(String url) {
+    RegExp regExp = new RegExp(r'.+(\/|%2F)(.+)\?.+');
+    //This Regex won't work if you remove ?alt...token
+    var matches = regExp.allMatches(url);
+    var match = matches.elementAt(0);
+    print("${Uri.decodeFull(match.group(2))}");
+    return Uri.decodeFull(match.group(2));
   }
 }

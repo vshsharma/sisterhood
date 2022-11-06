@@ -29,6 +29,13 @@ const robotoBold = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+const roboto16BoldGrey = TextStyle(
+  fontFamily: 'Roboto',
+  color: ColorResources.grey,
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+);
+
 const robotoExtraBold = TextStyle(
     color: ColorResources.darkgreen,
     fontFamily: 'Roboto',
@@ -50,6 +57,13 @@ const arialFont16W400 = TextStyle(
     fontFamily: 'Arial',
     fontWeight: FontWeight.w400);
 
+const arialFont16W600 = TextStyle(
+    color: ColorResources.profilehintColor,
+    fontSize: 16,
+    letterSpacing: 0.5,
+    fontFamily: 'Arial',
+    fontWeight: FontWeight.w600);
+
 const arialFont16W700 = TextStyle(
     color: ColorResources.profilehintColor,
     fontSize: 16,
@@ -69,6 +83,13 @@ const arialFont20W600ProfilePlaceHolder = TextStyle(
   fontSize: 20,
   fontFamily: 'Arial',
   fontWeight: FontWeight.w600,
+);
+
+const arialFont25W600profileemailColor = TextStyle(
+  color: ColorResources.profileemailColor,
+  fontSize: 25,
+  fontFamily: 'Arial',
+  fontWeight: FontWeight.bold,
 );
 
 const arialFont30W600Black = TextStyle(
@@ -128,6 +149,14 @@ const courierFont12W600ProfileHintColor = TextStyle(
   letterSpacing: 0.5,
   fontFamily: 'Courier',
   fontWeight: FontWeight.w600,
+);
+
+const courierFont10W400ProfileHintColor = TextStyle(
+  color: ColorResources.profilehintColor,
+  fontSize: 10,
+  letterSpacing: 0.5,
+  fontFamily: 'Courier',
+  fontWeight: FontWeight.w400,
 );
 
 const courierFont18W600ProfileHintColor = TextStyle(

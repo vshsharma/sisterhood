@@ -1,13 +1,12 @@
-[
-  {
-    "phone": "+46 54 18 30 34",
-    "web_URL": "http://karlstadskvinnojour.se/",
-    "address": "Hööksgatan 23, 652 29 Karlstad, Sweden",
-    "additional_Info": "9FFQ+Q3 Karlstad, Sweden",
-    "coordinate": "12.9255, 77.5468",
-    "email": "KVINNOJOUREN@AKHKARLSTAD.SE",
-    "name": "Banashankri"
-  },
+[{
+  "phone": "+46 54 18 30 34",
+  "web_URL": "http://karlstadskvinnojour.se/",
+  "address": "Hööksgatan 23, 652 29 Karlstad, Sweden",
+  "additional_Info": "9FFQ+Q3 Karlstad, Sweden",
+  "coordinate": "12.9255, 77.5468",
+  "email": "KVINNOJOUREN@AKHKARLSTAD.SE",
+  "name": "Alla Kvinnors Hus"
+},
   {
     "phone": "+46 54 18 30 34",
     "web_URL": "http://karlstadskvinnojour.se/",
@@ -70,6 +69,1204 @@
     "additional_Info": "G555+45 Lidköping, Sweden",
     "coordinate": "58.55640263626638, 13.15541901486647",
     "email": ""
-  }
+  },
+  {
+    "phone": "",
+    "web_URL": "",
+    "address": "Göteborgsvägen 14, 441 43 Alingsås, Sweden",
+    "additional_Info": "WGGH+9G Alingsås, Sweden",
+    "coordinate": "57.9902361101079, 12.512718861241197",
+    "email": "",
+    "name": "Kvinnojourer i Väst"
+  },
+  {
+    "phone": "+46313679666",
+    "web_URL": "",
+    "address": "Victor Hasselblads gata 41, 421 31 Västra Frölunda, Sweden",
+    "additional_Info": "JWWQ+Q9 Gothenburg, Sweden",
+    "coordinate": "57.653819238208364, 11.938683212478866",
+    "email": "",
+    "name": "ALMA Akut Kvinnoboende"
+  },
 
+  {
+    "phone": "+46313679690",
+    "web_URL": "",
+    "address": "Karl Johansgatan 31, 414 59 Göteborg, Sweden",
+    "additional_Info": "MWWF+HR Gothenburg, Sweden",
+    "coordinate": "57.705215760965785, 11.922890366823541",
+    "email": "",
+    "name": "Huldas hus"
+  },
+
+  {
+    "phone": "+4631426503",
+    "web_URL": "http://kvinnojourboendelinnea.se/text/kontakta.html",
+    "address": "Linnégatan 5, 413 04 Göteborg, Sweden",
+    "additional_Info": "MXX2+CH Gothenburg, Sweden",
+    "coordinate": "57.70705000349603, 11.951042830817812",
+    "email": "",
+    "name": "Linnéa Kvinnojourboende"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://www.lexfemme.com/",
+    "address": "Lorensbergsgatan 18, 411 37 Göteborg, Sweden",
+    "additional_Info": "MXXH+QF Gothenburg, Sweden",
+    "coordinate": "57.70741684085308, 11.977822003885532",
+    "email": "",
+    "name": "Lex Femme"
+  },
+
+  {
+    "phone": "+46313679380",
+    "web_URL": "http://www.lexfemme.com/",
+    "address": "Carl Grimbergsgatan 7, 413 13 Göteborg, Sweden",
+    "additional_Info": "MXV6+23 Gothenburg, Sweden",
+    "coordinate": "57.69971247590177, 11.961342512766935",
+    "email": "",
+    "name": "Kriscentrum för kvinnor"
+  },
+  {
+    "phone": "+4634010511",
+    "web_URL": "https://www.varbergskvinnojour.se/",
+    "address": "Magasinsgatan 17, 432 45 Varberg, Sweden",
+    "additional_Info": "MXV6+23 Gothenburg, Sweden",
+    "coordinate": "57.11906300753002, 12.253166872070361",
+    "email": "",
+    "name": "Kvinnojouren Frideborg"
+  },
+
+  {
+    "phone": "+4634682250",
+    "web_URL": "",
+    "address": "Torggatan 2, 311 31 Falkenberg, Sweden",
+    "additional_Info": "WF3R+H4 Falkenberg, Sweden",
+    "coordinate": "56.93542252294488, 12.487506793947798",
+    "email": "",
+    "name": "Falkenbergs Kvinnojour"
+  },
+
+  {
+    "phone": "+4637281485",
+    "web_URL": "http://www.kvjmarta.se/",
+    "address": "Märta Ljungbergsvägen 8, 341 30 Ljungby, Sweden",
+    "additional_Info": "RWMP+C2 Ljungby, Sweden",
+    "coordinate": "56.86792945012485, 13.934955489855342",
+    "email": "",
+    "name": "Kvinnojouren Märta"
+  },
+
+  {
+    "phone": "+4642340207",
+    "web_URL": "https://www.familjefridsjouren.se/",
+    "address": "Storgatan 35C, 263 37 Höganäs, Sweden",
+    "additional_Info": "5HX8+M6 Höganäs, Sweden",
+    "coordinate": "56.23514581023152, 12.56441112502771",
+    "email": "",
+    "name": "Kvinnojouren i Höganäs"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://kristianstadkvinnojour.se/",
+    "address": "Lasarettsboulevarden 4B, 291 33 Kristianstad, Sweden",
+    "additional_Info": "25J6+2V Kristianstad, Sweden",
+    "coordinate": "56.06839441928465, 14.149188896487779",
+    "email": "",
+    "name": "Kristianstads Kvinnojour"
+  },
+
+  {
+    "phone": "+4647048808",
+    "web_URL": "https://kvinnojourenblenda.se/",
+    "address": "Linnégatan 14A, 352 33 Växjö, Sweden",
+    "additional_Info": "VRJ6+8V Växjö, Sweden",
+    "coordinate": "56.917436288049466, 14.813861748406577",
+    "email": "",
+    "name": "Kvinnojouren i Växjö"
+  },
+
+  {
+    "phone": "+4645481899",
+    "web_URL": "http://www.kvinnojourenkarlshamn.se/?page_id=113",
+    "address": "29 Södra Fogdelyckegatan, 374 36 Karlshamn, Sweden",
+    "additional_Info": "5VF6+3Q Karlshamn, Sweden",
+    "coordinate": "56.206131115573484, 14.868793385468567",
+    "email": "",
+    "name": "Kvinnojouren Karlshamn"
+  },
+
+  {
+    "phone": "+4646121960",
+    "web_URL": "http://www.kvinnojourenlund.se/",
+    "address": "Skomakaregatan 1, 222 50 Lund, Sweden",
+    "additional_Info": "P53V+5H Lund, Sweden",
+    "coordinate": "55.73735560741703, 13.198871564982632",
+    "email": "",
+    "name": "Kvinnojouren Lund"
+  },
+
+  {
+    "phone": "+4640125586",
+    "web_URL": "https://kvinnojourenoresund.se/",
+    "address": "Olof Palmes plats 1, 214 44 Malmö, Sweden",
+    "additional_Info": "H2RC+F7 Malmö, Sweden",
+    "coordinate": "55.627414470116314, 13.017597162678067",
+    "email": "",
+    "name": "Kvinnojouren Öresund"
+  },
+
+  {
+    "phone": "+46733303028",
+    "web_URL": "http://www.freezonen.se/",
+    "address": "Nils Ahlins gata 21A, 271 39 Ystad, Sweden",
+    "additional_Info": "CRMR+7R Ystad, Sweden",
+    "coordinate": "55.47671320087591, 13.855304627873398",
+    "email": "",
+    "name": "FreeZonen, Brottsoffer- och Kvinnojouren Sydöstra Skåne"
+  },
+
+  {
+    "phone": "+4645518803",
+    "web_URL": "",
+    "address": "Skepparegatan 18B, 371 30 Karlskrona, Sweden",
+    "additional_Info": "5H5J+HH Karlskrona, Sweden",
+    "coordinate": "56.19543595243158, 15.577411603510674",
+    "email": "",
+    "name": "Kvinnojouren Karlskrona"
+  },
+
+  {
+    "phone": "+4649510619",
+    "web_URL": "",
+    "address": "Nygatan 1D, 577 31 Hultsfred, Sweden",
+    "additional_Info": "FRRV+27 Hultsfred, Sweden",
+    "coordinate": "57.532966840783835, 15.846576652905902",
+    "email": "",
+    "name": "Hultsfreds Kvinnojour"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "",
+    "address": "Lysingsvägen 6, 593 52 Västervik, Sweden",
+    "additional_Info": "PMW3+FG Västervik, Sweden",
+    "coordinate": "57.77982640071347, 16.659564880710743",
+    "email": "",
+    "name": "Kvinnojouren Vändela I Västervik"
+  },
+
+  {
+    "phone": "+46381611176",
+    "web_URL": "https://www.kvinnojourenlinneorna.se/",
+    "address": "Regementsgatan 21, 575 31 Eksjö, Sweden",
+    "additional_Info": "MX9F+F8 Eksjö, Sweden",
+    "coordinate": "57.70506439655573, 14.970416965696899",
+    "email": "",
+    "name": "Kvinnojouren Linneorna i Eksjö"
+  },
+
+  {
+    "phone": "+4614015657",
+    "web_URL": "http://kvinnojourenhelga.se/",
+    "address": "Tingsvägen 6, 573 35 Tranås, Sweden",
+    "additional_Info": "2XPM+HC Tranås, Sweden",
+    "coordinate": "58.07152188718706, 14.978656711256198",
+    "email": "",
+    "name": "Kvinnojouren Helga"
+  },
+
+  {
+    "phone": "+4614151200",
+    "web_URL": "http://www.motalakvinnojour.se/",
+    "address": "Poppelgränd 2, 591 35 Motala, Sweden",
+    "additional_Info": "G2MQ+WW Motala, Sweden",
+    "coordinate": "58.56485050273192, 15.05556103859494",
+    "email": "",
+    "name": "Kvinnojouren i Motala"
+  },
+
+  {
+    "phone": "+4611155469",
+    "web_URL": "http://www.norrkoping.se/frideborg",
+    "address": "Tegelängsgatan 11B, 602 28 Norrköping, Sweden",
+    "additional_Info": "H6R3+HF Norrköping, Sweden",
+    "coordinate": "58.62067087920711, 16.206378859272082",
+    "email": "",
+    "name": "Norrköpings kommun - Frideborg Barn och Ungdom"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "https://roks.se/",
+    "address": "Hornsgatan 66, 118 21 Stockholm, Sweden",
+    "additional_Info": "8395+FR Stockholm, Sweden",
+    "coordinate": "59.32495826010402, 18.058261821099432",
+    "email": "",
+    "name": "Riksorg För Kvinnojourer & Tjejjourer i Sverige"
+  },
+
+  {
+    "phone": "+4686440925",
+    "web_URL": "https://www.allakvinnorshus.org/",
+    "address": "111 52 Stockholm, Sweden",
+    "additional_Info": "",
+    "coordinate": "59.338617400610424, 18.06718821212201",
+    "email": "",
+    "name": "Föreningen Alla Kvinnors Hus"
+  },
+
+  {
+    "phone": "+4686426401",
+    "web_URL": "http://unizon.se/",
+    "address": "Elsa Brändströms gata 62B, 129 52 Hägersten, Sweden",
+    "additional_Info": "7XQ7+23 Stockholm, Sweden",
+    "coordinate": "59.29587052443691, 17.964878038094053",
+    "email": "",
+    "name": "Unizon"
+  },
+
+  {
+    "phone": "+4620339900",
+    "web_URL": "http://fempowerment.se/",
+    "address": "Norr Mälarstrand 24, 112 20 Stockholm, Sweden",
+    "additional_Info": "82GW+P3 Stockholm, Sweden",
+    "coordinate": "59.3347653784846, 18.045902202760487",
+    "email": "",
+    "name": "Fempowerment"
+  },
+
+  {
+    "phone": "+46738115852",
+    "web_URL": "",
+    "address": "Kungsvägen 24, 182 79 Stocksund, Sweden",
+    "additional_Info": "93H6+97 Solna, Sweden",
+    "coordinate": "59.393854570360894, 18.06478496705217",
+    "email": "",
+    "name": "Do Good Now"
+  },
+
+  {
+    "phone": "+46761279697",
+    "web_URL": "http://www.mivida.se/",
+    "address": "Kanalvägen 5A, 194 61 Upplands Väsby, Sweden",
+    "additional_Info": "GW2G+7Q Upplands Väsby, Sweden",
+    "coordinate": "59.5125083957334, 17.926082583470645",
+    "email": "",
+    "name": "Kvinnjouren Mivida"
+  },
+
+  {
+    "phone": "+46790682552",
+    "web_URL": "",
+    "address": "Köpmangatan, 151 71 Södertälje, Sweden",
+    "additional_Info": "",
+    "coordinate": "59.21368617147798, 17.633571580574507",
+    "email": "",
+    "name": "Södertäljejourerna"
+  },
+
+  {
+    "phone": "+46171440242",
+    "web_URL": "",
+    "address": "Torggatan 23 B, 749 35 Enköping, Sweden",
+    "additional_Info": "J3MJ+W4 Enköping, Sweden",
+    "coordinate": "59.65156874481646, 17.081508608059554",
+    "email": "",
+    "name": "Kvinnojouren Gertrud"
+  },
+
+  {
+    "phone": "+46700340094",
+    "web_URL": "",
+    "address": "Sörgårdsgatan 12, 686 35 Sunne, Sweden",
+    "additional_Info": "R4PH+PH Sunne, Sweden",
+    "coordinate": "59.90839402184985, 13.107032631933278",
+    "email": "",
+    "name": "KVINNOSKYDDET ELVIRA"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "",
+    "address": "Södergatan 20, 195 47 Märsta, Sweden",
+    "additional_Info": "JVG5+9V Märsta, Sweden",
+    "coordinate": "59.68732711434724, 17.864112685473486",
+    "email": "",
+    "name": "Kvinno- & Tjejjouren Sigtuna"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://blaklockan.com/",
+    "address": "Norra Köpmangatan 42C, 803 21 Gävle, Sweden",
+    "additional_Info": "M4JR+2J Gävle, Sweden",
+    "coordinate": "60.74053862694018, 17.133521912549035",
+    "email": "",
+    "name": "Kvinnojouren Blåklockan"
+  },
+
+  {
+    "phone": "+46851179033",
+    "web_URL": "https://www.kvinnojourenvallentuna.se/",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.53866080362763, 18.077983824891948",
+    "email": "",
+    "name": "Kvinnojouren i Vallentuna"
+  },
+
+  {
+    "phone": "+4618101049",
+    "web_URL": "http://www.uppsalakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.86596890056826, 17.639215230433052",
+    "email": " info@uppsalakvinnojour.se",
+    "name": "Uppsala Kvinnojour"
+  },
+
+  {
+    "phone": "+46186112792",
+    "web_URL": "",
+    "address": "Akademiska sjukhuset i Uppsala, ingång 18 Dag Hammarskjölds Väg 21, 752 37 Uppsala, Sweden",
+    "additional_Info": "RJXP+H6 Uppsala, Sweden",
+    "coordinate": "59.849095501363536, 17.63555557381311",
+    "email": "",
+    "name": "Akademiska sjukhusets Kvinnofridsmottagning"
+  },
+
+  {
+    "phone": "+46186112792",
+    "web_URL": "https://www.uppsalakvinnojour.se/juridikjour/",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.86596890056826, 17.639215230433052",
+    "email": "juridikjouren@uppsalakvinnojour.se",
+    "name": "Juridikjouren i Uppsala"
+  },
+
+  {
+    "phone": "+4622418289",
+    "web_URL": "http://www.kvinnojourensala.se",
+    "address": "Kvarngatan 4E 733 38 Sala",
+    "additional_Info": "WJF3+QM Sala, Sweden",
+    "coordinate": "59.92449739186524, 16.604240798419685",
+    "email": "sala@roks.se",
+    "name": "Kvinnojouren Sala"
+  },
+
+  {
+    "phone": "+4622650057",
+    "web_URL": "https://www.kvinnojoureniavesta.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.14868322233106, 16.17496596214962",
+    "email": "kia@roks.se",
+    "name": "Kvinnojouren i Avesta KiA"
+  },
+
+  {
+    "phone": "+4617619219",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.7620092467725, 18.701422343760022",
+    "email": "snackan.norrtalje@roks.se",
+    "name": "Kvinnojouren Snäckan Norrtälje"
+  },
+
+  {
+    "phone": "+4621126780",
+    "web_URL": "http://www.kvinnohuset-vasteras.org",
+    "address": "Kristinagatan 11, 722 11 Västerås, Sweden",
+    "additional_Info": "",
+    "coordinate": "59.60977210267492, 16.53721555838257",
+    "email": "kvinnohuset@kvinnohuset-vasteras.org",
+    "name": "Föreningen Kvinnohuset Västerås"
+  },
+
+  {
+    "phone": "+4629310022",
+    "web_URL": "http://www.kvinnojourenliljan.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.34891972518974, 17.52023160498956",
+    "email": "",
+    "name": "Kvinnojouren Liljan - Tierp och Älvkarleby"
+  },
+
+  {
+    "phone": "+46704610361",
+    "web_URL": "http://www.solrosenheby.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.1811725039208, 17.17986744594576",
+    "email": "info@solrosenkvinnojour.se",
+    "name": "Solrosen kvinnojour"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://www.kjourboende.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.19654434572206, 17.89609644595661",
+    "email": "kjourboende@gmail.com",
+    "name": "Konstängens jourboende"
+  },
+
+  {
+    "phone": "+4626250095",
+    "web_URL": "http://www.kvinnojourensandviken.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.625352703846836, 16.776196947859592",
+    "email": "kvinnojouren_sandviken@hotmail.com",
+    "name": "Kvinnojouren i Sandviken"
+  },
+
+
+  {
+    "phone": "+46707753655",
+    "web_URL": "http://www.qvinnoqraft-sandviken.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.625352703846836, 16.776196947859592",
+    "email": "qvinnoqraft@gmail.com",
+    "name": "Qvinnoqraft Sandviken"
+  },
+
+  {
+    "phone": "+46736240309",
+    "web_URL": "http://www.kvinnojouren-olivia.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.570884231199805, 17.530752045407045",
+    "email": "olivia.jour@hotmail.com",
+    "name": "Kvinnojouren Olivia"
+  },
+
+  {
+    "phone": "+46736589863",
+    "web_URL": "http://www.kvinnojourenanna.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.54197774771868, 17.671740860461963",
+    "email": "info@kvinnojourenanna.se",
+    "name": "Kvinnojouren Anna"
+  },
+
+  {
+    "phone": "+46200229090",
+    "web_URL": "http://www.qjouren.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.33587361221636, 18.068563988754",
+    "email": "info@qjouren.se",
+    "name": "Qjouren"
+  },
+
+  {
+    "phone": "+4687422333",
+    "web_URL": "http://www.tyresokvinnojour.se",
+    "address": "Granängsringen 53 135 44 Tyresö",
+    "additional_Info": "66PG+WR Tyresö, Sweden",
+    "coordinate": "59.237415196768254, 18.227079083048498",
+    "email": "info@tyresokvinnojour.se",
+    "name": "Tyresö kvinnojour"
+  },
+
+  {
+    "phone": "+4687776860",
+    "web_URL": "http://www.haningekvinnojour.se",
+    "address": "Rudsjöterrassen 2 136 81 Haninge",
+    "additional_Info": "",
+    "coordinate": "59.174322967023706, 18.137541443850136",
+    "email": "haninge@roks.se",
+    "name": "Haninge Kvinnojour"
+  },
+
+  {
+    "phone": "+4620333388",
+    "web_URL": "http://www.botkyrkakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.19925511290243, 17.834976408187174",
+    "email": "info@botkyrkakvinnojour.se",
+    "name": "Botkyrka Kvinnojour Tumba"
+  },
+
+  {
+    "phone": "+4687670303",
+    "web_URL": "http://www.kvinnojourenkerstinlidingo.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.36983057386838, 18.14724976894771",
+    "email": "kontakt@kvinnojourenkerstinlidingo.se",
+    "name": "Kvinnojouren Kerstin Lidingö"
+  },
+
+  {
+    "phone": "+46827 90 80",
+    "web_URL": "http://www.agerakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.37259775093765, 18.00865608217625",
+    "email": "info@agerakvinnojour.se",
+    "name": "Agera Kvinnojour"
+  },
+
+  {
+    "phone": "+468684 228 28",
+    "web_URL": "http://www.kvinnojourenisundbyberg.com",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.36895934984654, 17.9660378919767",
+    "email": "jour@kvinnojourenisundbyberg.com",
+    "name": "Kvinnojouren i Sundbyberg"
+  },
+
+  {
+    "phone": "+468420 516 48",
+    "web_URL": "http://www.kvinnocentertensta-hjulsta.org",
+    "address": "Glömmingegränd 31 NB 163 62 Spånga",
+    "additional_Info": "",
+    "coordinate": "59.39410015409355, 17.911584484902843",
+    "email": "kvinnoc.tensta@gmail.com",
+    "name": "Kvinnocenter Tensta-Hjulsta"
+  },
+
+  {
+    "phone": "+468739 20 76",
+    "web_URL": "http://www.sthlmvastjour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.36836530544251, 17.859634119404177",
+    "email": "info@sthlmvastjour.se",
+    "name": "STHLM Väst tjej- och kvinnojour"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://www.terrafem.org/",
+    "address": "Kungsholmsgatan 8 Stockholm",
+    "additional_Info": "82JX+FF Stockholm, Sweden",
+    "coordinate": "59.33125534564785, 18.048696087114376",
+    "email": "info@terrafem.org",
+    "name": "Terrafem"
+  },
+
+  {
+    "phone": "+4631-13 11 66",
+    "web_URL": "http://www.kvinnojouren-ada.nu",
+    "address": "Kungsholmsgatan 8 Stockholm",
+    "additional_Info": "",
+    "coordinate": "57.69755417543466, 11.962667270851025",
+    "email": "info@kvinnojouren-ada.nu",
+    "name": "Kvinnojouren och tjejjouren Ada"
+  },
+
+  {
+    "phone": "+4631330 25 56",
+    "web_URL": "http://www.piilopirtti.se",
+    "address": "Box 151 424 24 Angered",
+    "additional_Info": "",
+    "coordinate": "57.81823801750279, 12.050819835137881",
+    "email": "piilopirtti.goteborg@roks.se",
+    "name": "Kvinnojouren Piilopirtti"
+  },
+
+  {
+    "phone": "+464030 11 13",
+    "web_URL": "",
+    "address": "Box 151 424 24 Angered",
+    "additional_Info": "",
+    "coordinate": "55.61445422369661, 13.00355678248275",
+    "email": "info@malmokvinnojour.se",
+    "name": "Malmö kvinnojour"
+  },
+
+  {
+    "phone": "+46371809 86",
+    "web_URL": "http://www.kvinnojourenmaria.se",
+    "address": "Box 8 332 21 Gislaved",
+    "additional_Info": "",
+    "coordinate": "57.300382007375454, 13.543217084812166",
+    "email": "kontakt@kvinnojourenmaria.se",
+    "name": "Kvinnojouren Maria"
+  },
+
+  {
+    "phone": "+46320-351 51",
+    "web_URL": "http://www.kvinnojourenimark.se",
+    "address": "Box 52 511 21 Kinna",
+    "additional_Info": "",
+    "coordinate": "57.51463466079114, 12.69441871714066",
+    "email": "kvinnojourenimark@telia.com",
+    "name": "Kvinnojouren i Mark Svenljunga Tranemo"
+  },
+
+  {
+    "phone": "+463512 88 88",
+    "web_URL": "http://www.kvinnojourenhalmstad.se/",
+    "address": "Box 52 511 21 Kinna",
+    "additional_Info": "",
+    "coordinate": "56.68129050243205, 12.858196179978233",
+    "email": "info@kvinnojourenhalmstad.se",
+    "name": "Kvinnojouren Viktoria i Halmstad"
+  },
+
+  {
+    "phone": "+4670911 17 27",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "56.54561044921751, 12.843129819544902",
+    "email": "pernilla@kvinnoboende.se",
+    "name": "Havsbadens kvinnoboende"
+  },
+
+  {
+    "phone": "+464234 02 07",
+    "web_URL": "http://www.familjefridsjouren.se",
+    "address": "Storgatan 35C 263 21 Höganäs",
+    "additional_Info": "",
+    "coordinate": "56.19934138804999, 12.56560991360262",
+    "email": "info@familjefridsjouren.se",
+    "name": "Skyddsjouren i Ängelholm"
+  },
+
+  {
+    "phone": "+464218 15 10",
+    "web_URL": "http://www.helsingborgskvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "56.05088437415825, 12.694534147947685",
+    "email": "helsingborgs.kvinnojour@telia.com",
+    "name": "Helsingborgs kvinnojour"
+  },
+
+  {
+    "phone": "+46451492 00",
+    "web_URL": "http://www.fridakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "56.16097014577458, 13.766488942862386",
+    "email": "fridakvinnojour@gmail.com",
+    "name": "Frida Kvinnojour"
+  },
+
+  {
+    "phone": "+4670251 74 40",
+    "web_URL": "http://www.varbergskvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "57.108899524499535, 12.252144855502673",
+    "email": "frideborg@seaside.se",
+    "name": "Kvinnojouren Frideborg"
+  },
+
+  {
+    "phone": "+465418 30 34",
+    "web_URL": "http://www.karlstadskvinnojour.se",
+    "address": "Box 613 651 13 Karlstad",
+    "additional_Info": "",
+    "coordinate": "59.40578819617344, 13.512185869474566",
+    "email": "kvinnojouren@akhkarlstad.se",
+    "name": "Alla Kvinnors Hus"
+  },
+
+  {
+    "phone": "+4673-807 16 07",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.16930705637852, 13.622005156245137",
+    "email": "rosa.carlbrink@telia.com",
+    "name": "Kvinnojouren Duvkullan"
+  },
+
+  {
+    "phone": "+46705 37 95 67",
+    "web_URL": "http://www.kvinnojoureneva.wordpress.com",
+    "address": "Box 173 671 24 Arvika",
+    "additional_Info": "",
+    "coordinate": "59.65619277172438, 12.591662287943384",
+    "email": "kvinnojouren.eva@gmail.com",
+    "name": "Kvinnojouren Eva Arvika-Eda"
+  },
+
+  {
+    "phone": "+46560146 44",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.140337997177234, 13.014998215616453",
+    "email": "kvinnojourentorsby@hotmail.com",
+    "name": "Tjej- och kvinnojouren Torsby Nordvärmland"
+  },
+
+  {
+    "phone": "+4653368 17 36 ",
+    "web_URL": "http://www.kvinnojourenfrida.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.13478328859035, 12.930223139216695",
+    "email": "frida@kvinnojourenfrida.se",
+    "name": "Kvinnojouren Frida Säffle Åmål"
+  },
+
+  {
+    "phone": "+46243814 01 ",
+    "web_URL": "http://www.kvinnojourenborlange.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.51407993250365, 15.42729963128238",
+    "email": "borlange@roks.se",
+    "name": "Kvinnojouren Borlänge"
+  },
+
+  {
+    "phone": "+46240199 10",
+    "web_URL": "http://www.kvinnojourludvika.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.15341105067547, 15.185305490216333",
+    "email": "ludvikakvinnojour@msn.com",
+    "name": "Kvinnojouren Ludvika Smedjebacken"
+  },
+
+  {
+    "phone": "+4672009 95 08",
+    "web_URL": "http://www.kvinnojourludvika.se",
+    "address": "Box 4 77621 Hedemora",
+    "additional_Info": "",
+    "coordinate": "60.27943197550042, 15.98582406335449",
+    "email": "hedemorakvinnojour@roks.se",
+    "name": "Hedemora kvinnojour"
+  },
+
+  {
+    "phone": "+4670663 53 79",
+    "web_URL": "http://www.kvinnojourludvika.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "60.55047033665135, 14.365413215361642",
+    "email": "kvinnojouren@live.se",
+    "name": "Kvinnojouren Marie Vansbro-Leksand-Gagnef"
+  },
+
+  {
+    "phone": "+46250175 00",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "61.023855689552725, 14.527429604427727",
+    "email": "emma.mora@roks.se",
+    "name": "Kvinnogemenskapen Emma i Mora"
+  },
+
+  {
+    "phone": "+466012 69 90",
+    "web_URL": "http://www.kvinnojourensundsvall.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "62.395077797630634, 17.310514448935407",
+    "email": "info@kvinnojourensundsvall.se",
+    "name": "Kvinnogemenskap i Sundsvall"
+  },
+
+  {
+    "phone": "+46651130 69",
+    "web_URL": "http://www.kvinnojourenviljan.org",
+    "address": "Tingsgatan 2 827 32 Ljusdal",
+    "additional_Info": "R3HV+8C Ljusdal, Sweden",
+    "coordinate": "61.828485543794656, 16.093551427338408",
+    "email": "info@kvinnojourenviljan.org",
+    "name": "Kvinnojouren Viljan"
+  },
+
+  {
+    "phone": "+4665012285",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "61.725694934563904, 17.09901625039223",
+    "email": "kvinnojourenhudik@telia.com",
+    "name": "Kvinnojouren Vändpunkten Hudiksvall"
+  },
+
+  {
+    "phone": "+4610471 10 99",
+    "web_URL": "http://www.kvinnojourenstottan.se",
+    "address": "Box 129 826 23 Söderhamn",
+    "additional_Info": "",
+    "coordinate": "61.30742919843912, 17.062880886156655",
+    "email": "info@kvinnojourenstottan.se",
+    "name": "Kvinnojouren Stöttan, Ovanåker Bollnäs Söderhamn"
+  },
+
+  {
+    "phone": "+4670580 05 47",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "61.16244306526506, 13.263053697983942",
+    "email": "kvinnojourenmalungsalen@gmail.com",
+    "name": "Kvinnojouren Malung-Sälen"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "63.407291202169084, 13.08062845787633",
+    "email": "kvinnojourenare@roks.se",
+    "name": "Kvinnojouren Åre"
+  },
+
+  {
+    "phone": "+469077 97 00",
+    "web_URL": "http://www.kvinnojoureniumea.se",
+    "address": "Box 7085 907 03 Umeå",
+    "additional_Info": "",
+    "coordinate": "63.82887563131428, 20.262216264321175",
+    "email": "mail@kvinnojoureniumea.se",
+    "name": "Kvinnojouren och tjejjouren i Umeå"
+  },
+
+  {
+    "phone": "+4666084197",
+    "web_URL": "http://www.kvjouren.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "63.283303542457055, 18.704363251758313",
+    "email": "ornskoldsvik.kvjour@gmail.com",
+    "name": "Kvinnogemenskap Örnsköldsvik"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "http://www.kvinnojour.nu",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "63.18311864215463, 14.632199847986868",
+    "email": "info@kvinnojour.nu",
+    "name": "Kvinnojouren Jämtlands län"
+  },
+
+  {
+    "phone": "+4670326 33 71",
+    "web_URL": "http://www.kvinnojour.nu",
+    "address": "Box 44 912 21 Vilhelmina",
+    "additional_Info": "",
+    "coordinate": "64.62618658421589, 16.65530169043746",
+    "email": "Vilhelminakvinnojour@live.se",
+    "name": "Vilhelmina Kvinnojour"
+  },
+
+  {
+    "phone": "+4673655 16 96",
+    "web_URL": "http://www.kvinnojouren-storuman.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "65.15500227373508, 17.14429069735458",
+    "email": "kvinnojourenstoruman@gmail.com",
+    "name": "Kvinnojouren i Storuman"
+  },
+
+  {
+    "phone": "+4695037211",
+    "web_URL": "http://www.kvinnojouren-lycksele.se/",
+    "address": "Box 22 92121 Lycksele",
+    "additional_Info": "",
+    "coordinate": "64.59764270091682, 18.67619882850922",
+    "email": "lycksele@roks.se",
+    "name": "Kvinnojouren i Lycksele"
+  },
+
+  {
+    "phone": "+4691192900",
+    "web_URL": "http://kvinnojourenpitea.se",
+    "address": "Box 74 94122 Piteå",
+    "additional_Info": "",
+    "coordinate": "65.32000076419654, 21.47988048816836",
+    "email": "kvinnojourenpitea@gmail.com",
+    "name": "Kvinnojouren Lillasyster"
+  },
+
+  {
+    "phone": "+460910150 03",
+    "web_URL": "http://www.guldstadenskvinnojour.se",
+    "address": "Box 315 931 23 Skellefteå",
+    "additional_Info": "",
+    "coordinate": "64.75341143419612, 20.950283130263134",
+    "email": "info@guldstadenskvinnojour.se",
+    "name": "Guldstadens Kvinnojour"
+  },
+
+  {
+    "phone": "+4670275 22 80",
+    "web_URL": "http://www.kvinnojourenhera.se",
+    "address": "Box 19 933 22 Arvidsjaur",
+    "additional_Info": "",
+    "coordinate": "65.5935042506285, 19.180107069942483",
+    "email": "heraarvidsjaur@telia.com",
+    "name": "Kvinnojouren Hera"
+  },
+
+  {
+    "phone": "+4692022 22 23",
+    "web_URL": "https://www.kvinnojoureniris.se/",
+    "address": "Box 281 971 08 Luleå",
+    "additional_Info": "",
+    "coordinate": "65.5874972808016, 22.156973523908725",
+    "email": "iris.lulea@roks.se",
+    "name": "Kvinnojouren Iris Luleå"
+  },
+
+  {
+    "phone": "+46923132 71",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "65.89224736364505, 23.104826237503012",
+    "email": "kalix@roks.se",
+    "name": "Kalix kvinnojour"
+  },
+
+  {
+    "phone": "+46922121 11",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "66.0943581116326, 23.840659398856545",
+    "email": "haparanda@roks.se",
+    "name": "Kvinnojouren Vera i Haparanda"
+  },
+
+  {
+    "phone": "+4670202 38 29",
+    "web_URL": "http://www.kvinnojourenathena.se",
+    "address": "Bergsgatan 2 957 85 Övertorneå",
+    "additional_Info": "",
+    "coordinate": "66.38927372269667, 23.63932924385237",
+    "email": "athena@roks.se",
+    "name": "Kvinnojouren Athena"
+  },
+
+  {
+    "phone": "+46921188 81",
+    "web_URL": "http://kvinnojourenboden.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "65.83096975229262, 21.686980598902398",
+    "email": "kvinnojourenboden1@gmail.com",
+    "name": "Kvinnojouren Boden"
+  },
+
+  {
+    "phone": "+46929101 87",
+    "web_URL": "",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "65.67843874179403, 20.992996602458383",
+    "email": "kvinnojourenparlan@telia.com",
+    "name": "Kvinnojouren Pärlan"
+  },
+
+  {
+    "phone": "+46970100 88",
+    "web_URL": "http://www.kvinnojourennike.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "67.14091426091983, 20.65919903995316",
+    "email": "info@kvinnojourennike.se",
+    "name": "Kvinnojouren Nike"
+  },
+
+  {
+    "phone": "+46980195 00",
+    "web_URL": "https://www.kvinnojourenkiruna.se/",
+    "address": "Box 2062 981 02 Kiruna",
+    "additional_Info": "",
+    "coordinate": "67.8582164331054, 20.22484322311361",
+    "email": "kiruna.kj@roks.se",
+    "name": "Kvinnojouren Kiruna"
+  },
+
+  {
+    "phone": "+46520398 70",
+    "web_URL": "http://www.kvinnojourenduvan.se",
+    "address": "Box 129 461 23 Trollhättan",
+    "additional_Info": "",
+    "coordinate": "58.28770048842064, 12.284538188174874",
+    "email": "kvinnojouren.duvan@hotmail.com",
+    "name": "Kvinnojouren Duvan Trollhättan"
+  },
+
+  {
+    "phone": "+4650041 86 68",
+    "web_URL": "http://www.kvinnohusettranan.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "58.39460952991281, 13.846141501140796",
+    "email": "info@kvinnohusettranan.com",
+    "name": "Kvinnohuset Tranan"
+  },
+
+  {
+    "phone": "",
+    "web_URL": "https://www.uddevalla.se/omsorg-och-hjalp/akut-hjalp/kvinnojour-och-mansjour-.html",
+    "address": "Box 54 451 15 Uddevalla",
+    "additional_Info": "",
+    "coordinate": "58.39460952991281, 13.846141501140796",
+    "email": "kv.kaprifolen@gmail.com",
+    "name": "Kvinnojouren Kaprifolen"
+  },
+
+  {
+    "phone": "+461045 50 365",
+    "web_URL": "http://www.kvinnojourenboras.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "57.73096770600529, 12.94084966492553",
+    "email": "info@kjboras.se",
+    "name": "Kvinnojouren Borås"
+  },
+
+  {
+    "phone": "+46303846 79",
+    "web_URL": "http://www.kvinnojouren-stenungsund.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "58.07188056435819, 11.829055533106661",
+    "email": "kvinnojouren.stenungsund@telia.com",
+    "name": "Kvinnojouren i Stenungsund"
+  },
+
+  {
+    "phone": "+46705 08 44 31",
+    "web_URL": "http://www.alvakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "57.843012366976566, 12.029403004154622",
+    "email": "info@alvakvinnojour.se",
+    "name": "Alva kvinnojour"
+  },
+
+  {
+    "phone": "+4630324 92 50",
+    "web_URL": "http://www.kjvandpunkten.se",
+    "address": "Box 327 442 10 Kungälv",
+    "additional_Info": "",
+    "coordinate": "57.872059887561754, 11.97418663458318",
+    "email": "kvinnojourenvandpunkten@hotmail.com",
+    "name": "Kvinnojouren Vändpunkten Kungälv Ale"
+  },
+
+  {
+    "phone": "+4672518 38 11",
+    "web_URL": "https://www.kvinnohuset.se",
+    "address": "Box 3251 600 03 Norrköping",
+    "additional_Info": "",
+    "coordinate": "58.59201282906095, 16.191806033600738",
+    "email": "kvinnojouren.norrkoping@roks.se",
+    "name": "Kvinnojouren Norrköping"
+  },
+  {
+    "phone": "+461313 43 84",
+    "web_URL": "http://www.ellinor.se",
+    "address": "Box 595 581 07 Linköping",
+    "additional_Info": "",
+    "coordinate": "58.41456041619675, 15.62313164369245",
+    "email": "kvinnojouren.linkoping@roks.se",
+    "name": "Kvinnojouren Ellinor i Linköping"
+  },
+
+  {
+    "phone": "+46702618576",
+    "web_URL": "http://www.sveakvinnojour.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.12842124936182, 15.13969747767142",
+    "email": "info@sveakvinnojour.se",
+    "name": "Kvinnojouren Svea"
+  },
+
+  {
+    "phone": "+46150780 44",
+    "web_URL": "http://www.jourmiranda.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "58.997343108587316, 16.20564991495949",
+    "email": "kvinna@jourmiranda.se",
+    "name": "Kvinno- och tjejjouren Miranda"
+  },
+
+  {
+    "phone": "+46725211 711",
+    "web_URL": "http://www.kvinnojourenmira.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "58.75675087646844, 17.009533653250674",
+    "email": "kontakt@kvinnojourenmira.se",
+    "name": "Kvinnojouren Mira"
+  },
+
+  {
+    "phone": "+46157120 10",
+    "web_URL": "http://www.kvinnojourenmalva.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.05903649175077, 16.58774937054987",
+    "email": "info@kvinnojourenmalva.se",
+    "name": "Kvinnojouren Malva"
+  },
+
+  {
+    "phone": "+461651 21 09",
+    "web_URL": "http://www.kvinnojourenmoa.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.37505459948907, 16.509980195812016",
+    "email": "info@kvinnojourenmoa.se",
+    "name": "Kvinnojouren Moa"
+  },
+
+  {
+    "phone": "+46152143 93",
+    "web_URL": "http://www.kvinnojourenmana.se",
+    "address": "",
+    "additional_Info": "",
+    "coordinate": "59.38145497345865, 17.031159789281123",
+    "email": "info@kvinnojourenmana.se",
+    "name": "Kvinnojouren Måna"
+  },
+
+
+  {
+    "phone": "+461914 41 99",
+    "web_URL": "http://www.kvinnohusetorebro.se",
+    "address": "Nygatan 54 702 11 Örebro",
+    "additional_Info": "7699+HG Örebro, Sweden",
+    "coordinate": "59.269082214509694, 15.218764527226703",
+    "email": "info@kvinnohusetorebro.se",
+    "name": "Kvinnohuset i Örebro"
+  },
+
+
+  {
+    "phone": "+4670773 38 80",
+    "web_URL": "http://www.mockelnforeningarna.se/kvinnohuset",
+    "address": "Box 2008 691 02 Karlskoga",
+    "additional_Info": "7699+HG Örebro, Sweden",
+    "coordinate": "59.33257458345848, 14.536009939766705",
+    "email": "kontakt@jourenmaggan.se",
+    "name": "Kvinnojouren Maggan"
+  }
 ]

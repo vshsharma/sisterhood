@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 
 import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
 
 class CustomSearchView extends StatefulWidget {
   Function value;
@@ -27,8 +27,8 @@ class _CustomSearchViewState extends State<CustomSearchView> {
           fillColor: ColorResources.white,
           contentPadding: const EdgeInsets.all(dim_0),
           isDense: false,
-          labelText: Strings.search,
-          hintText: Strings.search,
+          labelText: context.loc.search,
+          hintText: context.loc.search,
           prefixIcon: const Icon(Icons.search),
           suffixIcon: InkWell(
             child: const Icon(Icons.cancel),

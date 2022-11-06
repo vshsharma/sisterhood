@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sisterhood_app/screen/common/base_widget.dart';
+import 'package:sisterhood_app/screen/common/resource_button.dart';
 import 'package:sisterhood_app/screen/self_help/guided_meditation.dart';
 import 'package:sisterhood_app/screen/self_help/safety_plan.dart';
-import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
-import '../../utill/styles.dart';
-import '../common/resource_button.dart';
-import 'package:sisterhood_app/screen/common/base_widget.dart';
+import 'package:sisterhood_app/utill/dimension.dart';
+import 'package:sisterhood_app/utill/styles.dart';
 
 import 'informative_podcast.dart';
 
@@ -25,15 +25,15 @@ class _SelfHelpToolsOptionState extends State<SelfHelpToolsOption> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Text(
-                Strings.self_help_tools,
+              Text(
+                AppLocalizations.of(context).self_help_tools,
                 textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
               const SizedBox(height: dim_40),
-              const Text(
-                Strings.self_help_tools_desc,
+              Text(
+                AppLocalizations.of(context).self_help_tools_desc,
                 textAlign: TextAlign.center,
                 maxLines: null,
                 softWrap: true,
@@ -41,27 +41,26 @@ class _SelfHelpToolsOptionState extends State<SelfHelpToolsOption> {
               ),
               const SizedBox(height: dim_40),
               ResourceButton(
-                labelButton: Strings.safety_planning,
+                labelButton: AppLocalizations.of(context).safety_planning,
                 onButtonPress: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const SafetyPlanScreen()));
                 },
               ),
               ResourceButton(
-                labelButton: Strings.guided_meditation,
+                labelButton: AppLocalizations.of(context).guided_meditation,
                 onButtonPress: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const GuidedMeditation()));
-                 },
+                },
               ),
               ResourceButton(
-                labelButton: Strings.informative_podcasts,
+                labelButton: AppLocalizations.of(context).informative_podcasts,
                 onButtonPress: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const InformativePodcast()));
                 },
               )
-
             ],
           ),
         ),

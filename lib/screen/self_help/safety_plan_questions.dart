@@ -9,13 +9,13 @@ import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/grey_background_widget.dart';
 import 'package:sisterhood_app/screen/self_help/model/safety_plan_response.dart';
 import 'package:sisterhood_app/utill/app_constants.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../utill/custom_button.dart';
 import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
 import '../app_widgets/checkbox_group.dart';
 import '../app_widgets/progress_indicator.dart';
 import '../app_widgets/radio_button_group.dart';
@@ -32,15 +32,16 @@ class SafetyPlanQuestion extends StatefulWidget {
 }
 
 class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
+  BuildContext mContext;
   bool ctaLabelUpdate = false;
   bool isLoading = false;
   List<String> selectedCheckQuestion = [];
   List<SafetyPlan> saveOnFocus = [];
 
-  String toldInFamily = NO;
-  String whereYouFeelSafe = YES;
-  String taughtChildren112 = NOTAPPLICBLE;
-  String leaveItems = NO;
+  String toldInFamily;
+  String whereYouFeelSafe;
+  String taughtChildren112;
+  String leaveItems;
 
   TextEditingController whomYouToldCtrlr = TextEditingController();
   TextEditingController placeYouCanGoCtrlr = TextEditingController();
@@ -69,7 +70,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question1': json
           .encode(SafetyPlan(
                   count: questionCount[0],
-                  question: questionaire[0],
+                  question: getQuestion(context, 0),
                   option: toldInFamily,
                   description: whomYouToldCtrlr.text)
               .toJson())
@@ -77,7 +78,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question2': json
           .encode(SafetyPlan(
                   count: questionCount[1],
-                  question: questionaire[1],
+                  question: getQuestion(context, 1),
                   option: '',
                   description: callForHelpCtrlr.text)
               .toJson())
@@ -85,7 +86,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question3': json
           .encode(SafetyPlan(
                   count: questionCount[2],
-                  question: questionaire[2],
+                  question: getQuestion(context, 2),
                   option: '',
                   description: emergencyContactCtrlr.text)
               .toJson())
@@ -93,7 +94,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question4': json
           .encode(SafetyPlan(
                   count: questionCount[3],
-                  question: questionaire[3],
+                  question: getQuestion(context, 3),
                   option: '',
                   description: comfortablePlaceCtrlr.text)
               .toJson())
@@ -101,7 +102,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question5': json
           .encode(SafetyPlan(
                   count: questionCount[4],
-                  question: questionaire[4],
+                  question: getQuestion(context, 4),
                   option: '',
                   description: howWouldYouOutCtrlr.text)
               .toJson())
@@ -109,7 +110,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question6': json
           .encode(SafetyPlan(
                   count: questionCount[5],
-                  question: questionaire[5],
+                  question: getQuestion(context, 5),
                   option: whereYouFeelSafe,
                   description: placeYouCanGoCtrlr.text)
               .toJson())
@@ -117,7 +118,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question7': json
           .encode(SafetyPlan(
                   count: questionCount[6],
-                  question: questionaire[6],
+                  question: getQuestion(context, 6),
                   option: taughtChildren112,
                   description: '')
               .toJson())
@@ -125,7 +126,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question8': json
           .encode(SafetyPlan(
                   count: questionCount[7],
-                  question: questionaire[7],
+                  question: getQuestion(context, 7),
                   option: '',
                   description: whatWordEventCtrlr.text)
               .toJson())
@@ -133,7 +134,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question9': json
           .encode(SafetyPlan(
                   count: questionCount[8],
-                  question: questionaire[8],
+                  question: getQuestion(context, 8),
                   option: json.encode(selectedCheckQuestion).toString(),
                   description: '')
               .toJson())
@@ -141,7 +142,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question10': json
           .encode(SafetyPlan(
                   count: questionCount[9],
-                  question: questionaire[9],
+                  question: getQuestion(context, 9),
                   option: leaveItems,
                   description: otherItemsCtrlr.text)
               .toJson())
@@ -149,7 +150,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
       'question11': json
           .encode(SafetyPlan(
                   count: questionCount[10],
-                  question: questionaire[10],
+                  question: getQuestion(context, 10),
                   option: '',
                   description: whereYouStoreCtrlr.text)
               .toJson())
@@ -244,6 +245,13 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
     getSafetyPlan();
     addFocusListener();
 
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      toldInFamily = mContext.loc.no;
+      whereYouFeelSafe = mContext.loc.yes;
+      taughtChildren112 = mContext.loc.not_applicable;
+      leaveItems = mContext.loc.no;
+    });
+
     if (SharedPrefManager.sharedPreferences
                 .getBool(AppConstants.isSavedLocal) !=
             null &&
@@ -317,6 +325,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
 
   @override
   Widget build(BuildContext context) {
+    mContext = context;
     return BaseWidget(isLoading
         ? const ProgressIndicatorWidget()
         : Container(
@@ -330,9 +339,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[0],
-                              question: questionaire[0]),
+                              question: getQuestion(context, 0)),
                           RadioButtonGroup(
-                              labels: yesNoOption,
+                              labels: getYesNo(context),
                               picked: toldInFamily,
                               onSelected: (String selected) {
                                 setState(() {
@@ -340,10 +349,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                                   handleFocusListener();
                                 });
                                 print(selected);
-                                if (selected == YES) {
+                                if (selected == getYes(context)) {
                                   Utils.genericInputPopUp(
                                       context,
-                                      Strings.question_1_option_yes,
+                                      context.loc.question_1_option_yes,
                                       whomYouToldCtrlr,
                                       _focusNodeWhomYouTold);
                                 }
@@ -359,7 +368,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[1],
-                              question: questionaire[1]),
+                              question: getQuestion(context, 1)),
                           Focus(
                             child: CustomEditTextField(
                               callForHelpCtrlr,
@@ -380,7 +389,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[2],
-                              question: questionaire[2]),
+                              question: getQuestion(context, 2)),
                           CustomEditTextField(
                             emergencyContactCtrlr,
                             focusNode: _focusNodeEmergencyContact,
@@ -396,7 +405,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[3],
-                              question: questionaire[3]),
+                              question: getQuestion(context, 3)),
                           CustomEditTextField(
                             comfortablePlaceCtrlr,
                             focusNode: _focusNodeComfortablePlace,
@@ -412,7 +421,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[4],
-                              question: questionaire[4]),
+                              question: getQuestion(context, 4)),
                           CustomEditTextField(
                             howWouldYouOutCtrlr,
                             focusNode: _focusNodeHowWouldYouOut,
@@ -428,9 +437,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[5],
-                              question: questionaire[5]),
+                              question: getQuestion(context, 5)),
                           RadioButtonGroup(
-                              labels: yesNoOption,
+                              labels: getYesNo(context),
                               picked: whereYouFeelSafe,
                               onSelected: (String selected) {
                                 setState(() {
@@ -438,10 +447,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                                   handleFocusListener();
                                 });
                                 print(selected);
-                                if (selected == NO) {
+                                if (selected == getNo(context)) {
                                   Utils.genericInputPopUp(
                                       context,
-                                      Strings.question_6_option_no,
+                                      context.loc.question_6_option_no,
                                       placeYouCanGoCtrlr,
                                       _focusNodePlaceYouCanGo);
                                 }
@@ -457,9 +466,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[6],
-                              question: questionaire[6]),
+                              question: getQuestion(context, 6)),
                           RadioButtonGroup(
-                              labels: yesNoNotApplicbleOption,
+                              labels: getYesNoNotApplicableOption(context),
                               picked: taughtChildren112,
                               onSelected: (String selected) {
                                 setState(() {
@@ -467,9 +476,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                                   handleFocusListener();
                                 });
                                 print(selected);
-                                if (selected == NO) {
-                                  Utils.genericPopUp(
-                                      context, Strings.question_7_option_no);
+                                if (selected == getNo(context)) {
+                                  Utils.genericPopUp(context,
+                                      context.loc.question_7_option_no);
                                 }
                               }),
                         ],
@@ -483,7 +492,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[7],
-                              question: questionaire[7]),
+                              question: getQuestion(context, 7)),
                           CustomEditTextField(
                             whatWordEventCtrlr,
                             focusNode: _focusNodeWhatWordEvent,
@@ -499,9 +508,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[8],
-                              question: questionaire[8]),
+                              question: getQuestion(context, 8)),
                           CheckboxGroup(
-                              labels: questionCheckOption,
+                              labels: getCheckOption(context),
                               checked: selectedCheckQuestion,
                               onChange: (bool isChecked, String label,
                                       int index) =>
@@ -523,9 +532,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[9],
-                              question: questionaire[9]),
+                              question: getQuestion(context, 9)),
                           RadioButtonGroup(
-                              labels: yesNoOption,
+                              labels: getYesNo(context),
                               picked: leaveItems,
                               onSelected: (String selected) {
                                 setState(() {
@@ -533,10 +542,10 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                                   handleFocusListener();
                                 });
                                 print(selected);
-                                if (selected == YES) {
+                                if (selected == getYes(context)) {
                                   Utils.genericInputPopUp(
                                       context,
-                                      Strings.i_will_leave_copies,
+                                      context.loc.i_will_leave_copies,
                                       otherItemsCtrlr,
                                       _focusNodeOtherItems);
                                 }
@@ -552,7 +561,7 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                         children: [
                           questionHeader(
                               questionNumber: questionCount[10],
-                              question: questionaire[10]),
+                              question: getQuestion(context, 10)),
                           CustomEditTextField(
                             whereYouStoreCtrlr,
                             focusNode: _focusNodeWhereYouStore,
@@ -564,7 +573,9 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
                     InkWell(
                       onTap: saveData,
                       child: CustomButton(
-                        text1: ctaLabelUpdate ? Strings.update : Strings.submit,
+                        text1: ctaLabelUpdate
+                            ? context.loc.update
+                            : context.loc.submit,
                         text2: '',
                         width: Get.width,
                         height: dim_50,
@@ -609,5 +620,29 @@ class _SafetyPlanQuestionState extends State<SafetyPlanQuestion> {
         ),
       ],
     );
+  }
+
+  String getQuestion(BuildContext context, int i) {
+    return Questions().getQuestionaire(context)[i];
+  }
+
+  List<String> getYesNo(BuildContext context) {
+    return Questions().getYesNoOption(context);
+  }
+
+  String getYes(BuildContext context) {
+    return Questions().getYes(context);
+  }
+
+  String getNo(BuildContext context) {
+    return Questions().getNo(context);
+  }
+
+  List<String> getYesNoNotApplicableOption(BuildContext context) {
+    return Questions().getYesNoNotApplicableOption(context);
+  }
+
+  List<String> getCheckOption(BuildContext context) {
+    return Questions().getQuestionCheckOption(context);
   }
 }

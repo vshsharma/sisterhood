@@ -8,8 +8,10 @@ import '../../utill/styles.dart';
 
 class CustomListWidget extends StatelessWidget {
   final List<PlatformFile> selectedMedia;
+  final Function deleteCallback;
   const CustomListWidget(
     this.selectedMedia, {
+    this.deleteCallback,
     Key key,
   }) : super(key: key);
 
@@ -21,6 +23,14 @@ class CustomListWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return ListTile(
+          trailing: IconButton(
+            icon: Icon(
+              Icons.delete_outline,
+              size: 20.0,
+              color: Colors.brown[900],
+            ),
+            onPressed: () => deleteCallback(index),
+          ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

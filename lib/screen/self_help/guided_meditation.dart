@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/grey_background_widget.dart';
+import 'package:sisterhood_app/utill/app_constants.dart';
 
 import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
 import '../../utill/styles.dart';
 import '../common/custom_html_viewer.dart';
 
@@ -22,32 +23,47 @@ class _GuidedMeditationState extends State<GuidedMeditation> {
         padding: const EdgeInsets.all(dim_20),
         child: SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               Text(
-                Strings.guided_meditations,
+                AppLocalizations.of(context).guided_meditations,
                 textAlign: TextAlign.center,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
-              SizedBox(height: dim_20),
+              const SizedBox(height: dim_20),
               Text(
-                Strings.guided_meditations_desc,
+                AppLocalizations.of(context).guided_meditations_desc,
                 textAlign: TextAlign.center,
                 maxLines: null,
                 softWrap: true,
                 style: courierFont18W400,
               ),
-              SizedBox(height: dim_30),
+              const SizedBox(height: dim_30),
               GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.self_love_and_affirmations)
+                child: CustomHTMLViewer(
+                  AppLocalizations.of(context).self_love_and_affirmations(
+                    AppConstants.guided_url1,
+                    AppConstants.guided_url2,
+                  ),
+                ),
               ),
-              SizedBox(height: dim_30),
+              const SizedBox(height: dim_30),
               GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.Stress_and_anxiety)
+                child: CustomHTMLViewer(
+                  AppLocalizations.of(context).stress_and_anxiety(
+                      AppConstants.guided_url3,
+                      AppConstants.guided_url4,
+                      AppConstants.guided_url5),
+                ),
               ),
-              SizedBox(height: dim_30),
+              const SizedBox(height: dim_30),
               GreyBackgroundCard(
-                child: CustomHTMLViewer(Strings.Grounding_exercises)
+                child: CustomHTMLViewer(
+                  AppLocalizations.of(context).grounding_exercises(
+                    AppConstants.guided_url6,
+                    AppConstants.guided_url7,
+                  ),
+                ),
               ),
             ],
           ),

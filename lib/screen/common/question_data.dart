@@ -1,37 +1,62 @@
-String YES = 'Yes';
-String NO = 'No';
-String NOTAPPLICBLE = 'Not applicable';
-List<String> questionaire = [
-  'Have you told someone in your family about your experiences?',
-  'What word or phrase can you use as a code in a phone call, text, or other message to ask your family, friends, or neighbors to call for help without your partner knowing?',
-  'Who is your emergency contact? Write down their name and keep in your wallet or another safe space so you can always reach them even if you don’t have access to your phone',
-  'If you are not comfortable at home, where do you go to stay safe?',
-  'If you have to leave in a rush, how would you get out of the house? (Think about doors or windows that are accessible to you and practice how to leave effectively)',
-  'If you have to leave quickly, do you have a public place in mind where you would feel safe? ',
-  'If you have children, have you taught them how to call 112? ',
-  'If you have children, what word will you say in the event that they have to call emergency services? ',
-  'If you have to leave, what items will you bring? (Select all that applies)',
-  'Can you leave copies of documents, spare keys, extra clothes and other items with family or friends? ',
-  'If you have to leave quickly, where will you store all the items you intend to bring with you?'
-];
+import 'package:flutter/material.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 
-List<String> yesNoOption = ['Yes', 'No'];
-List<String> yesNoNotApplicbleOption = ['Yes', 'No', 'Not applicable'];
-List<String> questionCheckOption = [
-  "Identification (e.g., driver's license, passport, school ID, military ID, immigration documents)",
-  "Cell Phone",
-  "Cell phone charger",
-  "Medication (e.g., asthma inhaler, insulin, Epi-Pen)",
-  "Cash",
-  "ATM card",
-  "House key",
-  "Car key",
-  "A change of clothes",
-  "Comfort items (e.g., favorite stuffed animal or photograph)",
-  "Baby supplies (if applicable such as formula, diaper, wipes, change of clothes)",
-  "Copy of Protection/Restraining Order",
-  "Other important legal documents (mortgage documents, wills, medical records, marriage licenses)"
-];
+class Questions {
+  String getYes(BuildContext context) {
+    return context.loc.yes;
+  }
+
+  String getNo(BuildContext context) {
+    return context.loc.no;
+  }
+
+  String getNotApplicable(BuildContext context) {
+    return context.loc.not_applicable;
+  }
+
+  List<String> getQuestionaire(BuildContext context) {
+    return [
+      context.loc.safety_question_1,
+      context.loc.safety_question_2,
+      context.loc.safety_question_3,
+      context.loc.safety_question_4,
+      context.loc.safety_question_5,
+      context.loc.safety_question_6,
+      context.loc.safety_question_7,
+      context.loc.safety_question_8,
+      context.loc.safety_question_9,
+      context.loc.safety_question_10,
+      context.loc.safety_question_11
+    ];
+  }
+
+  List<String> getYesNoOption(BuildContext context) {
+    return [context.loc.yes, context.loc.no];
+  }
+
+  List<String> getYesNoNotApplicableOption(BuildContext context) {
+    return [context.loc.yes, context.loc.no, context.loc.not_applicable];
+  }
+
+  List<String> getQuestionCheckOption(BuildContext context) {
+    return [
+      context.loc.check_option_1,
+      context.loc.check_option_2,
+      context.loc.check_option_3,
+      context.loc.check_option_4,
+      context.loc.check_option_5,
+      context.loc.check_option_6,
+      context.loc.check_option_7,
+      context.loc.check_option_8,
+      context.loc.check_option_9,
+      context.loc.check_option_10,
+      context.loc.check_option_11,
+      context.loc.check_option_12,
+      context.loc.check_option_13,
+    ];
+  }
+}
+
 List<String> questionCount = [
   '1',
   '2',

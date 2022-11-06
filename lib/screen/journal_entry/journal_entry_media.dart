@@ -8,8 +8,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
@@ -21,9 +23,9 @@ import 'package:sisterhood_app/utill/app_constants.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
-import 'package:sisterhood_app/utill/strings.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
+import '../../location/location_util.dart';
 import '../../utill/app_paddings.dart';
 import '../../utill/sharedprefrence.dart';
 import '../../utill/styles.dart';
@@ -135,9 +137,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                 children: [
                   CommonCard(Column(
                     children: [
-                      const Padding(
+                      Padding(
                         padding: cardPadding,
-                        child: Text(Strings.what_type_of_abuse,
+                        child: Text(
+                            AppLocalizations.of(context).what_type_of_abuse,
                             style: courierFont18W600ProfilePlaceHolder),
                       ),
                       CheckboxGroup(
@@ -165,7 +168,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.tell_me_what_happend,
+                          Text(
+                              AppLocalizations.of(context).tell_me_what_happend,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -185,7 +189,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.what_were_the_circumstances,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .what_were_the_circumstances,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -201,9 +207,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   CommonCard(Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: cardPadding,
-                        child: Text(Strings.where_did_it_happen,
+                        child: Text(
+                            AppLocalizations.of(context).where_did_it_happen,
                             style: courierFont18W600Profile),
                       ),
                       CheckboxGroup(
@@ -230,8 +237,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                              Strings.if_outside_or_other_area_please_specify,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .if_outside_or_other_area_please_specify,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -250,7 +258,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.when_did_it_happen,
+                          Text(AppLocalizations.of(context).when_did_it_happen,
                               style: courierFont18W600ProfilePlaceHolder),
                           const SizedBox(
                             height: dim_15,
@@ -316,17 +324,12 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
                           child: Text(
-                              Strings.was_your_partner_under_the_influence,
-                              style: TextStyle(
-                                color: ColorResources.profilePlaceholderColor,
-                                fontSize: 18,
-                                // letterSpacing: 1,
-                                fontFamily: 'Courier',
-                                fontWeight: FontWeight.bold,
-                              )),
+                              AppLocalizations.of(context)
+                                  .was_your_partner_under_the_influence,
+                              style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
                             labels: underInfluenceOption,
@@ -347,9 +350,11 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
-                          child: Text(Strings.where_you_under_the_influence,
+                          child: Text(
+                              AppLocalizations.of(context)
+                                  .where_you_under_the_influence,
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
@@ -371,9 +376,11 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
-                          child: Text(Strings.have_you_seeked_medical_attention,
+                          child: Text(
+                              AppLocalizations.of(context)
+                                  .have_you_seeked_medical_attention,
                               style: courierFont18W600ProfileHintColor),
                         ),
                         RadioButtonGroup(
@@ -417,19 +424,30 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                   saveDataLocally();
                                 });
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxImagesSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxImagesSelected} images");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_images(
+                                        AppConstants.maxImagesSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context).max_images(
+                                        AppConstants.maxImagesSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.image,
-                          label: Strings.add_picture,
+                          label: AppLocalizations.of(context).add_picture,
                         ),
-                        CustomListWidget(selectedImages),
+                        CustomListWidget(selectedImages,
+                            deleteCallback: (index) {
+                          setState(() {
+                            selectedImages.removeAt(index);
+                          });
+                        }),
                       ],
                     ),
                   ),
@@ -438,6 +456,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       children: [
                         AddMediaView(
                           onPress: () async {
+                            selectedVideos.clear();
                             FilePickerResult result = await FilePicker.platform
                                 .pickFiles(
                                     allowMultiple: true, type: FileType.video);
@@ -451,27 +470,52 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                           AppConstants.mbToBytes)) {
                                     selectedVideos.add(file);
                                   } else {
-                                    Utils.showSnackBar(context,
-                                        "Max size limit for selected video is ${AppConstants.maxVideoLength} MB");
+                                    Utils.showSnackBar(
+                                        context,
+                                        AppLocalizations.of(context)
+                                            .max_video_limit(
+                                                AppConstants.maxVideoLength));
                                   }
                                 }
                                 setState(() {
                                   saveDataLocally();
                                 });
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxVideoSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxVideoSelected} videos");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_video_limit(
+                                        AppConstants.maxVideoSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context)
+                                        .max_video_limit(
+                                            AppConstants.maxVideoSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.video_call,
-                          label: Strings.add_video,
+                          label: AppLocalizations.of(context).add_video,
                         ),
-                        CustomListWidget(selectedVideos),
+                        Padding(
+                          padding: EdgeInsets.all(dim_5),
+                          child: Align(
+                            child: Text(
+                              AppLocalizations.of(context).max_upload_size,
+                              style: courierFont10W400ProfileHintColor,
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
+                        ),
+                        CustomListWidget(selectedVideos,
+                            deleteCallback: (index) {
+                          setState(() {
+                            selectedVideos.removeAt(index);
+                          });
+                        }),
                       ],
                     ),
                   ),
@@ -480,6 +524,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       children: [
                         AddMediaView(
                           onPress: () async {
+                            selectedAudio.clear();
                             FilePickerResult result = await FilePicker.platform
                                 .pickFiles(
                                     allowMultiple: true, type: FileType.audio);
@@ -493,27 +538,50 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                                           AppConstants.mbToBytes)) {
                                     selectedAudio.add(file);
                                   } else {
-                                    Utils.showSnackBar(context,
-                                        "Max size limit for selected audio is ${AppConstants.maxAudioLength} MB");
+                                    Utils.showSnackBar(
+                                        context,
+                                        AppLocalizations.of(context)
+                                            .max_audio_limit(
+                                                AppConstants.maxAudioLength));
                                   }
                                 }
                                 setState(() {
                                   saveDataLocally();
                                 });
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxAudioSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxAudioSelected} audios");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_audios(AppConstants.maxAudioSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context).max_audios(
+                                        AppConstants.maxAudioSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.audio_file,
-                          label: Strings.add_Audio,
+                          label: AppLocalizations.of(context).add_audio,
                         ),
-                        CustomListWidget(selectedAudio),
+                        Padding(
+                          padding: EdgeInsets.all(dim_5),
+                          child: Align(
+                            child: Text(
+                              AppLocalizations.of(context).max_upload_size,
+                              style: courierFont10W400ProfileHintColor,
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
+                        ),
+                        CustomListWidget(selectedAudio,
+                            deleteCallback: (index) {
+                          setState(() {
+                            selectedAudio.removeAt(index);
+                          });
+                        }),
                       ],
                     ),
                   ),
@@ -537,7 +605,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text(Strings.What_time_did_ithappen,
+                Text(AppLocalizations.of(context).what_time_did_it_happen,
                     style: courierFont18W600ProfilePlaceHolder),
                 const SizedBox(
                   height: dim_10,
@@ -566,8 +634,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       textAlignVertical: TextAlignVertical.bottom,
                       style: arialFont14W600,
-                      decoration: const InputDecoration(
-                        hintText: Strings.write_here,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context).write_here,
                         hintStyle: arialFont14W600,
                         errorBorder:
                             OutlineInputBorder(borderSide: BorderSide.none),
@@ -592,7 +660,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: dim_25),
                     child: CustomButton(
-                        text1: Strings.submit,
+                        text1: AppLocalizations.of(context).submit,
                         text2: "",
                         width: Get.width,
                         height: dim_50),
@@ -613,8 +681,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text(
-                  Strings.what_medical_facilitydidyouvisit,
+                Text(
+                  AppLocalizations.of(context)
+                      .what_medical_facility_did_you_visit,
                   style: courierFont18W600ProfilePlaceHolder,
                 ),
                 const SizedBox(
@@ -638,14 +707,9 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                     keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     textAlignVertical: TextAlignVertical.bottom,
-                    style: const TextStyle(
-                        color: ColorResources.profilehintColor,
-                        fontSize: 14,
-                        letterSpacing: 0.5,
-                        fontFamily: 'Arial',
-                        fontWeight: FontWeight.w600),
-                    decoration: const InputDecoration(
-                      hintText: Strings.write_here,
+                    style: arialFont14W600,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context).write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
                           OutlineInputBorder(borderSide: BorderSide.none),
@@ -669,7 +733,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: CustomButton(
-                          text1: Strings.submit,
+                          text1: AppLocalizations.of(context).submit,
                           text2: "",
                           width: Get.width,
                           height: 50)),
@@ -689,15 +753,15 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
           print("Imagages $selectedImages");
           print("Videos $selectedVideos");
           print("Audios $selectedAudio");
-
+          Position resultCoordinates = await LocationUtil.getCoordinates();
           bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
             _calendarSelectedDate,
-            prepareRequestBody(),
+            prepareRequestBody(resultCoordinates),
           );
           Fluttertoast.showToast(
               msg: isSuccess
-                  ? "Data submitted successfully"
-                  : "Failed to submit dta");
+                  ? AppLocalizations.of(context).success_message
+                  : AppLocalizations.of(context).fail_message);
           if (isSuccess) {
             SharedPrefManager.sharedPreferences
                 .setBool(AppConstants.localJournal, false);
@@ -708,7 +772,10 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
         }
       },
       child: CustomButton(
-          text1: Strings.submit, text2: "", width: Get.width, height: 60),
+          text1: AppLocalizations.of(context).submit,
+          text2: "",
+          width: Get.width,
+          height: 60),
     );
   }
 
@@ -768,7 +835,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
     }
   }
 
-  String prepareRequestBody() {
+  String prepareRequestBody(Position resultCoordinates) {
     return json.encode({
       'wouldyouliketorecord': json.encode(checkedAbuseType).toString(),
       'whathappend': _whatHappenTextController.text,
@@ -784,7 +851,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
       'popuptext': _medicalAssistantTextController.text,
       'imagesList': json.encode(uploadedImages).toString(),
       'videosList': json.encode(uploadedVideos).toString(),
-      'audiosList': json.encode(uploadedAudio).toString()
+      'audiosList': json.encode(uploadedAudio).toString(),
+      'geoTag': "${resultCoordinates.latitude}, ${resultCoordinates.longitude}"
     });
   }
 
@@ -794,7 +862,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
         builder: (context) {
           return AlertDialog(
             backgroundColor: ColorResources.background,
-            title: const Text('Select Time'),
+            title: Text(AppLocalizations.of(context).select_time),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -827,7 +895,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: dim_25),
                     child: CustomButton(
-                        text1: Strings.submit,
+                        text1: AppLocalizations.of(context).submit,
                         text2: "",
                         width: Get.width,
                         height: dim_50),

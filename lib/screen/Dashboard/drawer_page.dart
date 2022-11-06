@@ -6,9 +6,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/sharedprefrence.dart';
-import 'package:sisterhood_app/utill/strings.dart';
 
 import '../../utill/styles.dart';
 import '../../web/web_view.dart';
@@ -50,7 +50,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
               titlePadding: const EdgeInsets.only(top: 20.0),
               backgroundColor: Colors.white,
-              title: Strings.areyousureyouwantto_logout,
+              title: context.loc.are_you_sure_you_want_to_logout,
               titleStyle:
                   const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               content: Row(
@@ -63,27 +63,24 @@ class _DrawerPageState extends State<DrawerPage> {
                       onTap: () {
                         SharedPrefManager.clearPrefs();
                         Get.back();
-                        Get.snackbar("Logout", "Successfully");
+                        Get.snackbar(
+                            context.loc.logout, context.loc.successfully);
                       },
                       child: Center(
                         child: Container(
-                            height: 45,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(colors: [
-                                  ColorResources.box_background,
-                                  ColorResources.box_background,
-                                ]),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: const Center(
-                                child: Text(Strings.yes,
-                                    style: TextStyle(
-                                      color: ColorResources.black,
-                                      fontSize: 16,
-                                      fontFamily: 'Courier',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold,
-                                    )))),
+                          height: 45,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(colors: [
+                                ColorResources.box_background,
+                                ColorResources.box_background,
+                              ]),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child:
+                                Text(context.loc.yes, style: courierFont16W600),
+                          ),
+                        ),
                       )),
                   InkWell(
                       onTap: () {
@@ -91,38 +88,30 @@ class _DrawerPageState extends State<DrawerPage> {
                       },
                       child: Center(
                         child: Container(
-                            height: 45,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(colors: [
-                                  ColorResources.green,
-                                  ColorResources.darkgreen,
-                                ]),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: const Center(
-                                child: Text(Strings.no,
-                                    style: TextStyle(
-                                      color: ColorResources.black,
-                                      fontSize: 16,
-                                      fontFamily: 'Courier',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold,
-                                    )))),
+                          height: 45,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(colors: [
+                                ColorResources.green,
+                                ColorResources.darkgreen,
+                              ]),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child:
+                                Text(context.loc.no, style: courierFont16W600),
+                          ),
+                        ),
                       )),
                 ],
               ),
             );
           },
-          title: const Padding(
+          title: Padding(
             padding: EdgeInsets.only(bottom: 3.0),
-            child: Text(Strings.logout,
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 18,
-                  fontFamily: 'Arial',
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold,
-                )),
+            child: Text(
+              context.loc.logout,
+              style: arialFont18W600.copyWith(color: Colors.red),
+            ),
           ),
           horizontalTitleGap: 0,
           leading: SizedBox(
@@ -216,8 +205,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: () {
                     // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (builder)=>BottomNavigationBarPage(selectIndex:0)));
                   },
-                  title: const Text(
-                    Strings.about_us,
+                  title: Text(
+                    context.loc.about_us,
                     style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
@@ -237,8 +226,8 @@ class _DrawerPageState extends State<DrawerPage> {
                       ),
                     );
                   },
-                  title: const Text(
-                    Strings.privacy_polocy,
+                  title: Text(
+                    context.loc.privacy_policy,
                     style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
@@ -254,8 +243,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: () {
                     navigateToContactUs(context);
                   },
-                  title: const Text(
-                    Strings.contact_us,
+                  title: Text(
+                    context.loc.contact_us,
                     style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,
@@ -271,8 +260,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: () {
                     // TODO settings
                   },
-                  title: const Text(
-                    Strings.settings,
+                  title: Text(
+                    context.loc.settings,
                     style: arialFont16W700,
                   ),
                   horizontalTitleGap: 0,

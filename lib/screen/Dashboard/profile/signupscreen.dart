@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:sisterhood_app/screen/authentication/login_page.dart';
 
 import '../../../utill/app_constants.dart';
 import '../../../utill/color_resources.dart';
@@ -11,7 +11,7 @@ import '../../../utill/custom_button.dart';
 import '../../../utill/email_validation.dart';
 import '../../../utill/images.dart';
 import '../../../utill/sharedprefrence.dart';
-import '../../../utill/strings.dart';
+import '../../../utill/styles.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key key}) : super(key: key);
@@ -21,7 +21,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   final _formKey = GlobalKey<FormState>();
   final _form1Key = GlobalKey<FormState>();
   final _form2Key = GlobalKey<FormState>();
@@ -46,7 +45,8 @@ class _SignupScreenState extends State<SignupScreen> {
   final _zipCode = TextEditingController();
 
   bool isEmail(em) {
-    var p = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    var p =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = RegExp(p);
     return regExp.hasMatch(em);
   }
@@ -54,111 +54,106 @@ class _SignupScreenState extends State<SignupScreen> {
   Future<UserCredential> _trySubmit() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     UserCredential user;
-    if(_formKey.currentState.validate()) {
-     if(_form1Key.currentState.validate()){
-      if(_form2Key.currentState.validate()) {
-      if(_form3Key.currentState.validate()) {
-        if(_form4Key.currentState.validate()) {
-          if(_form5Key.currentState.validate()) {
-            if(_form6Key.currentState.validate()) {
-              if(_form7Key.currentState.validate()) {
+    if (_formKey.currentState.validate()) {
+      if (_form1Key.currentState.validate()) {
+        if (_form2Key.currentState.validate()) {
+          if (_form3Key.currentState.validate()) {
+            if (_form4Key.currentState.validate()) {
+              if (_form5Key.currentState.validate()) {
+                if (_form6Key.currentState.validate()) {
+                  if (_form7Key.currentState.validate()) {
+                    try {
+                      setState(() {
+                        _isLoad = true;
+                      });
+                      user = await _auth.createUserWithEmailAndPassword(
+                          email: _emailAddress.text.toString(),
+                          password: _password.text.toString());
+                      var methods = await FirebaseAuth.instance
+                          .fetchSignInMethodsForEmail(
+                              _emailAddress.text.toString());
+                      if (methods.contains(_password.text.toString())) {
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: AppLocalizations.of(context)
+                                .registered_successfully);
+                        Get.back();
+                      }
+                      setState(() {
+                        _isLoad = false;
+                      });
+                      user.user.updateDisplayName(_userName.text.toString());
+                      Map<String, dynamic> newcreate = {};
+                      Map<String, dynamic> create = {
+                        'username': _userName.text.toString(),
+                        'firstname': _firstName.text.toString(),
+                        'middleName': '',
+                        'lastname': _lastName.text.toString(),
+                        'mobile': '',
+                        'address': _addressController.text.toString(),
+                        'city': _city.text.toString(),
+                        'zipcode': _zipCode.text.toString(),
+                        'image_url': '',
+                        'member': DateTime.now().year.toString(),
+                        'updatedDate': DateTime.now().day.toString() +
+                            "/" +
+                            DateTime.now().month.toString() +
+                            "/" +
+                            DateTime.now().year.toString()
+                      };
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(user.user.uid)
+                          .set(create);
+                      await SharedPrefManager.savePreferenceBoolean(true);
+                      await SharedPrefManager.savePrefString(
+                          AppConstants.password, _password.text.toString());
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'weak-password') {
+                        print(AppLocalizations.of(context).weak_password);
 
-                try {
-                  setState(() {
-                    _isLoad = true;
-                  });
-                  user = await _auth.createUserWithEmailAndPassword(
-                      email: _emailAddress.text.toString(),
-                      password: _password.text.toString());
-                  var methods = await FirebaseAuth.instance.fetchSignInMethodsForEmail(
-                      _emailAddress.text.toString());
-                  if (methods.contains(_password.text.toString())) {}
-                  else {
-                    Fluttertoast.showToast(msg: "Registered Successfully");
-                    Get.back();
+                        Fluttertoast.showToast(
+                            msg: AppLocalizations.of(context).weak_password);
+                        setState(() {
+                          _isLoad = false;
+                        });
+                      } else if (e.code == 'email-already-in-use') {
+                        print(AppLocalizations.of(context).account_exist);
+                        setState(() {
+                          _isLoad = false;
+                        });
+                        Fluttertoast.showToast(
+                            msg: AppLocalizations.of(context).account_exist);
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
                   }
-                  setState(() {
-                    _isLoad = false;
-                  });
-                  user.user.updateDisplayName(_userName.text.toString());
-                  Map<String, dynamic> newcreate = {};
-                  Map<String, dynamic> create = {
-                    'username': _userName.text.toString(),
-                    'firstname': _firstName.text.toString(),
-                    'middleName': '',
-                    'lastname': _lastName.text.toString(),
-                    'mobile': '',
-                    'address': _addressController.text.toString(),
-                    'city': _city.text.toString(),
-                    'zipcode': _zipCode.text.toString(),
-                    'image_url': '',
-                    'member': DateTime
-                        .now()
-                        .year
-                        .toString(),
-                    'updatedDate': DateTime
-                        .now()
-                        .day
-                        .toString() + "/" + DateTime
-                        .now()
-                        .month
-                        .toString() + "/" + DateTime
-                        .now()
-                        .year
-                        .toString()
-                  };
-                  await FirebaseFirestore.instance.collection('users')
-                      .doc(user.user.uid)
-                      .set(create);
-                  await SharedPrefManager.savePreferenceBoolean(true);
-                  await SharedPrefManager.savePrefString(
-                      AppConstants.password, _password.text.toString());
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                    print('The password provided is too weak.');
-
-                    Fluttertoast.showToast(msg: "Password provided is too weak");
-                    setState(() {
-                      _isLoad = false;
-                    });
-                  } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
-                    setState(() {
-                      _isLoad = false;
-                    });
-                    Fluttertoast.showToast(msg: "User already exist");
-                  }
-                } catch (e) {
-                  print(e);
                 }
               }
             }
           }
         }
       }
-
-
-
-
-     }
-    }
     }
     return user;
   }
 
   _continuebutton() {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         _trySubmit();
       },
       child: CustomButton(
-          text1: Strings.signup, text2: "", width: Get.width, height: 60),
+          text1: AppLocalizations.of(context).signup,
+          text2: "",
+          width: Get.width,
+          height: 60),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-
     _firstnameField() {
       return Container(
         decoration: BoxDecoration(
@@ -179,79 +174,21 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.first_name,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-              border: OutlineInputBorder(borderSide: BorderSide.none),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).first_name,
+              hintStyle: arialFont18W600,
+              errorBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              border: const OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your first name";
+                return AppLocalizations.of(context).plese_enter_first_name;
               }
               return null;
             },
           ),
-        ),
-      );
-    }
-
-    _middlenameField() {
-      return Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: ColorResources.box_border,
-            width: 1,
-          ),
-          color: ColorResources.box_background,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        height: 60,
-        alignment: Alignment.topCenter,
-        child: TextFormField(
-          controller: _middleName,
-          textAlign: TextAlign.start,
-          keyboardType: TextInputType.text,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          textAlignVertical: TextAlignVertical.bottom,
-          style: const TextStyle(
-              color: ColorResources.profilehintColor,
-              fontSize: 18,
-              letterSpacing: 0.5,
-              fontFamily: 'Arial',
-              fontWeight: FontWeight.w600
-          ),
-          decoration: const InputDecoration(
-            hintText: Strings.middle_name,
-            hintStyle: TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-            border: OutlineInputBorder(borderSide: BorderSide.none),
-          ),
-          validator: (value) {
-            if (value.isEmpty) {
-              return "Please enter your Middle name";
-            }
-            return null;
-          },
         ),
       );
     }
@@ -276,28 +213,16 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.last_name,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).last_name,
+              hintStyle: arialFont18W600,
               errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
               border: OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your last name";
+                return AppLocalizations.of(context).plese_enter_last_name;
               }
               return null;
             },
@@ -326,22 +251,10 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.emailAddress,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.email_address,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).email_address,
+              hintStyle: arialFont18W600,
               errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
               border: OutlineInputBorder(borderSide: BorderSide.none),
             ),
@@ -371,30 +284,19 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.passwords,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-              border: OutlineInputBorder(borderSide: BorderSide.none),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).password,
+              hintStyle: arialFont18W600,
+              errorBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              border: const OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your password";
+                return AppLocalizations.of(context).please_enter_password;
               } else if (value.length < 10) {
-                return "Password have must be atleast 10 digits";
+                return AppLocalizations.of(context).please_min_length;
               }
               return null;
             },
@@ -423,28 +325,17 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.user_name,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-              border: OutlineInputBorder(borderSide: BorderSide.none),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).user_name,
+              hintStyle: arialFont18W600,
+              errorBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              border: const OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your user name";
+                return AppLocalizations.of(context).plese_enter_user_name;
               }
               return null;
             },
@@ -474,28 +365,16 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.streetAddress,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.address,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).address,
+              hintStyle: arialFont18W600,
               errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
               border: OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your address";
+                return AppLocalizations.of(context).plese_enter_your_address;
               }
               return null;
             },
@@ -524,28 +403,17 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.city,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-              border: OutlineInputBorder(borderSide: BorderSide.none),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).city,
+              hintStyle: arialFont18W600,
+              errorBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              border: const OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your city";
+                return AppLocalizations.of(context).please_enter_city;
               }
               return null;
             },
@@ -574,28 +442,17 @@ class _SignupScreenState extends State<SignupScreen> {
             keyboardType: TextInputType.number,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlignVertical: TextAlignVertical.bottom,
-            style: const TextStyle(
-                color: ColorResources.profilehintColor,
-                fontSize: 18,
-                letterSpacing: 0.5,
-                fontFamily: 'Arial',
-                fontWeight: FontWeight.w600
-            ),
-            decoration: const InputDecoration(
-              hintText: Strings.zipCode,
-              hintStyle: TextStyle(
-                  color: ColorResources.profilehintColor,
-                  fontSize: 18,
-                  letterSpacing: 0.5,
-                  fontFamily: 'Arial',
-                  fontWeight: FontWeight.w600
-              ),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
-              border: OutlineInputBorder(borderSide: BorderSide.none),
+            style: arialFont18W600,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).zip_code,
+              hintStyle: arialFont18W600,
+              errorBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              border: const OutlineInputBorder(borderSide: BorderSide.none),
             ),
             validator: (value) {
               if (value.isEmpty) {
-                return "Please enter your zip code";
+                return AppLocalizations.of(context).plese_enter_your_zip_code;
               }
               return null;
             },
@@ -606,197 +463,179 @@ class _SignupScreenState extends State<SignupScreen> {
 
     return Scaffold(
         backgroundColor: ColorResources.background,
-      body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            child: Form(
-              // key: _formKey,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+        body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Form(
+                // key: _formKey,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 30),
+                      Image.asset(
+                        Images.commonlogo,
+                        width: Get.width,
+                        height: 94,
+                      ),
+                      Image.asset(
+                        Images.Sisterhood,
+                        width: Get.width,
+                        height: 70,
+                      ),
+                      // SizedBox(height: 70),
 
-                    const SizedBox(height: 30),
-                    Image.asset(Images.commonlogo,
-                      width: Get.width,
-                      height: 94,
-                    ),
-                    Image.asset(Images.Sisterhood,
-                      width: Get.width,
-                      height: 70,
-                    ),
-                    // SizedBox(height: 70),
+                      const SizedBox(height: 30),
 
-                    const SizedBox(height: 30),
-
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.first_name,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _firstnameField(),
-                      ],
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.last_name,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _lastnameField(),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(Strings.user_name,
-                                  style: TextStyle(
-                                    color: ColorResources.profilePlaceholderColor,
-                                    fontSize: 16,
-                                    // letterSpacing: 1,
-                                    // fontFamily: 'Arial',
-                                    fontWeight: FontWeight.w600,
-                                  )),
-                              const SizedBox(height: 5,),
-                              _usernameField(),
-                            ],
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).first_name,
+                            style: arialFont16W700,
                           ),
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.email,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _emailaddressField(),
-                      ],
-                    ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _firstnameField(),
+                        ],
+                      ),
 
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text("Password",
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _passwordField(),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.address,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _phoneNumberField(),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.city,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _cityField(),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(Strings.zipCode,
-                            style: TextStyle(
-                              color: ColorResources.grey,
-                              fontSize: 16,
-                              // letterSpacing: 1,
-                              // fontFamily: 'Arial',
-                              fontWeight: FontWeight.w600,
-                            )),
-                        const SizedBox(height: 5,),
-                        _zipcodeField(),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
-                    if(_isLoad)
-                      const Center(child: CircularProgressIndicator())
-                    else
-                      _continuebutton(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(AppLocalizations.of(context).last_name,
+                              style: arialFont16W700),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _lastnameField(),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).user_name,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _usernameField(),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).email,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _emailaddressField(),
+                        ],
+                      ),
 
-                    // const SizedBox(height: 30,),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).password,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _passwordField(),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).address,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _phoneNumberField(),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).city,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _cityField(),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context).zip_code,
+                            style: arialFont16W700,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _zipcodeField(),
+                        ],
+                      ),
+                      const SizedBox(height: 30),
 
-                    Container(
-                      alignment: Alignment.center,
-                      child: FlatButton(onPressed: (){
-                        Get.back();
-                        /*Get.to(const LoginPage(),
+                      if (_isLoad)
+                        const Center(child: CircularProgressIndicator())
+                      else
+                        _continuebutton(),
+
+                      // const SizedBox(height: 30,),
+
+                      Container(
+                        alignment: Alignment.center,
+                        child: FlatButton(
+                            onPressed: () {
+                              Get.back();
+                              /*Get.to(const LoginPage(),
                             transition: Transition.rightToLeftWithFade,
                             duration: const Duration(milliseconds: 600));*/
-                      },
-                          child: const Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(text: 'Already Account? ',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.normal
-                                )),
-
-                                TextSpan(text: ' Login',
-                                    style: TextStyle(fontWeight: FontWeight.bold,
-                                    color: Colors.red,
-                                    fontSize: 15)),
-                              ],
-                            ),
-                          )),
-                    ),
-
-                  ]),
-            ),
-          )
-      )
-    );
+                            },
+                            child: const Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: 'Already Account? ',
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.normal)),
+                                  TextSpan(
+                                      text: ' Login',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.red,
+                                          fontSize: 15)),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ]),
+              ),
+            )));
   }
 }

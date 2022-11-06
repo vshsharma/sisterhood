@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 
 class SelectMediaSheet extends StatefulWidget {
@@ -23,8 +23,8 @@ class _SelectMediaSheetState extends State<SelectMediaSheet> {
                 Icons.photo_camera,
                 size: 35,
               ),
-              title: const Text(
-                Strings.camera,
+              title: Text(
+                context.loc.camera,
                 style: courierFont18W600,
               ),
               onTap: widget.cameraPress),
@@ -33,8 +33,8 @@ class _SelectMediaSheetState extends State<SelectMediaSheet> {
               Icons.photo_library,
               size: 35,
             ),
-            title: const Text(
-              Strings.gallery,
+            title: Text(
+              context.loc.gallery,
               style: courierFont18W600,
             ),
             onTap: widget.galleryPress,

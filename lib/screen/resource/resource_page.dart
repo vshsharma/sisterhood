@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sisterhood_app/screen/self_help/emergency.dart';
 import 'package:sisterhood_app/screen/self_help/legal_informtion.dart';
 import 'package:sisterhood_app/screen/women_shelter/women_shelter_screen.dart';
 
 import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
 import '../../utill/styles.dart';
 import '../common/base_widget.dart';
 import '../common/resource_button.dart';
@@ -28,14 +28,14 @@ class _ResourcePageState extends State<ResourcePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Text(
-                Strings.resources,
+              Text(
+                AppLocalizations.of(context).resources,
                 softWrap: true,
                 style: courierFont25W700Black,
               ),
               const SizedBox(height: dim_40),
               ResourceButton(
-                labelButton: Strings.cta_label_emergency,
+                labelButton: AppLocalizations.of(context).cta_label_emergency,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -45,7 +45,8 @@ class _ResourcePageState extends State<ResourcePage> {
                 },
               ),
               ResourceButton(
-                labelButton: Strings.cta_label_women_shelter,
+                labelButton:
+                    AppLocalizations.of(context).cta_label_women_shelter,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -55,7 +56,8 @@ class _ResourcePageState extends State<ResourcePage> {
                 },
               ),
               ResourceButton(
-                labelButton: Strings.cta_label_need_support,
+                labelButton:
+                    AppLocalizations.of(context).cta_label_need_support,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -65,7 +67,7 @@ class _ResourcePageState extends State<ResourcePage> {
                 },
               ),
               ResourceButton(
-                labelButton: Strings.cta_label_legal_info,
+                labelButton: AppLocalizations.of(context).cta_label_legal_info,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -75,7 +77,8 @@ class _ResourcePageState extends State<ResourcePage> {
                 },
               ),
               ResourceButton(
-                labelButton: Strings.cta_label_more_about_abuse,
+                labelButton:
+                    AppLocalizations.of(context).cta_label_more_about_abuse,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -85,7 +88,8 @@ class _ResourcePageState extends State<ResourcePage> {
                 },
               ),
               ResourceButton(
-                labelButton: Strings.cta_label_self_help_tool,
+                labelButton:
+                    AppLocalizations.of(context).cta_label_self_help_tool,
                 onButtonPress: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(

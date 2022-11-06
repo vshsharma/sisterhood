@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:sisterhood_app/location/location_util.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/viewHistory/journal_history_list.dart';
@@ -8,7 +9,7 @@ import 'package:sisterhood_app/screen/Dashboard/drawer_page.dart';
 import 'package:sisterhood_app/screen/journal_entry/journal_entry_media.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
-import 'package:sisterhood_app/utill/strings.dart';
+import 'package:sisterhood_app/utill/styles.dart';
 import 'package:sisterhood_app/utill/utils.dart';
 
 import '../../resource/resource_page.dart';
@@ -106,16 +107,13 @@ class _HomePageState extends State<HomePage> {
                           ),
                           height: 60,
                           width: Get.width,
-                          child: const Center(
+                          child: Center(
                             child: Center(
-                              child: Text(Strings.new_journalentry,
-                                  style: TextStyle(
-                                    color: ColorResources.boxTextcolor,
-                                    fontSize: 18,
-                                    // letterSpacing: 1,
-                                    fontFamily: 'Courier',
-                                    fontWeight: FontWeight.bold,
-                                  )),
+                              child: Text(
+                                AppLocalizations.of(context).new_journal_entry,
+                                style: courierFont18W600.copyWith(
+                                    color: ColorResources.boxTextcolor),
+                              ),
                             ),
                           )),
                     ),
@@ -127,14 +125,6 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Container(
                           decoration: BoxDecoration(
-                            // boxShadow: [
-                            //   BoxShadow(
-                            //     color: Colors.grey.withOpacity(0.4),
-                            //     spreadRadius: 1,
-                            //     blurRadius: 3,
-                            //     offset: Offset(0, 3),
-                            //   ),
-                            // ],
                             border: Border.all(
                               color: ColorResources.box_border,
                               width: 1.5,
@@ -144,16 +134,13 @@ class _HomePageState extends State<HomePage> {
                           ),
                           height: 60,
                           width: Get.width,
-                          child: const Center(
+                          child: Center(
                             child: Center(
-                              child: Text(Strings.view_history,
-                                  style: TextStyle(
-                                    color: ColorResources.boxTextcolor,
-                                    fontSize: 18,
-                                    // letterSpacing: 1,
-                                    fontFamily: 'Courier',
-                                    fontWeight: FontWeight.bold,
-                                  )),
+                              child: Text(
+                                AppLocalizations.of(context).view_history,
+                                style: courierFont18W600.copyWith(
+                                    color: ColorResources.boxTextcolor),
+                              ),
                             ),
                           )),
                     ),
@@ -161,23 +148,10 @@ class _HomePageState extends State<HomePage> {
                     InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ResourcePage()));
+                            builder: (context) => const ResourcePage()));
                       },
-                      // onTap:(){
-                      //   Get.to(ResourcesPage(),
-                      //       transition: Transition.rightToLeftWithFade,
-                      //       duration: Duration(milliseconds: 600));
-                      // },
                       child: Container(
                           decoration: BoxDecoration(
-                            // boxShadow: [
-                            //   BoxShadow(
-                            //     color: Colors.grey.withOpacity(0.4),
-                            //     spreadRadius: 1,
-                            //     blurRadius: 3,
-                            //     offset: Offset(0, 3),
-                            //   ),
-                            // ],
                             border: Border.all(
                               color: ColorResources.box_border,
                               width: 1.5,
@@ -187,16 +161,13 @@ class _HomePageState extends State<HomePage> {
                           ),
                           height: 60,
                           width: Get.width,
-                          child: const Center(
+                          child: Center(
                             child: Center(
-                              child: Text(Strings.resources,
-                                  style: TextStyle(
-                                    color: ColorResources.boxTextcolor,
-                                    fontSize: 18,
-                                    // letterSpacing: 1,
-                                    fontFamily: 'Courier',
-                                    fontWeight: FontWeight.bold,
-                                  )),
+                              child: Text(
+                                AppLocalizations.of(context).resources,
+                                style: courierFont18W600.copyWith(
+                                    color: ColorResources.boxTextcolor),
+                              ),
                             ),
                           )),
                     ),

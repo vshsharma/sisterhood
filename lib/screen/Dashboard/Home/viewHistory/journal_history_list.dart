@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sisterhood_app/screen/Dashboard/journal_history/edit_journal_entry_media.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
 import 'package:sisterhood_app/screen/common/date_util.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
-import 'package:sisterhood_app/utill/strings.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 
 import '../../../app_widgets/progress_indicator.dart';
@@ -47,7 +47,7 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
             .sort((obj1, obj2) => obj2.dateTime.compareTo(obj1.dateTime));
       });
     } else {
-      Fluttertoast.showToast(msg: 'No data found for selected date');
+      Fluttertoast.showToast(msg: AppLocalizations.of(context).no_data_found);
     }
     showLoader(false);
   }
@@ -77,8 +77,8 @@ class _JournalHistoryListState extends State<JournalHistoryList> {
                           DateUtil.getStringFormattedDate(
                               incidentList[index].key),
                           style: courierFont20W600),
-                      subtitle: const Text(
-                        Strings.LOGGED,
+                      subtitle: Text(
+                        AppLocalizations.of(context).logged,
                         style: courierFont16W600,
                       ),
                     ),

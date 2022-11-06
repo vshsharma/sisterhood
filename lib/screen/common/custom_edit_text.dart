@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sisterhood_app/utill/extension.dart';
 
 import '../../utill/color_resources.dart';
 import '../../utill/dimension.dart';
-import '../../utill/strings.dart';
 import '../../utill/styles.dart';
 
 class CustomEditTextField extends StatelessWidget {
@@ -36,8 +36,8 @@ class CustomEditTextField extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         textAlignVertical: TextAlignVertical.bottom,
         style: arialFont14W600,
-        decoration: const InputDecoration(
-          hintText: Strings.type_your_text_here,
+        decoration: InputDecoration(
+          hintText: context.loc.type_your_text_here,
           hintStyle: arialFont14W600,
           errorBorder: OutlineInputBorder(borderSide: BorderSide.none),
           border: OutlineInputBorder(borderSide: BorderSide.none),

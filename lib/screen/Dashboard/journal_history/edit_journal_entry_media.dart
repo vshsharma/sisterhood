@@ -9,8 +9,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+// import 'package:sisterhood_app/utill/strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
@@ -23,8 +26,8 @@ import 'package:sisterhood_app/utill/app_paddings.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/dimension.dart';
-import 'package:sisterhood_app/utill/strings.dart';
 
+import '../../../location/location_util.dart';
 import '../../../utill/app_constants.dart';
 import '../../../utill/styles.dart';
 import '../../../utill/utils.dart';
@@ -48,7 +51,7 @@ class EditJournalEntryMediaPage extends StatefulWidget {
 
 class _EditJournalEntryMediaPagePageState
     extends State<EditJournalEntryMediaPage> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   var isSelected = false;
   final _auth = FirebaseAuth.instance;
@@ -93,19 +96,22 @@ class _EditJournalEntryMediaPagePageState
   @override
   void initState() {
     super.initState();
-    if (widget._incidentModel.imagesList.isNotEmpty) {
+    if (widget._incidentModel.imagesList != null &&
+        widget._incidentModel.imagesList.isNotEmpty) {
       var images = json.decode(widget._incidentModel.imagesList).cast<String>();
       for (var obj in images) {
         uploadedImages.add(MediaFileModel(url: obj, upload: false, name: obj));
       }
     }
-    if (widget._incidentModel.videosList.isNotEmpty) {
+    if (widget._incidentModel.videosList != null &&
+        widget._incidentModel.videosList.isNotEmpty) {
       var videos = json.decode(widget._incidentModel.videosList).cast<String>();
       for (var obj in videos) {
         uploadedVideos.add(MediaFileModel(url: obj, upload: false, name: obj));
       }
     }
-    if (widget._incidentModel.audiosList.isNotEmpty) {
+    if (widget._incidentModel.audiosList != null &&
+        widget._incidentModel.audiosList.isNotEmpty) {
       var audio = json.decode(widget._incidentModel.audiosList).cast<String>();
       for (var obj in audio) {
         uploadedAudio.add(MediaFileModel(url: obj, upload: false, name: obj));
@@ -165,15 +171,11 @@ class _EditJournalEntryMediaPagePageState
                 children: [
                   CommonCard(Column(
                     children: [
-                      const Padding(
+                      Padding(
                         padding: cardPadding,
-                        child: Text(Strings.what_type_of_abuse,
-                            style: TextStyle(
-                              color: ColorResources.profilePlaceholderColor,
-                              fontSize: font_18,
-                              fontFamily: 'Courier',
-                              fontWeight: FontWeight.w600,
-                            )),
+                        child: Text(
+                            AppLocalizations.of(context).what_type_of_abuse,
+                            style: courierFont18W600ProfilePlaceHolder),
                       ),
                       CheckboxGroup(
                           labels: abuseCategoryList,
@@ -199,7 +201,8 @@ class _EditJournalEntryMediaPagePageState
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.tell_me_what_happend,
+                          Text(
+                              AppLocalizations.of(context).tell_me_what_happend,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -216,7 +219,9 @@ class _EditJournalEntryMediaPagePageState
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.what_were_the_circumstances,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .what_were_the_circumstances,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -229,9 +234,10 @@ class _EditJournalEntryMediaPagePageState
                   CommonCard(Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: cardPadding,
-                        child: Text(Strings.where_did_it_happen,
+                        child: Text(
+                            AppLocalizations.of(context).where_did_it_happen,
                             style: courierFont18W600Profile),
                       ),
                       CheckboxGroup(
@@ -257,8 +263,9 @@ class _EditJournalEntryMediaPagePageState
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                              Strings.if_outside_or_other_area_please_specify,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .if_outside_or_other_area_please_specify,
                               style: courierFont18W600ProfileHintColor),
                           const SizedBox(
                             height: dim_20,
@@ -274,7 +281,7 @@ class _EditJournalEntryMediaPagePageState
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(Strings.when_did_it_happen,
+                          Text(AppLocalizations.of(context).when_did_it_happen,
                               style: courierFont18W600ProfilePlaceHolder),
                           const SizedBox(
                             height: dim_15,
@@ -333,8 +340,6 @@ class _EditJournalEntryMediaPagePageState
                               setState(() {
                                 _targetDateTime = date;
                                 print('onDayPressed1: $_targetDateTime');
-                                // _currentMonth =
-                                //     DateFormat.yMMM().format(_targetDateTime);
                               });
                             },
                             onDayLongPressed: (DateTime date) {},
@@ -347,17 +352,12 @@ class _EditJournalEntryMediaPagePageState
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
                           child: Text(
-                              Strings.was_your_partner_under_the_influence,
-                              style: TextStyle(
-                                color: ColorResources.profilePlaceholderColor,
-                                fontSize: 18,
-                                // letterSpacing: 1,
-                                fontFamily: 'Courier',
-                                fontWeight: FontWeight.bold,
-                              )),
+                              AppLocalizations.of(context)
+                                  .was_your_partner_under_the_influence,
+                              style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
                             labels: underInfluenceOption,
@@ -377,9 +377,11 @@ class _EditJournalEntryMediaPagePageState
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
-                          child: Text(Strings.where_you_under_the_influence,
+                          child: Text(
+                              AppLocalizations.of(context)
+                                  .where_you_under_the_influence,
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
@@ -400,9 +402,11 @@ class _EditJournalEntryMediaPagePageState
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        Padding(
                           padding: cardPadding,
-                          child: Text(Strings.have_you_seeked_medical_attention,
+                          child: Text(
+                              AppLocalizations.of(context)
+                                  .have_you_seeked_medical_attention,
                               style: courierFont18W600ProfileHintColor),
                         ),
                         RadioButtonGroup(
@@ -451,17 +455,23 @@ class _EditJournalEntryMediaPagePageState
                                   }
                                 });
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxImagesSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxImagesSelected} images");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_images(
+                                        AppConstants.maxImagesSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context).max_images(
+                                        AppConstants.maxImagesSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.image,
-                          label: Strings.add_picture,
+                          label: AppLocalizations.of(context).add_picture,
                         ),
                         ListView.builder(
                           itemCount: uploadedImages.length,
@@ -502,7 +512,9 @@ class _EditJournalEntryMediaPagePageState
                                               await submitClick(false);
                                               setState(() {
                                                 Utils.showSnackBar(
-                                                    context, "Image removed");
+                                                    context,
+                                                    AppLocalizations.of(context)
+                                                        .image_removed);
                                               });
                                             },
                                           ),
@@ -547,23 +559,43 @@ class _EditJournalEntryMediaPagePageState
                                           path: platFormObj.path));
                                     }
                                   } else {
-                                    Utils.showSnackBar(context,
-                                        "Max size limit for selected video is ${AppConstants.maxVideoLength} MB");
+                                    Utils.showSnackBar(
+                                        context,
+                                        AppLocalizations.of(context)
+                                            .max_video_limit(
+                                                AppConstants.maxVideoLength));
                                   }
                                 }
                                 setState(() {});
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxVideoSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxVideoSelected} videos");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_video_limit(
+                                        AppConstants.maxVideoSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context)
+                                        .max_video_limit(
+                                            AppConstants.maxVideoSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.video_call,
-                          label: Strings.add_video,
+                          label: AppLocalizations.of(context).add_video,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(dim_5),
+                          child: Align(
+                            child: Text(
+                              AppLocalizations.of(context).max_upload_size,
+                              style: courierFont10W400ProfileHintColor,
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
                         ),
                         ListView.builder(
                           itemCount: uploadedVideos.length,
@@ -604,7 +636,9 @@ class _EditJournalEntryMediaPagePageState
                                               await submitClick(false);
                                               setState(() {
                                                 Utils.showSnackBar(
-                                                    context, "Video removed");
+                                                    context,
+                                                    AppLocalizations.of(context)
+                                                        .video_removed);
                                               });
                                             },
                                           ),
@@ -649,23 +683,41 @@ class _EditJournalEntryMediaPagePageState
                                           path: platFormObj.path));
                                     }
                                   } else {
-                                    Utils.showSnackBar(context,
-                                        "Max size limit for selected audio is ${AppConstants.maxAudioLength} MB");
+                                    Utils.showSnackBar(
+                                        context,
+                                        AppLocalizations.of(context)
+                                            .max_audio_limit(
+                                                AppConstants.maxAudioLength));
                                   }
                                 }
                                 setState(() {});
                               } else {
-                                Utils.log(
-                                    "You can select only ${AppConstants.maxAudioSelected} images");
-                                Utils.showSnackBar(context,
-                                    "You can select only ${AppConstants.maxAudioSelected} audios");
+                                Utils.log(AppLocalizations.of(context)
+                                    .max_audios(AppConstants.maxAudioSelected));
+                                Utils.showSnackBar(
+                                    context,
+                                    AppLocalizations.of(context).max_audios(
+                                        AppConstants.maxAudioSelected));
                               }
                             } else {
-                              Utils.showSnackBar(context, "No file selected");
+                              Utils.showSnackBar(
+                                  context,
+                                  AppLocalizations.of(context)
+                                      .no_file_selected);
                             }
                           },
                           icon: Icons.audio_file,
-                          label: Strings.add_Audio,
+                          label: AppLocalizations.of(context).add_audio,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(dim_5),
+                          child: Align(
+                            child: Text(
+                              AppLocalizations.of(context).max_upload_size,
+                              style: courierFont10W400ProfileHintColor,
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
                         ),
                         ListView.builder(
                             itemCount: uploadedAudio.length,
@@ -707,7 +759,10 @@ class _EditJournalEntryMediaPagePageState
                                                 await submitClick(false);
                                                 setState(() {
                                                   Utils.showSnackBar(
-                                                      context, "Audio removed");
+                                                      context,
+                                                      AppLocalizations.of(
+                                                              context)
+                                                          .audio_removed);
                                                 });
                                               },
                                             ),
@@ -744,7 +799,7 @@ class _EditJournalEntryMediaPagePageState
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text(Strings.What_time_did_ithappen,
+                Text(AppLocalizations.of(context).what_time_did_it_happen,
                     style: courierFont18W600ProfilePlaceHolder),
                 const SizedBox(
                   height: dim_10,
@@ -772,8 +827,8 @@ class _EditJournalEntryMediaPagePageState
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       textAlignVertical: TextAlignVertical.bottom,
                       style: arialFont14W600,
-                      decoration: const InputDecoration(
-                        hintText: Strings.write_here,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context).write_here,
                         hintStyle: arialFont14W600,
                         errorBorder:
                             OutlineInputBorder(borderSide: BorderSide.none),
@@ -798,7 +853,7 @@ class _EditJournalEntryMediaPagePageState
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: dim_25),
                     child: CustomButton(
-                        text1: Strings.submit,
+                        text1: AppLocalizations.of(context).submit,
                         text2: "",
                         width: Get.width,
                         height: dim_50),
@@ -819,8 +874,9 @@ class _EditJournalEntryMediaPagePageState
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text(
-                  Strings.what_medical_facilitydidyouvisit,
+                Text(
+                  AppLocalizations.of(context)
+                      .what_medical_facility_did_you_visit,
                   style: courierFont18W600ProfilePlaceHolder,
                 ),
                 const SizedBox(
@@ -849,8 +905,8 @@ class _EditJournalEntryMediaPagePageState
                         letterSpacing: 0.5,
                         fontFamily: 'Arial',
                         fontWeight: FontWeight.w600),
-                    decoration: const InputDecoration(
-                      hintText: Strings.write_here,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context).write_here,
                       hintStyle: arialFont14W600,
                       errorBorder:
                           OutlineInputBorder(borderSide: BorderSide.none),
@@ -874,7 +930,7 @@ class _EditJournalEntryMediaPagePageState
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: CustomButton(
-                          text1: Strings.submit,
+                          text1: AppLocalizations.of(context).submit,
                           text2: "",
                           width: Get.width,
                           height: 50)),
@@ -891,23 +947,26 @@ class _EditJournalEntryMediaPagePageState
         await submitClick(true);
       },
       child: CustomButton(
-          text1: Strings.submit, text2: "", width: Get.width, height: 60),
+          text1: AppLocalizations.of(context).submit,
+          text2: "",
+          width: Get.width,
+          height: 60),
     );
   }
 
   Future<void> submitClick(bool exitScreen) async {
     if (_formKey.currentState.validate()) {
       showLoader(true);
-
+      Position resultCoordinates = await LocationUtil.getCoordinates();
       bool isSuccess = await FirebaseRealtimeDataService().saveIncident(
         _calendarSelectedDate,
-        prepareRequestBody(),
+        prepareRequestBody(resultCoordinates),
       );
 
       Fluttertoast.showToast(
           msg: isSuccess
-              ? "Data submitted successfully"
-              : "Failed to submit dta");
+              ? AppLocalizations.of(context).success_message
+              : AppLocalizations.of(context).fail_message);
       if (isSuccess && exitScreen) {
         Navigator.pop(context);
       }
@@ -971,7 +1030,7 @@ class _EditJournalEntryMediaPagePageState
     }
   }
 
-  String prepareRequestBody() {
+  String prepareRequestBody(Position resultCoordinates) {
     return json.encode({
       'wouldyouliketorecord': json.encode(checkedAbuseType).toString(),
       'whathappend': _whatHappenTextController.text,
@@ -987,7 +1046,8 @@ class _EditJournalEntryMediaPagePageState
       'popuptext': _medicalAssistantTextController.text,
       'imagesList': getUploadMediaUrl(uploadedImages),
       'videosList': getUploadMediaUrl(uploadedVideos),
-      'audiosList': getUploadMediaUrl(uploadedAudio)
+      'audiosList': getUploadMediaUrl(uploadedAudio),
+      'geoTag': "${resultCoordinates.latitude}, ${resultCoordinates.longitude}"
     });
   }
 
@@ -1005,7 +1065,7 @@ class _EditJournalEntryMediaPagePageState
         builder: (context) {
           return AlertDialog(
             backgroundColor: ColorResources.background,
-            title: const Text('Select Time'),
+            title: Text(AppLocalizations.of(context).select_time),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -1039,7 +1099,7 @@ class _EditJournalEntryMediaPagePageState
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: dim_25),
                     child: CustomButton(
-                        text1: Strings.submit,
+                        text1: AppLocalizations.of(context).submit,
                         text2: "",
                         width: Get.width,
                         height: dim_50),
