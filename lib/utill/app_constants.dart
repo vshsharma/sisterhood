@@ -15,6 +15,7 @@ class AppConstants {
   static const String userId = 'userId';
   static const String token = 'token';
   static const String password = 'pa';
+  static const String personnelCode = 'personnelCode';
 
   static const int maxVideoSelected = 1;
   static const int maxAudioSelected = 2;
