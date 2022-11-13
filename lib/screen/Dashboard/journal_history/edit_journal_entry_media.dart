@@ -9,15 +9,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
-// import 'package:sisterhood_app/utill/strings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sisterhood_app/screen/Dashboard/Home/journal_meta_data.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
-import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
 import 'package:sisterhood_app/screen/Dashboard/journal_history/model/MediaFileModel.dart';
 import 'package:sisterhood_app/screen/app_widgets/radio_button_group.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
@@ -178,8 +177,8 @@ class _EditJournalEntryMediaPagePageState
                             style: courierFont18W600ProfilePlaceHolder),
                       ),
                       CheckboxGroup(
-                          labels: abuseCategoryList,
-                          subLabels: abuseSubCategoryList,
+                          labels: JournalMetaData().abuseCategory(context),
+                          subLabels: JournalMetaData().subCategory(context),
                           showDescription: true,
                           checked: checkedAbuseType,
                           onChange: (bool isChecked, String label, int index) =>
@@ -241,7 +240,7 @@ class _EditJournalEntryMediaPagePageState
                             style: courierFont18W600Profile),
                       ),
                       CheckboxGroup(
-                        labels: incidentPlace,
+                        labels: JournalMetaData().incidentPlace(context),
                         checked: checkWhereItHappen,
                         onChange: (bool isChecked, String label, int index) =>
                             print(
@@ -360,7 +359,8 @@ class _EditJournalEntryMediaPagePageState
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
-                            labels: underInfluenceOption,
+                            labels:
+                                JournalMetaData().underInfluenceOption(context),
                             checked: checkPartnerUnderInfluence,
                             onSelected: (List<String> checked) {
                               setState(() {
@@ -385,7 +385,8 @@ class _EditJournalEntryMediaPagePageState
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
-                            labels: underInfluenceOption,
+                            labels:
+                                JournalMetaData().underInfluenceOption(context),
                             checked: checkIfYouUnderInfluence,
                             onSelected: (List<String> checked) {
                               setState(() {
@@ -410,7 +411,8 @@ class _EditJournalEntryMediaPagePageState
                               style: courierFont18W600ProfileHintColor),
                         ),
                         RadioButtonGroup(
-                            labels: seekedMedicalAttentionOption,
+                            labels: JournalMetaData()
+                                .seekedMedicalAttentionOption(context),
                             picked: checkMedicalAssistant,
                             onSelected: (String selected) {
                               setState(() {

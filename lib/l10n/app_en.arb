@@ -311,6 +311,7 @@
     "safety_question_9": "If you have to leave, what items will you bring? (Select all that applies)",
     "safety_question_10": "Can you leave copies of documents, spare keys, extra clothes and other items with family or friends?",
     "safety_question_11": "If you have to leave quickly, where will you store all the items you intend to bring with you?",
+
     "check_option_1": "Identification (e.g., driver's license, passport, school ID, military ID, immigration documents)",
     "check_option_2": "Cell Phone",
     "check_option_3": "Cell phone charger",
@@ -324,6 +325,7 @@
     "check_option_11": "Baby supplies (if applicable such as formula, diaper, wipes, change of clothes)",
     "check_option_12": "Copy of Protection/Restraining Order",
     "check_option_13": "Other important legal documents (mortgage documents, wills, medical records, marriage licenses)",
+
     "question_1_option_yes": "Optional: Who have you told?",
     "question_6_option_no": "Come up with a place that you can go, it could be a nearby police station, store, cafe/restaurant or any other place that has people around",
     "question_7_option_no": "It can be helpful if your children know how and when to call emergency services",
@@ -378,6 +380,33 @@
     "search": "Search",
     "distance": "Distance",
     "metre": "Meters",
+
+    "abuse_category_1": "Physical",
+    "abuse_category_2": "Emotional",
+    "abuse_category_3": "Sexual",
+    "abuse_category_4": "Psychological",
+    "abuse_category_5": "Economical",
+
+    "sub_cat_1": "Your partner is intentionally using physical force to harm you and put you in danger.",
+    "sub_cat_2": "Your partner is undermining your self-esteem by calling you names and making you feel stupid.",
+    "sub_cat_3": "Your partner is forcing or insisting that you to engage in sexual activity against your will.",
+    "sub_cat_4": "Your partner is distorting the way you perceive reality, for example, gaslighting you.",
+    "sub_cat_5": "Your partner has control over your finances, for example they withhold money from you or prevent you from creating financial independence.",
+
+    "incident_place_1": "Living room",
+    "incident_place_2": "Bedroom",
+    "incident_place_3": "Bathroom",
+    "incident_place_4": "Kitchen",
+    "incident_place_5": "Other area in the house",
+    "incident_place_6": "Outside",
+
+    "under_influence_option_1": "No",
+    "under_influence_option_2": "Alcohol",
+    "under_influence_option_3": "Drugs",
+    "under_influence_option_4": "Prescription medication",
+
+    "seeked_medical_attention_option_1": "No",
+    "seeked_medical_attention_option_2": "Yes",
 
     "test": "test"
 }
