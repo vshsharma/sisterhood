@@ -81,4 +81,6 @@ class AppConstants {
       "https://open.spotify.com/show/1VzHalW5seEmPv1q6dOUtp";
   static const String helpful_tips =
       "https://www.womenslaw.org/about-abuse/safety-tips/domestic-violence-victims";
+  static const String email_pattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 }

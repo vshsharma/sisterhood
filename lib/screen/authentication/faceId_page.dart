@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
-import 'package:sisterhood_app/calculator/calculator.dart';
+import 'package:sisterhood_app/screen/Dashboard/bottom_navigation_bar_page.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/custom_button.dart';
 import 'package:sisterhood_app/utill/images.dart';
@@ -29,7 +29,7 @@ class _FaceIdPageState extends State<FaceIdPage> {
   void localAuthCheck() async {
     final isAuthenticated = await LocalAuthApi.authenticate(context);
     if (isAuthenticated) {
-      Get.to(Calculator(),
+      Get.to(const BottomNavigationPage(),
           transition: Transition.rightToLeftWithFade,
           duration: const Duration(milliseconds: 600));
     } else {

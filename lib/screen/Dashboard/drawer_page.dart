@@ -23,7 +23,7 @@ class DrawerPage extends StatefulWidget {
 }
 
 class _DrawerPageState extends State<DrawerPage> {
-  var current_index = 3;
+  var currentIndex = 3;
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -46,9 +46,9 @@ class _DrawerPageState extends State<DrawerPage> {
           onTap: () {
             Get.defaultDialog(
               radius: 10,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-              titlePadding: const EdgeInsets.only(top: 20.0),
+              contentPadding: const EdgeInsets.symmetric(
+                  horizontal: dim_30, vertical: dim_20),
+              titlePadding: const EdgeInsets.only(top: dim_20),
               backgroundColor: Colors.white,
               title: context.loc.are_you_sure_you_want_to_logout,
               titleStyle:
@@ -57,9 +57,6 @@ class _DrawerPageState extends State<DrawerPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
-                      // onTap:()async{
-                      //   await FirebaseAuth.instance.signOut();
-                      // },
                       onTap: () {
                         SharedPrefManager.clearPrefs();
                         Get.back();
@@ -68,14 +65,14 @@ class _DrawerPageState extends State<DrawerPage> {
                       },
                       child: Center(
                         child: Container(
-                          height: 45,
-                          width: 100,
+                          height: dim_45,
+                          width: dim_100,
                           decoration: BoxDecoration(
                               gradient: const LinearGradient(colors: [
                                 ColorResources.box_background,
                                 ColorResources.box_background,
                               ]),
-                              borderRadius: BorderRadius.circular(20)),
+                              borderRadius: BorderRadius.circular(dim_20)),
                           child: Center(
                             child:
                                 Text(context.loc.yes, style: courierFont16W600),
@@ -88,14 +85,14 @@ class _DrawerPageState extends State<DrawerPage> {
                       },
                       child: Center(
                         child: Container(
-                          height: 45,
-                          width: 100,
+                          height: dim_45,
+                          width: dim_100,
                           decoration: BoxDecoration(
                               gradient: const LinearGradient(colors: [
                                 ColorResources.green,
                                 ColorResources.darkgreen,
                               ]),
-                              borderRadius: BorderRadius.circular(20)),
+                              borderRadius: BorderRadius.circular(dim_20)),
                           child: Center(
                             child:
                                 Text(context.loc.no, style: courierFont16W600),
@@ -107,7 +104,7 @@ class _DrawerPageState extends State<DrawerPage> {
             );
           },
           title: Padding(
-            padding: EdgeInsets.only(bottom: 3.0),
+            padding: EdgeInsets.only(bottom: dim_3),
             child: Text(
               context.loc.logout,
               style: arialFont18W600.copyWith(color: Colors.red),
@@ -115,8 +112,8 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           horizontalTitleGap: 0,
           leading: SizedBox(
-            height: 25,
-            width: 25,
+            height: dim_25,
+            width: dim_25,
             child: Image.asset(
               Images.loginImage,
               color: Colors.red,
@@ -135,24 +132,24 @@ class _DrawerPageState extends State<DrawerPage> {
               if (snapshot.hasData) {
                 return Padding(
                   padding: const EdgeInsets.only(
-                      left: 20.0, top: 30.0, right: 5.0, bottom: 10.0),
+                      left: dim_20, top: dim_30, right: dim_5, bottom: dim_10),
                   child: Row(
                     children: [
                       snapshot.data['image_url'] == null
                           ? Image.asset(
                               Images.profileImage,
                               color: ColorResources.profilehintColor,
-                              height: 60,
-                              width: 60,
+                              height: dim_60,
+                              width: dim_60,
                             )
                           : Center(
                               child: Container(
-                                height: 60,
-                                width: 60,
+                                height: dim_60,
+                                width: dim_60,
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                       color: ColorResources.box_border,
-                                      width: 2,
+                                      width: dim_2,
                                     ),
                                     color: ColorResources.box_background,
                                     borderRadius: BorderRadius.circular(100),

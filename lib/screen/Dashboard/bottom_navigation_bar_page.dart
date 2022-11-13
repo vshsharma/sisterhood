@@ -45,29 +45,14 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
-        PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home_rounded),
-          title: (AppLocalizations.of(context).home),
-          activeColorPrimary: CupertinoColors.activeBlue,
-          inactiveColorPrimary: CupertinoColors.systemGrey,
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(
-            Icons.account_circle_outlined,
-          ),
-          title: (AppLocalizations.of(context).profile),
-          activeColorPrimary: CupertinoColors.activeBlue,
-          inactiveColorPrimary: CupertinoColors.systemGrey,
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(
-            Icons.panorama_fish_eye,
-          ),
-          title: (AppLocalizations.of(context).sos),
-          onPressed: (c) => _callNowApp("112"),
-          activeColorPrimary: CupertinoColors.activeBlue,
-          inactiveColorPrimary: CupertinoColors.systemGrey,
-        ),
+        navigationBarItem(
+            const Icon(Icons.home_rounded), AppLocalizations.of(context).home),
+        navigationBarItem(const Icon(Icons.account_circle_outlined),
+            AppLocalizations.of(context).profile),
+        navigationBarItem(const Icon(Icons.panorama_fish_eye),
+            AppLocalizations.of(context).sos, clickAction: () {
+          _callNowApp("112");
+        }),
       ];
     }
 
@@ -115,5 +100,14 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             NavBarStyle.style6, // Choose the nav bar style with this property.
       ),
     );
+  }
+
+  navigationBarItem(Icon icon, String home, {Function clickAction}) {
+    return PersistentBottomNavBarItem(
+        icon: icon,
+        title: home,
+        activeColorPrimary: CupertinoColors.activeBlue,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+        onPressed: clickAction);
   }
 }

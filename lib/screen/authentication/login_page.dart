@@ -31,22 +31,13 @@ class _LoginPageState extends State<LoginPage> {
   final _password = TextEditingController();
   bool rememberMe = false;
 
-  void _onRememberMeChanged(bool newValue) => setState(() {
-        rememberMe = newValue;
-      });
-
   bool _isLoad = false;
 
   bool isEmail(em) {
-    var p =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-
-    RegExp regExp = RegExp(p);
-
-    return regExp.hasMatch(em);
+    return RegExp(AppConstants.email_pattern).hasMatch(em);
   }
 
-  void _trySubmit() async {
+  void trySubmit() async {
     if (isEmail(username.text)) {
       if (_formKey.currentState.validate()) {
         setState(() {
@@ -91,8 +82,6 @@ class _LoginPageState extends State<LoginPage> {
           Fluttertoast.showToast(
               msg: AppLocalizations.of(context).invalid_credential);
         }
-        // AuthRepo authRepo = new AuthRepo();
-        // await authRepo.loginWithOtp(_mobile.text);
         setState(() {
           _isLoad = false;
         });
@@ -128,9 +117,9 @@ class _LoginPageState extends State<LoginPage> {
                         height: 70,
                       ),
                       SizedBox(height: 70),
-                      _mobileno(),
+                      mobileNo(),
                       const SizedBox(height: 20),
-                      _passwordField(),
+                      passwordField(),
                       const SizedBox(
                         height: 5,
                       ),
@@ -153,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                             height: 25,
                             child: CircularProgressIndicator())
                       else
-                        _continuebutton(),
+                        continueButton(),
                       Container(
                         alignment: Alignment.center,
                         child: TextButton(
@@ -188,10 +177,10 @@ class _LoginPageState extends State<LoginPage> {
                 ))));
   }
 
-  _continuebutton() {
+  continueButton() {
     return GestureDetector(
       onTap: () {
-        _trySubmit();
+        trySubmit();
       },
       child: CustomButton(
           text1: AppLocalizations.of(context).log_in,
@@ -201,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _mobileno() {
+  mobileNo() {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
@@ -235,7 +224,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _passwordField() {
+  passwordField() {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
