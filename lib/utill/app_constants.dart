@@ -15,6 +15,7 @@ class AppConstants {
   static const String userId = 'userId';
   static const String token = 'token';
   static const String password = 'pa';
+  static const String personnelCode = 'personnelCode';
 
   static const int maxVideoSelected = 1;
   static const int maxAudioSelected = 2;
@@ -80,4 +81,6 @@ class AppConstants {
       "https://open.spotify.com/show/1VzHalW5seEmPv1q6dOUtp";
   static const String helpful_tips =
       "https://www.womenslaw.org/about-abuse/safety-tips/domestic-violence-victims";
+  static const String email_pattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 }

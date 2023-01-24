@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CustomTheme.lightTheme,
-      home: Scaffold(
+      home: const Scaffold(
         body: SplashPage(),
       ),
     );

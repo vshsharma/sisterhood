@@ -7,12 +7,11 @@ import 'package:sisterhood_app/location/location_util.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/viewHistory/journal_history_list.dart';
 import 'package:sisterhood_app/screen/Dashboard/drawer_page.dart';
 import 'package:sisterhood_app/screen/journal_entry/journal_entry_media.dart';
+import 'package:sisterhood_app/screen/resource/resource_page.dart';
 import 'package:sisterhood_app/utill/color_resources.dart';
 import 'package:sisterhood_app/utill/images.dart';
 import 'package:sisterhood_app/utill/styles.dart';
 import 'package:sisterhood_app/utill/utils.dart';
-
-import '../../resource/resource_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

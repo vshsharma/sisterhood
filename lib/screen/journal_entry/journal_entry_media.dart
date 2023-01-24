@@ -14,7 +14,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:sisterhood_app/screen/Dashboard/Home/model/incident_model.dart';
-import 'package:sisterhood_app/screen/Dashboard/Home/pre_journal_data.dart';
 import 'package:sisterhood_app/screen/Dashboard/journal_history/model/MediaFileModel.dart';
 import 'package:sisterhood_app/screen/app_widgets/radio_button_group.dart';
 import 'package:sisterhood_app/screen/common/base_widget.dart';
@@ -29,6 +28,7 @@ import '../../location/location_util.dart';
 import '../../utill/app_paddings.dart';
 import '../../utill/sharedprefrence.dart';
 import '../../utill/styles.dart';
+import '../Dashboard/Home/journal_meta_data.dart';
 import '../app_widgets/add_media_button.dart';
 import '../app_widgets/checkbox_group.dart';
 import '../app_widgets/custom_list_widget.dart';
@@ -144,8 +144,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             style: courierFont18W600ProfilePlaceHolder),
                       ),
                       CheckboxGroup(
-                          labels: abuseCategoryList,
-                          subLabels: abuseSubCategoryList,
+                          labels: JournalMetaData().abuseCategory(context),
+                          subLabels: JournalMetaData().subCategory(context),
                           showDescription: true,
                           checked: checkedAbuseType,
                           onChange: (bool isChecked, String label, int index) =>
@@ -214,7 +214,7 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                             style: courierFont18W600Profile),
                       ),
                       CheckboxGroup(
-                        labels: incidentPlace,
+                        labels: JournalMetaData().incidentPlace(context),
                         checked: checkWhereItHappen,
                         onChange: (bool isChecked, String label, int index) =>
                             print(
@@ -332,7 +332,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
-                            labels: underInfluenceOption,
+                            labels:
+                                JournalMetaData().underInfluenceOption(context),
                             checked: checkPartnerUnderInfluence,
                             onSelected: (List<String> checked) {
                               setState(() {
@@ -358,7 +359,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                               style: courierFont18W600ProfilePlaceHolder),
                         ),
                         CheckboxGroup(
-                            labels: underInfluenceOption,
+                            labels:
+                                JournalMetaData().underInfluenceOption(context),
                             checked: checkIfYouUnderInfluence,
                             onSelected: (List<String> checked) {
                               setState(() {
@@ -384,7 +386,8 @@ class _JournalEntryPagePageState extends State<JournalEntryMedia> {
                               style: courierFont18W600ProfileHintColor),
                         ),
                         RadioButtonGroup(
-                            labels: seekedMedicalAttentionOption,
+                            labels: JournalMetaData()
+                                .seekedMedicalAttentionOption(context),
                             picked: checkMedicalAssistant,
                             onSelected: (String selected) {
                               setState(() {
