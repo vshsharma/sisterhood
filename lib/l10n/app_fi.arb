@@ -1,0 +1,433 @@
+﻿{
+  "appTitle": "Sisterhood",
+ "language": "Finnish",
+  "@language": {
+
+
+ "description": "Nykyinen kieli"
+  },
+  "email": "EMAIL",
+  "enter_valid_email": "Anna kelvollinen sähköpostiosoite",
+  "password": "PASSWORD",
+  "empty_password": "Anna salasanasi",
+  "password_length": "Salasanan on oltava vähintään 10 merkkiä pitkä",
+  "forgot_password": "Unohditko salasanan?",
+  "enter_valid_password": "Anna kelvollinen salasana",
+  "no_user_found_error": "Tälle sähköpostille ei löytynyt käyttäjää.",
+  "invalid_credential": "Käyttäjän tunnistetiedot ovat virheelliset",
+  "dont_have_account": "Eikö sinulla ole tiliä?",
+  "sign_up": "rekisteröityminen",
+  "log_in": "LOGIN",
+
+
+  "first_name": "etunimi",
+  "last_name": "Sukunimi",
+  "middle_name": "MiddleName",
+  "user_name": "Käyttäjänimi",
+  "email": "sähköposti",
+  "email_address": "sähköpostiosoite",
+  "password": "salasana",
+  "address": "osoite",
+  "city": "Kaupunki",
+  "zip_code": "postinumero",
+  "signup": "Rekisteröidy",
+  "already_account_login": "Oletko jo tili?",
+  "login": "kirjaudu sisään",
+"plese_enter_first_name": "Anna etunimesi",
+  "plese_enter_last_name": "Anna sukunimesi",
+  "plese_enter_middle_name": "Anna toinen nimesi",
+  "plese_enter_user_name": "Anna käyttäjänimesi",
+  "plese_enter_phone_number": "Anna puhelinnumerosi",
+  "plese_enter_your_zip_code": "Anna postinumerosi",
+  "plese_enter_your_address": "Anna osoitteesi",
+  "registered_successfully": "Rekisteröity onnistuneesti",
+  "weak_password": "Annettu salasana on liian heikko.",
+  "account_exist": "Tili on jo olemassa tälle sähköpostille.",
+  "please_enter_password": "Anna salasanasi",
+
+
+  "please_min_length": "Salasanassa on oltava vähintään 10 numeroa",
+  "please_enter_city": "Anna kaupunkisi",
+  "please_enter_email": "Anna sähköpostiosoite",
+  "link_sent": "Lähetimme linkin onnistuneesti rekisteröityyn sähköpostiisi",
+  "user_not_existing": "Käyttäjää ei ole olemassa",
+  "get_email": "Hanki Sähköpostil",
+  "or": "Tai",
+  "go_to_login": "Siirry kohtaan Kirjautuminen",
+
+
+  "new_password": "Uusi salasana",
+  "old_password": "Vanha salasana",
+  "confirm_password": "Vahvista salasana",
+  "please_enter_confirm_password": "Ole hyvä ja anna vahvistus salasana",
+  "confirm_password_not_match": "Vahvista salasana ei täsmää",
+  "please_enter_your_old_password": "Anna vanha salasanasi",
+  "please_enter_your_new_password": "Ole hyvä ja syötä uusi salasana",
+  "password_must_be_8_character": "Salasanan tulee olla yli 8 merkkiä pitkä",
+  "save": "Tallentaa",
+
+
+  "local_auth_failed": "Biometrinen todennus epäonnistui",
+  "face_id": "Kasvotunnus",
+  "authorize": "Valtuuta",
+
+
+  "home": "Koti",
+  "profile": "Profiili",
+  "sos": "SOS",
+
+
+  "new_journal_entry": "Uusi päiväkirjamerkintä",
+  "view_history": "Näytä historia",
+  "resources": "Resurssit",
+
+
+  "what_type_of_abuse": "Minkä tyyppisen väärinkäytön haluat tallentaa?",
+  "tell_me_what_happend": "Selitä mitä tapahtui?",
+  "what_were_the_circumstances": "Mitkä olivat olosuhteet?",
+  "where_did_it_happen": "Missä se tapahtui?",
+  "if_outside_or_other_area_please_specify": "Jos talon ulkopuolella tai muulla alueella, ilmoita:",
+  "when_did_it_happen": "Milloin se tapahtui?",
+  "was_your_partner_under_the_influence": "Kun se tapahtui, oliko kumppanisi vaikutuksen alainen?",
+  "where_you_under_the_influence": "Olitko vaikutuksen alaisena?",
+  "have_you_seeked_medical_attention": "Oletko hakeutunut lääkärin hoitoon tämän tapauksen johdosta?",
+  "max_images": "Voit valita vain {max} kuvaa",
+  "@max_images": {
+    "placeholders": {
+       "max": {
+       "type": "int"
+       }
+    }
+  },
+  "add_picture": "Lisää kuva",
+  "add_video": "Lisää video",
+  "add_audio": "Lisää ääni",
+  "no_file_selected": "Ei tiedostoa valittuna",
+  "max_video_limit": "Valitun videon enimmäiskoko on {max} Mt",
+  "@max_video_limit": {
+      "placeholders": {
+         "max": {
+         "type": "int"
+         }
+      }
+    },
+    "max_videos": "Voit valita vain {max} videon",
+      "@max_videos": {
+        "placeholders": {
+           "max": {
+           "type": "int"
+           }
+        }
+      },
+      "max_audio_limit": "Valitun äänen enimmäiskoko on {max} MB",
+        "@max_audio_limit": {
+            "placeholders": {
+               "max": {
+               "type": "int"
+               }
+            }
+          },
+          "max_audios": "Voit valita vain {max} ääntä",
+            "@max_audios": {
+              "placeholders": {
+                 "max": {
+                 "type": "int"
+                 }
+              }
+            },
+      "max_upload_size": "Suurin latauskapasiteetti 10 Mt",
+      "submit": "LÄHETÄ",
+      "success_message": "Tietojen lähetys onnistui",
+      "fail_message": "Tietojen lähettäminen epäonnistui",
+      "write_here": "Kirjoita tähän...",
+      "what_time_did_it_happen": "Mihin aikaan se tapahtui?",
+      "what_medical_facility_did_you_visit": "Missä laitoksessa kävit?",
+      "select_time": "Valitse Aika",
+      "no_data_found": "Valitulle päivämäärälle ei löytynyt tietoja",
+      "logged": "Kirjattu",
+      "image_removed": "Kuva poistettu",
+      "video_removed": "Video poistettu",
+      "audio_removed": "Ääni poistettu",
+
+
+      "resources": "Resurssit",
+      "cta_label_emergency": "Minulla on hätä",
+      "cta_label_women_shelter": "Etsi naisten turvakoti",
+      "cta_label_need_support": "Tarvitsen tukea",
+      "cta_label_legal_info": "Haluan oikeudellista tietoa",
+      "cta_label_more_about_abuse": "Haluaisin tietää enemmän perheväkivallasta",
+      "cta_label_self_help_tool": "Haluan apuvälineitä",
+      "emergency_title": "Minulla on hätä",
+      "have_an_emergency": "<body><p>Jos kohtaat hätätilan, käytä SOS-painiketta (oikeassa alakulmassa) tai soita 112. <br><br> 112 on ilmainen hätänumero, johon sinun tulee soittaa, jos tarvitset hätäapua. Yhdellä soitolla saat apua poliisilta, ambulanssilta ja palokunnalta. <br><br> Kun soitat, sinulta kysytään esimerkiksi seuraavia kysymyksiä:<br> <body> <ul> <li>Mitä tapahtui? <br/></li> <li>Kuka on loukkaantunut? <br/></li> <li>Mistä soitat / missä apua tarvitaan? <br/></li> <li>Kuka soittaa? <br/></li> <li>Mistä numerosta soitat? <br/></li> </ul> </body> <p>.</p> <br><br><br>112-välittäjä päättää, millaista apua lähetetään. Voit lukea lisää SOS:stä <a href={url}>täältä.</a><br><br></p></body>",
+      "@have_an_emergency": {
+      "placeholders": {
+         "url": {
+         "type": "String"
+         }
+      }
+    },
+      "need_support_title": "Tarvitsen tukea",
+      "need_support_desc": "Sen lisäksi, että saat apua paikalliselta naisten turvakodilta, voit ottaa yhteyttä näihin järjestöihin, jos tarvitset tukea.",
+      "support_p1": "<body><p><h3>Kvinnofridslinjen</h3><br> Puhelin: 020-50 50 50<br> Verkkosivusto: <a href={url}>https://kvinnofridslinjen.se/ fi/</a><br><br> <body> <ul> <li> Tarjoaa ilmaiset puhelut 24/7 <br/></li> <li> Puhelu ei näy puhelinlaskussasi <br /></li> <li> Tulkin käyttöoikeus <br/></li> <li> Voit olla anonyymi, ja puhelu on luottamuksellinen <br/></li> </ul> <body>< /p></body>",
+      "@support_p1": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "support_p2":"<body><p><h3>Sosiaalipalvelut</h3><br> Ota yhteyttä kuntasi sosiaalipalveluihin. Voit googlettaa \"sosiaalipalvelut *kuntasi*\" ja yhteystiedot tulevat näkyviin.<br> Sosiaalipalvelujen kautta saat apua<br> <body> <ul> <li> Opastusta ja tukea <br/> </li> <li> Neuvonta <br/></li> <li> Käytännön apua <br/></li> <li> Asuminen <br/></li> <li> Taloudellinen tuki <br/> </li> </ul> </body> </p></body>",
+      "support_p3":"<body><p><h3>Lakimiehet</h3><br> Monet suuret naisten turvakodit tekevät yhteistyötä asianajajien kanssa tarjotakseen sinulle maksutonta oikeudellista tukea, mutta voit myös ottaa yhteyttä humanitaariseen lakitoimistoon saadaksesi lisätietoja apua.<br> Monet heistä tarjoavat ilmaisen 15 minuutin konsultaation. <br> Organisaatio <a href ={url}> Terrafem </a><br> tarjoaa oikeudellisia palveluita perheväkivallan uhreille. Voit ottaa heihin yhteyttä osoitteessa 020-52 10 10, maanantaista perjantaihin klo 9.00-18.00. <br></p></body>",
+      "@support_p3": {
+                  "placeholders": {
+                     "url": {
+                     "type": "String"
+                     }
+                  }
+                },
+      "support_p4":"<body><p><h3>Neuvojat ja psykologit </h3> <br>Monet psykologit keskittyvät käytännöissään perheväkivaltaan. Naisten turvakodissa on yleensä asukkaita psykologeja, mutta voit löytää myös muita paikallisia kirjoittamalla hakukoneeseesi \"psykologien perheväkivalta\". <br>Verkkopsykologian palvelu <a href={url}>Mindler </a> <br> tekee yhteistyötä Kerstin Lidingön kanssa tarjotakseen perheväkivallan neuvontaa. <br></p></body>",
+      "@support_p4": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "good_to_have_legal_info": "Hyvä saada lakitietoa",
+      "Good_to_have_legal_info_desc":"Huomaa, että Sisterhood ei ole \"lakimiesten suosittelupalvelu\" tai asianajotoimisto. Emme tarjoa oikeudellista neuvontaa tai edustusta, eikä näitä vinkkejä ole tarkoitettu korvaamaan asianajajaa tai asianajotoimistoa.",
+ "legal_info_content": "<body><p><h3>Miten voin parantaa kuvatodisteitani</h3> Tässä on joitain vinkkejä paremman kuvan saamiseksi: <body> <li> Salli Sisterhoodin seurata sijaintiasi ja paikkamerkintää kuviisi. Näin poliisi näkee, missä kuva on otettu, mikä vahvistaa tapaustasi.<br/></li> <li> Jos tunnet olosi mukavaksi, pyydä luotettavaa perheenjäsentä tai ystävää ottamaan kuva sinusta ja vammoistasi sekä selfie teistä molemmista. Näin perheenjäsenesi tai ystäväsi voi vahvistaa tarinaasi ja olla todistajasi.<br/></li> <li> Ota kuvia itsestäsi ja vammoistasi kotonasi tai paikoissa, joissa tunnet usein vieraillessasi. Näin poliisi voi yhdistää vammat talosi tunnettuihin esineisiin. Esimerkiksi sohvan edessä, keittiössä, jossa näet ruokapöydän/tuolit taustalla jne. Alla olevassa kuvassa on esimerkki: <br/> <img src={asset} alt='legal_info'> </li> <li> Ota useita kuvia ajan mittaan. Vammat muuttuvat ajan myötä, joten varmista, että otat kuvia, jotka heijastavat näitä muutoksia. Esimerkiksi mustelma alkaa yleensä olla punainen. 1-2 päivän kuluttua mustelma näyttää siniseltä, violetilta tai jopa mustalta. 5-10 päivän kuluttua mustelmasi muuttuu keltaiseksi tai vihreäksi ja 10-14 päivän kuluttua mustelmasi on todennäköisesti kellertävänruskea tai vaaleanruskea. Ota kuvia näistä muutoksista ja lataa lisää kuvia Näytä historia -sivun \"muokkaustoiminnolla\".<br/></li> </body> <p> </p> <br> <h3>I ovat äkillisesti lähteneet kotoa, mutta haluavat saada tavarani asunnostamme</h3> Jos joudut kiireesti poistumaan kotoa tai jos pahoinpitelijäsi poistui äkillisesti ja haluat vastaanottaa tai poistaa omaisuutta, kuten henkilökohtaisia ​​tavaroita, vaatteita, elektroniikkaa, huonekaluja jne., voit hakea ”Handräckning”-ohjelmaan Kronofogdenin kautta. Voit lukea siitä lisää täältä. Huomaa, että handräckningillä on joitain seurauksia, esimerkiksi jos vastaaja vastustaa handräckningeniä, voit pyytää Kronofodgenia luovuttamaan asian tuomarille, joka tekee päätöksen. Tietyissä erityistapahtumissa päätöksen tekee Kronofodgen. Kun sekä normaaleissa että erikoistapauksissa on tehty päätös, Kronofogden ottaa yhteyttä molempiin osapuoliin selvittääkseen, miten tilanne voidaan ratkaista sopivimmalla tavalla. Mikäli vapaaehtoistyötä ei voida ratkaista, Kronofogden voi mennä lukkosepän kanssa kotiin hakemaan asioita. <br><br> <h3>Kumppanini on pakottanut minut ottamaan velkaa.</h3> Jos kumppanisi on pakottanut sinut (uhkauksella tai muuten) ottamaan velkaa, sinun on ilmoitettava siitä poliisille Niin pian kuin mahdollista. Näissä tapauksissa aika on olennaista. Jos saat Kronofodgenilta perintäkirjeitä, vastaa vastalauseella ja selitä olosuhteet. Joissakin tapauksissa Kronofodgen mitätöi velan. Lue lisää aiheesta <a href={url1}>täältä</a> <br> <br><br> <h3>Haluan hakea lapsemme/lastemme yksinhuoltajuutta</h3> Jos sinä ja kumppanisi ei pääse yhteisymmärrykseen, voit nostaa kanteen vaatimuksilla siitä, miten haluat tuomioistuimen ratkaisevan huoltajuuden, asumisen ja yhteydenpidon. Oikeus pyytää tämän jälkeen perhetuomioistuimelta tutkintaa. Osana tutkintaa käydään keskusteluja sekä vanhempien että lapsen/lasten kanssa, mikäli se on lapsen iän ja kypsyyden kannalta tarkoituksenmukaista. Tämän jälkeen perhetuomioistuin tekee ratkaisuehdotuksen huoltajuudesta, asumisesta ja yhteydenpidosta, jonka tulee olla lapsen edun mukainen. Tämä tutkinta yhdessä esitettyjen todisteiden ja oikeudessa käytyjen keskustelujen kanssa on tuomioistuimen tuomion perusta. <br><br> <h3>En halua jättää kumppaniani, onko tukea väärinkäyttäjille? </h3> Kyllä, on järjestöjä, jotka tukevat hyväksikäyttäjiä. Esimerkiksi <a href={url2}> Manscentrum </a> <br>tarjoaa neuvontaa, joka voi auttaa selventämään, prosessoimaan ja löytämään ratkaisuja miesten tunne- ja käytännön ongelmiin. Jos kumppanisi on tuomittu perheväkivallasta, Ruotsin vankila- ja probaatiopalvelu tarjoaa hoito-ohjelmia, jotka tarkistetaan ja joiden laatu varmistetaan.</p></body>",
+      "@legal_info_content": {
+              "placeholders": {
+                 "url1": {
+                 "type": "String"
+                 },
+                 "url2": {
+                  "type": "String"
+                  },
+                  "asset": {
+                  "type": "String"
+                  }
+              }
+            },
+      "domestic_abuse": "Mitä on perheväkivalta?",
+      "domestic_content": "<body><p><p>Parisuhteessa esiintyvä perheväkivalta lisääntyy ajan myötä. Alussa väkivalta on harvinaista. Aluksi väkivaltainen kumppani voi esittää vaatimuksia tai väittää hallitsevansa, mikä vaikuttaa viattomalta ja vaarattomalta. Mutta ajan myötä suhteen osapuolet muuttuvat, kun hyväksikäyttäjien kontrolli ja väkivalta lisääntyvät. Tämä usein pakottaa naisen sopeutumaan ja suostumaan lisääntyviin vaatimuksiin uusien konfliktien välttämiseksi. Vastustaminen johtaa usein lisääntyneeseen väkivaltaan.</p><br><br>Yleensä hyväksikäyttö alkaa usein henkisellä väkivallalla, kuten kriittisillä ja halventavilla kommenteilla, mikä saa naisen lakkaamaan uskomasta itseensä. Sitten fyysinen väkivalta voi tulla jatkoa.<br><br>On tavallista, että nainen eristyy ja menettää sosiaaliset kontaktinsa ja lakkaa tekemästä asioita itse. Pahoinpitelijä kieltää usein naista olemasta vuorovaikutuksessa ystäviensä ja perheensä kanssa. Tämä lisää naisen riippuvuutta väkivaltaisesta kumppanistaan.<br><br>Lisätietoja on osoitteessa <a href={domestic_abuse_url1}>Nationellt Centrum för Kvinnofrid.</a><br><br>On tärkeää tietää. ja tunnustaa, että pahoinpitelyä on eri muodoissa ja nainen kokee usein sekoituksen eri tyyppisiä väkivaltaa, kuten:<br><br><h3>Fyysinen väkivalta</h3> Usein kutsutaan pahoinpitelyksi. Se on silloin, kun tekijä tekee naisen keholle jotain, mikä satuttaa, vahingoittaa ja/tai aiheuttaa epämukavuutta. Se voi olla mitä tahansa työnnöistä, potkuista ja iskuista kuristamiseen, hillitsemiseen tai naisen kimppuun jollain esineellä.<br><br><h3>Psykologinen pahoinpitely</h3> Se on sitä, kun tekijä rajoittaa sanojen ja aggressiivisen käytöksen kautta naisen elämää. Henkisen pahoinpitelyn avulla tekijä voi eristää naisen antamatta hänen olla vuorovaikutuksessa muiden ihmisten kanssa. Eristäytymisen lisäksi psyykkinen hyväksikäyttö voi sisältää uhkailua, kiristystä ja kontrollia, joka johtaa vähitellen psyykkiseen romahtamiseen. Psykologinen väkivalta voi tarkoittaa myös sitä, että uhrin lapsia, lemmikkejä tai muita uhrin omaisia ​​uhkaillaan. Mies voi myös pilkata tai hävetä kumppaniaan, esimerkiksi naisen käyttäytymistä, mielipiteitä ja/tai olemistapaa. <br><br><h3>Seksuaalinen hyväksikäyttö</h3> Pakottaa jonkun osallistumaan, suorittamaan tai todistamaan seksuaalista toimintaa vastoin tahtoaan. Se voi olla seksuaalista häirintää, pornoa katsomaan pakottamista, tahatonta kosketusta tai raiskausta. Ei ole harvinaista, että uhri tuntee tarvitsevansa olla seksuaalisesti tavoitettavissa välttääkseen muun väkivallan muodot.<br><br><h3>Taloudellinen hyväksikäyttö</h3> Kun nainen ei pysty hallitsemaan omaa talouttaan resursseja. Saattaa olla, että hän ei saa pitää palkkaansa tai häntä estetään tekemästä työtä. Tekijä voi myös ottaa lainaa naisen nimiin, joskus vastoin hänen tahtoaan, ja saada hänen pankkitunnuksensa. Viime kädessä tämä heikentää naisen itsenäisyyttä. Sen lisäksi taloudellinen väkivalta voi vaikuttaa naisen luottokelpoisuuteen, mikä voi tehdä hänelle haastavaksi hankkia asunnon tai ottaa omaa lainaa. Usein tekijä ottaa taloudellista ja muuta aineellista omaisuutta hallintaansa lisätäkseen eristyneisyyttä, haavoittuvuutta ja vaikeuttaakseen naisen eroa suhteesta.<br><br><h3>Emotionaalinen hyväksikäyttö</h3> Joskus tämä voi kietoutua psyykkisen väkivallan kanssa, mutta yleensä emotionaalinen väkivalta on tapa hallita naista käyttämällä tunteita kritisoidakseen, nolatakseen, häpeäkseen, syyttääkseen tai muuten manipuloidakseen naista tavoitteenaan murtaa hänen itsetuntonsa ja heikentää hänen mielenterveytensä. Gaslighting on yleinen henkisen väkivallan muoto, jossa nainen alkaa epäillä omia tunteitaan ja kyseenalaistaa todellisuuttaan.<br><br><h3>Digitaalinen hyväksikäyttö</h3> Digitaalinen hyväksikäyttö on teknologioiden, kuten tekstiviestien ja sosiaalisen verkostoitumisen, käyttöä. , kiusata, häiritä, vainoaa tai pelotella kumppania. Siihen voi kuulua myös viestien tai sähköpostien lukeminen ja/tai salasanojen keksiminen tai vaihtoehtoisesti naisen vaatiminen antamaan salasanansa todisteeksi rakkaudestaan/rehellisyydestään. Joissakin tapauksissa tekijä vaanii naista sosiaalisessa mediassa tai muissa sovelluksissa. Toinen digitaalisen hyväksikäytön muoto on liikaviestintä, mikä tarkoittaa, että tekijä lähettää liikaa tekstiviestejä ja sähköposteja hallitakseen naista.<br><br><h3>Passiivinen fyysinen väkivalta</h3> On jonkun altistamista väkivallalle, jolla on välittömiä fyysisiä seurauksia. . Kyse voi esimerkiksi olla jonkun nukkumisen kieltämisestä tai jonkun altistamisesta pitkäaikaiselle henkiselle stressille, joka aiheuttaa fyysisiä sivuvaikutuksia. Joissain tapauksissa passiivinen fyysinen väkivalta voi liittyä jonkun muun haavoittuvaan tilanteeseen, kuten lääkkeiden tai apuvälineiden pidättämiseen vammaiselta tai sairaudelta. <br><br>Voit lukea lisää perheväkivallasta <a href={domestic_abuse_url2}>Unizonin verkkosivustolta.</a><br><br><u>Tässä on kaksi TED Talk -videota perheväkivallasta selviytyneiltä</a. u><br><br>Emma Murphyn <a href={domestic_abuse_url3}>I Breke My Silence TED-keskustelu 19. maaliskuuta 2018</a><br><br>Jasvinder Sangheran <a href={domestic_abuse_url4}>Fighting pakkoavioliitot ja kunniaan perustuva hyväksikäyttö TED-keskustelu 28. marraskuuta 2013</a><br><br></p></body>",
+      "@domestic_content": {
+                    "placeholders": {
+                       "domestic_abuse_url1": {
+                       "type": "String"
+                       },
+                       "domestic_abuse_url2": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url3": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url4": {
+                         "type": "String"
+                         }
+                    }
+                  },
+      "self_help_tools": "Itseaputyökalut",
+      "self_help_tools_desc": "Vaikka näiden itseaputyökalujen tarkoituksena ei ole korvata asiantuntijapalveluita, ne voivat auttaa sinua selviytymään, jos elät väkivaltaisessa suhteessa..",
+      "safety_planning": "Luo turvallisuussuunnitelma",
+      "guided_meditation": "Ohjattu meditaatio",
+      "informative_podcasts": "Informatiiviset podcastit",
+      "guided_meditations": "Ohjattuja meditaatioita",
+      "guided_meditations_desc": "Tässä on joitain linkkejä hyviin meditaatioihin, jotka voivat auttaa lievittämään stressiä, ahdistusta ja vahvistamaan itserakkauttasi.",
+      "self_love_and_affirmations": "<body><p><h4>Itserakkaus ja vahvistukset</h4> Lavindaren 21 päivän vahvistusohjelma: <br> <a href={guided_url1}>https://www.youtube.com/watch?v= yo1pJ_D-H3M</a> <br><br>13 minuutin meditaatiota itserakkaudelle joogasta Adriannen kanssa <a href={guided_url2}> https://www.youtube.com/watch?v=CqnWMPuyT0g </a> </p></body>",
+      "@self_love_and_affirmations": {
+              "placeholders": {
+                 "guided_url1": {
+                 "type": "String"
+                 },
+                 "guided_url2": {
+                  "type": "String"
+                  }
+              }
+            },
+      "stress_and_anxiety": "<body><p><h4>Stressi ja ahdistus</h4> <br> Lavindaren 15 minuutin meditaatio <br> <a href=guided_url3> https://www.youtube.com/watch?v=pxWOpGm4d7U&list=PL37ErCJmMW d1igItmbhPUwTwr1yKwz_HG&index= 13</a><br><br> Rachel Richardsin 2 minuutin ahdistuksen lievittäjä <a href=guided_url4> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br> <br> Goodfulin 5 painopistettä ahdistuksen lievittämiseen</a><br><br></p></body>",
+      "@stress_and_anxiety": {
+              "placeholders": {
+                 "guided_url3": {
+                 "type": "String"
+                 },
+                 "guided_url4": {
+                  "type": "String"
+                  },
+                  "guided_url5": {
+                  "type": "String"
+                  }
+              }
+            },
+      "grounding_exercises": "<body><p><h4>Grounding exercises</h4> <br> Squeeze and hug technique for trauma by Therapy in a Nutshell <a href={guided_url6}> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br><br> Grounding techniques in trauma therapy by Kati Morton <a href={guided_url7}> https://www.youtube.com/watch?v=1vckMPHaITA&t=1186s</a><br><br></p></body>",
+      "@grounding_exercises": {
+          "placeholders": {
+             "guided_url6": {
+             "type": "String"
+             },
+             "guided_url7": {
+              "type": "String"
+              }
+          }
+        },
+      "informative_podcast": "Informatiiviset podcastit",
+      "informative_podcast_desc": "Nämä podcastit käsittelevät perheväkivaltaa ja jakavat tarinoita selviytyneiltä. Osa sisällöstä saattaa laukaista.",
+      "info_podcast_1": "<body><p><a href={podcastUrl1}>Det börjar med kärlek - Podcast om våld i nära relationer (in Swedish)</a><br><br> Våld i nära relationer - det börjar med kärlek. En utbildnings podd för dig som arbetar med personer som lever eller har levt med våld i nära relationer.</p></body>",
+      "@info_podcast_1": {
+            "placeholders": {
+               "podcast_url1": {
+               "type": "String"
+               }
+            }
+          },
+      "info_podcast_2": "<body><p><a href= {podcast_url2}>Narcissist Apocalypse (in English) </a><br><br> Narcissist Apocalypse is a raw and unfiltered podcast that gives a voice to survivors of toxic relationships, narcissistic abuse, and domestic violence. </p></body>",
+      "@info_podcast_2": {
+          "placeholders": {
+             "podcast_url2": {
+             "type": "String"
+             }
+          }
+        },
+      "info_podcast_3": "<body><p><a href={podcast_url3}>En(gender)ed podcast (in English) </a><br><br> The en(gender)ed podcast features stories that explore the systems, practices and policies that enable gender-based violence and oppression and the solutions to end it.</p></body>",
+      "@info_podcast_3": {
+          "placeholders": {
+             "podcast_url3": {
+             "type": "String"
+             }
+          }
+    },
+    "safety_plan": "Turvallisuussuunnitelma",
+    "safety_plan_desc": "Henkilökohtainen turvallisuussuunnitelma voi auttaa sinua määrittämään, mitä tehdä suojellaksesi paremmin itseäsi ja perhettäsi.",
+    "safety_planning": "Luo turvallisuussuunnitelma",
+    "helpful_tips": "<body><p><h3>Hyödyllisiä vinkkejä (voit lukea lisää <a href={helpful_tips}>täältä</a>):</h3></p></body>",
+    "@helpful_tips": {
+              "placeholders": {
+                 "helpful_tips": {
+                 "type": "String"
+                 }
+              }
+        },
+    "helpful_tips_desc": "<body><p><ul> <li> Ota tapana perääntyä auto ajotielle (jotta voit vetäytyä nopeasti) ja ottaa täysi tankki bensaa. Pidä auton avaimet samassa paikassa, jotta voit helposti napata ne, jos sinun on poistuttava kotoa nopeasti. Jos sinulla ei ole lapsia, voit jopa jättää kuljettajan oven lukitsematta (ja muut ovet lukittuina). Jos mahdollista, jätä kopiot henkilöllisyystodistuksestasi ja muista tärkeistä asiakirjoista autoosi.<br/></li> <li> Mieti useita syitä, miksi poistut kotoa eri vuorokaudenaikoina, joita tekijä uskoo, jos sinä tuntuu siltä, ​​että väkivalta puhkeaa ja tarvitset tekosyyn lähteäksesi.<br/></li> <li> Jos voit, on hyvä idea pitää pussi täynnä tavaroita, jotka haluat ottaa mukaasi. , kuten esimerkiksi lailliset asiakirjat, vaatesarja, lääkkeet jne. Sinun tulee piilottaa tämä laukku paikkaan, josta tekijäsi ei löydä sitä. Jos mahdollista, on hyvä idea jättää laukku luotettavalle ystävälle tai perheenjäsenelle.<br/></li> <li> Jos mahdollista, kerro ystävillesi ja naapureillesi, joita luotat, mitä kotonasi tapahtuu. Tee suunnitelma heidän kanssaan, jotta he tietävät milloin tarvitset apua ja kuinka he voivat auttaa sinua parhaiten, esimerkiksi soittamalla poliisille tai koputtamalla ovellesi. Voit myös sopia signaalista, kuten valojen sytyttämisestä ja sammuttamisesta tai ripustamalla jotain ulos ikkunasta, mikä ilmoittaa hänelle, että tarvitset apua.<br/></li> <li> Jos tarvitset apua julkisella paikalla, huuda \"Se on tulessa!\" Ihmiset reagoivat nopeammin, jos joku huutaa \"se on tulessa\" kuin joku, joka huutaa apua.<br/></li> <li> Pidä naisten rauhanlinjan numero puhelimessasi nimettömänä, jos sinun tarvitsee soittaa heille. < br/> </li> <li> Jos sinulla on lapsia, pyydä heitä olemaan puuttumatta asiaan, jos hyväksikäyttäjä satuttaa sinua, koska he voivat myös loukkaantua. Valitse koodisana, jonka avulla he voivat poistua kotoa ja hakea apua. Jos tekijä ei anna heidän poistua kotoa turvallisesti, sovi talossasi turvallinen paikka, jossa he voivat piiloutua ja kutsua apua, mieluiten huone, jossa on lukko ja pääsy puhelimeen. Kerro heille, että heidän ensisijaisena tavoitteenaan on suojella itseään eikä suojella sinua fyysisesti. <br/></li> <li> Harjoittele erilaisia ​​tapoja päästä pois kotoa turvallisesti. Jos sinulla on lapsia, harjoittele myös heidän kanssaan.<br/></li> Jos et voi paeta väkivaltaa, tee itsestäsi pieni kohde. Sukella nurkkaan ja käpertyä palloksi. Suojaa kasvosi ja kiedo kätesi pään ympärille ja sido sormesi yhteen.<br/></li> <li> </ul> </p></body>",
+    "yes": "Joo",
+    "no": "Ei",
+    "not_applicable": "Ei sovellettavissa",
+    "safety_question_1": "Oletko kertonut kokemuksistasi jollekin perheessäsi?",
+    "safety_question_2": "Mitä sanaa tai lausetta voit käyttää koodina puhelussa, tekstiviestissä tai muussa viestissä pyytääksesi perhettäsi, ystäviäsi tai naapureitasi soittamaan apua kumppanisi tietämättä?",
+    "safety_question_3": "Kuka on hätäyhteyshenkilösi? Kirjoita heidän nimensä muistiin ja säilytä lompakossasi tai muussa turvallisessa tilassa, jotta voit aina tavoittaa heidät, vaikka et pääse käsiksi puhelimeesi.",
+    "safety_question_4": "Jos et viihdy kotonasi, minne menet pysyäksesi turvassa?",
+    "safety_question_5": "Jos sinun on lähdettävä kiireessä, kuinka pääsisit pois kotoa? (Ajattele ovia tai ikkunoita, joihin pääset käsiksi, ja harjoittele tehokasta poistumista).",
+    "safety_question_6": "Jos sinun täytyy lähteä nopeasti, onko sinulla mielessäsi julkinen paikka, jossa tuntisit olosi turvalliseksi?",
+    "safety_question_7": "Jos sinulla on lapsia, oletko opettanut heille soittamaan hätänumeroon?",
+    "safety_question_8": "Jos sinulla on lapsia, minkä sanan sanot, jos heidän täytyy soittaa hätäkeskukseen?",
+    "safety_question_9": "Jos sinun on lähdettävä, mitä tavaroita otat mukaan? (Valitse kaikki sopivat)",
+    "safety_question_10": "Voitko jättää kopioita asiakirjoista, vara-avaimista, ylimääräisistä vaatteista ja muista tavaroista perheen tai ystävien luo?",
+    "safety_question_11": "Jos sinun on lähdettävä nopeasti, missä säilytät kaikki tavarat, jotka aiot tuoda mukanasi?",
+
+
+    "check_option_1": "Henkilöllisyystodistus (esim. ajokortti, passi, koulukortti, sotilastodistus, maahanmuuttoasiakirjat)",
+    "check_option_2": "Kännykkä",
+    "check_option_3": "Matkapuhelimen laturi",
+    "check_option_4": "Lääkkeet (esim. astmainhalaattori, insuliini, Epi-Pen)",
+    "check_option_5": "Käteinen raha",
+    "check_option_6": "pankkikortti",
+    "check_option_7": "kotiavain",
+    "check_option_8": "Auton avain",
+    "check_option_9": "Vaihtovaatteet",
+    "check_option_10": "Mukavuustuotteet (esim. suosikki pehmoeläin tai valokuva)",
+  "check_option_11": "Vauvan tarvikkeet (tarvittaessa, kuten maito, vaippa, pyyhkeet, vaihtovaatteet)",
+"check_option_12": "Suoja-/rajoitusmääräyksen kopio",
+"check_option_13": "Muut tärkeät oikeudelliset asiakirjat (kiinnitysasiakirjat, testamentit, potilastiedot, avioliittoluvat)",
+"question_1_option_yes": "Valinnainen: Kenelle olet kertonut?",
+"question_6_option_no": "Keksi paikka, johon voit mennä, se voi olla lähellä oleva poliisiasema, kauppa, kahvila/ravintola tai mikä tahansa muu paikka, jossa on ihmisiä",
+"question_7_option_no": "Voi olla hyödyllistä, jos lapsesi tietävät kuinka ja milloin soittaa hätäkeskukseen",
+"i_will_leave_copies": "Jätän kopiot ja vaatteet:",
+ "update": "UPDATE",
+"submit": "LÄHETÄ",
+"close": "Sulje",
+"biometric_message": "Jos haluat jatkaa, sinun on täytettävä biometriset tiedot",
+"authentication_message": "Todennus vaaditaan!",
+"no_thanks": "Ei kiitos",
+"direction": "Suunta",
+"website": "verkkosivusto",
+"no_shelter": "Suojaa ei löydy",
+"sisterhood_privacy": "Sisterhood Privacy Policy",
+    "privacy": "<body><p>Tämä käytäntö kuvaa tietoja, joita Sisterhood käsittelee ja käyttää tukemaan sovellusta, verkkosivustoa ja muita Sisterhoodin tarjoamia tuotteita ja ominaisuuksia. <br><br>Aiheet<ul style='list-style-type:circle'><li> Mitä tietoja keräämme?<br/></li><li> Miten keräämme tietosi?<br /></li><li> Miten käytämme tietojasi?<br/></li><li> Miten säilytämme tietosi?<br/></li><li> Mikä on tietosuojasi oikeudet?<br/></li><li> Mitä evästeet ovat?<br/></li><li> Millaisia ​​evästeitä käytämme?<br/></li><li> Kuinka hallita evästeesi<br/></li><li> Miten vastaamme oikeudellisiin pyyntöihin tai ehkäisemme vahinkoja?<br/></li><li> Muiden verkkosivustojen tietosuojakäytännöt<br/></li><li > Muutoksia tietosuojakäytäntöömme<br/></li><li> Yhteydenotto<br/></li><li> Kuinka ottaa yhteyttä asianmukaisiin viranomaisiin <br/></li></ul> <h3>Mitä tietoja keräämme?</h3><p>Varmistaaksemme, että pystyt keräämään todisteita turvallisesti ja tehokkaasti, keräämme seuraavat tiedot: </p><ul style='list-style-type :circle'><li>Sisältö ja tiedot, jotka annat sovellukselle, mukaan lukien tilin luomisen ja sisällön luomisen yhteydessä. Tämä sisältää tietoja tarjoamastasi sisällöstä tai siitä (kuten metatiedot), kuten valokuvan sijainnin tai tiedoston luomispäivämäärän. Se sisältää:<ul style='list-style-type:circle'><li><b> Henkilötietosi.</b> (Nimi, puhelinnumero, osoite ja sähköpostiosoite)<br/></li ><li><b> Kaikki kuvat, videot, asiakirjat ja äänitiedostot.</b> jotka lataat päiväkirjaan<br/></li><li><b>Sovelluksen käyttösi.</b> b> Keräämme tietoja siitä, kuinka käytät tuotteitamme ja käyttötiheyttäsi; se sisältää käyttämäsi ominaisuudet, tekemäsi toiminnot ja katsomasi sisällön. <br/></li><li><b>Lataustesi sijainti. </b>Estääksemme kunnianloukkauksen merkitsemme kuvasi, videosi, asiakirjasi ja äänilatauksesi geotagilla. Sijaintisi voidaan määrittää<br/></li><ul style='list-style-type:square'><li>GPS:n ja muiden laitteesi anturitiedoilla <br/></li><li> IP osoite<br/></li><li>Tietoja laitteesi ympärillä olevista asioista, kuten Wi-Fi-tukipisteistä ja matkapuhelintorneista. <br/></li></ul></ul><br/></li><li>Laitetiedot. Sisterhood kerää tietoja tietokoneistasi ja puhelimistasi, joita käytät tuotteidemme kanssa vuorovaikutuksessa. Nämä tiedot sisältävät:<ul style='list-style-type:square'><li> <b>Laitemääritteet.</b> Eli tiedot, kuten käyttöjärjestelmä, laitteisto- ja ohjelmistoversiot sekä tiedostojen nimet ja tyypit.<li> <b>Laitteen signaalit.</b> Tietoja lähellä olevista Wi-Fi-tukipisteistä ja solutorneista.<li><b>Laitteen toiminnot.</b> Eli tiedot toiminnoista ja käyttäytymisestä sovelluksen avulla.<li><b>Laitteen asetusten tiedot.</b> Tiedot, jotka sallit meidän vastaanottaa päälle ottamistasi laitteen asetuksista, kuten pääsy GPS-sijaintiisi, kameraan tai valokuviin.<li><b> Verkko ja yhteydet. </b>Erityisesti tiedot, kuten matkapuhelinoperaattorisi tai Internet-palveluntarjoajasi nimi, kieli, aikavyöhyke, matkapuhelinnumero ja IP-osoite, jotta voimme varmistaa, että sinä lähetät sisällön sovellukseen.<br/>< /li></ul><br/></li></ul><h3>Miten keräämme tietosi?</h3>Annat Sisterhoodille keräämämme tiedot, kun:<ul style='list -style-type:circle'><li>Lataa ja luo tili Sisterhoodille.<br/></li><li> Luo sisältöä vapaaehtoisesti \"uuden päiväkirjamerkintä\" -ominaisuuden avulla.<br/></li> <li>Anna palautetta verkkosivustostamme ja sovelluksestamme.<br/></li><li>Näytä verkkosivustomme selaimesi evästeiden kautta.<br/></li><li>Ota käyttöön sovelluksen ominaisuuksia. <br/></li><li>Lähetä kuvia, videoita, asiakirjoja ja äänitiedostoja.<br/></li></ul><h3>Miten käytämme tietojasi?</h3>Käytämme tiedot, jotka annat meille seuraavilla tavoilla:<ul style='list-style-type:circle'><li>Säilytä todisteita, jotta voit, kun olet valmis, ilmoittaa kohtaamistasi rikoksista. <br/></li><li>Pidäksesi kirjaa toiminnoistasi tuotteissamme, jota voit myöhemmin käyttää todisteita.<br/></li><li>Voit pitää kirjaa kohtaamistasi rikoksista tarkalla aikajanalla. Keräämme esimerkiksi aikaleimoja siitä, kun lisäät uuden päiväkirjamerkinnän tai teet muutoksia todisteesi vahvistamiseksi. <br/></li><li>Paranna tuotettamme. Ymmärtämällä, kuinka käytät tuotteitamme, voimme parantaa ominaisuuksiamme sovelluksessa ja verkkosivustollamme. <br/></li><li>Jos annat meille luvan käyttää tietojasi sisältöä luodessaan, voimme vähentää kunnianloukkausta käyttämällä sijaintiasi linkittääksemme meille tarjoamiasi kokemuksia. Sijainnin seuranta vahvistaa myös tapaustasi, sillä poliisin on varmistettava, että olet se, joka väität olevasi ja että antamiesi tietojen, kuten tekstin, videoiden, kuvien, äänitiedostojen ja asiakirjojen ja paikkojen välillä on selkeä yhteys. joissa vierailet usein (kotisi, ystävien ja perheen koti, työpaikka tai kotiasi ympäröivä alue). <br/></li><li>Sisterhood ei myy tietojasi mainostarkoituksiin tai tee yhteistyötä voittoa tavoittelevien yritysten kanssa palveluiden myymiseksi, mutta myymme ja käytämme tietojasi tutkimustarkoituksiin parantaaksemme käytäntöjä ja lainsäädäntöä paremmin. perheväkivalta. Anonymisoimalla tietosi voimme tarjota hallituksille, kunnille, sosiaalipalveluille, poliisille ja naisten turvakodeille (muun muassa) parempia ja tarkempia tilastoja perheväkivallasta. Sisterhood voi esimerkiksi alueellisesti kertoa kunnille yleisimmistä pahoinpitelytyypeistä käyttämällä käyttäjien tietoja alueellaan. <br/></li><li>Turvallisuuden edistäminen. Käytämme tietojasi tilien ja toiminnan vahvistamiseen roskapostin ja haitallisen toiminnan estämiseksi. Käytämme antamiasi tietoja esimerkiksi tutkiaksemme väärinkäyttöä sovelluksessamme ja käyttöehtojemme rikkomuksia. <br/></li><li>Tutki ja innovoi yleistä hyvää. Sisterhood tavoitteena on vahvistaa perheväkivallan kohteeksi joutuneita naisia ​​ja antaa heille äänioikeus tuomioistuimessa parantamalla todisteita. Ytimessämme teemme ja tuemme tutkimusta perheväkivallan torjumiseksi ja parantamiseksi sukupuolten tasa-arvo. Analysoimme esimerkiksi käyttäjiemme kollektiivisesti toimittamia tietoja paljastaaksemme perheväkivallan mallit ja tiedottaaksemme hallituksille ja lainsäätäjille paremman politiikan, rahoituksen ja yleisen resurssien kohdentamisen tarpeesta. <br/></li></ul><h3>Miten tallennamme tietosi?</h3>Yritysmme tallentaa tietosi turvallisesti Google Cloud -tallennusratkaisujen ja Firebasen avulla. Google Cloudin infrastruktuurissa on sisäänrakennetut suojaukset, jotka varmistavat, että tietosi, henkilöllisyytesi, sovelluksesi ja laitteesi ovat suojattuja. Lisäksi Google Cloud salaa laitosten välillä siirrettävät tiedot, mikä varmistaa, että vain valtuutetut roolit voivat käyttää niitä. <br><br>Koska Sisterhood keräämät tiedot parantavat ja vahvistavat todisteita, tietoja säilytetään vanhentumisajan ajan, joka vaihtelee rikoksesta riippuen. Näin ollen henkilötietoja säilytetään niin kauan kuin niitä tarvitaan todisteiden keräämistä ja rikosasian rakentamista varten.<br>Perustuu vanhentumisaikaan alkaen 35 kap. 1 § Brottsbalken (BrB) tiedot säilytetään seuraavasti:<ul style='st-style-type:circle'><li>Murhasta, jossa enimmäisrangaistus on elinkautinen vankeusrangaistus, tietoja säilytetään 25 vuotta <br/></li><li>Väkivaltaisesta hyväksikäytöstä, jonka enimmäisrangaistus on yli 8 vuotta, tietoja säilytetään 15 vuotta<br/></li><li>Väkivaltaisesta hyväksikäytöstä, jonka enimmäisrangaistus on 6 vuotta, tietoja säilytetään 10 vuotta<br/></li><li>Väärinkäytöstä, jossa enimmäisrangaistus on 2 vuotta, tietoja säilytetään 5 vuotta<br/></li><li >Väärinkäytöksistä, joissa enimmäisrangaistus on 1 vuosi, tietoja säilytetään 2 vuotta. <br/></li></ul><h3>Mitkä ovat tietosuojaoikeutesi?</h3>Sisarkunta haluaa varmistaa, että olet täysin tietoinen kaikista tietosuojaoikeuksistasi. Jokaisella käyttäjällä on oikeus seuraaviin:<ul style='list-style-type:circle'><li>Käyttöoikeus: Sinulla on oikeus pyytää Sisterhood kopioita henkilötiedoistasi. Huomaa, että voimme veloittaa sinulta pienen maksun tästä palvelusta. <br/></li><li>Oikeus oikaisuun: Sinulla on oikeus pyytää Sisterhood oikaisemaan kaikki tiedot, jotka uskot olevan epätarkkoja. Sinulla on myös oikeus pyytää Sisterhood täydentämään tietoja, jotka uskot olevan puutteellisia. <br/></li><li>Oikeus tietojen poistamiseen: Sinulla on tietyin ehdoin oikeus pyytää Sisterhood poistamaan henkilötietosi. <br/></li><li>Oikeus rajoittaa käsittelyä: Sinulla on oikeus pyytää Sisterhoodia rajoittamaan henkilötietojesi käsittelyä tietyin edellytyksin. <br/></li><li>Oikeus vastustaa käsittelyä: Sinulla on oikeus vastustaa Sisterhoodin suorittamaa henkilötietojesi käsittelyä tietyin edellytyksin. <br/></li><li>Oikeus tietojen siirrettävyyteen: Sinulla on oikeus pyytää Sisterhoodia siirtämään keräämämme tiedot toiselle organisaatiolle tai suoraan sinulle tietyin ehdoin. <> <br/></li></ul>Jos teet pyynnön, meillä on kuukausi aikaa vastata sinulle. Jos haluat käyttää jotakin näistä oikeuksista, ota meihin yhteyttä sähköpostitse: <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3> Mitä ovat keksit? </h3>Evästeet ovat pieniä tekstinpätkiä, jotka vierailemasi verkkosivusto lähettää selaimeesi. Ne keräävät tavallisia Internet-lokitietoja ja vierailijoiden käyttäytymistietoja, jotka voivat helpottaa sivustolla käyntiäsi uudelleen ja tehdä sivustosta hyödyllisemmän. Saatamme kerätä sinulta tietoja automaattisesti evästeiden tai vastaavan tekniikan avulla. Saat lisätietoja osoitteesta <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a><h3>Kuinka käytämmekö evästeitä?</h3>Sisaruus käyttää evästeitä parantaakseen käyttökokemustasi verkkosivustollamme, mukaan lukien:<ul><li>Ymmärtää, kuinka käytät verkkosivustoamme.<br/></li><li>Ymmärtääksesi asetuksiasi koskien sijainti ja kieli<br/></li></ul><h3>Millaisia ​​evästeitä käytämme?</h3>On olemassa useita erilaisia ​​evästeitä, mutta verkkosivustomme käyttää:<ul><li>Toiminto: Meidän yritys käyttää näitä evästeitä, joten tunnistamme sinut verkkosivustollamme ja muistamme aiemmin valitsemasi asetuksesi. Tämä voi sisältää haluamasi kielen ja sijainnin, jossa olet.<br/></li> </ul><h3>Kuinka hallitset evästeitäsi?</h3>Voit asettaa selaimesi estämään evästeitä. verkkosivusto <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a> opastaa sinua ja neuvoo, kuinka voit poistaa evästeet selaimestasi. Huomaa, että verkkosivustomme ei välttämättä toimi tämän seurauksena. <h3>Kuinka vastaamme oikeudellisiin pyyntöihin tai ehkäisemme vahinkoa?</h3>Yhdessä tavoitteidemme kanssa torjua perheväkivaltaa maailmanlaajuisesti saatamme käyttää, säilyttää ja jakaa tietojasi sääntelyviranomaisten, lainvalvontaviranomaisten tai muiden kanssa siinä tapauksessa, että Sinun on vastattava tiliäsi ja sisältöäsi koskevaan oikeudelliseen pyyntöön (kuten etsintälupa, oikeuden määräys tai haaste). Saatamme myös käyttää, säilyttää ja jakaa tietojasi, jos uskomme vilpittömästi, että se on välttämätöntä. Tämä voi sisältää<ul><li>petosten ehkäisemisen ja käsittelemisen<br/></li><li>estää kuolema<br/></li><li>Osoita laittomaan toimintaan<br/></li></ul><h3>Muiden verkkosivustojen tietosuojakäytännöt</h3>Sisterhoodin verkkosivusto ja sovellus sisältävät hyödyllisiä linkkejä muilta verkkosivustoilta, jotka voi olla sinulle resurssi. Huomaa kuitenkin, että tietosuojakäytäntömme koskee vain verkkosivustoamme ja sovellustasi, joten jos napsautat linkkiä toiselle verkkosivustolle, sinun tulee lukea niiden tietosuojakäytäntö.<h3>Muutokset tietosuojakäytäntöömme</h3>Sisterhood pitää tietosuojakäytäntönsä alla säännöllinen tarkistus ja päivitykset verkkosivuillamme ja sovelluksessamme. Tämä tietosuojakäytäntö päivitettiin viimeksi 2. kesäkuuta 2022.<h3>Ota yhteyttä</h3>Jos sinulla on kysyttävää tai huolenaiheita Sisterhoodista, tietosuojakäytännöstämme, keräämistämme ja tallentamistamme tiedoista tai jos haluat käyttää yhtä tai useampaa tietosuojaoikeuttasi, lähetä meille sähköpostia osoitteeseen <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3>Ota yhteyttä toimivaltaisille viranomaisille</h3>Jos haluat tehdä valituksen tai jos sinusta tuntuu, että Sisterhood ei ole käsitellyt huolenaiheitasi tyydyttävällä tavalla, voit lähettää sähköpostia osoitteeseen Integritetsskyddsmyndigheten (IMY): imy@imy.se</p></body>",
+    "self_help_tools": "Omat aputyökalut",
+    "creating_a_safety_plan": "Turvasuunnitelman luominen",
+    "need_things_from_my_apartment": "Minun täytyy saada tavarani asunnostamme",
+    "my_partner_force_to_deb": "Kumppanini on pakottanut minut ottamaan velkaa",
+    "custody_of_child": "Haluan hakea lapsemme/lastemme yksinhuoltajuutta",
+    "are_you_sure_you_want_to_logout": "Haluatko varmasti kirjautua ulos",
+    "logout": "Kirjaudu ulos",
+    "succesfully": "Onnistuneesti",
+    "about_us": "About Sisterhood",
+    "privacy_policy": "Tietosuojakäytäntö",
+    "contact_us": "Ota yhteyttä",
+    "settings": "Asetukset",
+    "password_change_success": "Salasanasi päivitys onnistui",
+    "password_change_fail": "Salasanaa ei voi vaihtaa",
+    "reset_password": "Palauta salasana",
+    "old_password": "Vanha salasana",
+    "new_password": "Uusi salasana",
+    "confirm_password": "Vahvista salasana",
+    "enter_old_password": "Anna vanha salasana",
+    "enter_new_password": "Anna uusi salasana",
+    "new_password_length": "Anna vähintään 10 merkkiä pitkä uusi salasana",
+    "confirm_password_should_match": "Vahvista salasanan tulee vastata uutta salasanaa",
+    "old_password_does_not_match": "Vanha salasana ei täsmää",
+    "enter_confirm_password": "Anna vahvistus salasana",
+    "phone_number": "Puhelinnumero",
+    "member_since": "Jäsen vuodesta - ",
+    "last_modified_date": "Viimeksi muokattu päivämäärä - ",
+    "edit_profile": "MUOKKAA PROFIILIA",
+    "profile_updated_success": "Profiilisi päivitys onnistui",
+    "camera": "Kamera",
+    "gallery": "Galleria",
+    "type_your_text_here": "Kirjoita tekstisi tähän...",
+    "resend_otp": "Lähetä OTP uudelleen",
+    "otp_text": "Anna otp",
+    "previous": "PREVIOUS",
+    "next": "NEXT",
+    "search": "Hae",
+    "distance": "Etäisyys",
+    "metre": "Metriä",
+
+
+
+
+    "abuse_category_1": "Fyysinen",
+    "abuse_category_2": "Emotionaalinen",
+    "abuse_category_3": "Seksuaalinen",
+    "abuse_category_4": "Psykologinen",
+    "abuse_category_5": "Taloudellinen",
+
+
+    "sub_cat_1": "Kumppanisi käyttää tarkoituksellisesti fyysistä voimaa vahingoittaakseen sinua ja saattaakseen sinut vaaraan.",
+    "sub_cat_2": "Kumppanisi heikentää itsetuntoasi kutsumalla sinua nimillä ja saamalla sinut tuntemaan olosi tyhmäksi.",
+    "sub_cat_3": "Kumppanisi pakottaa tai vaatii sinua seksuaaliseen toimintaan vastoin tahtoasi.",
+    "sub_cat_4": "Kumppanisi vääristelee tapaa, jolla havaitset todellisuuden, esimerkiksi valaisee sinua kaasulla.",
+    "sub_cat_5": "Kumppanisi hallitsee talouttasi, esimerkiksi hän pidättää sinulta rahaa tai estää sinua luomasta taloudellista riippumattomuutta.",
+
+
+    "incident_place_1": "Olohuone",
+    "incident_place_2": "Makuuhuone",
+    "incident_place_3": "Kylpyhuone",
+    "incident_place_4": "Keittiö",
+    "incident_place_5": "Muu alue talossa",
+    "incident_place_6": "Ulkopuolella",
+
+
+    "under_influence_option_1": "Ei",
+    "under_influence_option_2": "Alkoholi",
+    "under_influence_option_3": "Huumeet",
+    "under_influence_option_4": "Reseptilääkkeet",
+
+
+    "seeked_medical_attention_option_1": "Ei",
+    "seeked_medical_attention_option_2": "Kyllä",
+
+
+
+
+    "test": "test"
+}

@@ -16,6 +16,7 @@ class AppConstants {
   static const String token = 'token';
   static const String password = 'pa';
   static const String personnelCode = 'personnelCode';
+  static const String expression = '6*14/2';
 
   static const int maxVideoSelected = 1;
   static const int maxAudioSelected = 2;

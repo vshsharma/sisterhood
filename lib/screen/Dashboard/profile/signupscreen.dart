@@ -609,7 +609,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       Container(
                         alignment: Alignment.center,
-                        child: FlatButton(
+                        child: TextButton(
                             onPressed: () {
                               Get.back();
                               /*Get.to(const LoginPage(),

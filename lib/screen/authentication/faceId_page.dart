@@ -29,7 +29,7 @@ class _FaceIdPageState extends State<FaceIdPage> {
   void localAuthCheck() async {
     final isAuthenticated = await LocalAuthApi.authenticate(context);
     if (isAuthenticated) {
-      Get.to(const BottomNavigationPage(),
+      Get.offAll(const BottomNavigationPage(),
           transition: Transition.rightToLeftWithFade,
           duration: const Duration(milliseconds: 600));
     } else {

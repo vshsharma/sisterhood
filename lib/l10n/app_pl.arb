@@ -1,0 +1,427 @@
+﻿{
+  "appTitle": "Sisterhood",
+ "language": "Polish",
+  "@language": {
+"description": "Obecny język"
+  },
+  "e-mail": "EMAIL",
+  "enter_valid_email": "Wprowadź poprawny adres e-mail",
+  "password": "HASŁO",
+  "empty_password": "Wprowadź swoje hasło",
+  "password_length": "Hasło musi mieć co najmniej 10 znaków",
+  "forgot_password": "Nie pamiętasz hasła?",
+  "enter_valid_password": "Wprowadź prawidłowe hasło",
+  "no_user_found_error": "Nie znaleziono użytkownika dla tego adresu e-mail.",
+  "invalid_credential": "Poświadczenia użytkownika są nieprawidłowe",
+  "dont_have_account": "Nie masz konta?",
+  "sign_up": "rejestracja",
+  "log_in": "ZALOGUJ SIĘ",
+
+
+  "first_name": "Imie",
+  "last_name": "Nazwisko",
+  "middle_name": "Drugie imię",
+  "user_name": "Nazwa użytkownika",
+  "e-mail": "e-mail",
+  "email_address": "adres e-mail",
+    "password":  "hasło",
+   "address": "Adres",
+   "city":  "Miasto",
+  "zip_code": "kod pocztowy",
+  "signup":  "Zarejestruj się",
+  "already_account_login": "Masz już konto?",
+  "login":  "zaloguj się",
+"plese_enter_first_name": "Wprowadź swoje imię",
+  "plese_enter_last_name": "Wprowadź swoje nazwisko",
+  "plese_enter_middle_name": "Wprowadź swoje drugie imię",
+  "plese_enter_user_name": "Wprowadź swoją nazwę użytkownika",
+  "plese_enter_phone_number": "Wprowadź swój numer telefonu",
+  "plese_enter_your_zip_code": "Wprowadź swój kod pocztowy",
+  "plese_enter_your_address": "Wprowadź swój adres",
+  "registered_successfully": "Zarejestrowano pomyślnie",
+  "weak_password": "Podane hasło jest za słabe.",
+  "account_exist": "Konto dla tego e-maila już istnieje.",
+  "please_enter_password": "Proszę wprowadzić hasło",
+  "please_min_length": "Hasło musi mieć co najmniej 10 cyfr",
+  "please_enter_city": "Wpisz swoje miasto",
+  "please_enter_email": "Wprowadź adres e-mail",
+  "link_sent": "Pomyślnie wysłaliśmy link na Twój zarejestrowany adres e-mail",
+  "user_not_existing": "Użytkownik nie istnieje",
+  "get_email": "Uzyskaj e-mail",
+  "or": "Lub",
+  "go_to_login": "Przejdź do logowania",
+
+
+  "new_password": "Nowe hasło",
+  "old_password": "Stare hasło",
+  "confirm_password": "Potwierdź hasło",
+  "please_enter_confirm_password": "Proszę wprowadzić hasło potwierdzające",
+  "confirm_password_not_match": "Potwierdź, że hasło nie pasuje",
+  "please_enter_your_old_password": "Wprowadź swoje stare hasło",
+  "please_enter_your_new_password": "Proszę wprowadzić nowe hasło",
+  "password_must_be_8_character": "Hasło powinno mieć więcej niż 8 znaków",
+  "save": "ratować",
+
+
+  "local_auth_failed": "Uwierzytelnianie biometryczne nie powiodło się",
+  "face_id": "Identyfikator twarzy",
+  "authorize": "Autoryzować",
+
+
+  "home": "Dom",
+  "profile": "Profil",
+  "sos": "SOS",
+
+
+  "new_journal_entry": "Nowy wpis w dzienniku",
+  "view_history": "Zobacz historię",
+  "resources": "Zasoby",
+
+
+  "what_type_of_abuse": "Jaki rodzaj nadużycia chcesz zarejestrować?",
+  "tell_me_what_happend": "Wyjaśnij, co się stało?",
+  "what_were_the_circumstances": "Jakie były okoliczności?",
+  "where_did_it_happen": "Gdzie to się stało?",
+  "if_outside_or_other_area_please_specify": "Jeśli na zewnątrz lub w innym miejscu w domu, proszę określić:",
+  "when_did_it_happen": "Kiedy to się stało?",
+  "was_your_partner_under_the_influence": "Kiedy to się stało, czy twój partner był pod wpływem?",
+  "where_you_under_the_influence": "Byłeś pod wpływem?",
+  "have_you_seeked_medical_attention": "Czy w wyniku tego incydentu zwróciłeś się o pomoc medyczną?",
+  "max_images": "Możesz wybrać tylko {max} obrazów",
+  "@max_images": {
+    "placeholders": {
+       "max": {
+       "type": "int"
+       }
+    }
+  },
+  "add_picture": "Dodaj zdjęcie",
+  "add_video": "Dodaj wideo",
+  "add_audio": "Dodaj dźwięk",
+  "no_file_selected": "Nie wybrano pliku",
+  "max_video_limit": "Maksymalny limit rozmiaru dla wybranego filmu to {max} MB",
+  "@max_video_limit": {
+      "placeholders": {
+         "max": {
+         "type": "int"
+         }
+      }
+    },
+    "max_videos": "Możesz wybrać tylko {max} wideo",
+      "@max_videos": {
+        "placeholders": {
+           "max": {
+           "type": "int"
+           }
+        }
+      },
+      "max_audio_limit": "Maksymalny limit rozmiaru wybranego pliku audio to {max} MB",
+        "@max_audio_limit": {
+            "placeholders": {
+               "max": {
+               "type": "int"
+               }
+            }
+          },
+          "max_audios": "Możesz wybrać tylko {max} audio",
+            "@max_audios": {
+              "placeholders": {
+                 "max": {
+                 "type": "int"
+                 }
+              }
+            },
+      "max_upload_size": "Maksymalna pojemność wysyłania 10 MB",
+      "submit": "ZATWIERDŹ",
+      "success_message": "Dane przesłane pomyślnie",
+      "fail_message": "Nie udało się przesłać danych",
+      "write_here": "Napisz tutaj...",
+      "what_time_did_it_happen": "O której godzinie to się stało?",
+      "what_medical_facility_did_you_visit": "Jaki obiekt odwiedziłeś?",
+      "select_time": "Wybierz Czas",
+      "no_data_found": "Nie znaleziono danych dla wybranej daty",
+      "logged": "Zalogowany",
+      "image_removed": "Usunięto obraz",
+      "video_removed": "Usunięto film",
+      "audio_removed": "Usunięto dźwięk",
+
+
+      "resources": "Zasoby",
+      "cta_label_emergency": "​​Mam nagły wypadek",
+      "cta_label_women_shelter": "Znajdź schronisko dla kobiet",
+      "cta_label_need_support": "potrzebuję wsparcia",
+      "cta_label_legal_info": "Poproszę o informacje prawne",
+      "cta_label_more_about_abuse": "Chciałbym dowiedzieć się więcej o przemocy domowej",
+      "cta_label_self_help_tool": "Chcę narzędzi samopomocy",
+      "emergency_title": "Mam nagły wypadek",
+      "have_an_emergency": "<body><p>W nagłym przypadku użyj przycisku SOS (prawy dolny róg) lub wybierz numer 112. <br><br> 112 to bezpłatny numer alarmowy, pod który należy zadzwonić, jeśli potrzebujesz pomocy w nagłych wypadkach. Jednym telefonem można uzyskać pomoc od policji, pogotowia ratunkowego i straży pożarnej. <br><br> Kiedy zadzwonisz, otrzymasz pytania takie jak:<br> <body> <ul> <li>Co się stało? <br/></li> <li>Kto jest ranny? <br/></li> <li>Skąd dzwonisz/gdzie potrzebna jest pomoc? <br/></li> <li>Kto dzwoni? <br/></li> <li>Z jakiego numeru dzwonisz? <br/></li> </ul> </body> <p>.</p> <br><br><br>Dyspozytor 112 określi, jaki rodzaj pomocy zostanie wysłany. Więcej informacji o SOS znajdziesz <a href={url}>tutaj</a><br><br></p></body>",
+      "@have_an_emergency": {
+      "placeholders": {
+         "url": {
+         "type": "String"
+         }
+      }
+    },
+      "need_support_title": "potrzebuję wsparcia",
+      "need_support_desc": "Oprócz uzyskania pomocy z lokalnego schroniska dla kobiet, możesz zwrócić się do tych organizacji, jeśli potrzebujesz wsparcia.",
+      "support_p1": "<body><p><h3>Kvinnofridslinjen</h3><br> Telefon: 020-50 50 50<br> Strona internetowa:<a href={url}>https://kvinnofridslinjen.se/ pl/</a><br><br> <body> <ul> <li> Oferuje bezpłatne połączenia 24 godziny na dobę, 7 dni w tygodniu <br/></li> <li> Połączenie nie jest widoczne na rachunku telefonicznym <br /></li> <li> Dostęp do tłumacza <br/></li> <li> Możesz być anonimowy, a rozmowa poufna <br/></li> </ul> <body>< /p></body>",
+      "@support_p1": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "support_p2":"<body><p><h3>Opieka społeczna</h3><br> Skontaktuj się z opieką społeczną w Twojej gminie. Możesz wpisać w Google „usługi społeczne *twoja gmina*”, a pojawią się informacje kontaktowe.<br> Poprzez usługi społeczne możesz uzyskać pomoc w<br> <body> <ul> <li> Wskazówki i wsparcie <br/> </li> <li> Doradztwo <br/></li> <li> Praktyczna pomoc <br/></li> <li> Mieszkanie <br/></li> <li> Wsparcie finansowe <br/> </li> </ul> </body> </p></body>",
+      "support_p3":"<body><p><h3>Prawnicy</h3><br> Wiele większych schronisk dla kobiet współpracuje z prawnikami, aby zapewnić Ci bezpłatną pomoc prawną, ale możesz też skontaktować się z kancelarią prawniczą ds. pomoc.<br> Wiele z nich oferuje bezpłatną 15-minutową konsultację. <br> Organizacja <a href ={url}> Terrafem </a><br> świadczy usługi prawne dla ofiar przemocy domowej. Możesz się z nimi skontaktować pod adresem 020-52 10 10, od poniedziałku do piątku od 09:00 do 18:00. <br></p></body>",
+      "@support_p3": {
+                  "placeholders": {
+                     "url": {
+                     "type": "String"
+                     }
+                  }
+                },
+      "support_p4":"<body><p><h3>Doradcy i psycholodzy </h3> <br>Wielu psychologów skupia się w swojej praktyce na przemocy domowej. Schronisko dla kobiet zazwyczaj ma psychologów-rezydentów, ale możesz też znaleźć innych lokalnych, wpisując w wyszukiwarce „psycholodzy przemocy domowej”. <br>Serwis psychologiczny online <a href={url}>Mindler </a> <br>współpracuje z Kerstin Lidingö w celu udzielania porad dotyczących przemocy domowej. <br></p></body>",
+      "@support_p4": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "good_to_have_legal_info": "Dobre informacje prawne",
+      "good_to_have_legal_info_desc": "Należy pamiętać, że Sisterhood nie jest \"usługą skierowania prawnika\" ani firmą prawniczą. Nie zapewniamy porad prawnych ani reprezentacji, a te wskazówki nie mają na celu zastąpienia adwokata lub kancelarii prawnej.",
+
+
+ "legal_info_content": "<body><p><h3>Jak poprawić dowody w postaci zdjęć</h3> Oto kilka wskazówek, jak zapewnić lepsze dowody w postaci zdjęć: <body> <li> Zezwól Sisterhood na śledzenie Twojej lokalizacji i geotagowanie Twoich zdjęć. Dzięki temu policja może zobaczyć, gdzie zdjęcie zostało zrobione, co wzmacnia Twoje argumenty.<br/></li> <li> Jeśli czujesz się komfortowo, poproś członka rodziny lub znajomego, któremu ufasz, o zrobienie zdjęcia Ciebie i Twoich obrażeń a także selfie was obojga. W ten sposób członek rodziny lub przyjaciel może potwierdzić Twoją historię i być świadkiem.<br/></li> <li> Zrób zdjęcia siebie i swoich obrażeń w domu lub miejscach, które często odwiedzasz. W ten sposób policja może powiązać twoje obrażenia ze znanymi przedmiotami w twoim domu. Na przykład przed kanapą, w kuchni, gdzie w tle widać stół/krzesła itp. Poniższy rysunek pokazuje przykład: <br/> <img src={asset} alt='legal_info'> </li> <li> Rób wiele zdjęć w czasie. Urazy zmieniają się w czasie, więc upewnij się, że robisz zdjęcia, które odzwierciedlają te zmiany. Na przykład siniak zwykle zaczyna być czerwony. Po 1-2 dniach siniak będzie niebieski, fioletowy lub nawet czarny. Po 5-10 dniach siniak zmieni kolor na żółty lub zielony, a po 10-14 dniach prawdopodobnie będzie miał żółtawo-brązowy lub jasnobrązowy kolor. Zrób zdjęcia tych zmian i użyj „funkcji edycji” na stronie „Wyświetl historię”, aby przesłać dodatkowe zdjęcia.<br/></li> </body> <p> </p> <br> <h3>I nagle opuściłem dom, ale chcę zabrać swoje rzeczy z naszego mieszkania</h3> Jeśli musiałeś pilnie opuścić swój dom lub jeśli sprawca przemocy nagle wyszedł i chciałbyś odebrać lub usunąć mienie, takie jak rzeczy osobiste, ubrania, sprzęt elektroniczny, meble itp., możesz złożyć wniosek o „Handräckning” za pośrednictwem Kronofogden. Możesz przeczytać więcej na ten temat tutaj. Pamiętaj, że handräckning ma pewne konsekwencje, na przykład jeśli pozwany sprzeciwia się handräckningen, możesz poprosić Kronofodgen o przekazanie sprawy sędziemu, który podejmie decyzję. W przypadku niektórych wydarzeń specjalnych Kronofodgen podejmie decyzję. Po podjęciu decyzji zarówno w normalnych, jak i szczególnych przypadkach, Kronofogden skontaktuje się z obiema stronami, aby zobaczyć, jak można rozwiązać sytuację w najbardziej odpowiedni sposób. Jeśli nie jest możliwe rozwiązanie na zasadzie dobrowolności, Kronofogden może udać się do domu ze ślusarzem, aby wydobyć rzeczy. <br><br> <h3>Mój partner zmusił mnie do zaciągnięcia długu.</h3> Jeśli Twój partner zmusił Cię (groźbami lub w inny sposób) do zaciągnięcia długu, musisz zgłosić to na policję jako tak prędko jak to możliwe. W takich przypadkach czas ma kluczowe znaczenie. Jeśli otrzymujesz ponaglenia od Kronofodgen, odpowiedz na sprzeciw i wyjaśnij okoliczności. W niektórych przypadkach Kronofodgen unieważni dług. Przeczytaj więcej na ten temat <a href={url1}>tutaj</a> <br> <br><br> <h3>Chcę ubiegać się o przyznanie wyłącznej opieki nad naszym dzieckiem/dziećmi</h3> Jeśli Ty i Twój partner nie możesz dojść do porozumienia, możesz złożyć pozew z roszczeniem o to, jak chcesz, aby sąd decydował o opiece, mieszkaniu i kontaktach. Następnie sąd zwróci się do sądu rodzinnego o wszczęcie dochodzenia. W ramach postępowania prowadzone są rozmowy z obojgiem rodziców oraz dzieckiem/dziećmi, jeśli jest to właściwe ze względu na wiek i dojrzałość dziecka. Następnie sąd rodzinny przedstawia propozycję decyzji dotyczącej pieczy, mieszkania i kontaktów, która powinna być zgodna z dobrem dziecka. To śledztwo wraz z przedstawionymi dowodami i rozmowami prowadzonymi w sądzie jest podstawą wyroku sądu. <br><br> <h3>Nie chcę opuszczać mojego partnera, czy jest jakieś wsparcie dla tych, którzy znęcają się? </h3> Tak, istnieją organizacje wspierające mężczyzn stosujących przemoc. Na przykład <a href={url2}> Manscentrum </a> <br>oferuje doradztwo, które może pomóc wyjaśnić, przetworzyć i znaleźć rozwiązania emocjonalnych i praktycznych problemów mężczyzn. Jeśli Twój partner został skazany za przemoc domową, szwedzka Służba Więziennictwa i Probacji oferuje programy leczenia, które są sprawdzane i mają zapewnioną jakość.</p></body>",
+      "@legal_info_content": {
+              "placeholders": {
+                 "url1": {
+                 "type": "String"
+                 },
+                 "url2": {
+                  "type": "String"
+                  },
+                  "asset": {
+                  "type": "String"
+                  }
+              }
+            },
+      "domestic_abuse": "Co to jest przemoc domowa?",
+      "domestic_content": "<body><p><p>Przemoc domowa w związku narasta z czasem. Na początku przemoc jest rzadkością. Na początku agresywny partner może stawiać żądania lub domagać się dominacji, które wydają się niewinne i nieszkodliwe. Ale z biegiem czasu strony w związku zmieniają się wraz ze wzrostem kontroli i przemocy sprawców. To często zmusza kobietę do przystosowania się i przystania na rosnące żądania, aby uniknąć dalszych konfliktów. Opór często prowadzi do nasilenia przemocy.</p><br><br>Ogólnie rzecz biorąc, przemoc często zaczyna się od przemocy psychicznej, takiej jak krytyczne i uwłaczające komentarze, które powodują, że kobieta przestaje wierzyć w siebie. Wtedy przemoc fizyczna może być kontynuacją.<br><br>Często zdarza się, że kobieta izoluje się, traci kontakty społeczne i przestaje robić coś samodzielnie. Sprawca często zabrania kobiecie interakcji z przyjaciółmi i rodziną. Zwiększa to zależność kobiety od jej agresywnego partnera.<br><br>Więcej informacji można znaleźć na stronie <a href={domestic_abuse_url1}>Nationellt Centrum för Kvinnofrid.</a><br><br>Ważne jest, aby wiedzieć i rozpoznaj, że przemoc ma różne formy, a kobieta często doświadcza mieszanki różnych rodzajów przemocy, takich jak:<br><br><h3>Przemoc fizyczna</h3> Często nazywana napaścią. To wtedy sprawca robi coś z ciałem kobiety, co boli, rani i/lub powoduje dyskomfort. Może to być wszystko, od pchnięć, kopnięć i uderzeń po uduszenie, krępowanie lub atakowanie kobiety jakimś przedmiotem.<br><br><h3>Przemoc psychiczna</h3> Ma miejsce, gdy sprawca poprzez słowa i agresywne zachowanie ogranicza życie kobiety. Poprzez psychiczne znęcanie się sprawca może izolować kobietę, nie pozwalając jej wchodzić w interakcje z innymi ludźmi. Poza izolacją, przemoc psychiczna może obejmować groźby, szantaż i kontrolę, które stopniowo prowadzą do załamania psychicznego. Przemoc psychiczna może również oznaczać groźby wobec dzieci, zwierząt domowych lub innych krewnych ofiary. Mężczyzna może też ośmieszyć lub zawstydzić swoją partnerkę, np. zachowaniem kobiety, opiniami i/lub jej sposobem bycia. <br><br><h3>Wykorzystywanie seksualne</h3> Polega na zmuszaniu kogoś do angażowania się, wykonywania czynności seksualnych lub bycia świadkiem aktów seksualnych wbrew ich woli. Może to dotyczyć molestowania seksualnego, zmuszania do oglądania filmów pornograficznych, mimowolnego dotykania lub gwałtu. Nierzadko ofiara czuje, że musi być dostępna seksualnie, aby uniknąć innych form przemocy.<br><br><h3>Przemoc ekonomiczna</h3> ma miejsce, gdy kobieta nie ma kontroli nad własnymi finansami Surowce. Może się zdarzyć, że nie pozwolono jej zachować wynagrodzenia lub uniemożliwiono jej podjęcie pracy. Sprawca może również zaciągać kredyty na nazwisko kobiety, czasem wbrew jej woli, i mieć dostęp do jej dowodu bankowego. Ostatecznie zmniejsza to niezależność kobiety. Poza tym przemoc ekonomiczna może wpłynąć na zdolność kredytową kobiety, co może utrudnić jej uzyskanie mieszkania lub zaciągnięcie własnego kredytu. Często sprawca przejmuje kontrolę nad finansami i innymi dobrami materialnymi, aby zwiększyć izolację, bezbronność i utrudnić kobiecie opuszczenie związku.<br><br><h3>Przemoc emocjonalna</h3> Czasami to może przeplatać się z przemocą psychiczną, ale generalnie przemoc emocjonalna jest sposobem kontrolowania kobiety za pomocą emocji w celu krytykowania, zawstydzania, zawstydzania, obwiniania lub manipulowania kobietą w inny sposób w celu załamania jej poczucia własnej wartości i podważenia jej zdrowia psychicznego. Gaslighting to powszechna forma przemocy emocjonalnej, w której kobieta zaczyna wątpić we własne uczucia i kwestionować rzeczywistość.<br><br><h3>Przemoc cyfrowa</h3> Przemoc cyfrowa to korzystanie z technologii, takich jak wysyłanie SMS-ów i sieci społecznościowe , aby znęcać się, nękać, prześladować lub zastraszać partnera. Może to również obejmować czytanie wiadomości lub e-maili i/lub wymyślanie haseł lub żądanie, aby kobieta podała swoje hasła jako dowód miłości/uczciwości. W niektórych przypadkach sprawca śledzi kobietę w mediach społecznościowych lub innych aplikacjach. Inną formą przemocy cyfrowej jest nadmierna komunikacja, co oznacza, że ​​sprawca wysyła zbyt wiele SMS-ów i e-maili, aby kontrolować kobietę.<br><br><h3>Pasywna przemoc fizyczna</h3> Naraża kogoś na przemoc, która ma bezpośrednie konsekwencje fizyczne . Na przykład może to dotyczyć odmawiania komuś snu lub narażania kogoś na długotrwały stres psychiczny, który powoduje fizyczne skutki uboczne. W niektórych przypadkach bierna przemoc fizyczna może być powiązana z trudną sytuacją innej osoby, na przykład z odmową przyjęcia lekarstw lub pomocy osobie niepełnosprawnej lub chorej. <br><br>Możesz przeczytać więcej o przemocy domowej na <a href={domestic_abuse_url2}>stronie internetowej Unizon.</a><br><br><u>Oto dwa filmy TED Talk od ofiar przemocy domowej</ u><br><br>Emma Murphy <a href={domestic_abuse_url3}>Przełamałem milczenie TED Talk z 19 marca 2018 r.</a><br><br>Jasvinder Sanghera <a href={domestic_abuse_url4}>Walka przymusowe małżeństwa i nadużycia honorowe TED Talk z 28 listopada 2013 r.</a><br><br></p></body>",
+      "@domestic_content": {
+                    "placeholders": {
+                       "domestic_abuse_url1": {
+                       "type": "String"
+                       },
+                       "domestic_abuse_url2": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url3": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url4": {
+                         "type": "String"
+                         }
+                    }
+                  },
+      "self_help_tools": "Narzędzia samopomocy",
+      "self_help_tools_desc": "Chociaż te narzędzia samopomocy nie mają na celu zastąpienia profesjonalnych usług, mogą pomóc ci poradzić sobie, jeśli żyjesz w toksycznym związku.",
+      "safety_planning": "Stwórz plan bezpieczeństwa",
+      "guided_meditation": "Medytacja z przewodnikiem",
+      "informative_podcasts": "Podcasty informacyjne",
+      "guided_meditations": "Prowadzone medytacje",
+      "guided_meditations_desc": "Oto kilka linków do dobrych medytacji, które mogą pomóc złagodzić stres, niepokój i wzmocnić miłość własną.",
+      "self_love_and_affirmations": "<body><p><h4>Miłość do siebie i afirmacje</h4> 21-dniowy program afirmacji od Lavindare: <br> <a href={guided_url1}>https://www.youtube.com/watch?v= yo1pJ_D-H3M</a> <br><br>13 minut Medytacja samouwielbienia z jogi z Adrianne <a href={guided_url2}> https://www.youtube.com/watch?v=CqnWMPuyT0g </a> </p></body>",
+      "@self_love_and_affirmations": {
+              "placeholders": {
+                 "guided_url1": {
+                 "type": "String"
+                 },
+                 "guided_url2": {
+                  "type": "String"
+                  }
+              }
+            },
+      "stress_and_anxiety": "<body><p><h4>Stres i niepokój</h4> <br> 15-minutowa medytacja Lavindare <br> <a href=guided_url3> https://www.youtube.com/watch?v=pxWOpGm4d7U&list=PL37ErCJmMW d1igItmbhPUwTwr1yKwz_HG&index= 13</a><br><br> 2-minutowy lek przeciwlękowy autorstwa Rachel Richards <a href=guided_url4> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br> <br> 5 punktów nacisku, aby złagodzić niepokój autorstwa Goodful<a href={guided_url5}> https://www.youtube.com/watch?v=2Mu5RvPoOuo</a><br><br></p></body>",
+      "@stress_and_anxiety": {
+              "placeholders": {
+                 "guided_url3": {
+                 "type": "String"
+                 },
+                 "guided_url4": {
+                  "type": "String"
+                  },
+                  "guided_url5": {
+                  "type": "String"
+                  }
+              }
+            },
+      "grounding_exercises": "<body><p><h4>Grounding exercises</h4> <br> Squeeze and hug technique for trauma by Therapy in a Nutshell <a href={guided_url6}> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br><br> Grounding techniques in trauma therapy by Kati Morton <a href={guided_url7}> https://www.youtube.com/watch?v=1vckMPHaITA&t=1186s</a><br><br></p></body>",
+      "@grounding_exercises": {
+          "placeholders": {
+             "guided_url6": {
+             "type": "String"
+             },
+             "guided_url7": {
+              "type": "String"
+              }
+          }
+        },
+      "informative_podcast": "Podcasty informacyjne",
+      "informative_podcast_desc": "Te podcasty omawiają przemoc domową i dzielą się historiami osób, które przeżyły. Niektóre treści mogą być uruchamiane.",
+      "info_podcast_1": "<body><p><a href={podcastUrl1}>Det börjar med kärlek - Podcast om våld i nära relationer (in Swedish)</a><br><br> Våld i nära relationer - det börjar med kärlek. En utbildnings podd för dig som arbetar med personer som lever eller har levt med våld i nära relationer.</p></body>",
+      "@info_podcast_1": {
+            "placeholders": {
+               "podcast_url1": {
+               "type": "String"
+               }
+            }
+          },
+      "info_podcast_2": "<body><p><a href= {podcast_url2}>Narcissist Apocalypse (in English) </a><br><br> Narcissist Apocalypse is a raw and unfiltered podcast that gives a voice to survivors of toxic relationships, narcissistic abuse, and domestic violence. </p></body>",
+      "@info_podcast_2": {
+          "placeholders": {
+             "podcast_url2": {
+             "type": "String"
+             }
+          }
+        },
+      "info_podcast_3": "<body><p><a href={podcast_url3}>En(gender)ed podcast (in English) </a><br><br> The en(gender)ed podcast features stories that explore the systems, practices and policies that enable gender-based violence and oppression and the solutions to end it.</p></body>",
+      "@info_podcast_3": {
+          "placeholders": {
+             "podcast_url3": {
+             "type": "String"
+             }
+          }
+    },
+    "safety_plan": "Plan bezpieczeństwa",
+    "safety_plan_desc": "Spersonalizowany plan bezpieczeństwa może pomóc w określeniu, co należy zrobić, aby lepiej chronić siebie i swoją rodzinę.",
+    "safety_planning": "Stwórz plan bezpieczeństwa",
+    "helpful_tips": "<body><p><h3>Przydatne wskazówki (więcej informacji znajdziesz <a href={helpful_tips}>tutaj</a>):</h3></p></body>",
+    "@helpful_tips": {
+              "placeholders": {
+                 "helpful_tips": {
+                 "type": "String"
+                 }
+              }
+        },
+    "helpful_tips_desc": "<body><p><ul> <li> Wyrób sobie nawyk cofania samochodu na podjazd (abyś mógł szybko wyjechać) i posiadania pełnego baku. Trzymaj kluczyki do samochodu w tym samym miejscu, abyś mógł je łatwo zabrać, jeśli musisz szybko wyjść z domu. Jeśli nie masz dzieci, możesz nawet zostawić otwarte drzwi kierowcy (a pozostałe drzwi zamknięte). Jeśli to możliwe, zostaw w samochodzie kopie dowodu osobistego i innych ważnych dokumentów.<br/></li> <li> Pomyśl o kilku powodach wychodzenia z domu o różnych porach dnia, w które uwierzy sprawca, na wypadek gdybyś Ty czujesz, że zaraz wybuchnie przemoc i potrzebujesz wymówki, by wyjść.<br/></li> <li> Jeśli możesz, dobrze jest mieć torbę spakowaną rzeczami, które chcesz zabrać ze sobą , jak na przykład dokumenty prawne, komplet ubrań, lekarstwa itp. Powinieneś schować tę torbę tam, gdzie sprawca jej nie znajdzie. Jeśli to możliwe, dobrze jest zostawić torbę zaufanemu przyjacielowi lub członkowi rodziny.<br/></li> <li> Jeśli to możliwe, poinformuj znajomych i sąsiadów, którym ufasz, o tym, co dzieje się w Twoim domu. Opracuj z nimi plan, aby wiedzieli, kiedy potrzebujesz pomocy i jak najlepiej mogą ci pomóc, na przykład zadzwonić na policję lub zapukać do drzwi. Możesz także uzgodnić sygnał, taki jak włączenie i wyłączenie światła lub wywieszenie czegoś za oknem, który zaalarmuje go, że potrzebujesz pomocy.<br/></li> <li> Jeśli potrzebujesz pomocy z miejscu publicznym, krzyknij „Płonie!” Ludzie szybciej reagują na kogoś, kto krzyczy „pali się”, niż na kogoś, kto woła o pomoc.<br/></li> <li> Zachowaj anonimowo numer Women's Peace Line w swoim telefonie, jeśli chcesz do nich zadzwonić. < br/> </li> <li> Jeśli masz dzieci, powiedz im, żeby nie angażowały się, jeśli sprawca cię skrzywdzi, ponieważ oni też mogą zostać skrzywdzeni. Zdecyduj się na hasło, które pozwoli im wyjść z domu i szukać pomocy. Jeśli sprawca nie pozwoli mu bezpiecznie wyjść z domu, ustal w swoim domu bezpieczne miejsce, w którym będzie mógł się ukryć i wezwać pomoc, najlepiej pokój z zamkiem i dostępem do telefonu. Powiedz im, że ich priorytetem jest ochrona ich samych, a nie ochrona fizyczna. <br/></li> <li> Przećwicz różne sposoby bezpiecznego wyjścia z domu. Jeśli masz dzieci, też trenuj z nimi.<br/></li> Jeśli nie ma sposobu na uniknięcie przemocy, stań się małym celem. Zanurz się w kącie i zwiń w kłębek. Osłoń twarz, owiń głowę ramionami i spleć ze sobą palce.<br/></li> <li> </ul> </p></body>",
+    "yes": "tak",
+    "no": "Nie",
+    "not_applicable": "Nie dotyczy",
+    "safety_question_1": "Czy opowiedziałeś komuś z rodziny o swoich doświadczeniach?",
+    "safety_question_2": "Jakiego słowa lub wyrażenia możesz użyć jako kodu w rozmowie telefonicznej, SMS-ie lub innej wiadomości, aby poprosić rodzinę, przyjaciół lub sąsiadów o wezwanie pomocy bez wiedzy partnera?",
+    "safety_question_3": "Kto jest twoim kontaktem w nagłych wypadkach? Zapisz ich imię i trzymaj w portfelu lub innym bezpiecznym miejscu, aby zawsze mieć do nich dostęp, nawet jeśli nie masz dostępu do telefonu",
+    "safety_question_4": "Jeśli nie czujesz się komfortowo w domu, gdzie idziesz, aby zachować bezpieczeństwo?",
+    "safety_question_5": "Gdybyś musiał wyjść w pośpiechu, jak byś wyszedł z domu? (Pomyśl o drzwiach lub oknach, które są dla Ciebie dostępne i przećwicz skuteczne wychodzenie).",
+    "safety_question_6": "Jeśli musisz szybko wyjść, czy masz na myśli miejsce publiczne, w którym czułbyś się bezpiecznie?",
+    "safety_question_7": "Jeśli masz dzieci, czy nauczyłeś je, jak dzwonić pod numer 112?",
+    "safety_question_8": "Jeśli masz dzieci, jakie słowo powiesz w przypadku, gdy będą musiały wezwać pogotowie?",
+    "safety_question_9": "Jeśli będziesz musiał wyjechać, jakie przedmioty weźmiesz ze sobą? (Wybierz wszystkie pasujące)",
+    "safety_question_10": "Czy możesz zostawić kopie dokumentów, zapasowe klucze, dodatkowe ubrania i inne rzeczy rodzinie lub znajomym?",
+    "safety_question_11": "Jeśli musisz szybko wyjechać, gdzie przechowasz wszystkie przedmioty, które zamierzasz ze sobą zabrać?",
+
+
+    "check_option_1": "Identyfikacja (np. prawo jazdy, paszport, legitymacja szkolna, legitymacja wojskowa, dokumenty imigracyjne)",
+    "check_option_2": "Komórka",
+    "check_option_3": "Ładowarka do telefonu komórkowego",
+    "check_option_4": "Leki (np. inhalator na astmę, insulina, Epi-Pen)",
+    "check_option_5": "Gotówka",
+    "check_option_6": "karta bankowa",
+    "check_option_7": "klucz do domu",
+    "check_option_8": "Kluczyk samochodowy",
+    "check_option_9": "Ubranie na zmianę",
+    "check_option_10": "Przedmioty zapewniające wygodę (np. ulubione pluszowe zwierzę lub zdjęcie)",
+ "check_option_11": "Artykuły dla niemowląt (jeśli dotyczy, takie jak formuła, pielucha, chusteczki, ubranka na zmianę)",
+"check_option_12": "Kopia zabezpieczenia/zakazu zbliżania się",
+"check_option_13": "Inne ważne dokumenty prawne (dokumenty hipoteczne, testamenty, dokumentacja medyczna, akty małżeństwa)",
+"question_1_option_yes": "Opcjonalnie: komu powiedziałeś?",
+"question_6_option_no": "Wymyśl miejsce, do którego możesz się udać, może to być pobliski posterunek policji, sklep, kawiarnia/restauracja lub inne miejsce, w którym są ludzie",
+"question_7_option_no": "Pomocne może być, jeśli Twoje dzieci wiedzą, jak i kiedy wezwać służby ratunkowe",
+"i_will_leave_copies": "Zostawię kopie i ubrania z:",
+  "update": "AKTUALIZACJA",
+"submit": "Prześlij",
+"close": "Zamknij",
+"biometric_message": "Aby kontynuować, musisz uzupełnić dane biometryczne",
+"authentication_message": "Wymagane uwierzytelnienie!",
+"no_thanks": "Nie, dziękuję",
+"kierunek": "kierunek",
+"strona internetowa": "Strona internetowa",
+"no_shelter": "Nie znaleziono schronienia",
+"sisterhood_privacy": "Polityka prywatności Sisterhood",
+    "privacy": "<body><p>Ta polityka opisuje informacje, które Sisterhood przetwarza i wykorzystuje do obsługi aplikacji, strony internetowej oraz innych produktów i funkcji oferowanych przez Sisterhood. <br><br>Tematy<ul style='list-style-type:circle'><li> Jakie dane zbieramy?<br/></li><li> Jak zbieramy Twoje dane?<br /></li><li> W jaki sposób będziemy wykorzystywać Twoje dane?<br/></li><li> W jaki sposób będziemy przechowywać Twoje dane?<br/></li><li> Jaka jest ochrona Twoich danych prawa?<br/></li><li> Czym są pliki cookie?<br/></li><li> Jakiego rodzaju plików cookie używamy?<br/></li><li> Jak zarządzać Twoje pliki cookie<br/></li><li> W jaki sposób odpowiadamy na żądania prawne lub zapobiegamy szkodom?<br/></li><li> Polityka prywatności innych witryn internetowych<br/></li><li > Zmiany w naszej polityce prywatności<br/></li><li> Jak się z nami skontaktować<br/></li><li> Jak skontaktować się z odpowiednimi władzami <br/></li></ul> <h3>Jakie dane zbieramy?</h3><p>Aby zapewnić Ci możliwość bezpiecznego i wydajnego gromadzenia dowodów, zbieramy następujące dane: </p><ul style='list-style-type :circle'><li>Treści i informacje, które udostępniasz aplikacji, w tym podczas zakładania konta i tworzenia treści. Obejmuje to informacje zawarte w dostarczanych przez Ciebie treściach lub o nich (takie jak metadane), takie jak lokalizacja zdjęcia lub data utworzenia pliku. Obejmuje to:<ul style='list-style-type:circle'><li><b> Twoje dane osobowe.</b> (imię i nazwisko, numer telefonu, adres i adres e-mail)<br/></li ><li><b> Wszelkie zdjęcia, filmy, dokumenty i pliki dźwiękowe.</b>, które przesyłasz do dziennika.<br/></li><li><b>Twoje korzystanie z aplikacji.</ b> Gromadzimy informacje o tym, jak korzystasz z naszych produktów i jak często z nich korzystasz; obejmuje funkcje, z których korzystasz, podejmowane działania i przeglądane treści. <br/></li><li><b>Lokalizacja przesłanych plików. </b>Aby zapobiec zniesławieniu, geotagujemy przesyłane zdjęcia, filmy, dokumenty i dźwięki. Twoja lokalizacja może zostać określona na podstawie<br/></li><ul style='list-style-type:square'><li>GPS i innych danych z czujnika z Twojego urządzenia <br/></li><li> IP adres<br/></li><li>Informacje o obiektach znajdujących się w pobliżu urządzenia, takich jak punkty dostępu Wi-Fi i stacje bazowe. <br/></li></ul></ul><br/></li><li>Informacje o urządzeniu. Sisterhood gromadzi informacje z komputerów i telefonów, których używasz do interakcji z naszymi produktami. Te informacje obejmują:<ul style='list-style-type:square'><li> <b>Atrybuty urządzenia.</b> To znaczy informacje takie jak system operacyjny, wersje sprzętu i oprogramowania oraz nazwy plików i typy.<li> <b>Sygnały urządzenia.</b> Informacje o pobliskich punktach dostępu Wi-Fi i wieżach komórkowych.<li><b>Operacje urządzenia.</b> To znaczy informacje o operacjach i zachowaniach wykonywanych podczas za pomocą aplikacji.<li><b>Dane z ustawień urządzenia.</b> Informacje, które pozwalasz nam otrzymywać poprzez włączone przez Ciebie ustawienia urządzenia, takie jak dostęp do Twojej lokalizacji GPS, aparatu lub zdjęć.<li><b> Sieć i połączenia. </b>W szczególności informacje, takie jak nazwa operatora sieci komórkowej lub dostawcy usług internetowych, język, strefa czasowa, numer telefonu komórkowego i adres IP, abyśmy mogli upewnić się, że to Ty przesyłasz treści do aplikacji.<br/>< /li></ul><br/></li></ul><h3>Jak zbieramy Twoje dane?</h3>Przekazujesz Sisterhood dane, które zbieramy, gdy:<ul style='list -style-type:circle'><li>Pobierz i utwórz konto w Sisterhood.<br/></li><li> Dobrowolnie twórz treści, korzystając z funkcji „nowego wpisu do dziennika”.<br/></li> <li>Prześlij opinię na temat naszej witryny i aplikacji.<br/></li><li>Korzystanie z przeglądania naszej witryny za pomocą plików cookie przeglądarki.<br/></li><li>Korzystaj z funkcji aplikacji. <br/></li><li>Przesyłaj zdjęcia, filmy, dokumenty i pliki dźwiękowe.<br/></li></ul><h3>Jak wykorzystamy Twoje dane?</h3>Używamy dane, które nam przekazujesz w następujący sposób:<ul style='list-style-type:circle'><li>Przechowuj dowody, abyś mógł, gdy będziesz gotowy, zgłosić przestępstwa, których doświadczasz. <br/></li><li>Aby prowadzić dziennik działań użytkownika w naszych produktach, który można później wykorzystać dowody.<br/></li><li>Pozwól ci prowadzić rejestr przestępstw, których doświadczasz, z dokładnym harmonogramem. Na przykład zbieramy znaczniki czasu, kiedy dodajesz nowy wpis do dziennika lub wprowadzasz zmiany, aby wzmocnić swoje dowody. <br/></li><li>Ulepsz nasz produkt. Rozumiejąc, w jaki sposób korzystasz z naszych produktów, możemy ulepszać nasze funkcje w aplikacji i na naszej stronie internetowej. <br/></li><li>Jeśli zezwolisz nam na wykorzystanie Twoich informacji podczas tworzenia treści, będziemy mogli ograniczyć zniesławienie, wykorzystując Twoją lokalizację do powiązania doświadczeń, które nam dostarczasz. Śledzenie Twojej lokalizacji również wzmacnia Twoją sprawę, ponieważ policja musi upewnić się, że jesteś tym, za kogo się podajesz, oraz że istnieje wyraźny związek między podawanymi przez Ciebie informacjami, takimi jak tekst, filmy, obrazy, pliki dźwiękowe i dokumenty, a miejscami które często odwiedzasz (twój dom, dom przyjaciół i rodziny, miejsce pracy lub okolice twojego domu). <br/></li><li>Sisterhood nie sprzedaje twoich informacji w celach reklamowych ani nie współpracuje z firmami nastawionymi na zysk w celu sprzedaży usług, ale sprzedajemy i wykorzystujemy twoje informacje do celów badawczych, aby lepiej udoskonalić zasady i przepisy dotyczące Przemoc w rodzinie. Anonimizując Twoje dane, możemy zapewnić rządom, gminom, służbom społecznym, policji i schroniskom dla kobiet (między innymi) lepsze i dokładniejsze statystyki dotyczące przemocy domowej. Na przykład Sisterhood może regionalnie dostarczać gminom, jakie rodzaje nadużyć są najbardziej rozpowszechnione, korzystając z informacji od naszych użytkowników na ich obszarze. <br/></li><li>Promowanie bezpieczeństwa i ochrony. Używamy Twoich informacji do weryfikacji kont i aktywności, aby zapobiegać spamowi i szkodliwym zachowaniom. Na przykład wykorzystujemy podane przez Ciebie informacje do badania nadużyć w naszej aplikacji i naruszeń naszych warunków. <br/></li><li>Badania i innowacje dla dobra publicznego. Celem Sisterhood jest wzmocnienie pozycji kobiet wykorzystywanych w domu i danie im głosu w sądzie poprzez poprawę dowodów. Zasadniczo prowadzimy i wspieramy badania mające na celu zwalczanie przemocy domowej i doskonalenie równość płci. Na przykład analizujemy informacje, które nasi użytkownicy zbiorowo dostarczają, aby odkryć wzorce przemocy domowej i poinformować rządy i ustawodawców o potrzebie ulepszonych zasad, finansowania i ogólnej alokacji zasobów. <br/></li></ul><h3>Jak będziemy przechowywać Twoje dane?</h3>Nasza firma bezpiecznie przechowuje Twoje dane, korzystając z rozwiązań Google Cloud i Firebase. Infrastruktura Google Cloud ma wbudowane zabezpieczenia, które zapewniają ochronę Twoich informacji, tożsamości, aplikacji i urządzeń. Ponadto Google Cloud szyfruje dane przesyłane między swoimi obiektami, co gwarantuje, że dostęp do nich mają tylko upoważnione role. <br><br>Ponieważ dane gromadzone przez Sisterhood służą poprawie i wzmocnieniu dowodów, dane będą przechowywane przez okres przedawnienia, który różni się w zależności od przestępstwa. Tym samym dane osobowe są przechowywane tak długo, jak jest to potrzebne do celów zebrania materiału dowodowego i budowy sprawy karnej.<br>Na podstawie okresu przedawnienia od 35 kap. 1 § Brottsbalken (BrB) dane będą przechowywane w następujący sposób:<ul style='st-style-type:circle'><li>W przypadku zabójstwa, za które grozi kara dożywocia, dane będą przechowywane przez 25 lat <br/></li><li>W przypadku brutalnego nadużycia, gdzie maksymalny wymiar kary wynosi ponad 8 lat, dane będą przechowywane przez 15 lat<br/></li><li>W przypadku brutalnego nadużycia, w którym maksymalny wymiar kary wynosi 6 lat, dane będą przechowywane przez 10 lat<br/></li><li>W przypadku nadużyć, gdzie maksymalny wymiar kary to 2 lata, dane będą przechowywane przez 5 lat<br/></li><li >W przypadku nadużyć, gdzie maksymalny wymiar kary wynosi 1 rok, dane będą przechowywane przez 2 lata. <br/></li></ul><h3>Jakie są Twoje prawa do ochrony danych?</h3>Sisterhood chce się upewnić, że jesteś w pełni świadomy wszystkich swoich praw do ochrony danych. Każdemu użytkownikowi przysługuje:<ul style='list-style-type:circle'><li>Prawo dostępu: Masz prawo zażądać od Sisterhood kopii swoich danych osobowych. Pamiętaj, że możemy pobrać od Ciebie niewielką opłatę za tę usługę. <br/></li><li>Prawo do sprostowania: Masz prawo zażądać od Sisterhood poprawienia wszelkich informacji, które uważasz za niedokładne. Masz również prawo zażądać od Sisterhood uzupełnienia informacji, które uważasz za niekompletne. <br/></li><li>Prawo do usunięcia: Masz prawo zażądać, aby Sisterhood usunęła Twoje dane osobowe, pod pewnymi warunkami. <br/></li><li>Prawo do ograniczenia przetwarzania: Masz prawo zażądać od Sisterhood ograniczenia przetwarzania Twoich danych osobowych, pod pewnymi warunkami. <br/></li><li>Prawo sprzeciwu wobec przetwarzania: Masz prawo sprzeciwić się przetwarzaniu Twoich danych osobowych przez Sisterhood, pod pewnymi warunkami. <br/></li><li>Prawo do przenoszenia danych: Masz prawo zażądać od Sisterhood przeniesienia zebranych przez nas danych do innej organizacji lub bezpośrednio do Ciebie, pod pewnymi warunkami. <> <br/></li></ul>Jeśli złożysz wniosek, mamy miesiąc na odpowiedź. Jeśli chcesz skorzystać z któregokolwiek z tych praw, skontaktuj się z nami pod adresem e-mail: <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3> Czym są ciasteczka? </h3>Pliki cookie to małe fragmenty tekstu wysyłane do Twojej przeglądarki przez odwiedzaną witrynę. Gromadzą standardowe informacje z dziennika internetowego i informacje o zachowaniu odwiedzających, które mogą ułatwić ponowne odwiedzenie witryny i uczynić witrynę bardziej użyteczną dla użytkownika. Możemy zbierać od Ciebie informacje automatycznie za pomocą plików cookie lub podobnych technologii. Aby uzyskać więcej informacji, odwiedź stronę <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a><h3>Jak używamy plików cookie?</h3>Sisterhood używa plików cookie, aby poprawić Twoje wrażenia z korzystania z naszej witryny, w tym: <ul><li>Zrozumieć, w jaki sposób korzystasz z naszej witryny.<br/></li><li>Zrozumieć Twoje preferencje dotyczące lokalizacja i język<br/></li></ul><h3>Jakiego rodzaju plików cookie używamy?</h3>Istnieje kilka różnych plików cookie, jednak nasza strona wykorzystuje:<ul><li>Funkcjonalność: Nasz firma korzysta z tych plików cookies, dzięki czemu rozpoznajemy Cię na naszej stronie i zapamiętujemy Twoje wybrane wcześniej preferencje. Może to obejmować preferowany język i lokalizację, w której się znajdujesz.<br/></li> </ul><h3>Jak zarządzać plikami cookie?</h3>Możesz ustawić przeglądarkę tak, aby nie akceptowała plików cookie, to Witryna <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a> zawiera instrukcje i instrukcje usuwania plików cookie z przeglądarki. Należy pamiętać, że w rezultacie nasza strona internetowa może nie działać. <h3>Jak odpowiadamy na wnioski prawne lub zapobiegamy szkodom?</h3>Zgodnie z naszymi celami zwalczania przemocy domowej na całym świecie, możemy uzyskiwać dostęp, przechowywać i udostępniać Twoje dane organom regulacyjnym, organom ścigania lub innym osobom w przypadku, gdy muszą odpowiedzieć na wniosek prawny (taki jak nakaz przeszukania, nakaz sądowy lub wezwanie sądowe) w odniesieniu do Twojego konta i treści. Możemy również uzyskiwać dostęp, przechowywać i udostępniać Twoje dane, jeśli w dobrej wierze uznamy, że jest to konieczne. Może to obejmować<ul><li>Zapobieganie oszustwom i rozwiązywanie ich.<br/></li><li>Zapobieganie śmierć<br/></li><li>Adres nielegalnej działalności<br/></li></ul><h3>Polityka prywatności innych witryn</h3>Witryna i aplikacja Sisterhood zawiera przydatne linki z innych witryn, które może być dla Ciebie źródłem informacji. Pamiętaj jednak, że nasza polityka prywatności dotyczy tylko naszej strony internetowej i aplikacji, więc jeśli klikniesz link do innej witryny, powinieneś przeczytać jej politykę prywatności.<h3>Zmiany w naszej polityce prywatności</h3>Sisterhood utrzymuje swoją politykę prywatności pod regularne przeglądanie i umieszcza aktualizacje na naszej stronie internetowej i w naszej aplikacji. Ta polityka prywatności została ostatnio zaktualizowana 2 czerwca 2022 r.<h3>Jak się z nami skontaktować</h3>Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące Sisterhood, naszej polityki prywatności, danych, które zbieramy i przechowujemy, lub jeśli chcesz skorzystać z jednego lub więcej praw do ochrony danych, prosimy o kontakt pod adresem <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3>Jak się skontaktować odpowiednie władze</h3>Jeśli chcesz zgłosić skargę lub uważasz, że Sisterhood nie rozwiązało problemu w zadowalający sposób, możesz wysłać e-mail do Integritetsskyddsmyndigheten (IMY): imy@imy.se</p></body>",
+  "self_help_tools": "Narzędzia samopomocy",
+    "creating_a_safety_plan": "Tworzenie planu bezpieczeństwa",
+    "need_things_from_my_apartment": "Muszę zabrać swoje rzeczy z naszego mieszkania",
+    "my_partner_force_to_deb": "Mój partner zmusił mnie do zaciągnięcia długu",
+    "custody_of_child": "Chcę ubiegać się o wyłączną opiekę nad naszym dzieckiem/dziećmi",
+    "are_you_sure_you_want_to_logout": "Czy na pewno chcesz się wylogować",
+    "logout":  "Wyloguj",
+   "successfully": "z powodzeniem",
+    "about_us": "O zakonie żeńskim",
+    "privacy_policy": "Polityka prywatności",
+    "contact_us": "Skontaktuj się z nami",
+    "settings": "Ustawienia",
+    "password_change_success": "Twoje hasło zostało pomyślnie zaktualizowane",
+    "password_change_fail": "Hasła nie można zmienić",
+    "reset_password": "Zresetuj hasło",
+    "old_password": "Stare hasło",
+    "new_password": "Nowe hasło",
+    "confirm_password": "Potwierdź hasło",
+    "enter_old_password": "Wprowadź stare hasło",
+    "enter_new_password": "Wprowadź nowe hasło",
+    "new_password_length": "Wprowadź nowe hasło o długości co najmniej 10 znaków",
+    "confirm_password_should_match": "Potwierdź hasło powinno pasować do nowego hasła",
+    "old_password_does_not_match": "Stare hasło nie pasuje",
+    "enter_confirm_password": "Proszę wprowadzić hasło potwierdzające",
+    "phone_number": "Numer telefonu",
+    "member_since": "Członek od - ",
+    "last_modified_date": "Data ostatniej modyfikacji - ",
+    "edit_profile": "EDYTUJ PROFIL",
+    "profile_updated_success": "Twój profil został pomyślnie zaktualizowany",
+   "camera": "Aparat",
+    "gallery": "Galeria",
+    "type_your_text_here": "Tutaj wpisz swój tekst...",
+    "resend_otp": "Wyślij ponownie OTP",
+    "otp_text": "Wprowadź otp",
+    "previous": "POPRZEDNI",
+     "next": "dalej",
+      "search": "Szukaj",
+    "distance": "odległość",
+    "metr": "Metry",
+
+
+    "abuse_category_1": "Fizyczne",
+    "abuse_category_2": "Emocjonalne",
+    "abuse_category_3": "Seksualne",
+    "abuse_category_4": "Psychiczne",
+    "abuse_category_5": "Ekonomiczny",
+
+
+    "sub_cat_1": "Twój partner celowo używa siły fizycznej, aby cię skrzywdzić i narazić na niebezpieczeństwo.",
+    "sub_cat_2": "Twój partner podważa Twoje poczucie własnej wartości, wyzywając Cię i sprawiając, że czujesz się głupio.",
+    "sub_cat_3": "Twój partner zmusza lub nalega, abyś angażował się w aktywność seksualną wbrew Twojej woli.",
+    "sub_cat_4": "Twój partner zniekształca sposób, w jaki postrzegasz rzeczywistość, na przykład gaslighting.",
+    "sub_cat_5": "Twój partner ma kontrolę nad twoimi finansami, na przykład wstrzymuje od ciebie pieniądze lub uniemożliwia osiągnięcie niezależności finansowej.",
+
+
+    "incident_place_1": "Pokój dzienny",
+    "incident_place_2": "Sypialnia",
+    "incident_place_3": "Łazienka",
+    "incident_place_4": "Kuchnia",
+    "incident_place_5": "Inny obszar w domu",
+    "incident_place_6": "Na zewnątrz",
+
+
+    "under_influence_option_1": "Nie",
+    "under_influence_option_2": "Alkohol",
+    "under_influence_option_3": "Narkotyki",
+    "under_influence_option_4": "Leki na receptę",
+
+
+    "Seeked_medical_attention_option_1": "Nie",
+    "Seeked_medical_attention_option_2": "Tak",
+
+
+    "test": "test"
+}

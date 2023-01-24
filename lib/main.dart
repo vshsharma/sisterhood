@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:sisterhood_app/calculator/calculator.dart';
 import 'package:sisterhood_app/screen/authentication/faceId_page.dart';
 import 'package:sisterhood_app/screen/splash/splash_page.dart';
 import 'package:sisterhood_app/theme/custom_theme.dart';
@@ -13,12 +14,13 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Widget _default = MyApp();
-  bool status = await SharedPrefManager.getBooleanPreferences() != null;
-
-  if (status == true) {
-    _default = const FaceIdPage();
-  }
+  Widget _default = Calculator();
+  // bool status = await SharedPrefManager.getBooleanPreferences() != null;
+  //
+  // if (status == true) {
+  //   // _default = const FaceIdPage();
+  //   _default = Calculator();
+  // }
   await Firebase.initializeApp();
   runApp(GetMaterialApp(
     onGenerateTitle: (context) {
@@ -31,7 +33,15 @@ Future<void> main() async {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: const [
-      Locale('en', ''),
+      Locale('en', ''), //en - English
+      Locale('sv', ''), //sv - Swedish
+      Locale('es', ''), //es - Spanish
+      Locale('fa', ''), //fa - Persian
+      Locale('ar', ''), //ar - Arabic
+      Locale('da', ''), //da - Danish
+      Locale('fi', ''), //fi - Finnish
+      Locale('no', ''), //no - Norwegian
+      Locale('pl', ''), //pl - Polish
     ],
     debugShowCheckedModeBanner: false,
     home: _default,

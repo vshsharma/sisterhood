@@ -1,0 +1,437 @@
+﻿{
+  "appTitle": "Sisterhood",
+  "language": "Danish",
+  "@language": {
+"description": "Det aktuelle sprog"
+  },
+  "email": "EMAIL",
+  "enter_valid_email": "Indtast gyldig e-mailadresse",
+  "password": "PASSWORD",
+  "empty_password": "Indtast din adgangskode",
+  "password_length": "Adgangskoden skal være på mindst 10 tegn",
+  "forgot_password": "Glemt adgangskode?",
+  "enter_valid_password": "Indtast en gyldig adgangskode",
+  "no_user_found_error": "Ingen bruger fundet for den e-mailadresse.",
+  "invalid_credential": "Brugerlegitimationsoplysningerne er ugyldige",
+  "dont_have_account": "Har du ikke en konto?",
+  "sign_up": "registrering",
+  "log_in": "LOG IND",
+
+
+ "first_name": "Fornavn",
+  "last_name": "Efternavn",
+  "middle_name": "Mellemnavn",
+  "user_name": "Brugernavn",
+  "email": "e-mail",
+  "email_address": "e-mailadresse",
+  "password": "adgangskode",
+  "address": "adresse",
+  "city": "By",
+  "zip_code": "postnummer",
+  "signup": "Tilmeld dig",
+  "already_account_login": "Har du allerede en konto?",
+  "login": "login",
+"plese_enter_first_name": "Indtast venligst dit fornavn",
+  "plese_enter_last_name": "Indtast venligst dit efternavn",
+  "plese_enter_middle_name": "Indtast venligst dit mellemnavn",
+  "plese_enter_user_name": "Indtast venligst dit brugernavn",
+  "plese_enter_phone_number": "Indtast venligst dit telefonnummer",
+  "plese_enter_your_zip_code": "Indtast venligst dit postnummer",
+  "plese_enter_your_address": "Indtast venligst din adresse",
+  "registered_successfully": "Registreret med succes",
+  "weak_password": "Den angivne adgangskode er for svag.",
+  "account_exist": "Kontoen eksisterer allerede for den e-mail.",
+  "please_enter_password": "Indtast venligst din adgangskode",
+
+
+  "please_min_length": "Adgangskoden skal være på mindst 10 cifre",
+  "please_enter_city": "Indtast venligst din by",
+  "please_enter_email": "Indtast venligst e-mail",
+  "link_sent": "Vi har sendt linket til din registrerede e-mail",
+  "user_not_existing": "Brugeren eksisterer ikke",
+  "get_email": "Få e-mail",
+  "or": "Eller",
+  "go_to_login": "Gå til Login",
+
+
+  "new_password": "Nyt kodeord",
+  "old_password": "Gammelt kodeord",
+  "confirm_password": "Bekræft kodeord",
+  "please_enter_confirm_password": "Indtast venligst bekræftelsesadgangskoden",
+  "confirm_password_not_match": "Bekræft, at adgangskoden ikke stemmer overens",
+  "please_enter_your_old_password": "Indtast venligst din gamle adgangskode",
+  "please_enter_your_new_password": "Indtast venligst den nye adgangskode",
+  "password_must_be_8_character": "Adgangskoden skal være på mere end 8 tegn",
+  "save": "Gemme",
+
+
+  "local_auth_failed": "Biometrisk godkendelse mislykkedes",
+  "face_id": "FACE ID",
+  "authorize": "Bemyndige",
+
+
+  "home": "Hjem",
+  "profile": "Profil",
+  "sos": "SOS",
+
+
+  "new_journal_entry": "Ny journalpost",
+  "view_history": "Se historik",
+  "resources": "Ressourcer",
+
+
+  "what_type_of_abuse": "Hvilken type misbrug vil du gerne registrere?",
+  "tell_me_what_happend": "Forklar hvad der skete?",
+  "what_were_the_circumstances": "Hvad var omstændighederne?",
+  "where_did_it_happen": "Hvor skete det?",
+  "if_outside_or_other_area_please_specify": "Hvis du er udenfor eller andet område i huset, bedes du angive:",
+  "when_did_it_happen": "Hvornår skete det?",
+  "was_your_partner_under_the_influence": "Da det skete, var din partner så påvirket?",
+  "where_you_under_the_influence": "Var du påvirket?",
+  "have_you_seeked_medical_attention": "Søgte du lægehjælp som følge af denne hændelse?",
+  "max_images": "Du kan kun vælge {max} billeder",
+  "@max_images": {
+    "placeholders": {
+       "max": {
+       "type": "int"
+       }
+    }
+  },
+  "add_picture": "Tilføj billede",
+  "add_video": "Tilføj video",
+  "add_audio": "Tilføj lyd",
+  "no_file_selected": "Ingen fil valgt",
+  "max_video_limit": "Den maksimale størrelsesgrænse for den valgte video er {maks.} MB",
+  "@max_video_limit": {
+      "placeholders": {
+         "max": {
+         "type": "int"
+         }
+      }
+    },
+    "max_videos": "Du kan kun vælge {max} video",
+      "@max_videos": {
+        "placeholders": {
+           "max": {
+           "type": "int"
+           }
+        }
+      },
+      "max_audio_limit": "Maksimal størrelsesgrænse for valgt lyd er {maks.} MB",
+        "@max_audio_limit": {
+            "placeholders": {
+               "max": {
+               "type": "int"
+               }
+            }
+          },
+          "max_audios": "Du kan kun vælge {max} lyd",
+            "@max_audios": {
+              "placeholders": {
+                 "max": {
+                 "type": "int"
+                 }
+              }
+            },
+      "max_upload_size": "Maksimal uploadlagerkapacitet 10 MB",
+      "submit": "INDSEND",
+      "success_message": "Data blev indsendt",
+      "fail_message": "Kunne ikke indsende data",
+      "write_here": "Skriv her...",
+      "what_time_did_it_happen": "Hvad tid skete det?",
+      "what_medical_facility_did_you_visit": "Hvilket anlæg besøgte du?",
+      "select_time": "Vælg Tid",
+      "no_data_found": "Ingen data fundet for den valgte dato",
+      "logged": "Registreret",
+      "image_removed": "Billedet er fjernet",
+      "video_removed": "Video fjernet",
+      "audio_removed": "Lyden er fjernet",
+
+
+      "resources": "Ressourcer",
+      "cta_label_emergency": "Jeg har en nødsituation",
+      "cta_label_women_shelter": "Find et krisecenter for kvinder",
+      "cta_label_need_support": "Jeg har brug for støtte",
+      "cta_label_legal_info": "Jeg vil have juridiske oplysninger",
+      "cta_label_more_about_abuse": "Jeg vil gerne vide mere om misbrug i hjemmet",
+      "cta_label_self_help_tool": "Jeg vil have selvhjælpsværktøjer",
+      "emergency_title": "Jeg har en nødsituation",
+      "have_an_emergency": "<body><p>Hvis du oplever en nødsituation, så brug venligst SOS-knappen (nederste højre hjørne) eller ring 112. <br><br> 112 er et gratis alarmnummer, du bør ringe til, hvis du har brug for akut hjælp. Med et enkelt opkald kan du få hjælp fra politi, ambulance og brandvæsen. <br><br> Når du ringer, vil du blive stillet spørgsmål som:<br> <body> <ul> <li>Hvad skete der? <br/></li> <li>Hvem er såret? <br/></li> <li>Hvor ringer du fra/hvor der er brug for hjælp? <br/></li> <li>Hvem ringer? <br/></li> <li>Hvilket nummer ringer du fra? <br/></li> </ul> </body> <p>.</p> <br><br><br>112-afsenderen bestemmer, hvilken type hjælp der skal sendes. Du kan læse mere om SOS <a href={url}>her.</a><br><br></p></body>",
+      "@have_an_emergency": {
+      "placeholders": {
+         "url": {
+         "type": "String"
+         }
+      }
+    },
+      "need_support_title": "Jeg har brug for støtte",
+      "need_support_desc": "Udover at få hjælp fra et lokalt kvindekrisecenter, kan du kontakte disse organisationer, hvis du har brug for støtte.",
+      "support_p1": "<body><p><h3>Kvinnofridslinjen</h3><br> Telefon: 020-50 50 50<br> Hjemmeside:<a href={url}>https://kvinnofridslinjen.se/ da/</a><br><br> <body> <ul> <li> Tilbyder gratis opkald 24/7 <br/></li> <li> Opkaldet vises ikke på din telefonregning <br /></li> <li> Adgang til en tolk <br/></li> <li> Du kan være anonym, og opkaldet er fortroligt <br/></li> </ul> <body>< /p></body>",
+      "@support_p1": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "support_p2":"<body><p><h3>Socialtjenesten</h3><br> Kontakt socialforvaltningen i din kommune. Du kan google \"sociale tjenester *din kommune*\", så dukker kontaktoplysningerne op.<br> Gennem de sociale tjenester kan du få hjælp til<br> <body> <ul> <li> Vejledning og støtte <br/> </li> <li> Rådgivning <br/></li> <li> Praktisk hjælp <br/></li> <li> Bolig <br/></li> <li> Økonomisk støtte <br/> </li> </ul> </body> </p></body>",
+      "support_p3":"<body><p><h3>Advokater</h3><br> Mange større kvindekrisecentre samarbejder med advokater for at give dig gratis juridisk bistand, men du kan også kontakte et humanitært advokatfirma for at komme videre assistance.<br> Mange af dem tilbyder gratis 15-minutters konsultation. <br> Organisationen <a href ={url}> Terrafem </a><br> yder juridiske tjenester til ofre for vold i hjemmet. Du kan kontakte dem på 020-52 10 10, mandag til fredag ​​fra 09:00 til 18:00. <br></p></body>",
+      "@support_p3": {
+                  "placeholders": {
+                     "url": {
+                     "type": "String"
+                     }
+                  }
+                },
+      "support_p4": "<body><p><h3>Rådgivere og psykologer </h3> <br>Mange psykologer fokuserer deres praksis på vold i hjemmet. Et kvindekrisecenter plejer at have fastboende psykologer, men du kan også finde andre lokale ved at skrive \"psykologer inden for hjemmebrug\" på din søgemaskine. <br>Online psykologitjenesten <a href={url}>Mindler </a> <br>samarbejder med Kerstin Lidingö for at yde rådgivning om vold i hjemmet. <br></p></body>",
+      "@support_p4": {
+            "placeholders": {
+               "url": {
+               "type": "String"
+               }
+            }
+          },
+      "good_to_have_legal_info": "Godt at have juridisk information",
+      "good_to_have_legal_info_desc": "Bemærk venligst, at Sisterhood ikke er en \"advokathenvisningstjeneste\" eller et advokatfirma. Vi yder ikke juridisk rådgivning eller repræsentation, og disse tips er ikke tænkt som en erstatning for en advokat eller et advokatfirma.",
+
+
+ "legal_info_content":"<body><p><h3>Sådan forbedrer jeg mit billedbevis</h3> Her er nogle tips til at give bedre billedbeviser: <body> <li> Tillad Sisterhood at spore din placering og geotagge dine billeder. Dette giver politiet mulighed for at se, hvor billedet er taget, hvilket styrker din sag.<br/></li> <li> Hvis du føler dig godt tilpas, så bed et familiemedlem eller en ven, du stoler på, om at tage et billede af dig og dine skader samt en selfie af jer begge. På den måde kan dit familiemedlem eller din ven bekræfte din historie og være dit vidne.<br/></li> <li> Tag billeder af dig selv og dine skader i dit hjem eller steder, du er kendt for at besøge ofte. På den måde kan politiet forbinde dine skader med kendte genstande i dit hus. For eksempel foran din sofa, i køkkenet, hvor du kan se spisebordet/stolene i baggrunden osv. Billedet nedenfor viser et eksempel: <br/> <img src={asset} alt='legal_info'> </li> <li> Tag flere billeder over tid. Skader ændrer sig over tid, så sørg for at tage billeder, der afspejler disse ændringer. For eksempel begynder et blåt mærke normalt med at være rødt. Efter 1-2 dage vil blå mærket se blå, lilla eller endda sort ud. Efter 5-10 dage bliver dit blå mærke gult eller grønt, og efter 10-14 dage vil dit blå mærke sandsynligvis have en gullig brun eller lysebrun farve. Tag billeder af disse ændringer, og brug \"redigeringsfunktionen\" på siden \"Vis historik\" for at uploade yderligere billeder.<br/></li> </body> <p> </p> <br> <h3>I har brat forladt mit hjem, men vil have mine ting fra vores lejlighed</h3> Hvis du akut måtte forlade dit hjem, eller hvis din misbruger brat forlod dit hjem, og du gerne vil modtage eller fjerne ejendele, såsom personlige ejendele, tøj, elektronik, møbler osv. kan du ansøge om \"Handräckning\" via Kronofogden. Du kan læse mere om det her Vær opmærksom på, at handräckning har nogle konsekvenser, for eksempel hvis tiltalte gør indsigelse mod handräckningen, kan du anmode Kronofodgen om at udlevere sagen til en dommer, der træffer afgørelsen. I visse særlige begivenheder vil Kronofodgen tage beslutningen. Når der er truffet afgørelse i både normale og særlige sager, vil Kronofogden kontakte begge parter for at se, hvordan situationen kan løses på den mest hensigtsmæssige måde. Hvis det ikke er muligt at løse på frivillig basis, kan Kronofogden gå ind i en bolig hos en låsesmed for at få tingene ud. <br><br> <h3>Min partner har tvunget mig til at optage gæld.</h3> Hvis din partner har tvunget dig (gennem trusler eller andet) til at påtage sig en gæld, skal du melde det til politiet som hurtigst muligt. I disse tilfælde er tid af afgørende betydning. Får du inkassobreve fra Kronofodgen, så svar med en indsigelse og forklar omstændighederne. I nogle tilfælde vil Kronofodgen ugyldiggøre gælden. Læs mere om det <a href={url1}>her</a> <br> <br><br> <h3>Jeg vil ansøge om forældremyndighed alene over vores barn/børn</h3> Hvis du og din partner ikke kan blive enige kan du anlægge sag med påstande om, hvordan du ønsker, at retten skal tage stilling til forældremyndighed, bolig og samvær. Retten vil herefter anmode Familieretshuset om en undersøgelse. Som led i udredningen afholdes samtaler med både forældre og barnet/børnene, hvis det er hensigtsmæssigt af hensyn til barnets alder og modenhed. Familieretten giver herefter et forslag til afgørelse om forældremyndighed, bolig og samvær, der skal være i overensstemmelse med barnets tarv. Denne undersøgelse er sammen med de fremlagte beviser og de samtaler, der er afholdt i retten, grundlaget for rettens dom. <br><br> <h3>Jeg vil ikke forlade min partner, er der nogen støtte til dem, der misbruger? </h3> Ja, der er organisationer, der støtter mænd, der misbruger. For eksempel tilbyder <a href={url2}> Manscentrum </a> <br>rådgivning, som kan hjælpe med at afklare, bearbejde og finde løsninger på mænds følelsesmæssige og praktiske problemer. Hvis din partner er blevet dømt for vold i hjemmet, så tilbyder Kriminalforsorgen i Sverige behandlingsprogrammer, der gennemgås og kvalitetssikres.</p></body>",
+      "@legal_info_content": {
+              "placeholders": {
+                 "url1": {
+                 "type": "String"
+                 },
+                 "url2": {
+                  "type": "String"
+                  },
+                  "asset": {
+                  "type": "String"
+                  }
+              }
+            },
+      "domestic_abuse": "Hvad er misbrug i hjemmet?",
+      "domestic_content": "<body><p><p>Husmisbrug i et forhold har en tendens til at vokse over tid. I begyndelsen er vold sjældent. I starten kan den voldelige partner stille krav eller hævde dominans, som virker uskyldige og harmløse. Men over tid ændres parterne i forholdet i takt med, at misbrugernes kontrol og vold øges. Dette tvinger ofte kvinden til at tilpasse sig og acceptere de stigende krav for at undgå yderligere konflikter. At gøre modstand fører ofte til øget vold.</p><br><br>Generelt begynder misbrug ofte med psykisk vold, såsom kritiske og nedsættende kommentarer, som får kvinden til at holde op med at tro på sig selv. Så kan den fysiske vold komme som en fortsættelse.<br><br>Det er almindeligt, at kvinden bliver isoleret og mister sine sociale kontakter og holder op med at gøre tingene på egen hånd. Misbrugeren forbyder ofte kvinden at interagere med sine venner og familie. Dette øger kvindens afhængighed af sin voldelige partner.<br><br>Mere information kan findes på <a href={domestic_abuse_url1}>Nationellt Centrum för Kvinnofrid.</a><br><br>Det er vigtigt at vide. og erkender, at misbrug kommer i forskellige former, og kvinden oplever ofte en blanding mellem forskellige former for overgreb, såsom:<br><br><h3>Fysisk mishandling</h3> Ofte kaldet overgreb. Det er, når gerningsmanden gør noget ved kvindens krop, der gør ondt, skader og/eller giver ubehag. Det kan være alt fra skub, spark og slag til kvælning, fastholdelse eller angreb på kvinden med en form for genstand.<br><br><h3>Psykisk misbrug</h3> Er, når gerningsmanden gennem ord og aggressiv adfærd begrænser kvindens liv. Gennem psykisk misbrug kan gerningsmanden isolere kvinden ved ikke at lade hende interagere med andre mennesker. Ud over isolation kan psykisk misbrug omfatte trusler, afpresning og kontrol, der gradvist fører til psykisk sammenbrud. Psykisk vold kan også betyde, at der fremsættes trusler mod børn, kæledyr eller andre pårørende til ofret. Manden kan også latterliggøre eller udskamme sin partner, for eksempel kvindens adfærd, meninger og/eller hendes måde at være på. <br><br><h3>Seksuelt misbrug</h3> Indebærer at tvinge nogen til at deltage i, udføre eller være vidne til seksuelle handlinger mod deres vilje. Det kan handle om seksuel chikane, at blive tvunget til at se porno, ufrivillig berøring eller voldtægt. Det er ikke ualmindeligt, at offeret føler, at hun skal være seksuelt tilgængelig for at undgå andre former for vold.<br><br><h3>Økonomisk misbrug</h3> Er, når kvinden ikke har kontrol over sin egen økonomiske ressourcer. Det kan være, at hun ikke må beholde sin løn eller er forhindret i at arbejde. Gerningsmanden kan også optage lån i kvindens navn, nogle gange mod hendes vilje, og få adgang til hendes bank-id. I sidste ende reducerer dette kvindens uafhængighed. Derudover kan økonomisk vold påvirke en kvindes kreditværdighed, hvilket kan gøre det udfordrende for hende at få en bolig eller optage lån. Ofte tager gerningsmanden kontrol over økonomien og andre materielle aktiver for at øge isolation, sårbarhed og gøre det sværere for kvinden at forlade forholdet.<br><br><h3>Følelsesmæssigt misbrug</h3> Nogle gange er dette kan flettes sammen med psykisk misbrug, men generelt er følelsesmæssigt misbrug en måde at kontrollere kvinden ved at bruge følelser til at kritisere, skamme, bebrejde eller på anden måde manipulere kvinden med det formål at nedbryde hendes selvværd og underminere hendes mentale sundhed. Gaslighting er en almindelig form for følelsesmæssigt misbrug, hvor kvinden begynder at tvivle på sine egne følelser og sætte spørgsmålstegn ved sin virkelighed.<br><br><h3>Digitalt misbrug</h3> Digitalt misbrug er brugen af ​​teknologier, såsom sms'er og sociale netværk , at mobbe, chikanere, forfølge eller intimidere en partner. Det kan også omfatte at læse beskeder eller e-mails og/eller finde ud af adgangskoder alternativt at kræve, at kvinden giver sine adgangskoder som et bevis på kærlighed/ærlighed. I nogle tilfælde stalker gerningsmanden kvinden på sociale medier eller andre apps. En anden form for digitalt misbrug er overkommunikation, hvilket betyder, at gerningsmanden sender for mange sms-beskeder og e-mails for at kontrollere kvinden.<br><br><h3>Passiv fysisk vold</h3> Er at udsætte nogen for vold, der har direkte fysiske konsekvenser . Det kan for eksempel handle om at nægte nogen søvn eller at udsætte nogen for langvarig psykisk stress, der forårsager fysiske bivirkninger. I nogle tilfælde kan passiv fysisk vold være knyttet til en andens sårbare situation, såsom tilbageholdelse af medicin eller hjælpemidler fra en person, der har et handicap eller en sygdom. <br><br>Du kan læse mere om vold i hjemmet på <a href={domestic_abuse_url2}>Unizons hjemmeside.</a><br><br><u>Her er to TED Talk-videoer fra overlevende fra vold i hjemmet</a> u><br><br>Emma Murphys <a href={domestic_abuse_url3}>I Broke My Silence TED Talk fra 19. marts 2018</a><br><br>Jasvinder Sangheras <a href={domestic_abuse_url4}>kamp tvangsægteskaber og æresbaseret misbrug TED Talk fra 28. november 2013</a><br><br></p></body>",
+      "@domestic_content": {
+                    "placeholders": {
+                       "domestic_abuse_url1": {
+                       "type": "String"
+                       },
+                       "domestic_abuse_url2": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url3": {
+                        "type": "String"
+                        },
+                        "domestic_abuse_url4": {
+                         "type": "String"
+                         }
+                    }
+                  },
+      "self_help_tools": "Selvhjælpsværktøjer",
+      "self_help_tools_desc": "Selvom disse selvhjælpsværktøjer ikke sigter mod at erstatte professionelle tjenester, kan de hjælpe dig med at klare dig, hvis du lever i et voldeligt forhold.",
+      "safety_planning": "Lav en sikkerhedsplan",
+      "guided_meditation": "Guidet meditation",
+      "informative_podcasts": "Informative podcasts",
+      "guided_meditations": "Guidede meditationer",
+      "guided_meditations_desc": "Her er nogle links til gode meditationer, der kan hjælpe med at lindre stress, angst og styrke din selvkærlighed.",
+      "self_love_and_affirmations": "<body><p><h4>Selvkærlighed og bekræftelser</h4> 21 dages affirmationsprogram fra Lavindare: <br> <a href={guided_url1}>https://www.youtube.com/watch?v= yo1pJ_D-H3M</a> <br><br>13 minutters Meditation for Selvkærlighed fra Yoga med Adrianne <a href={guided_url2}> https://www.youtube.com/watch?v=CqnWMPuyT0g </a> </p></body>",
+      "@self_love_and_affirmations": {
+              "placeholders": {
+                 "guided_url1": {
+                 "type": "String"
+                 },
+                 "guided_url2": {
+                  "type": "String"
+                  }
+              }
+            },
+      "stress_and_anxiety": "<body><p><h4>Stress og angst</h4> <br> 15 minutters meditation af Lavindare <br> <a href=guided_url3> https://www.youtube.com/watch?v=pxWOpGm4d7U&list=PL37ErCJmMW d1igItmbhPUwTwr1yKwz_HG&index= 13</a><br><br> 2 minutters angstdæmper af Rachel Richards <a href=guided_url4> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br> <br> 5 trykpunkter til at lindre angst af Goodful <a href={guided_url5}> https://www.youtube.com/watch?v=2Mu5RvPoOuo</a><br><br></p></body>",
+      "@stress_and_anxiety": {
+              "placeholders": {
+                 "guided_url3": {
+                 "type": "String"
+                 },
+                 "guided_url4": {
+                  "type": "String"
+                  },
+                  "guided_url5": {
+                  "type": "String"
+                  }
+              }
+            },
+      "grounding_exercises": "<body><p><h4>Grounding exercises</h4> <br> Squeeze and hug technique for trauma by Therapy in a Nutshell <a href={guided_url6}> https://www.youtube.com/watch?v=5zhnLG3GW-8 </a><br><br> Grounding techniques in trauma therapy by Kati Morton <a href={guided_url7}> https://www.youtube.com/watch?v=1vckMPHaITA&t=1186s</a><br><br></p></body>",
+      "@grounding_exercises": {
+          "placeholders": {
+             "guided_url6": {
+             "type": "String"
+             },
+             "guided_url7": {
+              "type": "String"
+              }
+          }
+        },
+      "informative_podcast": "Informative podcasts",
+      "informative_podcast_desc": "Disse podcasts diskuterer misbrug i hjemmet og deler historier fra overlevende. Noget af indholdet kan være udløsende.",
+      "info_podcast_1": "<body><p><a href={podcastUrl1}>Det börjar med kärlek - Podcast om våld i nära relationer (in Swedish)</a><br><br> Våld i nära relationer - det börjar med kärlek. En utbildnings podd för dig som arbetar med personer som lever eller har levt med våld i nära relationer.</p></body>",
+      "@info_podcast_1": {
+            "placeholders": {
+               "podcast_url1": {
+               "type": "String"
+               }
+            }
+          },
+      "info_podcast_2": "<body><p><a href= {podcast_url2}>Narcissist Apocalypse (in English) </a><br><br> Narcissist Apocalypse is a raw and unfiltered podcast that gives a voice to survivors of toxic relationships, narcissistic abuse, and domestic violence. </p></body>",
+      "@info_podcast_2": {
+          "placeholders": {
+             "podcast_url2": {
+             "type": "String"
+             }
+          }
+        },
+      "info_podcast_3": "<body><p><a href={podcast_url3}>En(gender)ed podcast (in English) </a><br><br> The en(gender)ed podcast features stories that explore the systems, practices and policies that enable gender-based violence and oppression and the solutions to end it.</p></body>",
+      "@info_podcast_3": {
+          "placeholders": {
+             "podcast_url3": {
+             "type": "String"
+             }
+          }
+    },
+    "safety_plan": "Sikkerhedsplan",
+    "safety_plan_desc": "En personlig sikkerhedsplan kan hjælpe dig med at identificere, hvad du skal gøre for bedre at beskytte dig selv og din familie.",
+    "safety_planning": "Lav en sikkerhedsplan",
+    "helpful_tips": "<body><p><h3><body><p><h3>Nyttige tips (du kan læse mere <a href={helpful_tips}>her</a>):</h3></p></body>",
+    "@helpful_tips": {
+              "placeholders": {
+                 "helpful_tips": {
+                 "type": "String"
+                 }
+              }
+        },
+    "helpful_tips_desc": "<body><p><ul> <li> Få en vane med at bakke bilen ind i indkørslen (så du kan trække hurtigt ud) og have en fuld tank benzin. Opbevar dine bilnøgler det samme sted, så du nemt kan få fat i dem, hvis du skal forlade hjemmet hurtigt. Hvis du ikke har børn, kan du endda lade førerdøren være ulåst (og de andre døre låst). Efterlad om muligt kopier af dit ID og andre vigtige dokumenter i din bil.<br/></li> <li> Tænk på flere grunde til at forlade huset på forskellige tidspunkter af dagen, som gerningsmanden vil tro, hvis du føler, at volden er ved at bryde ud, og du har brug for en undskyldning for at tage afsted.<br/></li> <li> Hvis du kan, er det en god idé at have en taske pakket med de ting, du gerne vil have med dig. , som f.eks juridiske dokumenter, et sæt tøj, medicin osv. Du bør gemme denne taske, hvor din gerningsmand ikke finder den. Hvis det er muligt, er det en god idé at efterlade tasken hos en betroet ven eller et familiemedlem.<br/></li> <li> Hvis det er muligt, så lad venner og naboer, du stoler på, vide, hvad der foregår i dit hjem. Lav en plan med dem, så de ved, hvornår du har brug for hjælp, og hvordan de bedst kan hjælpe dig, såsom at ringe til politiet eller banke på din dør. I kan også aftale et signal, såsom at tænde og slukke lyset eller hænge noget ud af vinduet, som gør ham/hende opmærksom på, at du har brug for hjælp.<br/></li> <li> Hvis du har brug for hjælp til et offentligt sted, råb \"Det brænder!\" Folk reagerer hurtigere på nogen, der råber \"det brænder\" end på nogen, der ringer efter hjælp.<br/></li> <li> Behold nummeret til Women's Peace Line på din telefon anonymt, hvis du har brug for at ringe til dem. < br/> </li> <li> Hvis du har børn, så fortæl dem om ikke at blive involveret, hvis misbrugeren sårer dig, fordi de også kan komme til skade. Beslut dig for et kodeord for at lade dem vide, at de skal forlade huset og søge hjælp. Hvis gerningsmanden ikke vil lade dem forlade huset sikkert, så aftal et sikkert sted i dit hus, hvor de kan gemme sig og tilkalde hjælp, gerne et værelse med lås og adgang til telefon. Fortæl dem, at deres prioritet er at beskytte sig selv og ikke fysisk beskytte dig. <br/></li> <li> Øv på forskellige måder at komme sikkert ud af huset på. Hvis du har børn, så træn også med dem.<br/></li> Hvis der ikke er nogen måde at undslippe volden, så gør dig selv til et lille mål. Dyk ned i et hjørne og krøl dig sammen til en bold. Beskyt dit ansigt og svøb dine arme om dit hoved og snør fingrene sammen.<br/></li> <li> </ul> </p></body>",
+    "yes": "Ja",
+    "no": "Nej",
+    "not_applicable": "Ikke anvendelig",
+    "safety_question_1": "Har du fortalt nogen i din familie om dine oplevelser?",
+    "safety_question_2": "Hvilket ord eller en sætning kan du bruge som kode i et telefonopkald, sms eller anden besked for at bede din familie, venner eller naboer om at ringe efter hjælp, uden at din partner ved det?",
+    "safety_question_3": "Hvem er din nødkontakt? Skriv deres navn ned og gem dem i din pung eller et andet sikkert sted, så du altid kan nå dem, selvom du ikke har adgang til din telefon.",
+    "safety_question_4": "Hvis du ikke har det godt derhjemme, hvor går du så hen for at være sikker?",
+    "safety_question_5": "Hvis du skal afsted i en fart, hvordan ville du så komme ud af huset? (Tænk på døre eller vinduer, der er tilgængelige for dig, og øv dig i, hvordan du forlader effektivt).",
+    "safety_question_6": "Hvis du skal afsted hurtigt, har du så et offentligt sted i tankerne, hvor du ville føle dig tryg?",
+    "safety_question_7": "Hvis du har børn, har du så lært dem at ringe 112?",
+    "safety_question_8": "Hvis du har børn, hvilket ord vil du så sige i tilfælde af, at de bliver nødt til at ringe til alarmcentralen?",
+    "safety_question_9": "Hvis du skal afsted, hvilke ting vil du så medbringe? (Vælg alt hvad der er relevant).",
+    "safety_question_10": "Kan du efterlade kopier af dokumenter, reservenøgler, ekstra tøj og andre ting hos familie eller venner?",
+    "safety_question_11": "Hvis du skal afsted hurtigt, hvor vil du så opbevare alle de varer, du har tænkt dig at tage med?",
+
+
+    "check_option_1": "Identifikation (f.eks. kørekort, pas, skole-id, militær-id, immigrationsdokumenter)",
+    "check_option_2": "Mobiltelefon",
+    "check_option_3": "Mobil lader",
+    "check_option_4": "Medicin (f.eks. astmainhalator, insulin, Epi-Pen)",
+    "check_option_5": "Kontanter",
+    "check_option_6": "Bank kort",
+    "check_option_7": "hjem nøgle",
+    "check_option_8": "Bilnøgle",
+    "check_option_9": "Et tøjskifte",
+    "check_option_10": "Komfortartikler (f.eks. yndlings tøjdyr eller fotografi)",
+    "check_option_11": "Babyforsyninger (hvis relevant såsom formel, ble, servietter, skiftetøj)",
+    "check_option_12": "Kopi af beskyttelses-/tilholdsforbudr",
+    "check_option_13": "Andre vigtige juridiske dokumenter (pantebreve, testamenter, lægejournaler, ægteskabslicenser)",
+
+
+    "question_1_option_yes": "Valgfrit: Hvem har du fortalt det?",
+    "question_6_option_no": "Kom op med et sted, du kan tage hen, det kunne være en nærliggende politistation, butik, café/restaurant eller ethvert andet sted, der har folk omkring",
+    "question_7_option_no": "Det kan være nyttigt, hvis dine børn ved, hvordan og hvornår de skal ringe til nødtjenester",
+    "i_will_leave_copies": "Jeg vil efterlade kopier og tøj hos:",
+  "update": "OPDATERING",
+    "submit": "SEND",
+    "close": "Luk",
+    "biometric_message": "For at fortsætte skal du udfylde biometrien",
+    "authentication_message": "Autentificering påkrævet!",
+    "no_thanks": "Nej tak",
+    "direction": "Retning",
+    "website": "Websted",
+    "no_shelter": "Ingen husly fundet",
+    "sisterhood_privacy": "Sisterhood Privatlivspolitik",
+
+
+    "privacy": "<body><p>Denne politik beskriver de oplysninger, Sisterhood behandler og bruger til at understøtte appen, webstedet og andre produkter og funktioner, der tilbydes af Sisterhood. <br><br>Emner<ul style='list-style-type:circle'><li> Hvilke data indsamler vi?<br/></li><li> Hvordan indsamler vi dine data?<br /></li><li> Hvordan vil vi bruge dine data?<br/></li><li> Hvordan gemmer vi dine data?<br/></li><li> Hvad er din databeskyttelse rettigheder?<br/></li><li> Hvad er cookies?<br/></li><li> Hvilken type cookies bruger vi?<br/></li><li> Hvordan administreres dine cookies<br/></li><li> Hvordan reagerer vi på juridiske anmodninger eller forhindrer skade?<br/></li><li> Privatlivspolitikker på andre websteder<br/></li><li > Ændringer i vores privatlivspolitik<br/></li><li> Sådan kontakter du os<br/></li><li> Sådan kontakter du de relevante myndigheder <br/></li></ul> <h3>Hvilke data indsamler vi?</h3><p>For at sikre, at du har evnen til at indsamle beviser sikkert og effektivt, indsamler vi følgende data: </p><ul style='list-style-type :circle'><li>Indhold og oplysninger, som du giver appen, inklusive når du tilmelder dig en konto og opretter indhold. Dette omfatter oplysninger i eller om det indhold, du leverer (såsom metadata), såsom placeringen af ​​et billede eller datoen, hvor en fil blev oprettet. Det omfatter:<ul style='list-style-type:circle'><li><b> Dine personlige identifikationsoplysninger.</b> (navn, telefonnummer, adresse og e-mail)<br/></li ><li><b> Eventuelle billeder, videoer, dokumenter og lydfiler.</b> som du uploader til journalen<br/></li><li><b>Din brug af appen.</b> b> Vi indsamler oplysninger om, hvordan du bruger vores produkter og hyppigheden af ​​dit brug; det inkluderer funktioner, du bruger, de handlinger, du foretager, og det indhold, du ser. <br/></li><li><b>Placering af dine uploads. </b>I et forsøg på at forhindre bagvaskelse geotagger vi dine billeder, videoer, dokumenter og lyduploads. Din placering kan bestemmes af<br/></li><ul style='list-style-type:square'><li>GPS og andre sensordata fra din enhed <br/></li><li> IP adresse<br/></li><li>Oplysninger om ting omkring din enhed, såsom Wi-Fi-adgangspunkter og mobilmaster. <br/></li></ul></ul><br/></li><li>Enhedsoplysninger. Sisterhood indsamler oplysninger fra dine computere og telefoner, som du bruger til at interagere med vores produkter. Disse oplysninger omfatter:<ul style='list-style-type:square'><li> <b>Enhedsattributter.</b> Det vil sige oplysninger såsom operativsystem, hardware- og softwareversioner og filnavne og typer.<li> <b>Enhedssignaler.</b> Oplysninger om nærliggende Wi-Fi-adgangspunkter og mobilmaster.<li><b>Enhedshandlinger.</b> Det vil sige oplysninger om operationer og adfærd, der udføres, mens ved hjælp af appen.<li><b>Data fra enhedsindstillinger.</b> Oplysninger, du tillader os at modtage via enhedsindstillinger, du aktiverer, såsom adgang til din GPS-placering, kamera eller billeder.<li><b> Netværk og forbindelser. </b>Specielt oplysninger såsom navnet på din mobiloperatør eller internetudbyder, sprog, tidszone, mobiltelefonnummer og IP-adresse, så vi kan sikre, at det er dig, der sender indholdet til appen.<br/>< /li></ul><br/></li></ul><h3>Hvordan indsamler vi dine data?</h3>Du giver Sisterhood de data, vi indsamler, når du:<ul style='list -style-type:circle'><li>Download og opret en konto hos Sisterhood.<br/></li><li> Opret frivilligt indhold ved hjælp af vores \"nye journalindførsel\"-funktion.<br/></li> <li>Giv feedback på vores hjemmeside og app.<br/></li><li>Brug af visning af vores hjemmeside via din browsers cookies.<br/></li><li>Brug af appens funktioner. <br/></li><li>Upload billeder, videoer, dokumenter og lydfiler.<br/></li></ul><h3>Hvordan vil vi bruge dine data?</h3>Vi bruger data, du giver os på følgende måder:<ul style='list-style-type:circle'><li>Gemme beviser, så du, når du er klar, kan rapportere de forbrydelser, du oplever. <br/></li><li>At føre en log over dine aktiviteter i vores produkter, som senere kan bruges til beviser.<br/></li><li>Gør det muligt for dig at føre et register over de forbrydelser, du oplever, med en nøjagtig tidslinje. For eksempel indsamler vi tidsstempler for, hvornår du tilføjer en ny journalpost eller foretager redigeringer for at styrke dine beviser. <br/></li><li>Forbedre vores produkt. Ved at forstå, hvordan du interagerer med vores produkter, kan vi forbedre vores funktioner i appen og på vores hjemmeside. <br/></li><li>Hvis du giver os tilladelse til at bruge dine oplysninger, når du opretter indhold, har vi mulighed for at reducere bagvaskelse ved at bruge din placering til at linke de oplevelser, du giver os. Sporing af din placering styrker også din sag, da politiet skal sikre, at du er den, du siger, du er, og at der er en klar sammenhæng mellem de oplysninger, du giver, såsom tekst, videoer, billeder, lydfiler og dokumenter og steder. som du ofte besøger (dit hjem, venner og families hjem, arbejdsplads eller områder omkring dit hjem). <br/></li><li>Sisterhood sælger ikke dine oplysninger til annonceformål eller samarbejder med profitvirksomheder for at sælge tjenester, men vi sælger og bruger dine oplysninger til forskningsformål for bedre at forbedre politikker og lovgivning omkring misbrug i hjemmet. Ved at anonymisere dine data kan vi give regeringer, kommuner, sociale tjenester, politi og kvindekrisecentre (blandt andre) bedre og mere præcise statistikker om misbrug i hjemmet. Eksempelvis kan Sisterhood regionalt give kommunerne, hvilken type misbrug, der er mest udbredt, ved at bruge oplysningerne fra vores brugere i deres område. <br/></li><li>For at fremme sikkerhed og tryghed. Vi bruger dine oplysninger til at verificere konti og aktivitet for at forhindre spam og skadelig adfærd. For eksempel bruger vi de oplysninger, du giver, til at undersøge misbrug i vores app og overtrædelser af vores vilkår og betingelser. <br/></li><li>Forskning og innovation til gavn for offentligheden. Sisterhoods mål er at styrke kvinder, der er udsat for vold i hjemmet og give dem en stemme i retten ved at forbedre beviser. I vores kerne udfører og støtter vi forskning for at bekæmpe vold i hjemmet og forbedre ligestilling. For eksempel analyserer vi de oplysninger, som vores brugere i fællesskab giver for at afdække mønstre i misbrug i hjemmet og informere regeringer og lovgivere om behovet for forbedrede politikker, finansiering og overordnet ressourceallokering. <br/></li></ul><h3>Hvordan gemmer vi dine data?</h3>Vores virksomhed gemmer dine data sikkert ved hjælp af Google Cloud-lagringsløsninger og Firebase. Google Clouds infrastruktur har indbyggede beskyttelser for at sikre, at dine oplysninger, identitet, apps og enheder er beskyttet. Derudover krypterer Google Cloud dataene i transit mellem deres faciliteter, hvilket sikrer, at de kun kan tilgås af autoriserede roller. <br><br>Da de data Sisterhood indsamler tjener til at forbedre og styrke beviser, vil dataene blive gemt i løbet af receptperioden, som varierer afhængigt af forbrydelsen. Personoplysninger opbevares således, så længe det er nødvendigt med henblik på indsamling af beviser og opbygning af en straffesag.<br>Baseret på forældelsesfristen fra 35 kap. 1 § Brottsbalken (BrB) opbevares dataene som følger:<ul style='st-style-type:circle'><li>For drab, hvor maksimumsstraf er livsvarigt fængsel, opbevares dataene i 25 år <br/></li><li>Ved voldelige overgreb, hvor strafmaksimum er over 8 år, opbevares dataene i 15 år<br/></li><li>Ved voldelige overgreb, hvor strafmaksimum er 6 år opbevares dataene i 10 år<br/></li><li>Ved misbrug, hvor strafferammen er 2 år, opbevares dataene i 5 år<br/></li><li >Ved misbrug, hvor den maksimale straf er 1 år, opbevares dataene i 2 år. <br/></li></ul><h3>Hvad er dine databeskyttelsesrettigheder?</h3>Sisterhood vil gerne sikre dig, at du er fuldt ud klar over alle dine databeskyttelsesrettigheder. Enhver bruger er berettiget til følgende:<ul style='list-style-type:circle'><li>Ret til adgang: Du har ret til at anmode Sisterhood om kopier af dine personlige data. Bemærk venligst, at vi muligvis opkræver et mindre gebyr for denne service. <br/></li><li>Ret til berigtigelse: Du har ret til at anmode om, at Sisterhood retter enhver information, du mener er unøjagtig. Du har også ret til at anmode Sisterhood om at udfylde oplysninger, som du mener er ufuldstændige. <br/></li><li>Ret til sletning: Du har ret til at anmode Sisterhood om at slette dine personlige data under visse betingelser. <br/></li><li>Ret til at begrænse behandlingen: Du har ret til at anmode Sisterhood om at begrænse behandlingen af ​​dine personoplysninger under visse betingelser. <br/></li><li>Ret til at gøre indsigelse mod behandling: Du har ret til at gøre indsigelse mod Sisterhoods behandling af dine personoplysninger under visse betingelser. <br/></li><li>Ret til dataportabilitet: Du har ret til at anmode om, at Sisterhood overfører de data, vi har indsamlet, til en anden organisation eller direkte til dig under visse betingelser. <> <br/></li></ul>Hvis du fremsætter en anmodning, har vi en måned til at svare dig. Hvis du ønsker at udøve nogen af ​​disse rettigheder, bedes du kontakte os på vores e-mail: <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3> Hvad er cookies? </h3>Cookies er små stykker tekst, der sendes til din browser af et websted, du besøger. De indsamler standard internetlogoplysninger og oplysninger om besøgendes adfærd, som kan gøre det nemmere for dig at besøge siden igen og gøre siden mere nyttig for dig. Vi kan indsamle oplysninger fra dig automatisk gennem cookies eller lignende teknologi. For mere information besøg venligst <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a><h3>Hvordan gør bruger vi cookies?</h3>Sisterhood bruger cookies til at forbedre din oplevelse på vores hjemmeside, herunder:<ul><li>Forstå hvordan du bruger vores hjemmeside.<br/></li><li>Forstå dine præferencer vedr. placering og sprog<br/></li></ul><h3>Hvilken type cookies bruger vi?</h3>Der er flere forskellige cookies, men vores hjemmeside bruger:<ul><li>Funktionalitet: Vores virksomheden bruger disse cookies, så vi genkender dig på vores hjemmeside og husker dine tidligere valgte præferencer. Dette kan omfatte det sprog, du foretrækker, og den placering, du er på.<br/></li> </ul><h3>Hvordan administrerer du dine cookies?</h3>Du kan indstille din browser til ikke at acceptere cookies, dette webstedet <a href='https://allaboutcookies.org/'>https://allaboutcookies.org/</a> leder dig gennem hvordan og fortæller dig hvordan du fjerner cookies fra din browser. Vær opmærksom på, at vores hjemmeside muligvis ikke fungerer som følge heraf. <h3>Hvordan reagerer vi på juridiske anmodninger eller forhindrer skade?</h3>I overensstemmelse med vores mål om at bekæmpe misbrug i hjemmet verden over kan vi få adgang til, bevare og dele dine oplysninger med tilsynsmyndigheder, retshåndhævere eller andre i tilfælde af, at vi skal svare på en juridisk anmodning (såsom en ransagningskendelse, retskendelse eller stævning) med hensyn til din konto og dit indhold. Vi kan også få adgang til, bevare og dele dine oplysninger, hvis vi har en god tro på, at det er nødvendigt at gøre det. Dette kunne omfatte<ul><li>For at forhindre og imødegå svindel<br/></li><li>Forebygge død<br/></li><li>Tag på ulovlig aktivitet<br/></li></ul><h3>Privatlivspolitikker for andre websteder</h3>Sisterhoods websted og app indeholder nyttige links fra andre websteder, der kunne være en ressource for dig. Men bemærk, at vores privatlivspolitik kun gælder for vores hjemmeside og app, så hvis du klikker på et link til en anden hjemmeside, bør du læse deres privatlivspolitik.<h3>Ændringer i vores privatlivspolitik</h3>Sisterhood holder sin privatlivspolitik under regelmæssig anmeldelse og placerer opdateringer på vores hjemmeside og i vores app. Denne privatlivspolitik blev sidst opdateret den 2. juni 2022.<h3>Sådan kontakter du os</h3>Hvis du har spørgsmål eller bekymringer om Sisterhood, vores privatlivspolitik, de data, vi indsamler og opbevarer, eller hvis du gerne vil udøve en eller flere af dine databeskyttelsesrettigheder, er du velkommen til at sende en e-mail til os på <a href='mailto:angelica.sisterhood@gmail.com'>angelica.sisterhood@gmail.com</a><h3>Sådan kontakter du de relevante myndigheder</h3>Hvis du gerne vil indberette en klage, eller hvis du føler, at Sisterhood ikke har behandlet din bekymring på en tilfredsstillende måde, kan du sende en e-mail til Integritetsskyddsmyndigheten (IMY): imy@imy.se</p></body>",
+    "self_help_tools": "Selvhjælpsværktøjer",
+    "creating_a_safety_plan": "Oprettelse af en sikkerhedsplan",
+    "need_things_from_my_apartment": "Jeg skal have mine ting fra vores lejlighed",
+    "my_partner_force_to_deb": "Min partner har tvunget mig til at påtage mig gæld",
+    "custody_of_child": "Jeg ønsker at ansøge om forældremyndighed alene over vores barn/børn",
+    "are_you_sure_you_want_to_logout": "Er du sikker på, at du vil logge ud",
+    "logout": "Log ud",
+    "successfully": "Med succes",
+    "about_us": "Om søsterskab",
+    "privacy_policy": "Privatlivspolitik",
+    "contact_us": "Kontakt os",
+    "settings": "Indstillinger",
+    "password_change_success": "Din adgangskode er blevet opdateret",
+    "password_change_fail": "Adgangskoden kan ikke ændres",
+    "reset_password": "Nulstil adgangskode",
+    "old_password": "Gammel adgangskode",
+    "new_password": "Ny adgangskode",
+    "confirm_password": "Bekræft adgangskode",
+    "enter_old_password": "Indtast venligst gammel adgangskode",
+    "enter_new_password": "Indtast venligst ny adgangskode",
+    "new_password_length": "Indtast en ny adgangskode på mindst 10 tegn",
+    "confirm_password_should_match": "Bekræft adgangskoden skal matche den nye adgangskode",
+    "old_password_does_not_match": "Gammel adgangskode stemmer ikke overens",
+    "enter_confirm_password": "Indtast venligst bekræftelsesadgangskoden",
+    "phone_number": "Telefonnummer",
+    "member_since": "Medlem siden -",
+    "last_modified_date": "Sidst ændret dato -",
+    "edit_profile": "REDIGER PROFIL",
+    "profile_updated_success": "Din profil er blevet opdateret med succes",
+    "camera": "Kamera",
+    "gallery": "Galleri",
+    "type_your_text_here": "Skriv din tekst her...",
+    "resend_otp": "Send OTP igen",
+    "otp_text": "Indtast otp",
+    "previous": "PREVIOUS",
+     "next": "NÆSTE",
+    "search": "Søg",
+    "distance": "Afstand",
+    "meter": "Meter",
+
+
+
+
+   "abuse_category_1": "Fysisk",
+    "abuse_category_2": "Følelsesmæssig",
+    "abuse_category_3": "Seksuel",
+    "abuse_category_4": "Psykologisk",
+    "abuse_category_5": "Økonomisk",
+
+
+    "sub_cat_1": "Din partner bruger bevidst fysisk magt for at skade dig og bringe dig i fare.",
+    "sub_cat_2": "Din partner underminerer dit selvværd ved at kalde dig navne og få dig til at føle dig dum.",
+    "sub_cat_3": "Din partner tvinger eller insisterer på, at du deltager i seksuel aktivitet mod din vilje.",
+    "sub_cat_4": "Din partner forvrænger den måde, du opfatter virkeligheden på, f.eks. tænder gas på dig.",
+    "sub_cat_5": "Din partner har kontrol over din økonomi, for eksempel tilbageholder de penge fra dig eller forhindrer dig i at skabe økonomisk uafhængighed.",
+
+
+    "incident_place_1": "Stue",
+    "incident_place_2": "Soveværelse",
+    "incident_place_3": "Badeværelse",
+    "incident_place_4": "Køkken",
+    "incident_place_5": "Andet område i huset",
+    "incident_place_6": "Udenfor",
+
+
+    "under_influence_option_1": "Nej",
+    "under_influence_option_2": "Alkohol",
+    "under_influence_option_3": "Narkotika",
+    "under_influence_option_4": "Receptpligtig medicin",
+
+
+    "seeked_medical_attention_option_1": "Nej",
+    "seeked_medical_attention_option_2": "Ja",
+
+
+
+
+    "test": "test"
+}

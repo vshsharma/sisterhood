@@ -31,7 +31,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
     _controller = PersistentTabController(initialIndex: 0);
 
-    _callNowApp(String phoneNumber) async {
+    void _callNowApp(String phoneNumber) async {
       final Uri launchUri = Uri(
         scheme: 'tel',
         path: phoneNumber,
@@ -46,11 +46,14 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         navigationBarItem(
-            const Icon(Icons.home_rounded), AppLocalizations.of(context).home),
-        navigationBarItem(const Icon(Icons.account_circle_outlined),
+            const Icon(Icons.home_rounded),
+            AppLocalizations.of(context).home),
+        navigationBarItem(
+            const Icon(Icons.account_circle_outlined),
             AppLocalizations.of(context).profile),
-        navigationBarItem(const Icon(Icons.panorama_fish_eye),
-            AppLocalizations.of(context).sos, clickAction: () {
+        navigationBarItem(
+            const Icon(Icons.panorama_fish_eye),
+            AppLocalizations.of(context).sos, clickAction: (context) {
           _callNowApp("112");
         }),
       ];
@@ -102,7 +105,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
     );
   }
 
-  navigationBarItem(Icon icon, String home, {Function clickAction}) {
+  PersistentBottomNavBarItem navigationBarItem(Icon icon, String home, {Function clickAction}) {
     return PersistentBottomNavBarItem(
         icon: icon,
         title: home,
